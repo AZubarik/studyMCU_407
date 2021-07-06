@@ -1,0 +1,313 @@
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cciojIfl.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"porttimer.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.xMBPortTimersInit,"ax",%progbits
+  18              		.align	1
+  19              		.global	xMBPortTimersInit
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	xMBPortTimersInit:
+  27              	.LVL0:
+  28              	.LFB130:
+  29              		.file 1 "Drivers/FreeModbus/port/porttimer.c"
+   1:Drivers/FreeModbus/port/porttimer.c **** #include "port.h"
+   2:Drivers/FreeModbus/port/porttimer.c **** #include "mb.h"
+   3:Drivers/FreeModbus/port/porttimer.c **** #include "mbport.h"
+   4:Drivers/FreeModbus/port/porttimer.c **** 
+   5:Drivers/FreeModbus/port/porttimer.c **** #if MB_SLAVE_RTU_ENABLED > 0 || MB_SLAVE_ASCII_ENABLED > 0
+   6:Drivers/FreeModbus/port/porttimer.c **** 
+   7:Drivers/FreeModbus/port/porttimer.c **** /* ----------------------- User defenitions ---------------------------------*/
+   8:Drivers/FreeModbus/port/porttimer.c **** TIM_HandleTypeDef *tim;
+   9:Drivers/FreeModbus/port/porttimer.c **** static uint16_t timeout = 0;
+  10:Drivers/FreeModbus/port/porttimer.c **** volatile uint16_t counter = 0;
+  11:Drivers/FreeModbus/port/porttimer.c **** 
+  12:Drivers/FreeModbus/port/porttimer.c **** extern uint16_t usSRegInBuf[];
+  13:Drivers/FreeModbus/port/porttimer.c **** extern uint16_t usSRegHoldBuf[];
+  14:Drivers/FreeModbus/port/porttimer.c **** int i = 0;
+  15:Drivers/FreeModbus/port/porttimer.c **** 
+  16:Drivers/FreeModbus/port/porttimer.c **** 
+  17:Drivers/FreeModbus/port/porttimer.c **** /* ----------------------- Start implementation -----------------------------*/
+  18:Drivers/FreeModbus/port/porttimer.c **** BOOL xMBPortTimersInit( USHORT usTim1Timerout50us, void *dHTIM )
+  19:Drivers/FreeModbus/port/porttimer.c **** {
+  30              		.loc 1 19 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+  20:Drivers/FreeModbus/port/porttimer.c **** 	tim = (TIM_HandleTypeDef *)dHTIM;
+  35              		.loc 1 20 2 view .LVU1
+  36              		.loc 1 20 6 is_stmt 0 view .LVU2
+  37 0000 024B     		ldr	r3, .L2
+  38 0002 1960     		str	r1, [r3]
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cciojIfl.s 			page 2
+
+
+  21:Drivers/FreeModbus/port/porttimer.c **** 	timeout = usTim1Timerout50us;
+  39              		.loc 1 21 2 is_stmt 1 view .LVU3
+  40              		.loc 1 21 10 is_stmt 0 view .LVU4
+  41 0004 024B     		ldr	r3, .L2+4
+  42 0006 1880     		strh	r0, [r3]	@ movhi
+  22:Drivers/FreeModbus/port/porttimer.c **** 	return TRUE;
+  43              		.loc 1 22 2 is_stmt 1 view .LVU5
+  23:Drivers/FreeModbus/port/porttimer.c **** }
+  44              		.loc 1 23 1 is_stmt 0 view .LVU6
+  45 0008 0120     		movs	r0, #1
+  46              	.LVL1:
+  47              		.loc 1 23 1 view .LVU7
+  48 000a 7047     		bx	lr
+  49              	.L3:
+  50              		.align	2
+  51              	.L2:
+  52 000c 00000000 		.word	tim
+  53 0010 00000000 		.word	.LANCHOR0
+  54              		.cfi_endproc
+  55              	.LFE130:
+  57              		.section	.text.vMBPortTimersEnable,"ax",%progbits
+  58              		.align	1
+  59              		.global	vMBPortTimersEnable
+  60              		.syntax unified
+  61              		.thumb
+  62              		.thumb_func
+  63              		.fpu fpv4-sp-d16
+  65              	vMBPortTimersEnable:
+  66              	.LFB131:
+  24:Drivers/FreeModbus/port/porttimer.c **** 
+  25:Drivers/FreeModbus/port/porttimer.c **** inline void vMBPortTimersEnable(  )
+  26:Drivers/FreeModbus/port/porttimer.c **** {
+  67              		.loc 1 26 1 is_stmt 1 view -0
+  68              		.cfi_startproc
+  69              		@ args = 0, pretend = 0, frame = 0
+  70              		@ frame_needed = 0, uses_anonymous_args = 0
+  71 0000 08B5     		push	{r3, lr}
+  72              	.LCFI0:
+  73              		.cfi_def_cfa_offset 8
+  74              		.cfi_offset 3, -8
+  75              		.cfi_offset 14, -4
+  27:Drivers/FreeModbus/port/porttimer.c **** 	counter=0;
+  76              		.loc 1 27 2 view .LVU9
+  77              		.loc 1 27 9 is_stmt 0 view .LVU10
+  78 0002 044B     		ldr	r3, .L6
+  79 0004 0022     		movs	r2, #0
+  80 0006 1A80     		strh	r2, [r3]	@ movhi
+  28:Drivers/FreeModbus/port/porttimer.c **** 	HAL_TIM_Base_Start_IT(tim);
+  81              		.loc 1 28 2 is_stmt 1 view .LVU11
+  82 0008 034B     		ldr	r3, .L6+4
+  83 000a 1868     		ldr	r0, [r3]
+  84 000c FFF7FEFF 		bl	HAL_TIM_Base_Start_IT
+  85              	.LVL2:
+  29:Drivers/FreeModbus/port/porttimer.c **** }
+  86              		.loc 1 29 1 is_stmt 0 view .LVU12
+  87 0010 08BD     		pop	{r3, pc}
+  88              	.L7:
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cciojIfl.s 			page 3
+
+
+  89 0012 00BF     		.align	2
+  90              	.L6:
+  91 0014 00000000 		.word	.LANCHOR1
+  92 0018 00000000 		.word	tim
+  93              		.cfi_endproc
+  94              	.LFE131:
+  96              		.section	.text.vMBPortTimersDisable,"ax",%progbits
+  97              		.align	1
+  98              		.global	vMBPortTimersDisable
+  99              		.syntax unified
+ 100              		.thumb
+ 101              		.thumb_func
+ 102              		.fpu fpv4-sp-d16
+ 104              	vMBPortTimersDisable:
+ 105              	.LFB132:
+  30:Drivers/FreeModbus/port/porttimer.c **** 
+  31:Drivers/FreeModbus/port/porttimer.c **** inline void vMBPortTimersDisable(  )
+  32:Drivers/FreeModbus/port/porttimer.c **** {
+ 106              		.loc 1 32 1 is_stmt 1 view -0
+ 107              		.cfi_startproc
+ 108              		@ args = 0, pretend = 0, frame = 0
+ 109              		@ frame_needed = 0, uses_anonymous_args = 0
+ 110 0000 08B5     		push	{r3, lr}
+ 111              	.LCFI1:
+ 112              		.cfi_def_cfa_offset 8
+ 113              		.cfi_offset 3, -8
+ 114              		.cfi_offset 14, -4
+  33:Drivers/FreeModbus/port/porttimer.c **** 	HAL_TIM_Base_Stop_IT(tim);
+ 115              		.loc 1 33 2 view .LVU14
+ 116 0002 024B     		ldr	r3, .L10
+ 117 0004 1868     		ldr	r0, [r3]
+ 118 0006 FFF7FEFF 		bl	HAL_TIM_Base_Stop_IT
+ 119              	.LVL3:
+  34:Drivers/FreeModbus/port/porttimer.c **** }
+ 120              		.loc 1 34 1 is_stmt 0 view .LVU15
+ 121 000a 08BD     		pop	{r3, pc}
+ 122              	.L11:
+ 123              		.align	2
+ 124              	.L10:
+ 125 000c 00000000 		.word	tim
+ 126              		.cfi_endproc
+ 127              	.LFE132:
+ 129              		.section	.text.HAL_TIM_PeriodElapsedCallback,"ax",%progbits
+ 130              		.align	1
+ 131              		.global	HAL_TIM_PeriodElapsedCallback
+ 132              		.syntax unified
+ 133              		.thumb
+ 134              		.thumb_func
+ 135              		.fpu fpv4-sp-d16
+ 137              	HAL_TIM_PeriodElapsedCallback:
+ 138              	.LVL4:
+ 139              	.LFB133:
+  35:Drivers/FreeModbus/port/porttimer.c **** 
+  36:Drivers/FreeModbus/port/porttimer.c **** char var ;
+  37:Drivers/FreeModbus/port/porttimer.c **** void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+  38:Drivers/FreeModbus/port/porttimer.c **** {
+ 140              		.loc 1 38 1 is_stmt 1 view -0
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cciojIfl.s 			page 4
+
+
+ 141              		.cfi_startproc
+ 142              		@ args = 0, pretend = 0, frame = 0
+ 143              		@ frame_needed = 0, uses_anonymous_args = 0
+ 144              		.loc 1 38 1 is_stmt 0 view .LVU17
+ 145 0000 08B5     		push	{r3, lr}
+ 146              	.LCFI2:
+ 147              		.cfi_def_cfa_offset 8
+ 148              		.cfi_offset 3, -8
+ 149              		.cfi_offset 14, -4
+  39:Drivers/FreeModbus/port/porttimer.c **** 	if (htim->Instance == TIM4)
+ 150              		.loc 1 39 2 is_stmt 1 view .LVU18
+ 151              		.loc 1 39 10 is_stmt 0 view .LVU19
+ 152 0002 0268     		ldr	r2, [r0]
+ 153              		.loc 1 39 5 view .LVU20
+ 154 0004 084B     		ldr	r3, .L16
+ 155 0006 9A42     		cmp	r2, r3
+ 156 0008 00D0     		beq	.L15
+ 157              	.LVL5:
+ 158              	.L12:
+  40:Drivers/FreeModbus/port/porttimer.c **** 	{
+  41:Drivers/FreeModbus/port/porttimer.c **** 		if ((++counter) >= timeout)
+  42:Drivers/FreeModbus/port/porttimer.c **** 			pxMBPortCBTimerExpired();
+  43:Drivers/FreeModbus/port/porttimer.c **** 	}
+  44:Drivers/FreeModbus/port/porttimer.c **** 	
+  45:Drivers/FreeModbus/port/porttimer.c **** }
+ 159              		.loc 1 45 1 view .LVU21
+ 160 000a 08BD     		pop	{r3, pc}
+ 161              	.LVL6:
+ 162              	.L15:
+  41:Drivers/FreeModbus/port/porttimer.c **** 			pxMBPortCBTimerExpired();
+ 163              		.loc 1 41 3 is_stmt 1 view .LVU22
+  41:Drivers/FreeModbus/port/porttimer.c **** 			pxMBPortCBTimerExpired();
+ 164              		.loc 1 41 8 is_stmt 0 view .LVU23
+ 165 000c 074A     		ldr	r2, .L16+4
+ 166 000e 1388     		ldrh	r3, [r2]
+ 167 0010 9BB2     		uxth	r3, r3
+ 168 0012 0133     		adds	r3, r3, #1
+ 169 0014 9BB2     		uxth	r3, r3
+  41:Drivers/FreeModbus/port/porttimer.c **** 			pxMBPortCBTimerExpired();
+ 170              		.loc 1 41 6 view .LVU24
+ 171 0016 1380     		strh	r3, [r2]	@ movhi
+  41:Drivers/FreeModbus/port/porttimer.c **** 			pxMBPortCBTimerExpired();
+ 172              		.loc 1 41 19 view .LVU25
+ 173 0018 054A     		ldr	r2, .L16+8
+ 174 001a 1288     		ldrh	r2, [r2]
+  41:Drivers/FreeModbus/port/porttimer.c **** 			pxMBPortCBTimerExpired();
+ 175              		.loc 1 41 6 view .LVU26
+ 176 001c 9342     		cmp	r3, r2
+ 177 001e F4D3     		bcc	.L12
+  42:Drivers/FreeModbus/port/porttimer.c **** 	}
+ 178              		.loc 1 42 4 is_stmt 1 view .LVU27
+ 179 0020 044B     		ldr	r3, .L16+12
+ 180 0022 1B68     		ldr	r3, [r3]
+ 181 0024 9847     		blx	r3
+ 182              	.LVL7:
+ 183              		.loc 1 45 1 is_stmt 0 view .LVU28
+ 184 0026 F0E7     		b	.L12
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cciojIfl.s 			page 5
+
+
+ 185              	.L17:
+ 186              		.align	2
+ 187              	.L16:
+ 188 0028 00080040 		.word	1073743872
+ 189 002c 00000000 		.word	.LANCHOR1
+ 190 0030 00000000 		.word	.LANCHOR0
+ 191 0034 00000000 		.word	pxMBPortCBTimerExpired
+ 192              		.cfi_endproc
+ 193              	.LFE133:
+ 195              		.comm	var,1,1
+ 196              		.global	i
+ 197              		.global	counter
+ 198              		.comm	tim,4,4
+ 199              		.section	.bss.counter,"aw",%nobits
+ 200              		.align	1
+ 201              		.set	.LANCHOR1,. + 0
+ 204              	counter:
+ 205 0000 0000     		.space	2
+ 206              		.section	.bss.i,"aw",%nobits
+ 207              		.align	2
+ 210              	i:
+ 211 0000 00000000 		.space	4
+ 212              		.section	.bss.timeout,"aw",%nobits
+ 213              		.align	1
+ 214              		.set	.LANCHOR0,. + 0
+ 217              	timeout:
+ 218 0000 0000     		.space	2
+ 219              		.text
+ 220              	.Letext0:
+ 221              		.file 2 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 222              		.file 3 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 223              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 224              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 225              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 226              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 227              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 228              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 229              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 230              		.file 11 "Drivers/FreeModbus/port/port.h"
+ 231              		.file 12 "Drivers/FreeModbus/include/mbport.h"
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cciojIfl.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 porttimer.c
+C:\Users\Andre\AppData\Local\Temp\cciojIfl.s:18     .text.xMBPortTimersInit:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cciojIfl.s:26     .text.xMBPortTimersInit:0000000000000000 xMBPortTimersInit
+C:\Users\Andre\AppData\Local\Temp\cciojIfl.s:52     .text.xMBPortTimersInit:000000000000000c $d
+                            *COM*:0000000000000004 tim
+C:\Users\Andre\AppData\Local\Temp\cciojIfl.s:58     .text.vMBPortTimersEnable:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cciojIfl.s:65     .text.vMBPortTimersEnable:0000000000000000 vMBPortTimersEnable
+C:\Users\Andre\AppData\Local\Temp\cciojIfl.s:91     .text.vMBPortTimersEnable:0000000000000014 $d
+C:\Users\Andre\AppData\Local\Temp\cciojIfl.s:97     .text.vMBPortTimersDisable:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cciojIfl.s:104    .text.vMBPortTimersDisable:0000000000000000 vMBPortTimersDisable
+C:\Users\Andre\AppData\Local\Temp\cciojIfl.s:125    .text.vMBPortTimersDisable:000000000000000c $d
+C:\Users\Andre\AppData\Local\Temp\cciojIfl.s:130    .text.HAL_TIM_PeriodElapsedCallback:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cciojIfl.s:137    .text.HAL_TIM_PeriodElapsedCallback:0000000000000000 HAL_TIM_PeriodElapsedCallback
+C:\Users\Andre\AppData\Local\Temp\cciojIfl.s:188    .text.HAL_TIM_PeriodElapsedCallback:0000000000000028 $d
+                            *COM*:0000000000000001 var
+C:\Users\Andre\AppData\Local\Temp\cciojIfl.s:210    .bss.i:0000000000000000 i
+C:\Users\Andre\AppData\Local\Temp\cciojIfl.s:204    .bss.counter:0000000000000000 counter
+C:\Users\Andre\AppData\Local\Temp\cciojIfl.s:200    .bss.counter:0000000000000000 $d
+C:\Users\Andre\AppData\Local\Temp\cciojIfl.s:207    .bss.i:0000000000000000 $d
+C:\Users\Andre\AppData\Local\Temp\cciojIfl.s:213    .bss.timeout:0000000000000000 $d
+C:\Users\Andre\AppData\Local\Temp\cciojIfl.s:217    .bss.timeout:0000000000000000 timeout
+
+UNDEFINED SYMBOLS
+HAL_TIM_Base_Start_IT
+HAL_TIM_Base_Stop_IT
+pxMBPortCBTimerExpired

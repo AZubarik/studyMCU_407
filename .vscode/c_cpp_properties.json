@@ -1,0 +1,30 @@
+{
+    "configurations": [
+        {
+            "name": "arm_c_cpp_properties",
+            "compilerPath": "C:/VSCodeProject/Software/arm_gcc/bin/arm-none-eabi-gcc.exe",
+            "includePath": [
+                "C:/VSCodeProject/Software/arm_gcc/arm-none-eabi/include",
+                "C:/VSCodeProject/Software/arm_gcc/arm-none-eabi/include/sys/",
+                "C:/VSCodeProject/Software/arm_gcc/lib/**",
+                "${workspaceRoot}\\Drivers\\**",
+                "${workspaceRoot}\\Drivers\\FreeModbus\\**",
+                "${workspaceRoot}\\Drivers\\Flash\\**",
+                // "${workspaceRoot}\\Drivers\\Middlewares**",
+                "${workspaceRoot}\\Src\\**",
+                "${workspaceRoot}\\Inc\\**",
+                "${workspaceFolder}/Drivers/CMSIS/Device/ST/STM32F4xx/Include"
+            ],
+            "defines": [
+                "USE_HAL_DRIVER",
+                "STM32F407xx",
+                "M4",
+                "GCC_ARMCM4"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}

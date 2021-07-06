@@ -1,0 +1,922 @@
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cce46ELT.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"mbfunccoils.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.eMBFuncReadCoils,"ax",%progbits
+  18              		.align	1
+  19              		.global	eMBFuncReadCoils
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	eMBFuncReadCoils:
+  27              	.LVL0:
+  28              	.LFB130:
+  29              		.file 1 "Drivers/FreeModbus/functions/mbfunccoils.c"
+   1:Drivers/FreeModbus/functions/mbfunccoils.c **** /* 
+   2:Drivers/FreeModbus/functions/mbfunccoils.c ****  * FreeModbus Libary: A portable Modbus implementation for Modbus ASCII/RTU.
+   3:Drivers/FreeModbus/functions/mbfunccoils.c ****  * Copyright (c) 2006-2018 Christian Walter <cwalter@embedded-solutions.at>
+   4:Drivers/FreeModbus/functions/mbfunccoils.c ****  * All rights reserved.
+   5:Drivers/FreeModbus/functions/mbfunccoils.c ****  *
+   6:Drivers/FreeModbus/functions/mbfunccoils.c ****  * Redistribution and use in source and binary forms, with or without
+   7:Drivers/FreeModbus/functions/mbfunccoils.c ****  * modification, are permitted provided that the following conditions
+   8:Drivers/FreeModbus/functions/mbfunccoils.c ****  * are met:
+   9:Drivers/FreeModbus/functions/mbfunccoils.c ****  * 1. Redistributions of source code must retain the above copyright
+  10:Drivers/FreeModbus/functions/mbfunccoils.c ****  *    notice, this list of conditions and the following disclaimer.
+  11:Drivers/FreeModbus/functions/mbfunccoils.c ****  * 2. Redistributions in binary form must reproduce the above copyright
+  12:Drivers/FreeModbus/functions/mbfunccoils.c ****  *    notice, this list of conditions and the following disclaimer in the
+  13:Drivers/FreeModbus/functions/mbfunccoils.c ****  *    documentation and/or other materials provided with the distribution.
+  14:Drivers/FreeModbus/functions/mbfunccoils.c ****  * 3. The name of the author may not be used to endorse or promote products
+  15:Drivers/FreeModbus/functions/mbfunccoils.c ****  *    derived from this software without specific prior written permission.
+  16:Drivers/FreeModbus/functions/mbfunccoils.c ****  *
+  17:Drivers/FreeModbus/functions/mbfunccoils.c ****  * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+  18:Drivers/FreeModbus/functions/mbfunccoils.c ****  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+  19:Drivers/FreeModbus/functions/mbfunccoils.c ****  * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  20:Drivers/FreeModbus/functions/mbfunccoils.c ****  * IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+  21:Drivers/FreeModbus/functions/mbfunccoils.c ****  * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  22:Drivers/FreeModbus/functions/mbfunccoils.c ****  * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  23:Drivers/FreeModbus/functions/mbfunccoils.c ****  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  24:Drivers/FreeModbus/functions/mbfunccoils.c ****  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  25:Drivers/FreeModbus/functions/mbfunccoils.c ****  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+  26:Drivers/FreeModbus/functions/mbfunccoils.c ****  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  27:Drivers/FreeModbus/functions/mbfunccoils.c ****  *
+  28:Drivers/FreeModbus/functions/mbfunccoils.c ****  * File: $Id: mbfunccoils.c,v 1.8 2007/02/18 23:47:16 wolti Exp $
+  29:Drivers/FreeModbus/functions/mbfunccoils.c ****  */
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cce46ELT.s 			page 2
+
+
+  30:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+  31:Drivers/FreeModbus/functions/mbfunccoils.c **** /* ----------------------- System includes ----------------------------------*/
+  32:Drivers/FreeModbus/functions/mbfunccoils.c **** #include "stdlib.h"
+  33:Drivers/FreeModbus/functions/mbfunccoils.c **** #include "string.h"
+  34:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+  35:Drivers/FreeModbus/functions/mbfunccoils.c **** /* ----------------------- Platform includes --------------------------------*/
+  36:Drivers/FreeModbus/functions/mbfunccoils.c **** #include "port.h"
+  37:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+  38:Drivers/FreeModbus/functions/mbfunccoils.c **** /* ----------------------- Modbus includes ----------------------------------*/
+  39:Drivers/FreeModbus/functions/mbfunccoils.c **** #include "mb.h"
+  40:Drivers/FreeModbus/functions/mbfunccoils.c **** #include "mbframe.h"
+  41:Drivers/FreeModbus/functions/mbfunccoils.c **** #include "mbproto.h"
+  42:Drivers/FreeModbus/functions/mbfunccoils.c **** #include "mbconfig.h"
+  43:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+  44:Drivers/FreeModbus/functions/mbfunccoils.c **** /* ----------------------- Defines ------------------------------------------*/
+  45:Drivers/FreeModbus/functions/mbfunccoils.c **** #define MB_PDU_FUNC_READ_ADDR_OFF           ( MB_PDU_DATA_OFF )
+  46:Drivers/FreeModbus/functions/mbfunccoils.c **** #define MB_PDU_FUNC_READ_COILCNT_OFF        ( MB_PDU_DATA_OFF + 2 )
+  47:Drivers/FreeModbus/functions/mbfunccoils.c **** #define MB_PDU_FUNC_READ_SIZE               ( 4 )
+  48:Drivers/FreeModbus/functions/mbfunccoils.c **** #define MB_PDU_FUNC_READ_COILCNT_MAX        ( 0x07D0 )
+  49:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+  50:Drivers/FreeModbus/functions/mbfunccoils.c **** #define MB_PDU_FUNC_WRITE_ADDR_OFF          ( MB_PDU_DATA_OFF )
+  51:Drivers/FreeModbus/functions/mbfunccoils.c **** #define MB_PDU_FUNC_WRITE_VALUE_OFF         ( MB_PDU_DATA_OFF + 2 )
+  52:Drivers/FreeModbus/functions/mbfunccoils.c **** #define MB_PDU_FUNC_WRITE_SIZE              ( 4 )
+  53:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+  54:Drivers/FreeModbus/functions/mbfunccoils.c **** #define MB_PDU_FUNC_WRITE_MUL_ADDR_OFF      ( MB_PDU_DATA_OFF )
+  55:Drivers/FreeModbus/functions/mbfunccoils.c **** #define MB_PDU_FUNC_WRITE_MUL_COILCNT_OFF   ( MB_PDU_DATA_OFF + 2 )
+  56:Drivers/FreeModbus/functions/mbfunccoils.c **** #define MB_PDU_FUNC_WRITE_MUL_BYTECNT_OFF   ( MB_PDU_DATA_OFF + 4 )
+  57:Drivers/FreeModbus/functions/mbfunccoils.c **** #define MB_PDU_FUNC_WRITE_MUL_VALUES_OFF    ( MB_PDU_DATA_OFF + 5 )
+  58:Drivers/FreeModbus/functions/mbfunccoils.c **** #define MB_PDU_FUNC_WRITE_MUL_SIZE_MIN      ( 5 )
+  59:Drivers/FreeModbus/functions/mbfunccoils.c **** #define MB_PDU_FUNC_WRITE_MUL_COILCNT_MAX   ( 0x07B0 )
+  60:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+  61:Drivers/FreeModbus/functions/mbfunccoils.c **** /* ----------------------- Static functions ---------------------------------*/
+  62:Drivers/FreeModbus/functions/mbfunccoils.c **** eMBException    prveMBError2Exception( eMBErrorCode eErrorCode );
+  63:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+  64:Drivers/FreeModbus/functions/mbfunccoils.c **** /* ----------------------- Start implementation -----------------------------*/
+  65:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+  66:Drivers/FreeModbus/functions/mbfunccoils.c **** #if MB_FUNC_READ_COILS_ENABLED > 0
+  67:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+  68:Drivers/FreeModbus/functions/mbfunccoils.c **** eMBException
+  69:Drivers/FreeModbus/functions/mbfunccoils.c **** eMBFuncReadCoils( UCHAR * pucFrame, USHORT * usLen )
+  70:Drivers/FreeModbus/functions/mbfunccoils.c **** {
+  30              		.loc 1 70 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		.loc 1 70 1 is_stmt 0 view .LVU1
+  35 0000 38B5     		push	{r3, r4, r5, lr}
+  36              	.LCFI0:
+  37              		.cfi_def_cfa_offset 16
+  38              		.cfi_offset 3, -16
+  39              		.cfi_offset 4, -12
+  40              		.cfi_offset 5, -8
+  41              		.cfi_offset 14, -4
+  71:Drivers/FreeModbus/functions/mbfunccoils.c ****     USHORT          usRegAddress;
+  42              		.loc 1 71 5 is_stmt 1 view .LVU2
+  72:Drivers/FreeModbus/functions/mbfunccoils.c ****     USHORT          usCoilCount;
+  43              		.loc 1 72 5 view .LVU3
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cce46ELT.s 			page 3
+
+
+  73:Drivers/FreeModbus/functions/mbfunccoils.c ****     UCHAR           ucNBytes;
+  44              		.loc 1 73 5 view .LVU4
+  74:Drivers/FreeModbus/functions/mbfunccoils.c ****     UCHAR          *pucFrameCur;
+  45              		.loc 1 74 5 view .LVU5
+  75:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+  76:Drivers/FreeModbus/functions/mbfunccoils.c ****     eMBException    eStatus = MB_EX_NONE;
+  46              		.loc 1 76 5 view .LVU6
+  47              	.LVL1:
+  77:Drivers/FreeModbus/functions/mbfunccoils.c ****     eMBErrorCode    eRegStatus;
+  48              		.loc 1 77 5 view .LVU7
+  78:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+  79:Drivers/FreeModbus/functions/mbfunccoils.c ****     if( *usLen == ( MB_PDU_FUNC_READ_SIZE + MB_PDU_SIZE_MIN ) )
+  49              		.loc 1 79 5 view .LVU8
+  50              		.loc 1 79 9 is_stmt 0 view .LVU9
+  51 0002 0B88     		ldrh	r3, [r1]
+  52              		.loc 1 79 7 view .LVU10
+  53 0004 052B     		cmp	r3, #5
+  54 0006 01D0     		beq	.L9
+  80:Drivers/FreeModbus/functions/mbfunccoils.c ****     {
+  81:Drivers/FreeModbus/functions/mbfunccoils.c ****         usRegAddress = ( USHORT )( pucFrame[MB_PDU_FUNC_READ_ADDR_OFF] << 8 );
+  82:Drivers/FreeModbus/functions/mbfunccoils.c ****         usRegAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_READ_ADDR_OFF + 1] );
+  83:Drivers/FreeModbus/functions/mbfunccoils.c ****         usRegAddress++;
+  84:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+  85:Drivers/FreeModbus/functions/mbfunccoils.c ****         usCoilCount = ( USHORT )( pucFrame[MB_PDU_FUNC_READ_COILCNT_OFF] << 8 );
+  86:Drivers/FreeModbus/functions/mbfunccoils.c ****         usCoilCount |= ( USHORT )( pucFrame[MB_PDU_FUNC_READ_COILCNT_OFF + 1] );
+  87:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+  88:Drivers/FreeModbus/functions/mbfunccoils.c ****         /* Check if the number of registers to read is valid. If not
+  89:Drivers/FreeModbus/functions/mbfunccoils.c ****          * return Modbus illegal data value exception. 
+  90:Drivers/FreeModbus/functions/mbfunccoils.c ****          */
+  91:Drivers/FreeModbus/functions/mbfunccoils.c ****         if( ( usCoilCount >= 1 ) &&
+  92:Drivers/FreeModbus/functions/mbfunccoils.c ****             ( usCoilCount < MB_PDU_FUNC_READ_COILCNT_MAX ) )
+  93:Drivers/FreeModbus/functions/mbfunccoils.c ****         {
+  94:Drivers/FreeModbus/functions/mbfunccoils.c ****             /* Set the current PDU data pointer to the beginning. */
+  95:Drivers/FreeModbus/functions/mbfunccoils.c ****             pucFrameCur = &pucFrame[MB_PDU_FUNC_OFF];
+  96:Drivers/FreeModbus/functions/mbfunccoils.c ****             *usLen = MB_PDU_FUNC_OFF;
+  97:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+  98:Drivers/FreeModbus/functions/mbfunccoils.c ****             /* First byte contains the function code. */
+  99:Drivers/FreeModbus/functions/mbfunccoils.c ****             *pucFrameCur++ = MB_FUNC_READ_COILS;
+ 100:Drivers/FreeModbus/functions/mbfunccoils.c ****             *usLen += 1;
+ 101:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 102:Drivers/FreeModbus/functions/mbfunccoils.c ****             /* Test if the quantity of coils is a multiple of 8. If not last
+ 103:Drivers/FreeModbus/functions/mbfunccoils.c ****              * byte is only partially field with unused coils set to zero. */
+ 104:Drivers/FreeModbus/functions/mbfunccoils.c ****             if( ( usCoilCount & 0x0007 ) != 0 )
+ 105:Drivers/FreeModbus/functions/mbfunccoils.c ****             {
+ 106:Drivers/FreeModbus/functions/mbfunccoils.c ****                 ucNBytes = ( UCHAR )( usCoilCount / 8 + 1 );
+ 107:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 108:Drivers/FreeModbus/functions/mbfunccoils.c ****             else
+ 109:Drivers/FreeModbus/functions/mbfunccoils.c ****             {
+ 110:Drivers/FreeModbus/functions/mbfunccoils.c ****                 ucNBytes = ( UCHAR )( usCoilCount / 8 );
+ 111:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 112:Drivers/FreeModbus/functions/mbfunccoils.c ****             *pucFrameCur++ = ucNBytes;
+ 113:Drivers/FreeModbus/functions/mbfunccoils.c ****             *usLen += 1;
+ 114:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 115:Drivers/FreeModbus/functions/mbfunccoils.c ****             eRegStatus =
+ 116:Drivers/FreeModbus/functions/mbfunccoils.c ****                 eMBRegCoilsCB( pucFrameCur, usRegAddress, usCoilCount,
+ 117:Drivers/FreeModbus/functions/mbfunccoils.c ****                                MB_REG_READ );
+ 118:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cce46ELT.s 			page 4
+
+
+ 119:Drivers/FreeModbus/functions/mbfunccoils.c ****             /* If an error occured convert it into a Modbus exception. */
+ 120:Drivers/FreeModbus/functions/mbfunccoils.c ****             if( eRegStatus != MB_ENOERR )
+ 121:Drivers/FreeModbus/functions/mbfunccoils.c ****             {
+ 122:Drivers/FreeModbus/functions/mbfunccoils.c ****                 eStatus = prveMBError2Exception( eRegStatus );
+ 123:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 124:Drivers/FreeModbus/functions/mbfunccoils.c ****             else
+ 125:Drivers/FreeModbus/functions/mbfunccoils.c ****             {
+ 126:Drivers/FreeModbus/functions/mbfunccoils.c ****                 /* The response contains the function code, the starting address
+ 127:Drivers/FreeModbus/functions/mbfunccoils.c ****                  * and the quantity of registers. We reuse the old values in the 
+ 128:Drivers/FreeModbus/functions/mbfunccoils.c ****                  * buffer because they are still valid. */
+ 129:Drivers/FreeModbus/functions/mbfunccoils.c ****                 *usLen += ucNBytes;;
+ 130:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 131:Drivers/FreeModbus/functions/mbfunccoils.c ****         }
+ 132:Drivers/FreeModbus/functions/mbfunccoils.c ****         else
+ 133:Drivers/FreeModbus/functions/mbfunccoils.c ****         {
+ 134:Drivers/FreeModbus/functions/mbfunccoils.c ****             eStatus = MB_EX_ILLEGAL_DATA_VALUE;
+ 135:Drivers/FreeModbus/functions/mbfunccoils.c ****         }
+ 136:Drivers/FreeModbus/functions/mbfunccoils.c ****     }
+ 137:Drivers/FreeModbus/functions/mbfunccoils.c ****     else
+ 138:Drivers/FreeModbus/functions/mbfunccoils.c ****     {
+ 139:Drivers/FreeModbus/functions/mbfunccoils.c ****         /* Can't be a valid read coil register request because the length
+ 140:Drivers/FreeModbus/functions/mbfunccoils.c ****          * is incorrect. */
+ 141:Drivers/FreeModbus/functions/mbfunccoils.c ****         eStatus = MB_EX_ILLEGAL_DATA_VALUE;
+  55              		.loc 1 141 17 view .LVU11
+  56 0008 0320     		movs	r0, #3
+  57              	.LVL2:
+  58              	.L2:
+ 142:Drivers/FreeModbus/functions/mbfunccoils.c ****     }
+ 143:Drivers/FreeModbus/functions/mbfunccoils.c ****     return eStatus;
+  59              		.loc 1 143 5 is_stmt 1 view .LVU12
+ 144:Drivers/FreeModbus/functions/mbfunccoils.c **** }
+  60              		.loc 1 144 1 is_stmt 0 view .LVU13
+  61 000a 38BD     		pop	{r3, r4, r5, pc}
+  62              	.LVL3:
+  63              	.L9:
+  64              		.loc 1 144 1 view .LVU14
+  65 000c 0C46     		mov	r4, r1
+  81:Drivers/FreeModbus/functions/mbfunccoils.c ****         usRegAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_READ_ADDR_OFF + 1] );
+  66              		.loc 1 81 9 is_stmt 1 view .LVU15
+  81:Drivers/FreeModbus/functions/mbfunccoils.c ****         usRegAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_READ_ADDR_OFF + 1] );
+  67              		.loc 1 81 44 is_stmt 0 view .LVU16
+  68 000e 4378     		ldrb	r3, [r0, #1]	@ zero_extendqisi2
+  69              	.LVL4:
+  82:Drivers/FreeModbus/functions/mbfunccoils.c ****         usRegAddress++;
+  70              		.loc 1 82 9 is_stmt 1 view .LVU17
+  82:Drivers/FreeModbus/functions/mbfunccoils.c ****         usRegAddress++;
+  71              		.loc 1 82 45 is_stmt 0 view .LVU18
+  72 0010 8178     		ldrb	r1, [r0, #2]	@ zero_extendqisi2
+  73              	.LVL5:
+  82:Drivers/FreeModbus/functions/mbfunccoils.c ****         usRegAddress++;
+  74              		.loc 1 82 22 view .LVU19
+  75 0012 41EA0321 		orr	r1, r1, r3, lsl #8
+  76              	.LVL6:
+  83:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+  77              		.loc 1 83 9 is_stmt 1 view .LVU20
+  83:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+  78              		.loc 1 83 21 is_stmt 0 view .LVU21
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cce46ELT.s 			page 5
+
+
+  79 0016 0131     		adds	r1, r1, #1
+  80              	.LVL7:
+  83:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+  81              		.loc 1 83 21 view .LVU22
+  82 0018 89B2     		uxth	r1, r1
+  83              	.LVL8:
+  85:Drivers/FreeModbus/functions/mbfunccoils.c ****         usCoilCount |= ( USHORT )( pucFrame[MB_PDU_FUNC_READ_COILCNT_OFF + 1] );
+  84              		.loc 1 85 9 is_stmt 1 view .LVU23
+  85:Drivers/FreeModbus/functions/mbfunccoils.c ****         usCoilCount |= ( USHORT )( pucFrame[MB_PDU_FUNC_READ_COILCNT_OFF + 1] );
+  85              		.loc 1 85 43 is_stmt 0 view .LVU24
+  86 001a C378     		ldrb	r3, [r0, #3]	@ zero_extendqisi2
+  87              	.LVL9:
+  86:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+  88              		.loc 1 86 9 is_stmt 1 view .LVU25
+  86:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+  89              		.loc 1 86 44 is_stmt 0 view .LVU26
+  90 001c 0279     		ldrb	r2, [r0, #4]	@ zero_extendqisi2
+  86:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+  91              		.loc 1 86 21 view .LVU27
+  92 001e 42EA0322 		orr	r2, r2, r3, lsl #8
+  93              	.LVL10:
+  91:Drivers/FreeModbus/functions/mbfunccoils.c ****             ( usCoilCount < MB_PDU_FUNC_READ_COILCNT_MAX ) )
+  94              		.loc 1 91 9 is_stmt 1 view .LVU28
+  91:Drivers/FreeModbus/functions/mbfunccoils.c ****             ( usCoilCount < MB_PDU_FUNC_READ_COILCNT_MAX ) )
+  95              		.loc 1 91 34 is_stmt 0 view .LVU29
+  96 0022 531E     		subs	r3, r2, #1
+  97 0024 9BB2     		uxth	r3, r3
+  91:Drivers/FreeModbus/functions/mbfunccoils.c ****             ( usCoilCount < MB_PDU_FUNC_READ_COILCNT_MAX ) )
+  98              		.loc 1 91 11 view .LVU30
+  99 0026 40F2CE75 		movw	r5, #1998
+ 100 002a AB42     		cmp	r3, r5
+ 101 002c 20D8     		bhi	.L7
+  95:Drivers/FreeModbus/functions/mbfunccoils.c ****             *usLen = MB_PDU_FUNC_OFF;
+ 102              		.loc 1 95 13 is_stmt 1 view .LVU31
+ 103              	.LVL11:
+  96:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 104              		.loc 1 96 13 view .LVU32
+  96:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 105              		.loc 1 96 20 is_stmt 0 view .LVU33
+ 106 002e 0023     		movs	r3, #0
+ 107 0030 2380     		strh	r3, [r4]	@ movhi
+  99:Drivers/FreeModbus/functions/mbfunccoils.c ****             *usLen += 1;
+ 108              		.loc 1 99 13 is_stmt 1 view .LVU34
+ 109              	.LVL12:
+  99:Drivers/FreeModbus/functions/mbfunccoils.c ****             *usLen += 1;
+ 110              		.loc 1 99 28 is_stmt 0 view .LVU35
+ 111 0032 0123     		movs	r3, #1
+ 112 0034 0370     		strb	r3, [r0]
+ 100:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 113              		.loc 1 100 13 is_stmt 1 view .LVU36
+ 100:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 114              		.loc 1 100 20 is_stmt 0 view .LVU37
+ 115 0036 2388     		ldrh	r3, [r4]
+ 116 0038 0133     		adds	r3, r3, #1
+ 117 003a 2380     		strh	r3, [r4]	@ movhi
+ 104:Drivers/FreeModbus/functions/mbfunccoils.c ****             {
+ 118              		.loc 1 104 13 is_stmt 1 view .LVU38
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cce46ELT.s 			page 6
+
+
+ 104:Drivers/FreeModbus/functions/mbfunccoils.c ****             {
+ 119              		.loc 1 104 15 is_stmt 0 view .LVU39
+ 120 003c 12F0070F 		tst	r2, #7
+ 121 0040 10D0     		beq	.L3
+ 106:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 122              		.loc 1 106 17 is_stmt 1 view .LVU40
+ 106:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 123              		.loc 1 106 28 is_stmt 0 view .LVU41
+ 124 0042 C2F3C703 		ubfx	r3, r2, #3, #8
+ 106:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 125              		.loc 1 106 26 view .LVU42
+ 126 0046 0133     		adds	r3, r3, #1
+ 127 0048 DDB2     		uxtb	r5, r3
+ 128              	.LVL13:
+ 129              	.L4:
+ 112:Drivers/FreeModbus/functions/mbfunccoils.c ****             *usLen += 1;
+ 130              		.loc 1 112 13 is_stmt 1 view .LVU43
+ 112:Drivers/FreeModbus/functions/mbfunccoils.c ****             *usLen += 1;
+ 131              		.loc 1 112 28 is_stmt 0 view .LVU44
+ 132 004a 4570     		strb	r5, [r0, #1]
+ 113:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 133              		.loc 1 113 13 is_stmt 1 view .LVU45
+ 113:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 134              		.loc 1 113 20 is_stmt 0 view .LVU46
+ 135 004c 2388     		ldrh	r3, [r4]
+ 136 004e 0133     		adds	r3, r3, #1
+ 137 0050 2380     		strh	r3, [r4]	@ movhi
+ 115:Drivers/FreeModbus/functions/mbfunccoils.c ****                 eMBRegCoilsCB( pucFrameCur, usRegAddress, usCoilCount,
+ 138              		.loc 1 115 13 is_stmt 1 view .LVU47
+ 116:Drivers/FreeModbus/functions/mbfunccoils.c ****                                MB_REG_READ );
+ 139              		.loc 1 116 17 is_stmt 0 view .LVU48
+ 140 0052 0023     		movs	r3, #0
+ 141 0054 0230     		adds	r0, r0, #2
+ 142              	.LVL14:
+ 116:Drivers/FreeModbus/functions/mbfunccoils.c ****                                MB_REG_READ );
+ 143              		.loc 1 116 17 view .LVU49
+ 144 0056 FFF7FEFF 		bl	eMBRegCoilsCB
+ 145              	.LVL15:
+ 120:Drivers/FreeModbus/functions/mbfunccoils.c ****             {
+ 146              		.loc 1 120 13 is_stmt 1 view .LVU50
+ 120:Drivers/FreeModbus/functions/mbfunccoils.c ****             {
+ 147              		.loc 1 120 15 is_stmt 0 view .LVU51
+ 148 005a 30B9     		cbnz	r0, .L10
+ 129:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 149              		.loc 1 129 17 is_stmt 1 view .LVU52
+ 129:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 150              		.loc 1 129 24 is_stmt 0 view .LVU53
+ 151 005c 2388     		ldrh	r3, [r4]
+ 152 005e 2B44     		add	r3, r3, r5
+ 153 0060 2380     		strh	r3, [r4]	@ movhi
+ 154 0062 D2E7     		b	.L2
+ 155              	.LVL16:
+ 156              	.L3:
+ 110:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 157              		.loc 1 110 17 is_stmt 1 view .LVU54
+ 110:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 158              		.loc 1 110 26 is_stmt 0 view .LVU55
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cce46ELT.s 			page 7
+
+
+ 159 0064 C2F3C705 		ubfx	r5, r2, #3, #8
+ 160              	.LVL17:
+ 110:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 161              		.loc 1 110 26 view .LVU56
+ 162 0068 EFE7     		b	.L4
+ 163              	.LVL18:
+ 164              	.L10:
+ 122:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 165              		.loc 1 122 17 is_stmt 1 view .LVU57
+ 122:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 166              		.loc 1 122 27 is_stmt 0 view .LVU58
+ 167 006a FFF7FEFF 		bl	prveMBError2Exception
+ 168              	.LVL19:
+ 122:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 169              		.loc 1 122 27 view .LVU59
+ 170 006e CCE7     		b	.L2
+ 171              	.LVL20:
+ 172              	.L7:
+ 134:Drivers/FreeModbus/functions/mbfunccoils.c ****         }
+ 173              		.loc 1 134 21 view .LVU60
+ 174 0070 0320     		movs	r0, #3
+ 175              	.LVL21:
+ 134:Drivers/FreeModbus/functions/mbfunccoils.c ****         }
+ 176              		.loc 1 134 21 view .LVU61
+ 177 0072 CAE7     		b	.L2
+ 178              		.cfi_endproc
+ 179              	.LFE130:
+ 181              		.section	.text.eMBFuncWriteCoil,"ax",%progbits
+ 182              		.align	1
+ 183              		.global	eMBFuncWriteCoil
+ 184              		.syntax unified
+ 185              		.thumb
+ 186              		.thumb_func
+ 187              		.fpu fpv4-sp-d16
+ 189              	eMBFuncWriteCoil:
+ 190              	.LVL22:
+ 191              	.LFB131:
+ 145:Drivers/FreeModbus/functions/mbfunccoils.c **** #endif
+ 146:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 147:Drivers/FreeModbus/functions/mbfunccoils.c **** #if MB_FUNC_WRITE_COIL_ENABLED > 0
+ 148:Drivers/FreeModbus/functions/mbfunccoils.c **** eMBException
+ 149:Drivers/FreeModbus/functions/mbfunccoils.c **** eMBFuncWriteCoil( UCHAR * pucFrame, USHORT * usLen )
+ 150:Drivers/FreeModbus/functions/mbfunccoils.c **** {
+ 192              		.loc 1 150 1 is_stmt 1 view -0
+ 193              		.cfi_startproc
+ 194              		@ args = 0, pretend = 0, frame = 8
+ 195              		@ frame_needed = 0, uses_anonymous_args = 0
+ 151:Drivers/FreeModbus/functions/mbfunccoils.c ****     USHORT          usRegAddress;
+ 196              		.loc 1 151 5 view .LVU63
+ 152:Drivers/FreeModbus/functions/mbfunccoils.c ****     UCHAR           ucBuf[2];
+ 197              		.loc 1 152 5 view .LVU64
+ 153:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 154:Drivers/FreeModbus/functions/mbfunccoils.c ****     eMBException    eStatus = MB_EX_NONE;
+ 198              		.loc 1 154 5 view .LVU65
+ 155:Drivers/FreeModbus/functions/mbfunccoils.c ****     eMBErrorCode    eRegStatus;
+ 199              		.loc 1 155 5 view .LVU66
+ 156:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cce46ELT.s 			page 8
+
+
+ 157:Drivers/FreeModbus/functions/mbfunccoils.c ****     if( *usLen == ( MB_PDU_FUNC_WRITE_SIZE + MB_PDU_SIZE_MIN ) )
+ 200              		.loc 1 157 5 view .LVU67
+ 201              		.loc 1 157 9 is_stmt 0 view .LVU68
+ 202 0000 0B88     		ldrh	r3, [r1]
+ 203              		.loc 1 157 7 view .LVU69
+ 204 0002 052B     		cmp	r3, #5
+ 205 0004 01D0     		beq	.L22
+ 158:Drivers/FreeModbus/functions/mbfunccoils.c ****     {
+ 159:Drivers/FreeModbus/functions/mbfunccoils.c ****         usRegAddress = ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_ADDR_OFF] << 8 );
+ 160:Drivers/FreeModbus/functions/mbfunccoils.c ****         usRegAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_ADDR_OFF + 1] );
+ 161:Drivers/FreeModbus/functions/mbfunccoils.c ****         usRegAddress++;
+ 162:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 163:Drivers/FreeModbus/functions/mbfunccoils.c ****         if( ( pucFrame[MB_PDU_FUNC_WRITE_VALUE_OFF + 1] == 0x00 ) &&
+ 164:Drivers/FreeModbus/functions/mbfunccoils.c ****             ( ( pucFrame[MB_PDU_FUNC_WRITE_VALUE_OFF] == 0xFF ) ||
+ 165:Drivers/FreeModbus/functions/mbfunccoils.c ****               ( pucFrame[MB_PDU_FUNC_WRITE_VALUE_OFF] == 0x00 ) ) )
+ 166:Drivers/FreeModbus/functions/mbfunccoils.c ****         {
+ 167:Drivers/FreeModbus/functions/mbfunccoils.c ****             ucBuf[1] = 0;
+ 168:Drivers/FreeModbus/functions/mbfunccoils.c ****             if( pucFrame[MB_PDU_FUNC_WRITE_VALUE_OFF] == 0xFF )
+ 169:Drivers/FreeModbus/functions/mbfunccoils.c ****             {
+ 170:Drivers/FreeModbus/functions/mbfunccoils.c ****                 ucBuf[0] = 1;
+ 171:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 172:Drivers/FreeModbus/functions/mbfunccoils.c ****             else
+ 173:Drivers/FreeModbus/functions/mbfunccoils.c ****             {
+ 174:Drivers/FreeModbus/functions/mbfunccoils.c ****                 ucBuf[0] = 0;
+ 175:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 176:Drivers/FreeModbus/functions/mbfunccoils.c ****             eRegStatus =
+ 177:Drivers/FreeModbus/functions/mbfunccoils.c ****                 eMBRegCoilsCB( &ucBuf[0], usRegAddress, 1, MB_REG_WRITE );
+ 178:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 179:Drivers/FreeModbus/functions/mbfunccoils.c ****             /* If an error occured convert it into a Modbus exception. */
+ 180:Drivers/FreeModbus/functions/mbfunccoils.c ****             if( eRegStatus != MB_ENOERR )
+ 181:Drivers/FreeModbus/functions/mbfunccoils.c ****             {
+ 182:Drivers/FreeModbus/functions/mbfunccoils.c ****                 eStatus = prveMBError2Exception( eRegStatus );
+ 183:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 184:Drivers/FreeModbus/functions/mbfunccoils.c ****         }
+ 185:Drivers/FreeModbus/functions/mbfunccoils.c ****         else
+ 186:Drivers/FreeModbus/functions/mbfunccoils.c ****         {
+ 187:Drivers/FreeModbus/functions/mbfunccoils.c ****             eStatus = MB_EX_ILLEGAL_DATA_VALUE;
+ 188:Drivers/FreeModbus/functions/mbfunccoils.c ****         }
+ 189:Drivers/FreeModbus/functions/mbfunccoils.c ****     }
+ 190:Drivers/FreeModbus/functions/mbfunccoils.c ****     else
+ 191:Drivers/FreeModbus/functions/mbfunccoils.c ****     {
+ 192:Drivers/FreeModbus/functions/mbfunccoils.c ****         /* Can't be a valid write coil register request because the length
+ 193:Drivers/FreeModbus/functions/mbfunccoils.c ****          * is incorrect. */
+ 194:Drivers/FreeModbus/functions/mbfunccoils.c ****         eStatus = MB_EX_ILLEGAL_DATA_VALUE;
+ 206              		.loc 1 194 17 view .LVU70
+ 207 0006 0320     		movs	r0, #3
+ 208              	.LVL23:
+ 209              		.loc 1 194 17 view .LVU71
+ 210 0008 7047     		bx	lr
+ 211              	.LVL24:
+ 212              	.L22:
+ 159:Drivers/FreeModbus/functions/mbfunccoils.c ****         usRegAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_ADDR_OFF + 1] );
+ 213              		.loc 1 159 9 is_stmt 1 view .LVU72
+ 159:Drivers/FreeModbus/functions/mbfunccoils.c ****         usRegAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_ADDR_OFF + 1] );
+ 214              		.loc 1 159 44 is_stmt 0 view .LVU73
+ 215 000a 4378     		ldrb	r3, [r0, #1]	@ zero_extendqisi2
+ 216              	.LVL25:
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cce46ELT.s 			page 9
+
+
+ 160:Drivers/FreeModbus/functions/mbfunccoils.c ****         usRegAddress++;
+ 217              		.loc 1 160 9 is_stmt 1 view .LVU74
+ 160:Drivers/FreeModbus/functions/mbfunccoils.c ****         usRegAddress++;
+ 218              		.loc 1 160 45 is_stmt 0 view .LVU75
+ 219 000c 8178     		ldrb	r1, [r0, #2]	@ zero_extendqisi2
+ 220              	.LVL26:
+ 160:Drivers/FreeModbus/functions/mbfunccoils.c ****         usRegAddress++;
+ 221              		.loc 1 160 22 view .LVU76
+ 222 000e 41EA0321 		orr	r1, r1, r3, lsl #8
+ 223              	.LVL27:
+ 161:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 224              		.loc 1 161 9 is_stmt 1 view .LVU77
+ 161:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 225              		.loc 1 161 21 is_stmt 0 view .LVU78
+ 226 0012 0131     		adds	r1, r1, #1
+ 227              	.LVL28:
+ 161:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 228              		.loc 1 161 21 view .LVU79
+ 229 0014 89B2     		uxth	r1, r1
+ 230              	.LVL29:
+ 163:Drivers/FreeModbus/functions/mbfunccoils.c ****             ( ( pucFrame[MB_PDU_FUNC_WRITE_VALUE_OFF] == 0xFF ) ||
+ 231              		.loc 1 163 9 is_stmt 1 view .LVU80
+ 163:Drivers/FreeModbus/functions/mbfunccoils.c ****             ( ( pucFrame[MB_PDU_FUNC_WRITE_VALUE_OFF] == 0xFF ) ||
+ 232              		.loc 1 163 23 is_stmt 0 view .LVU81
+ 233 0016 0379     		ldrb	r3, [r0, #4]	@ zero_extendqisi2
+ 163:Drivers/FreeModbus/functions/mbfunccoils.c ****             ( ( pucFrame[MB_PDU_FUNC_WRITE_VALUE_OFF] == 0xFF ) ||
+ 234              		.loc 1 163 11 view .LVU82
+ 235 0018 F3B9     		cbnz	r3, .L16
+ 164:Drivers/FreeModbus/functions/mbfunccoils.c ****               ( pucFrame[MB_PDU_FUNC_WRITE_VALUE_OFF] == 0x00 ) ) )
+ 236              		.loc 1 164 25 discriminator 1 view .LVU83
+ 237 001a C278     		ldrb	r2, [r0, #3]	@ zero_extendqisi2
+ 164:Drivers/FreeModbus/functions/mbfunccoils.c ****               ( pucFrame[MB_PDU_FUNC_WRITE_VALUE_OFF] == 0x00 ) ) )
+ 238              		.loc 1 164 65 discriminator 1 view .LVU84
+ 239 001c 531E     		subs	r3, r2, #1
+ 240 001e DBB2     		uxtb	r3, r3
+ 163:Drivers/FreeModbus/functions/mbfunccoils.c ****             ( ( pucFrame[MB_PDU_FUNC_WRITE_VALUE_OFF] == 0xFF ) ||
+ 241              		.loc 1 163 67 discriminator 1 view .LVU85
+ 242 0020 FD2B     		cmp	r3, #253
+ 243 0022 1BD9     		bls	.L17
+ 150:Drivers/FreeModbus/functions/mbfunccoils.c ****     USHORT          usRegAddress;
+ 244              		.loc 1 150 1 view .LVU86
+ 245 0024 00B5     		push	{lr}
+ 246              	.LCFI1:
+ 247              		.cfi_def_cfa_offset 4
+ 248              		.cfi_offset 14, -4
+ 249 0026 83B0     		sub	sp, sp, #12
+ 250              	.LCFI2:
+ 251              		.cfi_def_cfa_offset 16
+ 167:Drivers/FreeModbus/functions/mbfunccoils.c ****             if( pucFrame[MB_PDU_FUNC_WRITE_VALUE_OFF] == 0xFF )
+ 252              		.loc 1 167 13 is_stmt 1 view .LVU87
+ 167:Drivers/FreeModbus/functions/mbfunccoils.c ****             if( pucFrame[MB_PDU_FUNC_WRITE_VALUE_OFF] == 0xFF )
+ 253              		.loc 1 167 22 is_stmt 0 view .LVU88
+ 254 0028 0023     		movs	r3, #0
+ 255 002a 8DF80530 		strb	r3, [sp, #5]
+ 168:Drivers/FreeModbus/functions/mbfunccoils.c ****             {
+ 256              		.loc 1 168 13 is_stmt 1 view .LVU89
+ 168:Drivers/FreeModbus/functions/mbfunccoils.c ****             {
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cce46ELT.s 			page 10
+
+
+ 257              		.loc 1 168 15 is_stmt 0 view .LVU90
+ 258 002e FF2A     		cmp	r2, #255
+ 259 0030 0BD0     		beq	.L23
+ 174:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 260              		.loc 1 174 17 is_stmt 1 view .LVU91
+ 174:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 261              		.loc 1 174 26 is_stmt 0 view .LVU92
+ 262 0032 0023     		movs	r3, #0
+ 263 0034 8DF80430 		strb	r3, [sp, #4]
+ 264              	.L14:
+ 176:Drivers/FreeModbus/functions/mbfunccoils.c ****                 eMBRegCoilsCB( &ucBuf[0], usRegAddress, 1, MB_REG_WRITE );
+ 265              		.loc 1 176 13 is_stmt 1 view .LVU93
+ 177:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 266              		.loc 1 177 17 is_stmt 0 view .LVU94
+ 267 0038 0123     		movs	r3, #1
+ 268 003a 1A46     		mov	r2, r3
+ 269 003c 01A8     		add	r0, sp, #4
+ 270              	.LVL30:
+ 177:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 271              		.loc 1 177 17 view .LVU95
+ 272 003e FFF7FEFF 		bl	eMBRegCoilsCB
+ 273              	.LVL31:
+ 180:Drivers/FreeModbus/functions/mbfunccoils.c ****             {
+ 274              		.loc 1 180 13 is_stmt 1 view .LVU96
+ 180:Drivers/FreeModbus/functions/mbfunccoils.c ****             {
+ 275              		.loc 1 180 15 is_stmt 0 view .LVU97
+ 276 0042 30B9     		cbnz	r0, .L24
+ 277              	.LVL32:
+ 278              	.L12:
+ 195:Drivers/FreeModbus/functions/mbfunccoils.c ****     }
+ 196:Drivers/FreeModbus/functions/mbfunccoils.c ****     return eStatus;
+ 279              		.loc 1 196 5 is_stmt 1 view .LVU98
+ 197:Drivers/FreeModbus/functions/mbfunccoils.c **** }
+ 280              		.loc 1 197 1 is_stmt 0 view .LVU99
+ 281 0044 03B0     		add	sp, sp, #12
+ 282              	.LCFI3:
+ 283              		.cfi_remember_state
+ 284              		.cfi_def_cfa_offset 4
+ 285              		@ sp needed
+ 286 0046 5DF804FB 		ldr	pc, [sp], #4
+ 287              	.LVL33:
+ 288              	.L23:
+ 289              	.LCFI4:
+ 290              		.cfi_restore_state
+ 170:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 291              		.loc 1 170 17 is_stmt 1 view .LVU100
+ 170:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 292              		.loc 1 170 26 is_stmt 0 view .LVU101
+ 293 004a 0123     		movs	r3, #1
+ 294 004c 8DF80430 		strb	r3, [sp, #4]
+ 295 0050 F2E7     		b	.L14
+ 296              	.LVL34:
+ 297              	.L24:
+ 182:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 298              		.loc 1 182 17 is_stmt 1 view .LVU102
+ 182:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 299              		.loc 1 182 27 is_stmt 0 view .LVU103
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cce46ELT.s 			page 11
+
+
+ 300 0052 FFF7FEFF 		bl	prveMBError2Exception
+ 301              	.LVL35:
+ 182:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 302              		.loc 1 182 27 view .LVU104
+ 303 0056 F5E7     		b	.L12
+ 304              	.LVL36:
+ 305              	.L16:
+ 306              	.LCFI5:
+ 307              		.cfi_def_cfa_offset 0
+ 308              		.cfi_restore 14
+ 187:Drivers/FreeModbus/functions/mbfunccoils.c ****         }
+ 309              		.loc 1 187 21 view .LVU105
+ 310 0058 0320     		movs	r0, #3
+ 311              	.LVL37:
+ 187:Drivers/FreeModbus/functions/mbfunccoils.c ****         }
+ 312              		.loc 1 187 21 view .LVU106
+ 313 005a 7047     		bx	lr
+ 314              	.LVL38:
+ 315              	.L17:
+ 187:Drivers/FreeModbus/functions/mbfunccoils.c ****         }
+ 316              		.loc 1 187 21 view .LVU107
+ 317 005c 0320     		movs	r0, #3
+ 318              	.LVL39:
+ 196:Drivers/FreeModbus/functions/mbfunccoils.c **** }
+ 319              		.loc 1 196 5 is_stmt 1 view .LVU108
+ 320              		.loc 1 197 1 is_stmt 0 view .LVU109
+ 321 005e 7047     		bx	lr
+ 322              		.cfi_endproc
+ 323              	.LFE131:
+ 325              		.section	.text.eMBFuncWriteMultipleCoils,"ax",%progbits
+ 326              		.align	1
+ 327              		.global	eMBFuncWriteMultipleCoils
+ 328              		.syntax unified
+ 329              		.thumb
+ 330              		.thumb_func
+ 331              		.fpu fpv4-sp-d16
+ 333              	eMBFuncWriteMultipleCoils:
+ 334              	.LVL40:
+ 335              	.LFB132:
+ 198:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 199:Drivers/FreeModbus/functions/mbfunccoils.c **** #endif
+ 200:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 201:Drivers/FreeModbus/functions/mbfunccoils.c **** #if MB_FUNC_WRITE_MULTIPLE_COILS_ENABLED > 0
+ 202:Drivers/FreeModbus/functions/mbfunccoils.c **** eMBException
+ 203:Drivers/FreeModbus/functions/mbfunccoils.c **** eMBFuncWriteMultipleCoils( UCHAR * pucFrame, USHORT * usLen )
+ 204:Drivers/FreeModbus/functions/mbfunccoils.c **** {
+ 336              		.loc 1 204 1 is_stmt 1 view -0
+ 337              		.cfi_startproc
+ 338              		@ args = 0, pretend = 0, frame = 0
+ 339              		@ frame_needed = 0, uses_anonymous_args = 0
+ 205:Drivers/FreeModbus/functions/mbfunccoils.c ****     USHORT          usRegAddress;
+ 340              		.loc 1 205 5 view .LVU111
+ 206:Drivers/FreeModbus/functions/mbfunccoils.c ****     USHORT          usCoilCnt;
+ 341              		.loc 1 206 5 view .LVU112
+ 207:Drivers/FreeModbus/functions/mbfunccoils.c ****     UCHAR           ucByteCount;
+ 342              		.loc 1 207 5 view .LVU113
+ 208:Drivers/FreeModbus/functions/mbfunccoils.c ****     UCHAR           ucByteCountVerify;
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cce46ELT.s 			page 12
+
+
+ 343              		.loc 1 208 5 view .LVU114
+ 209:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 210:Drivers/FreeModbus/functions/mbfunccoils.c ****     eMBException    eStatus = MB_EX_NONE;
+ 344              		.loc 1 210 5 view .LVU115
+ 211:Drivers/FreeModbus/functions/mbfunccoils.c ****     eMBErrorCode    eRegStatus;
+ 345              		.loc 1 211 5 view .LVU116
+ 212:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 213:Drivers/FreeModbus/functions/mbfunccoils.c ****     if( *usLen > ( MB_PDU_FUNC_WRITE_SIZE + MB_PDU_SIZE_MIN ) )
+ 346              		.loc 1 213 5 view .LVU117
+ 347              		.loc 1 213 9 is_stmt 0 view .LVU118
+ 348 0000 0B88     		ldrh	r3, [r1]
+ 349              		.loc 1 213 7 view .LVU119
+ 350 0002 052B     		cmp	r3, #5
+ 351 0004 2AD9     		bls	.L30
+ 204:Drivers/FreeModbus/functions/mbfunccoils.c ****     USHORT          usRegAddress;
+ 352              		.loc 1 204 1 view .LVU120
+ 353 0006 70B5     		push	{r4, r5, r6, lr}
+ 354              	.LCFI6:
+ 355              		.cfi_def_cfa_offset 16
+ 356              		.cfi_offset 4, -16
+ 357              		.cfi_offset 5, -12
+ 358              		.cfi_offset 6, -8
+ 359              		.cfi_offset 14, -4
+ 360 0008 0C46     		mov	r4, r1
+ 214:Drivers/FreeModbus/functions/mbfunccoils.c ****     {
+ 215:Drivers/FreeModbus/functions/mbfunccoils.c ****         usRegAddress = ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_MUL_ADDR_OFF] << 8 );
+ 361              		.loc 1 215 9 is_stmt 1 view .LVU121
+ 362              		.loc 1 215 44 is_stmt 0 view .LVU122
+ 363 000a 4178     		ldrb	r1, [r0, #1]	@ zero_extendqisi2
+ 364              	.LVL41:
+ 216:Drivers/FreeModbus/functions/mbfunccoils.c ****         usRegAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_MUL_ADDR_OFF + 1] );
+ 365              		.loc 1 216 9 is_stmt 1 view .LVU123
+ 366              		.loc 1 216 45 is_stmt 0 view .LVU124
+ 367 000c 8378     		ldrb	r3, [r0, #2]	@ zero_extendqisi2
+ 368              		.loc 1 216 22 view .LVU125
+ 369 000e 43EA0123 		orr	r3, r3, r1, lsl #8
+ 370              	.LVL42:
+ 217:Drivers/FreeModbus/functions/mbfunccoils.c ****         usRegAddress++;
+ 371              		.loc 1 217 9 is_stmt 1 view .LVU126
+ 372              		.loc 1 217 21 is_stmt 0 view .LVU127
+ 373 0012 0133     		adds	r3, r3, #1
+ 374              	.LVL43:
+ 375              		.loc 1 217 21 view .LVU128
+ 376 0014 99B2     		uxth	r1, r3
+ 377              	.LVL44:
+ 218:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 219:Drivers/FreeModbus/functions/mbfunccoils.c ****         usCoilCnt = ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_MUL_COILCNT_OFF] << 8 );
+ 378              		.loc 1 219 9 is_stmt 1 view .LVU129
+ 379              		.loc 1 219 41 is_stmt 0 view .LVU130
+ 380 0016 C278     		ldrb	r2, [r0, #3]	@ zero_extendqisi2
+ 381              	.LVL45:
+ 220:Drivers/FreeModbus/functions/mbfunccoils.c ****         usCoilCnt |= ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_MUL_COILCNT_OFF + 1] );
+ 382              		.loc 1 220 9 is_stmt 1 view .LVU131
+ 383              		.loc 1 220 42 is_stmt 0 view .LVU132
+ 384 0018 0379     		ldrb	r3, [r0, #4]	@ zero_extendqisi2
+ 385              		.loc 1 220 19 view .LVU133
+ 386 001a 43EA0222 		orr	r2, r3, r2, lsl #8
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cce46ELT.s 			page 13
+
+
+ 387              	.LVL46:
+ 221:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 222:Drivers/FreeModbus/functions/mbfunccoils.c ****         ucByteCount = pucFrame[MB_PDU_FUNC_WRITE_MUL_BYTECNT_OFF];
+ 388              		.loc 1 222 9 is_stmt 1 view .LVU134
+ 389              		.loc 1 222 21 is_stmt 0 view .LVU135
+ 390 001e 4679     		ldrb	r6, [r0, #5]	@ zero_extendqisi2
+ 391              	.LVL47:
+ 223:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 224:Drivers/FreeModbus/functions/mbfunccoils.c ****         /* Compute the number of expected bytes in the request. */
+ 225:Drivers/FreeModbus/functions/mbfunccoils.c ****         if( ( usCoilCnt & 0x0007 ) != 0 )
+ 392              		.loc 1 225 9 is_stmt 1 view .LVU136
+ 393              		.loc 1 225 11 is_stmt 0 view .LVU137
+ 394 0020 13F0070F 		tst	r3, #7
+ 395 0024 0CD0     		beq	.L27
+ 226:Drivers/FreeModbus/functions/mbfunccoils.c ****         {
+ 227:Drivers/FreeModbus/functions/mbfunccoils.c ****             ucByteCountVerify = ( UCHAR )( usCoilCnt / 8 + 1 );
+ 396              		.loc 1 227 13 is_stmt 1 view .LVU138
+ 397              		.loc 1 227 33 is_stmt 0 view .LVU139
+ 398 0026 C2F3C705 		ubfx	r5, r2, #3, #8
+ 399              		.loc 1 227 31 view .LVU140
+ 400 002a 0135     		adds	r5, r5, #1
+ 401 002c EDB2     		uxtb	r5, r5
+ 402              	.LVL48:
+ 403              	.L28:
+ 228:Drivers/FreeModbus/functions/mbfunccoils.c ****         }
+ 229:Drivers/FreeModbus/functions/mbfunccoils.c ****         else
+ 230:Drivers/FreeModbus/functions/mbfunccoils.c ****         {
+ 231:Drivers/FreeModbus/functions/mbfunccoils.c ****             ucByteCountVerify = ( UCHAR )( usCoilCnt / 8 );
+ 232:Drivers/FreeModbus/functions/mbfunccoils.c ****         }
+ 233:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 234:Drivers/FreeModbus/functions/mbfunccoils.c ****         if( ( usCoilCnt >= 1 ) &&
+ 404              		.loc 1 234 9 is_stmt 1 view .LVU141
+ 405              		.loc 1 234 32 is_stmt 0 view .LVU142
+ 406 002e 531E     		subs	r3, r2, #1
+ 407 0030 9BB2     		uxth	r3, r3
+ 408              		.loc 1 234 11 view .LVU143
+ 409 0032 B3F5F66F 		cmp	r3, #1968
+ 410 0036 13D2     		bcs	.L31
+ 235:Drivers/FreeModbus/functions/mbfunccoils.c ****             ( usCoilCnt <= MB_PDU_FUNC_WRITE_MUL_COILCNT_MAX ) &&
+ 411              		.loc 1 235 64 view .LVU144
+ 412 0038 B542     		cmp	r5, r6
+ 413 003a 04D0     		beq	.L37
+ 236:Drivers/FreeModbus/functions/mbfunccoils.c ****             ( ucByteCountVerify == ucByteCount ) )
+ 237:Drivers/FreeModbus/functions/mbfunccoils.c ****         {
+ 238:Drivers/FreeModbus/functions/mbfunccoils.c ****             eRegStatus =
+ 239:Drivers/FreeModbus/functions/mbfunccoils.c ****                 eMBRegCoilsCB( &pucFrame[MB_PDU_FUNC_WRITE_MUL_VALUES_OFF],
+ 240:Drivers/FreeModbus/functions/mbfunccoils.c ****                                usRegAddress, usCoilCnt, MB_REG_WRITE );
+ 241:Drivers/FreeModbus/functions/mbfunccoils.c **** 
+ 242:Drivers/FreeModbus/functions/mbfunccoils.c ****             /* If an error occured convert it into a Modbus exception. */
+ 243:Drivers/FreeModbus/functions/mbfunccoils.c ****             if( eRegStatus != MB_ENOERR )
+ 244:Drivers/FreeModbus/functions/mbfunccoils.c ****             {
+ 245:Drivers/FreeModbus/functions/mbfunccoils.c ****                 eStatus = prveMBError2Exception( eRegStatus );
+ 246:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 247:Drivers/FreeModbus/functions/mbfunccoils.c ****             else
+ 248:Drivers/FreeModbus/functions/mbfunccoils.c ****             {
+ 249:Drivers/FreeModbus/functions/mbfunccoils.c ****                 /* The response contains the function code, the starting address
+ 250:Drivers/FreeModbus/functions/mbfunccoils.c ****                  * and the quantity of registers. We reuse the old values in the 
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cce46ELT.s 			page 14
+
+
+ 251:Drivers/FreeModbus/functions/mbfunccoils.c ****                  * buffer because they are still valid. */
+ 252:Drivers/FreeModbus/functions/mbfunccoils.c ****                 *usLen = MB_PDU_FUNC_WRITE_MUL_BYTECNT_OFF;
+ 253:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 254:Drivers/FreeModbus/functions/mbfunccoils.c ****         }
+ 255:Drivers/FreeModbus/functions/mbfunccoils.c ****         else
+ 256:Drivers/FreeModbus/functions/mbfunccoils.c ****         {
+ 257:Drivers/FreeModbus/functions/mbfunccoils.c ****             eStatus = MB_EX_ILLEGAL_DATA_VALUE;
+ 414              		.loc 1 257 21 view .LVU145
+ 415 003c 0320     		movs	r0, #3
+ 416              	.LVL49:
+ 417              	.L26:
+ 258:Drivers/FreeModbus/functions/mbfunccoils.c ****         }
+ 259:Drivers/FreeModbus/functions/mbfunccoils.c ****     }
+ 260:Drivers/FreeModbus/functions/mbfunccoils.c ****     else
+ 261:Drivers/FreeModbus/functions/mbfunccoils.c ****     {
+ 262:Drivers/FreeModbus/functions/mbfunccoils.c ****         /* Can't be a valid write coil register request because the length
+ 263:Drivers/FreeModbus/functions/mbfunccoils.c ****          * is incorrect. */
+ 264:Drivers/FreeModbus/functions/mbfunccoils.c ****         eStatus = MB_EX_ILLEGAL_DATA_VALUE;
+ 265:Drivers/FreeModbus/functions/mbfunccoils.c ****     }
+ 266:Drivers/FreeModbus/functions/mbfunccoils.c ****     return eStatus;
+ 418              		.loc 1 266 5 is_stmt 1 view .LVU146
+ 267:Drivers/FreeModbus/functions/mbfunccoils.c **** }
+ 419              		.loc 1 267 1 is_stmt 0 view .LVU147
+ 420 003e 70BD     		pop	{r4, r5, r6, pc}
+ 421              	.LVL50:
+ 422              	.L27:
+ 231:Drivers/FreeModbus/functions/mbfunccoils.c ****         }
+ 423              		.loc 1 231 13 is_stmt 1 view .LVU148
+ 231:Drivers/FreeModbus/functions/mbfunccoils.c ****         }
+ 424              		.loc 1 231 31 is_stmt 0 view .LVU149
+ 425 0040 C2F3C705 		ubfx	r5, r2, #3, #8
+ 426              	.LVL51:
+ 231:Drivers/FreeModbus/functions/mbfunccoils.c ****         }
+ 427              		.loc 1 231 31 view .LVU150
+ 428 0044 F3E7     		b	.L28
+ 429              	.L37:
+ 238:Drivers/FreeModbus/functions/mbfunccoils.c ****                 eMBRegCoilsCB( &pucFrame[MB_PDU_FUNC_WRITE_MUL_VALUES_OFF],
+ 430              		.loc 1 238 13 is_stmt 1 view .LVU151
+ 239:Drivers/FreeModbus/functions/mbfunccoils.c ****                                usRegAddress, usCoilCnt, MB_REG_WRITE );
+ 431              		.loc 1 239 17 is_stmt 0 view .LVU152
+ 432 0046 0123     		movs	r3, #1
+ 433 0048 0630     		adds	r0, r0, #6
+ 434              	.LVL52:
+ 239:Drivers/FreeModbus/functions/mbfunccoils.c ****                                usRegAddress, usCoilCnt, MB_REG_WRITE );
+ 435              		.loc 1 239 17 view .LVU153
+ 436 004a FFF7FEFF 		bl	eMBRegCoilsCB
+ 437              	.LVL53:
+ 243:Drivers/FreeModbus/functions/mbfunccoils.c ****             {
+ 438              		.loc 1 243 13 is_stmt 1 view .LVU154
+ 243:Drivers/FreeModbus/functions/mbfunccoils.c ****             {
+ 439              		.loc 1 243 15 is_stmt 0 view .LVU155
+ 440 004e 10B9     		cbnz	r0, .L38
+ 252:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 441              		.loc 1 252 17 is_stmt 1 view .LVU156
+ 252:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 442              		.loc 1 252 24 is_stmt 0 view .LVU157
+ 443 0050 0523     		movs	r3, #5
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cce46ELT.s 			page 15
+
+
+ 444 0052 2380     		strh	r3, [r4]	@ movhi
+ 445 0054 F3E7     		b	.L26
+ 446              	.L38:
+ 245:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 447              		.loc 1 245 17 is_stmt 1 view .LVU158
+ 245:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 448              		.loc 1 245 27 is_stmt 0 view .LVU159
+ 449 0056 FFF7FEFF 		bl	prveMBError2Exception
+ 450              	.LVL54:
+ 245:Drivers/FreeModbus/functions/mbfunccoils.c ****             }
+ 451              		.loc 1 245 27 view .LVU160
+ 452 005a F0E7     		b	.L26
+ 453              	.LVL55:
+ 454              	.L30:
+ 455              	.LCFI7:
+ 456              		.cfi_def_cfa_offset 0
+ 457              		.cfi_restore 4
+ 458              		.cfi_restore 5
+ 459              		.cfi_restore 6
+ 460              		.cfi_restore 14
+ 264:Drivers/FreeModbus/functions/mbfunccoils.c ****     }
+ 461              		.loc 1 264 17 view .LVU161
+ 462 005c 0320     		movs	r0, #3
+ 463              	.LVL56:
+ 266:Drivers/FreeModbus/functions/mbfunccoils.c **** }
+ 464              		.loc 1 266 5 is_stmt 1 view .LVU162
+ 465              		.loc 1 267 1 is_stmt 0 view .LVU163
+ 466 005e 7047     		bx	lr
+ 467              	.LVL57:
+ 468              	.L31:
+ 469              	.LCFI8:
+ 470              		.cfi_def_cfa_offset 16
+ 471              		.cfi_offset 4, -16
+ 472              		.cfi_offset 5, -12
+ 473              		.cfi_offset 6, -8
+ 474              		.cfi_offset 14, -4
+ 257:Drivers/FreeModbus/functions/mbfunccoils.c ****         }
+ 475              		.loc 1 257 21 view .LVU164
+ 476 0060 0320     		movs	r0, #3
+ 477              	.LVL58:
+ 257:Drivers/FreeModbus/functions/mbfunccoils.c ****         }
+ 478              		.loc 1 257 21 view .LVU165
+ 479 0062 ECE7     		b	.L26
+ 480              		.cfi_endproc
+ 481              	.LFE132:
+ 483              		.text
+ 484              	.Letext0:
+ 485              		.file 2 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 486              		.file 3 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\lock.h"
+ 487              		.file 4 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\_types.h"
+ 488              		.file 5 "c:\\vscodeproject\\software\\arm_gcc\\lib\\gcc\\arm-none-eabi\\9.2.1\\include\\stddef.h"
+ 489              		.file 6 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\reent.h"
+ 490              		.file 7 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\stdlib.h"
+ 491              		.file 8 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 492              		.file 9 "Drivers/CMSIS/Include/core_cm4.h"
+ 493              		.file 10 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 494              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cce46ELT.s 			page 16
+
+
+ 495              		.file 12 "Drivers/FreeModbus/port/port.h"
+ 496              		.file 13 "Drivers/FreeModbus/include/mbport.h"
+ 497              		.file 14 "Drivers/FreeModbus/include/mbproto.h"
+ 498              		.file 15 "Drivers/FreeModbus/include/mb.h"
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cce46ELT.s 			page 17
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 mbfunccoils.c
+C:\Users\Andre\AppData\Local\Temp\cce46ELT.s:18     .text.eMBFuncReadCoils:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cce46ELT.s:26     .text.eMBFuncReadCoils:0000000000000000 eMBFuncReadCoils
+C:\Users\Andre\AppData\Local\Temp\cce46ELT.s:182    .text.eMBFuncWriteCoil:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cce46ELT.s:189    .text.eMBFuncWriteCoil:0000000000000000 eMBFuncWriteCoil
+C:\Users\Andre\AppData\Local\Temp\cce46ELT.s:326    .text.eMBFuncWriteMultipleCoils:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cce46ELT.s:333    .text.eMBFuncWriteMultipleCoils:0000000000000000 eMBFuncWriteMultipleCoils
+
+UNDEFINED SYMBOLS
+eMBRegCoilsCB
+prveMBError2Exception

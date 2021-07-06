@@ -1,0 +1,1547 @@
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"mb.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.eMBInit,"ax",%progbits
+  18              		.align	1
+  19              		.global	eMBInit
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	eMBInit:
+  27              	.LVL0:
+  28              	.LFB130:
+  29              		.file 1 "Drivers/FreeModbus/mb.c"
+   1:Drivers/FreeModbus/mb.c **** /* 
+   2:Drivers/FreeModbus/mb.c ****  * FreeModbus Libary: A portable Modbus implementation for Modbus ASCII/RTU.
+   3:Drivers/FreeModbus/mb.c ****  * Copyright (c) 2006-2018 Christian Walter <cwalter@embedded-solutions.at>
+   4:Drivers/FreeModbus/mb.c ****  * All rights reserved.
+   5:Drivers/FreeModbus/mb.c ****  *
+   6:Drivers/FreeModbus/mb.c ****  * Redistribution and use in source and binary forms, with or without
+   7:Drivers/FreeModbus/mb.c ****  * modification, are permitted provided that the following conditions
+   8:Drivers/FreeModbus/mb.c ****  * are met:
+   9:Drivers/FreeModbus/mb.c ****  * 1. Redistributions of source code must retain the above copyright
+  10:Drivers/FreeModbus/mb.c ****  *    notice, this list of conditions and the following disclaimer.
+  11:Drivers/FreeModbus/mb.c ****  * 2. Redistributions in binary form must reproduce the above copyright
+  12:Drivers/FreeModbus/mb.c ****  *    notice, this list of conditions and the following disclaimer in the
+  13:Drivers/FreeModbus/mb.c ****  *    documentation and/or other materials provided with the distribution.
+  14:Drivers/FreeModbus/mb.c ****  * 3. The name of the author may not be used to endorse or promote products
+  15:Drivers/FreeModbus/mb.c ****  *    derived from this software without specific prior written permission.
+  16:Drivers/FreeModbus/mb.c ****  *
+  17:Drivers/FreeModbus/mb.c ****  * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+  18:Drivers/FreeModbus/mb.c ****  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+  19:Drivers/FreeModbus/mb.c ****  * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  20:Drivers/FreeModbus/mb.c ****  * IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+  21:Drivers/FreeModbus/mb.c ****  * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  22:Drivers/FreeModbus/mb.c ****  * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  23:Drivers/FreeModbus/mb.c ****  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  24:Drivers/FreeModbus/mb.c ****  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  25:Drivers/FreeModbus/mb.c ****  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+  26:Drivers/FreeModbus/mb.c ****  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  27:Drivers/FreeModbus/mb.c ****  *
+  28:Drivers/FreeModbus/mb.c ****  * File: $Id: mb.c,v 1.27 2007/02/18 23:45:41 wolti Exp $
+  29:Drivers/FreeModbus/mb.c ****  */
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 2
+
+
+  30:Drivers/FreeModbus/mb.c **** 
+  31:Drivers/FreeModbus/mb.c **** /* ----------------------- System includes ----------------------------------*/
+  32:Drivers/FreeModbus/mb.c **** #include "stdlib.h"
+  33:Drivers/FreeModbus/mb.c **** #include "string.h"
+  34:Drivers/FreeModbus/mb.c **** 
+  35:Drivers/FreeModbus/mb.c **** /* ----------------------- Platform includes --------------------------------*/
+  36:Drivers/FreeModbus/mb.c **** #include "port.h"
+  37:Drivers/FreeModbus/mb.c **** 
+  38:Drivers/FreeModbus/mb.c **** /* ----------------------- Modbus includes ----------------------------------*/
+  39:Drivers/FreeModbus/mb.c **** 
+  40:Drivers/FreeModbus/mb.c **** #include "mb.h"
+  41:Drivers/FreeModbus/mb.c **** #include "mbconfig.h"
+  42:Drivers/FreeModbus/mb.c **** #include "mbframe.h"
+  43:Drivers/FreeModbus/mb.c **** #include "mbproto.h"
+  44:Drivers/FreeModbus/mb.c **** #include "mbfunc.h"
+  45:Drivers/FreeModbus/mb.c **** 
+  46:Drivers/FreeModbus/mb.c **** #include "mbport.h"
+  47:Drivers/FreeModbus/mb.c **** #if MB_SLAVE_RTU_ENABLED == 1
+  48:Drivers/FreeModbus/mb.c **** #include "mbrtu.h"
+  49:Drivers/FreeModbus/mb.c **** #endif
+  50:Drivers/FreeModbus/mb.c **** #if MB_SLAVE_ASCII_ENABLED == 1
+  51:Drivers/FreeModbus/mb.c **** #include "mbascii.h"
+  52:Drivers/FreeModbus/mb.c **** #endif
+  53:Drivers/FreeModbus/mb.c **** #if MB_SLAVE_TCP_ENABLED == 1
+  54:Drivers/FreeModbus/mb.c **** #include "mbtcp.h"
+  55:Drivers/FreeModbus/mb.c **** #endif
+  56:Drivers/FreeModbus/mb.c **** 
+  57:Drivers/FreeModbus/mb.c **** #ifndef MB_PORT_HAS_CLOSE
+  58:Drivers/FreeModbus/mb.c **** #define MB_PORT_HAS_CLOSE 0
+  59:Drivers/FreeModbus/mb.c **** #endif
+  60:Drivers/FreeModbus/mb.c **** 
+  61:Drivers/FreeModbus/mb.c **** /* ----------------------- Static variables ---------------------------------*/
+  62:Drivers/FreeModbus/mb.c **** 
+  63:Drivers/FreeModbus/mb.c **** static UCHAR    ucMBAddress;
+  64:Drivers/FreeModbus/mb.c **** static eMBMode  eMBCurrentMode;
+  65:Drivers/FreeModbus/mb.c **** 
+  66:Drivers/FreeModbus/mb.c **** static enum
+  67:Drivers/FreeModbus/mb.c **** {
+  68:Drivers/FreeModbus/mb.c ****     STATE_ENABLED,
+  69:Drivers/FreeModbus/mb.c ****     STATE_DISABLED,
+  70:Drivers/FreeModbus/mb.c ****     STATE_NOT_INITIALIZED
+  71:Drivers/FreeModbus/mb.c **** } eMBState = STATE_NOT_INITIALIZED;
+  72:Drivers/FreeModbus/mb.c **** 
+  73:Drivers/FreeModbus/mb.c **** /* Functions pointer which are initialized in eMBInit( ). Depending on the
+  74:Drivers/FreeModbus/mb.c ****  * mode (RTU or ASCII) the are set to the correct implementations.
+  75:Drivers/FreeModbus/mb.c ****  * Using for Modbus Slave
+  76:Drivers/FreeModbus/mb.c ****  */
+  77:Drivers/FreeModbus/mb.c **** static peMBFrameSend peMBFrameSendCur;
+  78:Drivers/FreeModbus/mb.c **** static pvMBFrameStart pvMBFrameStartCur;
+  79:Drivers/FreeModbus/mb.c **** static pvMBFrameStop pvMBFrameStopCur;
+  80:Drivers/FreeModbus/mb.c **** static peMBFrameReceive peMBFrameReceiveCur;
+  81:Drivers/FreeModbus/mb.c **** static pvMBFrameClose pvMBFrameCloseCur;
+  82:Drivers/FreeModbus/mb.c **** 
+  83:Drivers/FreeModbus/mb.c **** /* Callback functions required by the porting layer. They are called when
+  84:Drivers/FreeModbus/mb.c ****  * an external event has happend which includes a timeout or the reception
+  85:Drivers/FreeModbus/mb.c ****  * or transmission of a character.
+  86:Drivers/FreeModbus/mb.c ****  * Using for Modbus Slave
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 3
+
+
+  87:Drivers/FreeModbus/mb.c ****  */
+  88:Drivers/FreeModbus/mb.c **** BOOL( *pxMBFrameCBByteReceived ) ( void );
+  89:Drivers/FreeModbus/mb.c **** BOOL( *pxMBFrameCBTransmitterEmpty ) ( void );
+  90:Drivers/FreeModbus/mb.c **** BOOL( *pxMBPortCBTimerExpired ) ( void );
+  91:Drivers/FreeModbus/mb.c **** 
+  92:Drivers/FreeModbus/mb.c **** BOOL( *pxMBFrameCBReceiveFSMCur ) ( void );
+  93:Drivers/FreeModbus/mb.c **** BOOL( *pxMBFrameCBTransmitFSMCur ) ( void );
+  94:Drivers/FreeModbus/mb.c **** 
+  95:Drivers/FreeModbus/mb.c **** /* An array of Modbus functions handlers which associates Modbus function
+  96:Drivers/FreeModbus/mb.c ****  * codes with implementing functions.
+  97:Drivers/FreeModbus/mb.c ****  */
+  98:Drivers/FreeModbus/mb.c **** static xMBFunctionHandler xFuncHandlers[MB_FUNC_HANDLERS_MAX] = {
+  99:Drivers/FreeModbus/mb.c **** #if MB_FUNC_OTHER_REP_SLAVEID_ENABLED > 0
+ 100:Drivers/FreeModbus/mb.c ****     {MB_FUNC_OTHER_REPORT_SLAVEID, eMBFuncReportSlaveID},
+ 101:Drivers/FreeModbus/mb.c **** #endif
+ 102:Drivers/FreeModbus/mb.c **** #if MB_FUNC_READ_INPUT_ENABLED > 0
+ 103:Drivers/FreeModbus/mb.c ****     {MB_FUNC_READ_INPUT_REGISTER, eMBFuncReadInputRegister},
+ 104:Drivers/FreeModbus/mb.c **** #endif
+ 105:Drivers/FreeModbus/mb.c **** #if MB_FUNC_READ_HOLDING_ENABLED > 0
+ 106:Drivers/FreeModbus/mb.c ****     {MB_FUNC_READ_HOLDING_REGISTER, eMBFuncReadHoldingRegister},
+ 107:Drivers/FreeModbus/mb.c **** #endif
+ 108:Drivers/FreeModbus/mb.c **** #if MB_FUNC_WRITE_MULTIPLE_HOLDING_ENABLED > 0
+ 109:Drivers/FreeModbus/mb.c ****     {MB_FUNC_WRITE_MULTIPLE_REGISTERS, eMBFuncWriteMultipleHoldingRegister},
+ 110:Drivers/FreeModbus/mb.c **** #endif
+ 111:Drivers/FreeModbus/mb.c **** #if MB_FUNC_WRITE_HOLDING_ENABLED > 0
+ 112:Drivers/FreeModbus/mb.c ****     {MB_FUNC_WRITE_REGISTER, eMBFuncWriteHoldingRegister},
+ 113:Drivers/FreeModbus/mb.c **** #endif
+ 114:Drivers/FreeModbus/mb.c **** #if MB_FUNC_READWRITE_HOLDING_ENABLED > 0
+ 115:Drivers/FreeModbus/mb.c ****     {MB_FUNC_READWRITE_MULTIPLE_REGISTERS, eMBFuncReadWriteMultipleHoldingRegister},
+ 116:Drivers/FreeModbus/mb.c **** #endif
+ 117:Drivers/FreeModbus/mb.c **** #if MB_FUNC_READ_COILS_ENABLED > 0
+ 118:Drivers/FreeModbus/mb.c ****     {MB_FUNC_READ_COILS, eMBFuncReadCoils},
+ 119:Drivers/FreeModbus/mb.c **** #endif
+ 120:Drivers/FreeModbus/mb.c **** #if MB_FUNC_WRITE_COIL_ENABLED > 0
+ 121:Drivers/FreeModbus/mb.c ****     {MB_FUNC_WRITE_SINGLE_COIL, eMBFuncWriteCoil},
+ 122:Drivers/FreeModbus/mb.c **** #endif
+ 123:Drivers/FreeModbus/mb.c **** #if MB_FUNC_WRITE_MULTIPLE_COILS_ENABLED > 0
+ 124:Drivers/FreeModbus/mb.c ****     {MB_FUNC_WRITE_MULTIPLE_COILS, eMBFuncWriteMultipleCoils},
+ 125:Drivers/FreeModbus/mb.c **** #endif
+ 126:Drivers/FreeModbus/mb.c **** #if MB_FUNC_READ_DISCRETE_INPUTS_ENABLED > 0
+ 127:Drivers/FreeModbus/mb.c ****     {MB_FUNC_READ_DISCRETE_INPUTS, eMBFuncReadDiscreteInputs},
+ 128:Drivers/FreeModbus/mb.c **** #endif
+ 129:Drivers/FreeModbus/mb.c **** };
+ 130:Drivers/FreeModbus/mb.c **** 
+ 131:Drivers/FreeModbus/mb.c **** /* ----------------------- Start implementation -----------------------------*/
+ 132:Drivers/FreeModbus/mb.c **** eMBErrorCode
+ 133:Drivers/FreeModbus/mb.c **** eMBInit( eMBMode eMode, UCHAR ucSlaveAddress, void *dHUART, ULONG ulBaudRate, void *dHTIM )
+ 134:Drivers/FreeModbus/mb.c **** {
+  30              		.loc 1 134 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 4, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		.loc 1 134 1 is_stmt 0 view .LVU1
+  35 0000 38B5     		push	{r3, r4, r5, lr}
+  36              	.LCFI0:
+  37              		.cfi_def_cfa_offset 16
+  38              		.cfi_offset 3, -16
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 4
+
+
+  39              		.cfi_offset 4, -12
+  40              		.cfi_offset 5, -8
+  41              		.cfi_offset 14, -4
+  42 0002 0546     		mov	r5, r0
+  43 0004 0846     		mov	r0, r1
+  44              	.LVL1:
+ 135:Drivers/FreeModbus/mb.c ****     eMBErrorCode    eStatus = MB_ENOERR;
+  45              		.loc 1 135 5 is_stmt 1 view .LVU2
+ 136:Drivers/FreeModbus/mb.c **** 
+ 137:Drivers/FreeModbus/mb.c ****     /* check preconditions */
+ 138:Drivers/FreeModbus/mb.c ****     if( ( ucSlaveAddress == MB_ADDRESS_BROADCAST ) ||
+  46              		.loc 1 138 5 view .LVU3
+ 139:Drivers/FreeModbus/mb.c ****         ( ucSlaveAddress < MB_ADDRESS_MIN ) || ( ucSlaveAddress > MB_ADDRESS_MAX ) )
+  47              		.loc 1 139 45 is_stmt 0 view .LVU4
+  48 0006 4C1E     		subs	r4, r1, #1
+  49 0008 E4B2     		uxtb	r4, r4
+ 138:Drivers/FreeModbus/mb.c ****         ( ucSlaveAddress < MB_ADDRESS_MIN ) || ( ucSlaveAddress > MB_ADDRESS_MAX ) )
+  50              		.loc 1 138 7 view .LVU5
+  51 000a F62C     		cmp	r4, #246
+  52 000c 2AD8     		bhi	.L3
+  53 000e 1146     		mov	r1, r2
+  54              	.LVL2:
+ 138:Drivers/FreeModbus/mb.c ****         ( ucSlaveAddress < MB_ADDRESS_MIN ) || ( ucSlaveAddress > MB_ADDRESS_MAX ) )
+  55              		.loc 1 138 7 view .LVU6
+  56 0010 1A46     		mov	r2, r3
+  57              	.LVL3:
+ 140:Drivers/FreeModbus/mb.c ****     {
+ 141:Drivers/FreeModbus/mb.c ****         eStatus = MB_EINVAL;
+ 142:Drivers/FreeModbus/mb.c ****     }
+ 143:Drivers/FreeModbus/mb.c ****     else
+ 144:Drivers/FreeModbus/mb.c ****     {
+ 145:Drivers/FreeModbus/mb.c ****         ucMBAddress = ucSlaveAddress;
+  58              		.loc 1 145 9 is_stmt 1 view .LVU7
+  59              		.loc 1 145 21 is_stmt 0 view .LVU8
+  60 0012 174B     		ldr	r3, .L8
+  61              	.LVL4:
+  62              		.loc 1 145 21 view .LVU9
+  63 0014 1870     		strb	r0, [r3]
+ 146:Drivers/FreeModbus/mb.c **** 
+ 147:Drivers/FreeModbus/mb.c ****         switch ( eMode )
+  64              		.loc 1 147 9 is_stmt 1 view .LVU10
+  65 0016 0DB1     		cbz	r5, .L7
+ 148:Drivers/FreeModbus/mb.c ****         {
+ 149:Drivers/FreeModbus/mb.c **** #if MB_SLAVE_RTU_ENABLED > 0
+ 150:Drivers/FreeModbus/mb.c ****         case MB_RTU:
+ 151:Drivers/FreeModbus/mb.c ****             pvMBFrameStartCur = eMBRTUStart;
+ 152:Drivers/FreeModbus/mb.c ****             pvMBFrameStopCur = eMBRTUStop;
+ 153:Drivers/FreeModbus/mb.c ****             peMBFrameSendCur = eMBRTUSend;
+ 154:Drivers/FreeModbus/mb.c ****             peMBFrameReceiveCur = eMBRTUReceive;
+ 155:Drivers/FreeModbus/mb.c ****             pvMBFrameCloseCur = MB_PORT_HAS_CLOSE ? vMBPortClose : NULL;
+ 156:Drivers/FreeModbus/mb.c ****             pxMBFrameCBByteReceived = xMBRTUReceiveFSM;
+ 157:Drivers/FreeModbus/mb.c ****             pxMBFrameCBTransmitterEmpty = xMBRTUTransmitFSM;
+ 158:Drivers/FreeModbus/mb.c ****             pxMBPortCBTimerExpired = xMBRTUTimerT35Expired;
+ 159:Drivers/FreeModbus/mb.c **** 
+ 160:Drivers/FreeModbus/mb.c ****             eStatus = eMBRTUInit( ucMBAddress, dHUART, ulBaudRate, dHTIM );
+ 161:Drivers/FreeModbus/mb.c ****             break;
+ 162:Drivers/FreeModbus/mb.c **** #endif
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 5
+
+
+ 163:Drivers/FreeModbus/mb.c **** #if MB_SLAVE_ASCII_ENABLED > 0
+ 164:Drivers/FreeModbus/mb.c ****         case MB_ASCII:
+ 165:Drivers/FreeModbus/mb.c ****             pvMBFrameStartCur = eMBASCIIStart;
+ 166:Drivers/FreeModbus/mb.c ****             pvMBFrameStopCur = eMBASCIIStop;
+ 167:Drivers/FreeModbus/mb.c ****             peMBFrameSendCur = eMBASCIISend;
+ 168:Drivers/FreeModbus/mb.c ****             peMBFrameReceiveCur = eMBASCIIReceive;
+ 169:Drivers/FreeModbus/mb.c ****             pvMBFrameCloseCur = MB_PORT_HAS_CLOSE ? vMBPortClose : NULL;
+ 170:Drivers/FreeModbus/mb.c ****             pxMBFrameCBByteReceived = xMBASCIIReceiveFSM;
+ 171:Drivers/FreeModbus/mb.c ****             pxMBFrameCBTransmitterEmpty = xMBASCIITransmitFSM;
+ 172:Drivers/FreeModbus/mb.c ****             pxMBPortCBTimerExpired = xMBASCIITimerT1SExpired;
+ 173:Drivers/FreeModbus/mb.c **** 
+ 174:Drivers/FreeModbus/mb.c ****             eStatus = eMBASCIIInit( ucMBAddress, dHUART, ulBaudRate, dHTIM );
+ 175:Drivers/FreeModbus/mb.c ****             break;
+ 176:Drivers/FreeModbus/mb.c **** #endif
+ 177:Drivers/FreeModbus/mb.c ****         default:
+ 178:Drivers/FreeModbus/mb.c ****             eStatus = MB_EINVAL;
+  66              		.loc 1 178 21 is_stmt 0 view .LVU11
+  67 0018 0224     		movs	r4, #2
+  68 001a 24E0     		b	.L2
+  69              	.L7:
+ 151:Drivers/FreeModbus/mb.c ****             pvMBFrameStopCur = eMBRTUStop;
+  70              		.loc 1 151 13 is_stmt 1 view .LVU12
+ 151:Drivers/FreeModbus/mb.c ****             pvMBFrameStopCur = eMBRTUStop;
+  71              		.loc 1 151 31 is_stmt 0 view .LVU13
+  72 001c 154B     		ldr	r3, .L8+4
+  73 001e 164C     		ldr	r4, .L8+8
+  74 0020 1C60     		str	r4, [r3]
+ 152:Drivers/FreeModbus/mb.c ****             peMBFrameSendCur = eMBRTUSend;
+  75              		.loc 1 152 13 is_stmt 1 view .LVU14
+ 152:Drivers/FreeModbus/mb.c ****             peMBFrameSendCur = eMBRTUSend;
+  76              		.loc 1 152 30 is_stmt 0 view .LVU15
+  77 0022 164B     		ldr	r3, .L8+12
+  78 0024 164C     		ldr	r4, .L8+16
+  79 0026 1C60     		str	r4, [r3]
+ 153:Drivers/FreeModbus/mb.c ****             peMBFrameReceiveCur = eMBRTUReceive;
+  80              		.loc 1 153 13 is_stmt 1 view .LVU16
+ 153:Drivers/FreeModbus/mb.c ****             peMBFrameReceiveCur = eMBRTUReceive;
+  81              		.loc 1 153 30 is_stmt 0 view .LVU17
+  82 0028 164B     		ldr	r3, .L8+20
+  83 002a 174C     		ldr	r4, .L8+24
+  84 002c 1C60     		str	r4, [r3]
+ 154:Drivers/FreeModbus/mb.c ****             pvMBFrameCloseCur = MB_PORT_HAS_CLOSE ? vMBPortClose : NULL;
+  85              		.loc 1 154 13 is_stmt 1 view .LVU18
+ 154:Drivers/FreeModbus/mb.c ****             pvMBFrameCloseCur = MB_PORT_HAS_CLOSE ? vMBPortClose : NULL;
+  86              		.loc 1 154 33 is_stmt 0 view .LVU19
+  87 002e 174B     		ldr	r3, .L8+28
+  88 0030 174C     		ldr	r4, .L8+32
+  89 0032 1C60     		str	r4, [r3]
+ 155:Drivers/FreeModbus/mb.c ****             pxMBFrameCBByteReceived = xMBRTUReceiveFSM;
+  90              		.loc 1 155 13 is_stmt 1 view .LVU20
+ 155:Drivers/FreeModbus/mb.c ****             pxMBFrameCBByteReceived = xMBRTUReceiveFSM;
+  91              		.loc 1 155 31 is_stmt 0 view .LVU21
+  92 0034 174B     		ldr	r3, .L8+36
+  93 0036 0024     		movs	r4, #0
+  94 0038 1C60     		str	r4, [r3]
+ 156:Drivers/FreeModbus/mb.c ****             pxMBFrameCBTransmitterEmpty = xMBRTUTransmitFSM;
+  95              		.loc 1 156 13 is_stmt 1 view .LVU22
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 6
+
+
+ 156:Drivers/FreeModbus/mb.c ****             pxMBFrameCBTransmitterEmpty = xMBRTUTransmitFSM;
+  96              		.loc 1 156 37 is_stmt 0 view .LVU23
+  97 003a 174B     		ldr	r3, .L8+40
+  98 003c 174C     		ldr	r4, .L8+44
+  99 003e 1C60     		str	r4, [r3]
+ 157:Drivers/FreeModbus/mb.c ****             pxMBPortCBTimerExpired = xMBRTUTimerT35Expired;
+ 100              		.loc 1 157 13 is_stmt 1 view .LVU24
+ 157:Drivers/FreeModbus/mb.c ****             pxMBPortCBTimerExpired = xMBRTUTimerT35Expired;
+ 101              		.loc 1 157 41 is_stmt 0 view .LVU25
+ 102 0040 174B     		ldr	r3, .L8+48
+ 103 0042 184C     		ldr	r4, .L8+52
+ 104 0044 1C60     		str	r4, [r3]
+ 158:Drivers/FreeModbus/mb.c **** 
+ 105              		.loc 1 158 13 is_stmt 1 view .LVU26
+ 158:Drivers/FreeModbus/mb.c **** 
+ 106              		.loc 1 158 36 is_stmt 0 view .LVU27
+ 107 0046 184B     		ldr	r3, .L8+56
+ 108 0048 184C     		ldr	r4, .L8+60
+ 109 004a 1C60     		str	r4, [r3]
+ 160:Drivers/FreeModbus/mb.c ****             break;
+ 110              		.loc 1 160 13 is_stmt 1 view .LVU28
+ 160:Drivers/FreeModbus/mb.c ****             break;
+ 111              		.loc 1 160 23 is_stmt 0 view .LVU29
+ 112 004c 049B     		ldr	r3, [sp, #16]
+ 113 004e FFF7FEFF 		bl	eMBRTUInit
+ 114              	.LVL5:
+ 161:Drivers/FreeModbus/mb.c **** #endif
+ 115              		.loc 1 161 13 is_stmt 1 view .LVU30
+ 179:Drivers/FreeModbus/mb.c ****             break;
+ 180:Drivers/FreeModbus/mb.c ****         }
+ 181:Drivers/FreeModbus/mb.c **** 
+ 182:Drivers/FreeModbus/mb.c ****         if( eStatus == MB_ENOERR )
+ 116              		.loc 1 182 9 view .LVU31
+ 117              		.loc 1 182 11 is_stmt 0 view .LVU32
+ 118 0052 0446     		mov	r4, r0
+ 119 0054 38B9     		cbnz	r0, .L2
+ 183:Drivers/FreeModbus/mb.c ****         {
+ 184:Drivers/FreeModbus/mb.c ****             if( !xMBPortEventInit(  ) )
+ 120              		.loc 1 184 13 is_stmt 1 view .LVU33
+ 121              		.loc 1 184 18 is_stmt 0 view .LVU34
+ 122 0056 FFF7FEFF 		bl	xMBPortEventInit
+ 123              	.LVL6:
+ 124              		.loc 1 184 15 view .LVU35
+ 125 005a 30B1     		cbz	r0, .L5
+ 185:Drivers/FreeModbus/mb.c ****             {
+ 186:Drivers/FreeModbus/mb.c ****                 /* port dependent event module initalization failed. */
+ 187:Drivers/FreeModbus/mb.c ****                 eStatus = MB_EPORTERR;
+ 188:Drivers/FreeModbus/mb.c ****             }
+ 189:Drivers/FreeModbus/mb.c ****             else
+ 190:Drivers/FreeModbus/mb.c ****             {
+ 191:Drivers/FreeModbus/mb.c ****                 eMBCurrentMode = eMode;
+ 126              		.loc 1 191 17 is_stmt 1 view .LVU36
+ 192:Drivers/FreeModbus/mb.c ****                 eMBState = STATE_DISABLED;
+ 127              		.loc 1 192 17 view .LVU37
+ 128              		.loc 1 192 26 is_stmt 0 view .LVU38
+ 129 005c 144B     		ldr	r3, .L8+64
+ 130 005e 0122     		movs	r2, #1
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 7
+
+
+ 131 0060 1A70     		strb	r2, [r3]
+ 132 0062 00E0     		b	.L2
+ 133              	.LVL7:
+ 134              	.L3:
+ 141:Drivers/FreeModbus/mb.c ****     }
+ 135              		.loc 1 141 17 view .LVU39
+ 136 0064 0224     		movs	r4, #2
+ 137              	.LVL8:
+ 138              	.L2:
+ 193:Drivers/FreeModbus/mb.c ****             }
+ 194:Drivers/FreeModbus/mb.c ****         }
+ 195:Drivers/FreeModbus/mb.c ****     }
+ 196:Drivers/FreeModbus/mb.c ****     return eStatus;
+ 139              		.loc 1 196 5 is_stmt 1 view .LVU40
+ 197:Drivers/FreeModbus/mb.c **** }
+ 140              		.loc 1 197 1 is_stmt 0 view .LVU41
+ 141 0066 2046     		mov	r0, r4
+ 142 0068 38BD     		pop	{r3, r4, r5, pc}
+ 143              	.LVL9:
+ 144              	.L5:
+ 187:Drivers/FreeModbus/mb.c ****             }
+ 145              		.loc 1 187 25 view .LVU42
+ 146 006a 0324     		movs	r4, #3
+ 147 006c FBE7     		b	.L2
+ 148              	.L9:
+ 149 006e 00BF     		.align	2
+ 150              	.L8:
+ 151 0070 00000000 		.word	.LANCHOR0
+ 152 0074 00000000 		.word	.LANCHOR1
+ 153 0078 00000000 		.word	eMBRTUStart
+ 154 007c 00000000 		.word	.LANCHOR2
+ 155 0080 00000000 		.word	eMBRTUStop
+ 156 0084 00000000 		.word	.LANCHOR3
+ 157 0088 00000000 		.word	eMBRTUSend
+ 158 008c 00000000 		.word	.LANCHOR4
+ 159 0090 00000000 		.word	eMBRTUReceive
+ 160 0094 00000000 		.word	.LANCHOR5
+ 161 0098 00000000 		.word	pxMBFrameCBByteReceived
+ 162 009c 00000000 		.word	xMBRTUReceiveFSM
+ 163 00a0 00000000 		.word	pxMBFrameCBTransmitterEmpty
+ 164 00a4 00000000 		.word	xMBRTUTransmitFSM
+ 165 00a8 00000000 		.word	pxMBPortCBTimerExpired
+ 166 00ac 00000000 		.word	xMBRTUTimerT35Expired
+ 167 00b0 00000000 		.word	.LANCHOR6
+ 168              		.cfi_endproc
+ 169              	.LFE130:
+ 171              		.section	.text.eMBRegisterCB,"ax",%progbits
+ 172              		.align	1
+ 173              		.global	eMBRegisterCB
+ 174              		.syntax unified
+ 175              		.thumb
+ 176              		.thumb_func
+ 177              		.fpu fpv4-sp-d16
+ 179              	eMBRegisterCB:
+ 180              	.LVL10:
+ 181              	.LFB131:
+ 198:Drivers/FreeModbus/mb.c **** 
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 8
+
+
+ 199:Drivers/FreeModbus/mb.c **** #if MB_SLAVE_TCP_ENABLED > 0
+ 200:Drivers/FreeModbus/mb.c **** eMBErrorCode
+ 201:Drivers/FreeModbus/mb.c **** eMBTCPInit( USHORT ucTCPPort )
+ 202:Drivers/FreeModbus/mb.c **** {
+ 203:Drivers/FreeModbus/mb.c ****     eMBErrorCode    eStatus = MB_ENOERR;
+ 204:Drivers/FreeModbus/mb.c **** 
+ 205:Drivers/FreeModbus/mb.c ****     if( ( eStatus = eMBTCPDoInit( ucTCPPort ) ) != MB_ENOERR )
+ 206:Drivers/FreeModbus/mb.c ****     {
+ 207:Drivers/FreeModbus/mb.c ****         eMBState = STATE_DISABLED;
+ 208:Drivers/FreeModbus/mb.c ****     }
+ 209:Drivers/FreeModbus/mb.c ****     else if( !xMBPortEventInit(  ) )
+ 210:Drivers/FreeModbus/mb.c ****     {
+ 211:Drivers/FreeModbus/mb.c ****         /* Port dependent event module initalization failed. */
+ 212:Drivers/FreeModbus/mb.c ****         eStatus = MB_EPORTERR;
+ 213:Drivers/FreeModbus/mb.c ****     }
+ 214:Drivers/FreeModbus/mb.c ****     else
+ 215:Drivers/FreeModbus/mb.c ****     {
+ 216:Drivers/FreeModbus/mb.c ****         pvMBFrameStartCur = eMBTCPStart;
+ 217:Drivers/FreeModbus/mb.c ****         pvMBFrameStopCur = eMBTCPStop;
+ 218:Drivers/FreeModbus/mb.c ****         peMBFrameReceiveCur = eMBTCPReceive;
+ 219:Drivers/FreeModbus/mb.c ****         peMBFrameSendCur = eMBTCPSend;
+ 220:Drivers/FreeModbus/mb.c ****         pvMBFrameCloseCur = MB_PORT_HAS_CLOSE ? vMBTCPPortClose : NULL;
+ 221:Drivers/FreeModbus/mb.c ****         ucMBAddress = MB_TCP_PSEUDO_ADDRESS;
+ 222:Drivers/FreeModbus/mb.c ****         eMBCurrentMode = MB_TCP;
+ 223:Drivers/FreeModbus/mb.c ****         eMBState = STATE_DISABLED;
+ 224:Drivers/FreeModbus/mb.c ****     }
+ 225:Drivers/FreeModbus/mb.c ****     return eStatus;
+ 226:Drivers/FreeModbus/mb.c **** }
+ 227:Drivers/FreeModbus/mb.c **** #endif
+ 228:Drivers/FreeModbus/mb.c **** 
+ 229:Drivers/FreeModbus/mb.c **** eMBErrorCode
+ 230:Drivers/FreeModbus/mb.c **** eMBRegisterCB( UCHAR ucFunctionCode, pxMBFunctionHandler pxHandler )
+ 231:Drivers/FreeModbus/mb.c **** {
+ 182              		.loc 1 231 1 is_stmt 1 view -0
+ 183              		.cfi_startproc
+ 184              		@ args = 0, pretend = 0, frame = 0
+ 185              		@ frame_needed = 0, uses_anonymous_args = 0
+ 186              		.loc 1 231 1 is_stmt 0 view .LVU44
+ 187 0000 38B5     		push	{r3, r4, r5, lr}
+ 188              	.LCFI1:
+ 189              		.cfi_def_cfa_offset 16
+ 190              		.cfi_offset 3, -16
+ 191              		.cfi_offset 4, -12
+ 192              		.cfi_offset 5, -8
+ 193              		.cfi_offset 14, -4
+ 232:Drivers/FreeModbus/mb.c ****     int             i;
+ 194              		.loc 1 232 5 is_stmt 1 view .LVU45
+ 233:Drivers/FreeModbus/mb.c ****     eMBErrorCode    eStatus;
+ 195              		.loc 1 233 5 view .LVU46
+ 234:Drivers/FreeModbus/mb.c **** 
+ 235:Drivers/FreeModbus/mb.c ****     if( ( 0 < ucFunctionCode ) && ( ucFunctionCode <= 127 ) )
+ 196              		.loc 1 235 5 view .LVU47
+ 197              		.loc 1 235 32 is_stmt 0 view .LVU48
+ 198 0002 43B2     		sxtb	r3, r0
+ 199              		.loc 1 235 7 view .LVU49
+ 200 0004 002B     		cmp	r3, #0
+ 201 0006 33DD     		ble	.L21
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 9
+
+
+ 202 0008 0546     		mov	r5, r0
+ 203 000a 0C46     		mov	r4, r1
+ 236:Drivers/FreeModbus/mb.c ****     {
+ 237:Drivers/FreeModbus/mb.c ****         ENTER_CRITICAL_SECTION(  );
+ 204              		.loc 1 237 9 is_stmt 1 view .LVU50
+ 205 000c FFF7FEFF 		bl	__critical_enter
+ 206              	.LVL11:
+ 238:Drivers/FreeModbus/mb.c ****         if( pxHandler != NULL )
+ 207              		.loc 1 238 9 view .LVU51
+ 208              		.loc 1 238 11 is_stmt 0 view .LVU52
+ 209 0010 0CB1     		cbz	r4, .L25
+ 239:Drivers/FreeModbus/mb.c ****         {
+ 240:Drivers/FreeModbus/mb.c ****             for( i = 0; i < MB_FUNC_HANDLERS_MAX; i++ )
+ 210              		.loc 1 240 20 view .LVU53
+ 211 0012 0023     		movs	r3, #0
+ 212 0014 0AE0     		b	.L12
+ 213              	.L25:
+ 241:Drivers/FreeModbus/mb.c ****             {
+ 242:Drivers/FreeModbus/mb.c ****                 if( ( xFuncHandlers[i].pxHandler == NULL ) ||
+ 243:Drivers/FreeModbus/mb.c ****                     ( xFuncHandlers[i].pxHandler == pxHandler ) )
+ 244:Drivers/FreeModbus/mb.c ****                 {
+ 245:Drivers/FreeModbus/mb.c ****                     xFuncHandlers[i].ucFunctionCode = ucFunctionCode;
+ 246:Drivers/FreeModbus/mb.c ****                     xFuncHandlers[i].pxHandler = pxHandler;
+ 247:Drivers/FreeModbus/mb.c ****                     break;
+ 248:Drivers/FreeModbus/mb.c ****                 }
+ 249:Drivers/FreeModbus/mb.c ****             }
+ 250:Drivers/FreeModbus/mb.c ****             eStatus = ( i != MB_FUNC_HANDLERS_MAX ) ? MB_ENOERR : MB_ENORES;
+ 251:Drivers/FreeModbus/mb.c ****         }
+ 252:Drivers/FreeModbus/mb.c ****         else
+ 253:Drivers/FreeModbus/mb.c ****         {
+ 254:Drivers/FreeModbus/mb.c ****             for( i = 0; i < MB_FUNC_HANDLERS_MAX; i++ )
+ 214              		.loc 1 254 20 view .LVU54
+ 215 0016 0023     		movs	r3, #0
+ 216              	.L13:
+ 217              	.LVL12:
+ 218              		.loc 1 254 25 is_stmt 1 discriminator 1 view .LVU55
+ 219              		.loc 1 254 13 is_stmt 0 discriminator 1 view .LVU56
+ 220 0018 0F2B     		cmp	r3, #15
+ 221 001a 25DC     		bgt	.L26
+ 255:Drivers/FreeModbus/mb.c ****             {
+ 256:Drivers/FreeModbus/mb.c ****                 if( xFuncHandlers[i].ucFunctionCode == ucFunctionCode )
+ 222              		.loc 1 256 17 is_stmt 1 view .LVU57
+ 223              		.loc 1 256 37 is_stmt 0 view .LVU58
+ 224 001c 154A     		ldr	r2, .L28
+ 225 001e 12F83320 		ldrb	r2, [r2, r3, lsl #3]	@ zero_extendqisi2
+ 226              		.loc 1 256 19 view .LVU59
+ 227 0022 AA42     		cmp	r2, r5
+ 228 0024 18D0     		beq	.L27
+ 254:Drivers/FreeModbus/mb.c ****             {
+ 229              		.loc 1 254 51 is_stmt 1 discriminator 2 view .LVU60
+ 254:Drivers/FreeModbus/mb.c ****             {
+ 230              		.loc 1 254 52 is_stmt 0 discriminator 2 view .LVU61
+ 231 0026 0133     		adds	r3, r3, #1
+ 232              	.LVL13:
+ 254:Drivers/FreeModbus/mb.c ****             {
+ 233              		.loc 1 254 52 discriminator 2 view .LVU62
+ 234 0028 F6E7     		b	.L13
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 10
+
+
+ 235              	.L15:
+ 240:Drivers/FreeModbus/mb.c ****             {
+ 236              		.loc 1 240 51 is_stmt 1 discriminator 2 view .LVU63
+ 240:Drivers/FreeModbus/mb.c ****             {
+ 237              		.loc 1 240 52 is_stmt 0 discriminator 2 view .LVU64
+ 238 002a 0133     		adds	r3, r3, #1
+ 239              	.LVL14:
+ 240              	.L12:
+ 240:Drivers/FreeModbus/mb.c ****             {
+ 241              		.loc 1 240 25 is_stmt 1 discriminator 1 view .LVU65
+ 240:Drivers/FreeModbus/mb.c ****             {
+ 242              		.loc 1 240 13 is_stmt 0 discriminator 1 view .LVU66
+ 243 002c 0F2B     		cmp	r3, #15
+ 244 002e 0CDC     		bgt	.L16
+ 242:Drivers/FreeModbus/mb.c ****                     ( xFuncHandlers[i].pxHandler == pxHandler ) )
+ 245              		.loc 1 242 17 is_stmt 1 view .LVU67
+ 242:Drivers/FreeModbus/mb.c ****                     ( xFuncHandlers[i].pxHandler == pxHandler ) )
+ 246              		.loc 1 242 39 is_stmt 0 view .LVU68
+ 247 0030 104A     		ldr	r2, .L28
+ 248 0032 02EBC302 		add	r2, r2, r3, lsl #3
+ 249 0036 5268     		ldr	r2, [r2, #4]
+ 242:Drivers/FreeModbus/mb.c ****                     ( xFuncHandlers[i].pxHandler == pxHandler ) )
+ 250              		.loc 1 242 19 view .LVU69
+ 251 0038 0AB1     		cbz	r2, .L14
+ 242:Drivers/FreeModbus/mb.c ****                     ( xFuncHandlers[i].pxHandler == pxHandler ) )
+ 252              		.loc 1 242 60 discriminator 1 view .LVU70
+ 253 003a A242     		cmp	r2, r4
+ 254 003c F5D1     		bne	.L15
+ 255              	.L14:
+ 245:Drivers/FreeModbus/mb.c ****                     xFuncHandlers[i].pxHandler = pxHandler;
+ 256              		.loc 1 245 21 is_stmt 1 view .LVU71
+ 245:Drivers/FreeModbus/mb.c ****                     xFuncHandlers[i].pxHandler = pxHandler;
+ 257              		.loc 1 245 53 is_stmt 0 view .LVU72
+ 258 003e 0D4A     		ldr	r2, .L28
+ 259 0040 02F83350 		strb	r5, [r2, r3, lsl #3]
+ 246:Drivers/FreeModbus/mb.c ****                     break;
+ 260              		.loc 1 246 21 is_stmt 1 view .LVU73
+ 246:Drivers/FreeModbus/mb.c ****                     break;
+ 261              		.loc 1 246 48 is_stmt 0 view .LVU74
+ 262 0044 02EBC302 		add	r2, r2, r3, lsl #3
+ 263 0048 5460     		str	r4, [r2, #4]
+ 247:Drivers/FreeModbus/mb.c ****                 }
+ 264              		.loc 1 247 21 is_stmt 1 view .LVU75
+ 265              	.L16:
+ 250:Drivers/FreeModbus/mb.c ****         }
+ 266              		.loc 1 250 13 view .LVU76
+ 250:Drivers/FreeModbus/mb.c ****         }
+ 267              		.loc 1 250 65 is_stmt 0 view .LVU77
+ 268 004a 102B     		cmp	r3, #16
+ 269 004c 0ED0     		beq	.L23
+ 270 004e 0024     		movs	r4, #0
+ 271              	.LVL15:
+ 272              	.L18:
+ 257:Drivers/FreeModbus/mb.c ****                 {
+ 258:Drivers/FreeModbus/mb.c ****                     xFuncHandlers[i].ucFunctionCode = 0;
+ 259:Drivers/FreeModbus/mb.c ****                     xFuncHandlers[i].pxHandler = NULL;
+ 260:Drivers/FreeModbus/mb.c ****                     break;
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 11
+
+
+ 261:Drivers/FreeModbus/mb.c ****                 }
+ 262:Drivers/FreeModbus/mb.c ****             }
+ 263:Drivers/FreeModbus/mb.c ****             /* Remove can't fail. */
+ 264:Drivers/FreeModbus/mb.c ****             eStatus = MB_ENOERR;
+ 265:Drivers/FreeModbus/mb.c ****         }
+ 266:Drivers/FreeModbus/mb.c ****         EXIT_CRITICAL_SECTION(  );
+ 273              		.loc 1 266 9 is_stmt 1 view .LVU78
+ 274 0050 FFF7FEFF 		bl	__critical_exit
+ 275              	.LVL16:
+ 276              	.L11:
+ 267:Drivers/FreeModbus/mb.c ****     }
+ 268:Drivers/FreeModbus/mb.c ****     else
+ 269:Drivers/FreeModbus/mb.c ****     {
+ 270:Drivers/FreeModbus/mb.c ****         eStatus = MB_EINVAL;
+ 271:Drivers/FreeModbus/mb.c ****     }
+ 272:Drivers/FreeModbus/mb.c ****     return eStatus;
+ 277              		.loc 1 272 5 view .LVU79
+ 273:Drivers/FreeModbus/mb.c **** }
+ 278              		.loc 1 273 1 is_stmt 0 view .LVU80
+ 279 0054 2046     		mov	r0, r4
+ 280 0056 38BD     		pop	{r3, r4, r5, pc}
+ 281              	.LVL17:
+ 282              	.L27:
+ 258:Drivers/FreeModbus/mb.c ****                     xFuncHandlers[i].pxHandler = NULL;
+ 283              		.loc 1 258 21 is_stmt 1 view .LVU81
+ 258:Drivers/FreeModbus/mb.c ****                     xFuncHandlers[i].pxHandler = NULL;
+ 284              		.loc 1 258 53 is_stmt 0 view .LVU82
+ 285 0058 064A     		ldr	r2, .L28
+ 286 005a 0024     		movs	r4, #0
+ 287              	.LVL18:
+ 258:Drivers/FreeModbus/mb.c ****                     xFuncHandlers[i].pxHandler = NULL;
+ 288              		.loc 1 258 53 view .LVU83
+ 289 005c 02F83340 		strb	r4, [r2, r3, lsl #3]
+ 259:Drivers/FreeModbus/mb.c ****                     break;
+ 290              		.loc 1 259 21 is_stmt 1 view .LVU84
+ 259:Drivers/FreeModbus/mb.c ****                     break;
+ 291              		.loc 1 259 48 is_stmt 0 view .LVU85
+ 292 0060 02EBC303 		add	r3, r2, r3, lsl #3
+ 293              	.LVL19:
+ 259:Drivers/FreeModbus/mb.c ****                     break;
+ 294              		.loc 1 259 48 view .LVU86
+ 295 0064 5C60     		str	r4, [r3, #4]
+ 260:Drivers/FreeModbus/mb.c ****                 }
+ 296              		.loc 1 260 21 is_stmt 1 view .LVU87
+ 297 0066 F3E7     		b	.L18
+ 298              	.LVL20:
+ 299              	.L26:
+ 264:Drivers/FreeModbus/mb.c ****         }
+ 300              		.loc 1 264 21 is_stmt 0 view .LVU88
+ 301 0068 0024     		movs	r4, #0
+ 302              	.LVL21:
+ 264:Drivers/FreeModbus/mb.c ****         }
+ 303              		.loc 1 264 21 view .LVU89
+ 304 006a F1E7     		b	.L18
+ 305              	.LVL22:
+ 306              	.L23:
+ 250:Drivers/FreeModbus/mb.c ****         }
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 12
+
+
+ 307              		.loc 1 250 65 view .LVU90
+ 308 006c 0424     		movs	r4, #4
+ 309              	.LVL23:
+ 250:Drivers/FreeModbus/mb.c ****         }
+ 310              		.loc 1 250 65 view .LVU91
+ 311 006e EFE7     		b	.L18
+ 312              	.LVL24:
+ 313              	.L21:
+ 270:Drivers/FreeModbus/mb.c ****     }
+ 314              		.loc 1 270 17 view .LVU92
+ 315 0070 0224     		movs	r4, #2
+ 316 0072 EFE7     		b	.L11
+ 317              	.L29:
+ 318              		.align	2
+ 319              	.L28:
+ 320 0074 00000000 		.word	.LANCHOR7
+ 321              		.cfi_endproc
+ 322              	.LFE131:
+ 324              		.section	.text.eMBClose,"ax",%progbits
+ 325              		.align	1
+ 326              		.global	eMBClose
+ 327              		.syntax unified
+ 328              		.thumb
+ 329              		.thumb_func
+ 330              		.fpu fpv4-sp-d16
+ 332              	eMBClose:
+ 333              	.LFB132:
+ 274:Drivers/FreeModbus/mb.c **** 
+ 275:Drivers/FreeModbus/mb.c **** 
+ 276:Drivers/FreeModbus/mb.c **** eMBErrorCode
+ 277:Drivers/FreeModbus/mb.c **** eMBClose( void )
+ 278:Drivers/FreeModbus/mb.c **** {
+ 334              		.loc 1 278 1 is_stmt 1 view -0
+ 335              		.cfi_startproc
+ 336              		@ args = 0, pretend = 0, frame = 0
+ 337              		@ frame_needed = 0, uses_anonymous_args = 0
+ 338 0000 08B5     		push	{r3, lr}
+ 339              	.LCFI2:
+ 340              		.cfi_def_cfa_offset 8
+ 341              		.cfi_offset 3, -8
+ 342              		.cfi_offset 14, -4
+ 279:Drivers/FreeModbus/mb.c ****     eMBErrorCode    eStatus = MB_ENOERR;
+ 343              		.loc 1 279 5 view .LVU94
+ 344              	.LVL25:
+ 280:Drivers/FreeModbus/mb.c **** 
+ 281:Drivers/FreeModbus/mb.c ****     if( eMBState == STATE_DISABLED )
+ 345              		.loc 1 281 5 view .LVU95
+ 346              		.loc 1 281 18 is_stmt 0 view .LVU96
+ 347 0002 074B     		ldr	r3, .L36
+ 348 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 349              		.loc 1 281 7 view .LVU97
+ 350 0006 012B     		cmp	r3, #1
+ 351 0008 01D0     		beq	.L35
+ 282:Drivers/FreeModbus/mb.c ****     {
+ 283:Drivers/FreeModbus/mb.c ****         if( pvMBFrameCloseCur != NULL )
+ 284:Drivers/FreeModbus/mb.c ****         {
+ 285:Drivers/FreeModbus/mb.c ****             pvMBFrameCloseCur(  );
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 13
+
+
+ 286:Drivers/FreeModbus/mb.c ****         }
+ 287:Drivers/FreeModbus/mb.c ****     }
+ 288:Drivers/FreeModbus/mb.c ****     else
+ 289:Drivers/FreeModbus/mb.c ****     {
+ 290:Drivers/FreeModbus/mb.c ****         eStatus = MB_EILLSTATE;
+ 352              		.loc 1 290 17 view .LVU98
+ 353 000a 0620     		movs	r0, #6
+ 354              	.L31:
+ 355              	.LVL26:
+ 291:Drivers/FreeModbus/mb.c ****     }
+ 292:Drivers/FreeModbus/mb.c ****     return eStatus;
+ 356              		.loc 1 292 5 is_stmt 1 view .LVU99
+ 293:Drivers/FreeModbus/mb.c **** }
+ 357              		.loc 1 293 1 is_stmt 0 view .LVU100
+ 358 000c 08BD     		pop	{r3, pc}
+ 359              	.LVL27:
+ 360              	.L35:
+ 283:Drivers/FreeModbus/mb.c ****         {
+ 361              		.loc 1 283 9 is_stmt 1 view .LVU101
+ 283:Drivers/FreeModbus/mb.c ****         {
+ 362              		.loc 1 283 31 is_stmt 0 view .LVU102
+ 363 000e 054B     		ldr	r3, .L36+4
+ 364 0010 1B68     		ldr	r3, [r3]
+ 283:Drivers/FreeModbus/mb.c ****         {
+ 365              		.loc 1 283 11 view .LVU103
+ 366 0012 13B1     		cbz	r3, .L33
+ 285:Drivers/FreeModbus/mb.c ****         }
+ 367              		.loc 1 285 13 is_stmt 1 view .LVU104
+ 368 0014 9847     		blx	r3
+ 369              	.LVL28:
+ 279:Drivers/FreeModbus/mb.c **** 
+ 370              		.loc 1 279 21 is_stmt 0 view .LVU105
+ 371 0016 0020     		movs	r0, #0
+ 372 0018 F8E7     		b	.L31
+ 373              	.L33:
+ 374 001a 0020     		movs	r0, #0
+ 375 001c F6E7     		b	.L31
+ 376              	.L37:
+ 377 001e 00BF     		.align	2
+ 378              	.L36:
+ 379 0020 00000000 		.word	.LANCHOR6
+ 380 0024 00000000 		.word	.LANCHOR5
+ 381              		.cfi_endproc
+ 382              	.LFE132:
+ 384              		.section	.text.eMBEnable,"ax",%progbits
+ 385              		.align	1
+ 386              		.global	eMBEnable
+ 387              		.syntax unified
+ 388              		.thumb
+ 389              		.thumb_func
+ 390              		.fpu fpv4-sp-d16
+ 392              	eMBEnable:
+ 393              	.LFB133:
+ 294:Drivers/FreeModbus/mb.c **** 
+ 295:Drivers/FreeModbus/mb.c **** 
+ 296:Drivers/FreeModbus/mb.c **** eMBErrorCode
+ 297:Drivers/FreeModbus/mb.c **** eMBEnable( void )
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 14
+
+
+ 298:Drivers/FreeModbus/mb.c **** {
+ 394              		.loc 1 298 1 is_stmt 1 view -0
+ 395              		.cfi_startproc
+ 396              		@ args = 0, pretend = 0, frame = 0
+ 397              		@ frame_needed = 0, uses_anonymous_args = 0
+ 398 0000 08B5     		push	{r3, lr}
+ 399              	.LCFI3:
+ 400              		.cfi_def_cfa_offset 8
+ 401              		.cfi_offset 3, -8
+ 402              		.cfi_offset 14, -4
+ 299:Drivers/FreeModbus/mb.c ****     eMBErrorCode    eStatus = MB_ENOERR;
+ 403              		.loc 1 299 5 view .LVU107
+ 404              	.LVL29:
+ 300:Drivers/FreeModbus/mb.c **** 
+ 301:Drivers/FreeModbus/mb.c ****     if( eMBState == STATE_DISABLED )
+ 405              		.loc 1 301 5 view .LVU108
+ 406              		.loc 1 301 18 is_stmt 0 view .LVU109
+ 407 0002 064B     		ldr	r3, .L43
+ 408 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 409              		.loc 1 301 7 view .LVU110
+ 410 0006 012B     		cmp	r3, #1
+ 411 0008 01D0     		beq	.L42
+ 302:Drivers/FreeModbus/mb.c ****     {
+ 303:Drivers/FreeModbus/mb.c ****         /* Activate the protocol stack. */
+ 304:Drivers/FreeModbus/mb.c ****         pvMBFrameStartCur(  );
+ 305:Drivers/FreeModbus/mb.c ****         eMBState = STATE_ENABLED;
+ 306:Drivers/FreeModbus/mb.c ****     }
+ 307:Drivers/FreeModbus/mb.c ****     else
+ 308:Drivers/FreeModbus/mb.c ****     {
+ 309:Drivers/FreeModbus/mb.c ****         eStatus = MB_EILLSTATE;
+ 412              		.loc 1 309 17 view .LVU111
+ 413 000a 0620     		movs	r0, #6
+ 414              	.L39:
+ 415              	.LVL30:
+ 310:Drivers/FreeModbus/mb.c ****     }
+ 311:Drivers/FreeModbus/mb.c ****     return eStatus;
+ 416              		.loc 1 311 5 is_stmt 1 view .LVU112
+ 312:Drivers/FreeModbus/mb.c **** }
+ 417              		.loc 1 312 1 is_stmt 0 view .LVU113
+ 418 000c 08BD     		pop	{r3, pc}
+ 419              	.LVL31:
+ 420              	.L42:
+ 304:Drivers/FreeModbus/mb.c ****         eMBState = STATE_ENABLED;
+ 421              		.loc 1 304 9 is_stmt 1 view .LVU114
+ 422 000e 044B     		ldr	r3, .L43+4
+ 423 0010 1B68     		ldr	r3, [r3]
+ 424 0012 9847     		blx	r3
+ 425              	.LVL32:
+ 305:Drivers/FreeModbus/mb.c ****     }
+ 426              		.loc 1 305 9 view .LVU115
+ 305:Drivers/FreeModbus/mb.c ****     }
+ 427              		.loc 1 305 18 is_stmt 0 view .LVU116
+ 428 0014 0020     		movs	r0, #0
+ 429 0016 014B     		ldr	r3, .L43
+ 430 0018 1870     		strb	r0, [r3]
+ 431 001a F7E7     		b	.L39
+ 432              	.L44:
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 15
+
+
+ 433              		.align	2
+ 434              	.L43:
+ 435 001c 00000000 		.word	.LANCHOR6
+ 436 0020 00000000 		.word	.LANCHOR1
+ 437              		.cfi_endproc
+ 438              	.LFE133:
+ 440              		.section	.text.eMBDisable,"ax",%progbits
+ 441              		.align	1
+ 442              		.global	eMBDisable
+ 443              		.syntax unified
+ 444              		.thumb
+ 445              		.thumb_func
+ 446              		.fpu fpv4-sp-d16
+ 448              	eMBDisable:
+ 449              	.LFB134:
+ 313:Drivers/FreeModbus/mb.c **** 
+ 314:Drivers/FreeModbus/mb.c **** eMBErrorCode
+ 315:Drivers/FreeModbus/mb.c **** eMBDisable( void )
+ 316:Drivers/FreeModbus/mb.c **** {
+ 450              		.loc 1 316 1 is_stmt 1 view -0
+ 451              		.cfi_startproc
+ 452              		@ args = 0, pretend = 0, frame = 0
+ 453              		@ frame_needed = 0, uses_anonymous_args = 0
+ 454 0000 10B5     		push	{r4, lr}
+ 455              	.LCFI4:
+ 456              		.cfi_def_cfa_offset 8
+ 457              		.cfi_offset 4, -8
+ 458              		.cfi_offset 14, -4
+ 317:Drivers/FreeModbus/mb.c ****     eMBErrorCode    eStatus;
+ 459              		.loc 1 317 5 view .LVU118
+ 318:Drivers/FreeModbus/mb.c **** 
+ 319:Drivers/FreeModbus/mb.c ****     if( eMBState == STATE_ENABLED )
+ 460              		.loc 1 319 5 view .LVU119
+ 461              		.loc 1 319 18 is_stmt 0 view .LVU120
+ 462 0002 084B     		ldr	r3, .L51
+ 463 0004 1C78     		ldrb	r4, [r3]	@ zero_extendqisi2
+ 464              		.loc 1 319 7 view .LVU121
+ 465 0006 3CB9     		cbnz	r4, .L46
+ 320:Drivers/FreeModbus/mb.c ****     {
+ 321:Drivers/FreeModbus/mb.c ****         pvMBFrameStopCur(  );
+ 466              		.loc 1 321 9 is_stmt 1 view .LVU122
+ 467 0008 074B     		ldr	r3, .L51+4
+ 468 000a 1B68     		ldr	r3, [r3]
+ 469 000c 9847     		blx	r3
+ 470              	.LVL33:
+ 322:Drivers/FreeModbus/mb.c ****         eMBState = STATE_DISABLED;
+ 471              		.loc 1 322 9 view .LVU123
+ 472              		.loc 1 322 18 is_stmt 0 view .LVU124
+ 473 000e 054B     		ldr	r3, .L51
+ 474 0010 0122     		movs	r2, #1
+ 475 0012 1A70     		strb	r2, [r3]
+ 323:Drivers/FreeModbus/mb.c ****         eStatus = MB_ENOERR;
+ 476              		.loc 1 323 9 is_stmt 1 view .LVU125
+ 477              	.LVL34:
+ 478              	.L47:
+ 324:Drivers/FreeModbus/mb.c ****     }
+ 325:Drivers/FreeModbus/mb.c ****     else if( eMBState == STATE_DISABLED )
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 16
+
+
+ 326:Drivers/FreeModbus/mb.c ****     {
+ 327:Drivers/FreeModbus/mb.c ****         eStatus = MB_ENOERR;
+ 328:Drivers/FreeModbus/mb.c ****     }
+ 329:Drivers/FreeModbus/mb.c ****     else
+ 330:Drivers/FreeModbus/mb.c ****     {
+ 331:Drivers/FreeModbus/mb.c ****         eStatus = MB_EILLSTATE;
+ 332:Drivers/FreeModbus/mb.c ****     }
+ 333:Drivers/FreeModbus/mb.c ****     return eStatus;
+ 479              		.loc 1 333 5 view .LVU126
+ 334:Drivers/FreeModbus/mb.c **** }
+ 480              		.loc 1 334 1 is_stmt 0 view .LVU127
+ 481 0014 2046     		mov	r0, r4
+ 482 0016 10BD     		pop	{r4, pc}
+ 483              	.LVL35:
+ 484              	.L46:
+ 325:Drivers/FreeModbus/mb.c ****     {
+ 485              		.loc 1 325 10 is_stmt 1 view .LVU128
+ 325:Drivers/FreeModbus/mb.c ****     {
+ 486              		.loc 1 325 12 is_stmt 0 view .LVU129
+ 487 0018 012C     		cmp	r4, #1
+ 488 001a 01D0     		beq	.L50
+ 331:Drivers/FreeModbus/mb.c ****     }
+ 489              		.loc 1 331 17 view .LVU130
+ 490 001c 0624     		movs	r4, #6
+ 491 001e F9E7     		b	.L47
+ 492              	.L50:
+ 327:Drivers/FreeModbus/mb.c ****     }
+ 493              		.loc 1 327 17 view .LVU131
+ 494 0020 0024     		movs	r4, #0
+ 495 0022 F7E7     		b	.L47
+ 496              	.L52:
+ 497              		.align	2
+ 498              	.L51:
+ 499 0024 00000000 		.word	.LANCHOR6
+ 500 0028 00000000 		.word	.LANCHOR2
+ 501              		.cfi_endproc
+ 502              	.LFE134:
+ 504              		.section	.text.eMBPoll,"ax",%progbits
+ 505              		.align	1
+ 506              		.global	eMBPoll
+ 507              		.syntax unified
+ 508              		.thumb
+ 509              		.thumb_func
+ 510              		.fpu fpv4-sp-d16
+ 512              	eMBPoll:
+ 513              	.LFB135:
+ 335:Drivers/FreeModbus/mb.c **** 
+ 336:Drivers/FreeModbus/mb.c **** eMBErrorCode eMBPoll( void )
+ 337:Drivers/FreeModbus/mb.c **** {
+ 514              		.loc 1 337 1 is_stmt 1 view -0
+ 515              		.cfi_startproc
+ 516              		@ args = 0, pretend = 0, frame = 8
+ 517              		@ frame_needed = 0, uses_anonymous_args = 0
+ 518 0000 70B5     		push	{r4, r5, r6, lr}
+ 519              	.LCFI5:
+ 520              		.cfi_def_cfa_offset 16
+ 521              		.cfi_offset 4, -16
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 17
+
+
+ 522              		.cfi_offset 5, -12
+ 523              		.cfi_offset 6, -8
+ 524              		.cfi_offset 14, -4
+ 525 0002 82B0     		sub	sp, sp, #8
+ 526              	.LCFI6:
+ 527              		.cfi_def_cfa_offset 24
+ 338:Drivers/FreeModbus/mb.c ****     static UCHAR   *ucMBFrame;
+ 528              		.loc 1 338 5 view .LVU133
+ 339:Drivers/FreeModbus/mb.c ****     static UCHAR    ucRcvAddress;
+ 529              		.loc 1 339 5 view .LVU134
+ 340:Drivers/FreeModbus/mb.c ****     static UCHAR    ucFunctionCode;
+ 530              		.loc 1 340 5 view .LVU135
+ 341:Drivers/FreeModbus/mb.c ****     static USHORT   usLength;
+ 531              		.loc 1 341 5 view .LVU136
+ 342:Drivers/FreeModbus/mb.c ****     static eMBException eException;
+ 532              		.loc 1 342 5 view .LVU137
+ 343:Drivers/FreeModbus/mb.c **** 
+ 344:Drivers/FreeModbus/mb.c ****     int             i;
+ 533              		.loc 1 344 5 view .LVU138
+ 345:Drivers/FreeModbus/mb.c ****     eMBErrorCode    eStatus = MB_ENOERR;
+ 534              		.loc 1 345 5 view .LVU139
+ 535              	.LVL36:
+ 346:Drivers/FreeModbus/mb.c ****     eMBEventType    eEvent;
+ 536              		.loc 1 346 5 view .LVU140
+ 347:Drivers/FreeModbus/mb.c **** 
+ 348:Drivers/FreeModbus/mb.c ****     /* Check if the protocol stack is ready. */
+ 349:Drivers/FreeModbus/mb.c ****     if( eMBState != STATE_ENABLED )
+ 537              		.loc 1 349 5 view .LVU141
+ 538              		.loc 1 349 18 is_stmt 0 view .LVU142
+ 539 0004 344B     		ldr	r3, .L68
+ 540 0006 1C78     		ldrb	r4, [r3]	@ zero_extendqisi2
+ 541              		.loc 1 349 7 view .LVU143
+ 542 0008 002C     		cmp	r4, #0
+ 543 000a 5ED1     		bne	.L63
+ 350:Drivers/FreeModbus/mb.c ****     {
+ 351:Drivers/FreeModbus/mb.c ****         return MB_EILLSTATE;
+ 352:Drivers/FreeModbus/mb.c ****     }
+ 353:Drivers/FreeModbus/mb.c **** 
+ 354:Drivers/FreeModbus/mb.c ****     /* Check if there is a event available. If not return control to caller.
+ 355:Drivers/FreeModbus/mb.c ****      * Otherwise we will handle the event. */
+ 356:Drivers/FreeModbus/mb.c ****     if( xMBPortEventGet( &eEvent ) == TRUE )
+ 544              		.loc 1 356 5 is_stmt 1 view .LVU144
+ 545              		.loc 1 356 9 is_stmt 0 view .LVU145
+ 546 000c 0DF10700 		add	r0, sp, #7
+ 547 0010 FFF7FEFF 		bl	xMBPortEventGet
+ 548              	.LVL37:
+ 549              		.loc 1 356 7 view .LVU146
+ 550 0014 0128     		cmp	r0, #1
+ 551 0016 02D0     		beq	.L67
+ 552              	.LVL38:
+ 553              	.L54:
+ 357:Drivers/FreeModbus/mb.c ****     {
+ 358:Drivers/FreeModbus/mb.c ****         switch ( eEvent )
+ 359:Drivers/FreeModbus/mb.c ****         {
+ 360:Drivers/FreeModbus/mb.c ****         case EV_READY:
+ 361:Drivers/FreeModbus/mb.c ****             break;
+ 362:Drivers/FreeModbus/mb.c **** 
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 18
+
+
+ 363:Drivers/FreeModbus/mb.c ****         case EV_FRAME_RECEIVED:
+ 364:Drivers/FreeModbus/mb.c ****             eStatus = peMBFrameReceiveCur( &ucRcvAddress, &ucMBFrame, &usLength );
+ 365:Drivers/FreeModbus/mb.c ****             if( eStatus == MB_ENOERR )
+ 366:Drivers/FreeModbus/mb.c ****             {
+ 367:Drivers/FreeModbus/mb.c ****                 /* Check if the frame is for us. If not ignore the frame. */
+ 368:Drivers/FreeModbus/mb.c ****                 if( ( ucRcvAddress == ucMBAddress ) || ( ucRcvAddress == MB_ADDRESS_BROADCAST ) )
+ 369:Drivers/FreeModbus/mb.c ****                 {
+ 370:Drivers/FreeModbus/mb.c ****                     ( void )xMBPortEventPost( EV_EXECUTE );
+ 371:Drivers/FreeModbus/mb.c ****                 }
+ 372:Drivers/FreeModbus/mb.c ****             }
+ 373:Drivers/FreeModbus/mb.c ****             break;
+ 374:Drivers/FreeModbus/mb.c **** 
+ 375:Drivers/FreeModbus/mb.c ****         case EV_EXECUTE:
+ 376:Drivers/FreeModbus/mb.c ****             ucFunctionCode = ucMBFrame[MB_PDU_FUNC_OFF];
+ 377:Drivers/FreeModbus/mb.c ****             eException = MB_EX_ILLEGAL_FUNCTION;
+ 378:Drivers/FreeModbus/mb.c ****             for( i = 0; i < MB_FUNC_HANDLERS_MAX; i++ )
+ 379:Drivers/FreeModbus/mb.c ****             {
+ 380:Drivers/FreeModbus/mb.c ****                 /* No more function handlers registered. Abort. */
+ 381:Drivers/FreeModbus/mb.c ****                 if( xFuncHandlers[i].ucFunctionCode == 0 )
+ 382:Drivers/FreeModbus/mb.c ****                 {
+ 383:Drivers/FreeModbus/mb.c ****                     break;
+ 384:Drivers/FreeModbus/mb.c ****                 }
+ 385:Drivers/FreeModbus/mb.c ****                 else if( xFuncHandlers[i].ucFunctionCode == ucFunctionCode )
+ 386:Drivers/FreeModbus/mb.c ****                 {
+ 387:Drivers/FreeModbus/mb.c ****                     eException = xFuncHandlers[i].pxHandler( ucMBFrame, &usLength );
+ 388:Drivers/FreeModbus/mb.c ****                     break;
+ 389:Drivers/FreeModbus/mb.c ****                 }
+ 390:Drivers/FreeModbus/mb.c ****             }
+ 391:Drivers/FreeModbus/mb.c **** 
+ 392:Drivers/FreeModbus/mb.c ****             /* If the request was not sent to the broadcast address we
+ 393:Drivers/FreeModbus/mb.c ****              * return a reply. */
+ 394:Drivers/FreeModbus/mb.c ****             if( ucRcvAddress != MB_ADDRESS_BROADCAST )
+ 395:Drivers/FreeModbus/mb.c ****             {
+ 396:Drivers/FreeModbus/mb.c ****                 if( eException != MB_EX_NONE )
+ 397:Drivers/FreeModbus/mb.c ****                 {
+ 398:Drivers/FreeModbus/mb.c ****                     /* An exception occured. Build an error frame. */
+ 399:Drivers/FreeModbus/mb.c ****                     usLength = 0;
+ 400:Drivers/FreeModbus/mb.c ****                     ucMBFrame[usLength++] = ( UCHAR )( ucFunctionCode | MB_FUNC_ERROR );
+ 401:Drivers/FreeModbus/mb.c ****                     ucMBFrame[usLength++] = eException;
+ 402:Drivers/FreeModbus/mb.c ****                 }
+ 403:Drivers/FreeModbus/mb.c ****                 eStatus = peMBFrameSendCur( ucMBAddress, ucMBFrame, usLength );
+ 404:Drivers/FreeModbus/mb.c ****             }
+ 405:Drivers/FreeModbus/mb.c ****             break;
+ 406:Drivers/FreeModbus/mb.c **** 
+ 407:Drivers/FreeModbus/mb.c ****         case EV_FRAME_SENT:
+ 408:Drivers/FreeModbus/mb.c ****             break;
+ 409:Drivers/FreeModbus/mb.c ****         }
+ 410:Drivers/FreeModbus/mb.c ****     }
+ 411:Drivers/FreeModbus/mb.c ****     return MB_ENOERR;
+ 412:Drivers/FreeModbus/mb.c **** }
+ 554              		.loc 1 412 1 view .LVU147
+ 555 0018 2046     		mov	r0, r4
+ 556 001a 02B0     		add	sp, sp, #8
+ 557              	.LCFI7:
+ 558              		.cfi_remember_state
+ 559              		.cfi_def_cfa_offset 16
+ 560              		@ sp needed
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 19
+
+
+ 561 001c 70BD     		pop	{r4, r5, r6, pc}
+ 562              	.LVL39:
+ 563              	.L67:
+ 564              	.LCFI8:
+ 565              		.cfi_restore_state
+ 358:Drivers/FreeModbus/mb.c ****         {
+ 566              		.loc 1 358 9 is_stmt 1 view .LVU148
+ 567 001e 9DF80730 		ldrb	r3, [sp, #7]	@ zero_extendqisi2
+ 568 0022 022B     		cmp	r3, #2
+ 569 0024 0BD0     		beq	.L55
+ 570 0026 042B     		cmp	r3, #4
+ 571 0028 F6D1     		bne	.L54
+ 376:Drivers/FreeModbus/mb.c ****             eException = MB_EX_ILLEGAL_FUNCTION;
+ 572              		.loc 1 376 13 view .LVU149
+ 376:Drivers/FreeModbus/mb.c ****             eException = MB_EX_ILLEGAL_FUNCTION;
+ 573              		.loc 1 376 39 is_stmt 0 view .LVU150
+ 574 002a 2C4B     		ldr	r3, .L68+4
+ 575 002c 1868     		ldr	r0, [r3]
+ 576 002e 0178     		ldrb	r1, [r0]	@ zero_extendqisi2
+ 376:Drivers/FreeModbus/mb.c ****             eException = MB_EX_ILLEGAL_FUNCTION;
+ 577              		.loc 1 376 28 view .LVU151
+ 578 0030 2B4B     		ldr	r3, .L68+8
+ 579 0032 1970     		strb	r1, [r3]
+ 377:Drivers/FreeModbus/mb.c ****             for( i = 0; i < MB_FUNC_HANDLERS_MAX; i++ )
+ 580              		.loc 1 377 13 is_stmt 1 view .LVU152
+ 377:Drivers/FreeModbus/mb.c ****             for( i = 0; i < MB_FUNC_HANDLERS_MAX; i++ )
+ 581              		.loc 1 377 24 is_stmt 0 view .LVU153
+ 582 0034 2B4B     		ldr	r3, .L68+12
+ 583 0036 0122     		movs	r2, #1
+ 584 0038 1A70     		strb	r2, [r3]
+ 378:Drivers/FreeModbus/mb.c ****             {
+ 585              		.loc 1 378 13 is_stmt 1 view .LVU154
+ 586              	.LVL40:
+ 378:Drivers/FreeModbus/mb.c ****             {
+ 587              		.loc 1 378 20 is_stmt 0 view .LVU155
+ 588 003a 0023     		movs	r3, #0
+ 378:Drivers/FreeModbus/mb.c ****             {
+ 589              		.loc 1 378 13 view .LVU156
+ 590 003c 16E0     		b	.L58
+ 591              	.LVL41:
+ 592              	.L55:
+ 364:Drivers/FreeModbus/mb.c ****             if( eStatus == MB_ENOERR )
+ 593              		.loc 1 364 13 is_stmt 1 view .LVU157
+ 364:Drivers/FreeModbus/mb.c ****             if( eStatus == MB_ENOERR )
+ 594              		.loc 1 364 23 is_stmt 0 view .LVU158
+ 595 003e 2A4B     		ldr	r3, .L68+16
+ 596 0040 1B68     		ldr	r3, [r3]
+ 597 0042 2A4A     		ldr	r2, .L68+20
+ 598 0044 2549     		ldr	r1, .L68+4
+ 599 0046 2A48     		ldr	r0, .L68+24
+ 600 0048 9847     		blx	r3
+ 601              	.LVL42:
+ 365:Drivers/FreeModbus/mb.c ****             {
+ 602              		.loc 1 365 13 is_stmt 1 view .LVU159
+ 365:Drivers/FreeModbus/mb.c ****             {
+ 603              		.loc 1 365 15 is_stmt 0 view .LVU160
+ 604 004a 0546     		mov	r5, r0
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 20
+
+
+ 605 004c 0028     		cmp	r0, #0
+ 606 004e E3D1     		bne	.L54
+ 368:Drivers/FreeModbus/mb.c ****                 {
+ 607              		.loc 1 368 17 is_stmt 1 view .LVU161
+ 368:Drivers/FreeModbus/mb.c ****                 {
+ 608              		.loc 1 368 36 is_stmt 0 view .LVU162
+ 609 0050 274B     		ldr	r3, .L68+24
+ 610 0052 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 611 0054 274A     		ldr	r2, .L68+28
+ 612 0056 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 368:Drivers/FreeModbus/mb.c ****                 {
+ 613              		.loc 1 368 19 view .LVU163
+ 614 0058 9342     		cmp	r3, r2
+ 615 005a 01D0     		beq	.L57
+ 368:Drivers/FreeModbus/mb.c ****                 {
+ 616              		.loc 1 368 53 discriminator 1 view .LVU164
+ 617 005c 002B     		cmp	r3, #0
+ 618 005e 36D1     		bne	.L64
+ 619              	.L57:
+ 370:Drivers/FreeModbus/mb.c ****                 }
+ 620              		.loc 1 370 21 is_stmt 1 view .LVU165
+ 370:Drivers/FreeModbus/mb.c ****                 }
+ 621              		.loc 1 370 29 is_stmt 0 view .LVU166
+ 622 0060 0420     		movs	r0, #4
+ 623              	.LVL43:
+ 370:Drivers/FreeModbus/mb.c ****                 }
+ 624              		.loc 1 370 29 view .LVU167
+ 625 0062 FFF7FEFF 		bl	xMBPortEventPost
+ 626              	.LVL44:
+ 411:Drivers/FreeModbus/mb.c **** }
+ 627              		.loc 1 411 12 view .LVU168
+ 628 0066 2C46     		mov	r4, r5
+ 629 0068 D6E7     		b	.L54
+ 630              	.LVL45:
+ 631              	.L60:
+ 378:Drivers/FreeModbus/mb.c ****             {
+ 632              		.loc 1 378 51 is_stmt 1 discriminator 2 view .LVU169
+ 378:Drivers/FreeModbus/mb.c ****             {
+ 633              		.loc 1 378 52 is_stmt 0 discriminator 2 view .LVU170
+ 634 006a 0133     		adds	r3, r3, #1
+ 635              	.LVL46:
+ 636              	.L58:
+ 378:Drivers/FreeModbus/mb.c ****             {
+ 637              		.loc 1 378 25 is_stmt 1 discriminator 1 view .LVU171
+ 378:Drivers/FreeModbus/mb.c ****             {
+ 638              		.loc 1 378 13 is_stmt 0 discriminator 1 view .LVU172
+ 639 006c 0F2B     		cmp	r3, #15
+ 640 006e 0DDC     		bgt	.L59
+ 381:Drivers/FreeModbus/mb.c ****                 {
+ 641              		.loc 1 381 17 is_stmt 1 view .LVU173
+ 381:Drivers/FreeModbus/mb.c ****                 {
+ 642              		.loc 1 381 37 is_stmt 0 view .LVU174
+ 643 0070 214A     		ldr	r2, .L68+32
+ 644 0072 12F83320 		ldrb	r2, [r2, r3, lsl #3]	@ zero_extendqisi2
+ 381:Drivers/FreeModbus/mb.c ****                 {
+ 645              		.loc 1 381 19 view .LVU175
+ 646 0076 4AB1     		cbz	r2, .L59
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 21
+
+
+ 385:Drivers/FreeModbus/mb.c ****                 {
+ 647              		.loc 1 385 22 is_stmt 1 view .LVU176
+ 385:Drivers/FreeModbus/mb.c ****                 {
+ 648              		.loc 1 385 24 is_stmt 0 view .LVU177
+ 649 0078 9142     		cmp	r1, r2
+ 650 007a F6D1     		bne	.L60
+ 387:Drivers/FreeModbus/mb.c ****                     break;
+ 651              		.loc 1 387 21 is_stmt 1 view .LVU178
+ 387:Drivers/FreeModbus/mb.c ****                     break;
+ 652              		.loc 1 387 50 is_stmt 0 view .LVU179
+ 653 007c 1E4A     		ldr	r2, .L68+32
+ 654 007e 02EBC303 		add	r3, r2, r3, lsl #3
+ 655              	.LVL47:
+ 387:Drivers/FreeModbus/mb.c ****                     break;
+ 656              		.loc 1 387 50 view .LVU180
+ 657 0082 5B68     		ldr	r3, [r3, #4]
+ 387:Drivers/FreeModbus/mb.c ****                     break;
+ 658              		.loc 1 387 34 view .LVU181
+ 659 0084 1949     		ldr	r1, .L68+20
+ 660 0086 9847     		blx	r3
+ 661              	.LVL48:
+ 387:Drivers/FreeModbus/mb.c ****                     break;
+ 662              		.loc 1 387 32 view .LVU182
+ 663 0088 164B     		ldr	r3, .L68+12
+ 664 008a 1870     		strb	r0, [r3]
+ 388:Drivers/FreeModbus/mb.c ****                 }
+ 665              		.loc 1 388 21 is_stmt 1 view .LVU183
+ 666              	.L59:
+ 394:Drivers/FreeModbus/mb.c ****             {
+ 667              		.loc 1 394 13 view .LVU184
+ 394:Drivers/FreeModbus/mb.c ****             {
+ 668              		.loc 1 394 30 is_stmt 0 view .LVU185
+ 669 008c 184B     		ldr	r3, .L68+24
+ 670 008e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 394:Drivers/FreeModbus/mb.c ****             {
+ 671              		.loc 1 394 15 view .LVU186
+ 672 0090 FBB1     		cbz	r3, .L65
+ 396:Drivers/FreeModbus/mb.c ****                 {
+ 673              		.loc 1 396 17 is_stmt 1 view .LVU187
+ 396:Drivers/FreeModbus/mb.c ****                 {
+ 674              		.loc 1 396 32 is_stmt 0 view .LVU188
+ 675 0092 144B     		ldr	r3, .L68+12
+ 676 0094 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 396:Drivers/FreeModbus/mb.c ****                 {
+ 677              		.loc 1 396 19 view .LVU189
+ 678 0096 73B1     		cbz	r3, .L62
+ 399:Drivers/FreeModbus/mb.c ****                     ucMBFrame[usLength++] = ( UCHAR )( ucFunctionCode | MB_FUNC_ERROR );
+ 679              		.loc 1 399 21 is_stmt 1 view .LVU190
+ 400:Drivers/FreeModbus/mb.c ****                     ucMBFrame[usLength++] = eException;
+ 680              		.loc 1 400 21 view .LVU191
+ 400:Drivers/FreeModbus/mb.c ****                     ucMBFrame[usLength++] = eException;
+ 681              		.loc 1 400 45 is_stmt 0 view .LVU192
+ 682 0098 114A     		ldr	r2, .L68+8
+ 683 009a 1178     		ldrb	r1, [r2]	@ zero_extendqisi2
+ 400:Drivers/FreeModbus/mb.c ****                     ucMBFrame[usLength++] = eException;
+ 684              		.loc 1 400 30 view .LVU193
+ 685 009c 0F48     		ldr	r0, .L68+4
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 22
+
+
+ 686 009e 0568     		ldr	r5, [r0]
+ 400:Drivers/FreeModbus/mb.c ****                     ucMBFrame[usLength++] = eException;
+ 687              		.loc 1 400 39 view .LVU194
+ 688 00a0 124A     		ldr	r2, .L68+20
+ 689 00a2 0126     		movs	r6, #1
+ 690 00a4 1680     		strh	r6, [r2]	@ movhi
+ 400:Drivers/FreeModbus/mb.c ****                     ucMBFrame[usLength++] = eException;
+ 691              		.loc 1 400 45 view .LVU195
+ 692 00a6 41F08001 		orr	r1, r1, #128
+ 400:Drivers/FreeModbus/mb.c ****                     ucMBFrame[usLength++] = eException;
+ 693              		.loc 1 400 43 view .LVU196
+ 694 00aa 2970     		strb	r1, [r5]
+ 401:Drivers/FreeModbus/mb.c ****                 }
+ 695              		.loc 1 401 21 is_stmt 1 view .LVU197
+ 401:Drivers/FreeModbus/mb.c ****                 }
+ 696              		.loc 1 401 30 is_stmt 0 view .LVU198
+ 697 00ac 0068     		ldr	r0, [r0]
+ 401:Drivers/FreeModbus/mb.c ****                 }
+ 698              		.loc 1 401 39 view .LVU199
+ 699 00ae 1188     		ldrh	r1, [r2]
+ 700 00b0 8D19     		adds	r5, r1, r6
+ 701 00b2 1580     		strh	r5, [r2]	@ movhi
+ 401:Drivers/FreeModbus/mb.c ****                 }
+ 702              		.loc 1 401 43 view .LVU200
+ 703 00b4 4354     		strb	r3, [r0, r1]
+ 704              	.L62:
+ 403:Drivers/FreeModbus/mb.c ****             }
+ 705              		.loc 1 403 17 is_stmt 1 view .LVU201
+ 403:Drivers/FreeModbus/mb.c ****             }
+ 706              		.loc 1 403 27 is_stmt 0 view .LVU202
+ 707 00b6 114B     		ldr	r3, .L68+36
+ 708 00b8 1B68     		ldr	r3, [r3]
+ 709 00ba 0C4A     		ldr	r2, .L68+20
+ 710 00bc 1288     		ldrh	r2, [r2]
+ 711 00be 0749     		ldr	r1, .L68+4
+ 712 00c0 0968     		ldr	r1, [r1]
+ 713 00c2 0C48     		ldr	r0, .L68+28
+ 714 00c4 0078     		ldrb	r0, [r0]	@ zero_extendqisi2
+ 715 00c6 9847     		blx	r3
+ 716              	.LVL49:
+ 403:Drivers/FreeModbus/mb.c ****             }
+ 717              		.loc 1 403 27 view .LVU203
+ 718 00c8 A6E7     		b	.L54
+ 719              	.LVL50:
+ 720              	.L63:
+ 351:Drivers/FreeModbus/mb.c ****     }
+ 721              		.loc 1 351 16 view .LVU204
+ 722 00ca 0624     		movs	r4, #6
+ 723 00cc A4E7     		b	.L54
+ 724              	.LVL51:
+ 725              	.L64:
+ 411:Drivers/FreeModbus/mb.c **** }
+ 726              		.loc 1 411 12 view .LVU205
+ 727 00ce 0446     		mov	r4, r0
+ 728 00d0 A2E7     		b	.L54
+ 729              	.LVL52:
+ 730              	.L65:
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 23
+
+
+ 411:Drivers/FreeModbus/mb.c **** }
+ 731              		.loc 1 411 12 view .LVU206
+ 732 00d2 1C46     		mov	r4, r3
+ 733 00d4 A0E7     		b	.L54
+ 734              	.L69:
+ 735 00d6 00BF     		.align	2
+ 736              	.L68:
+ 737 00d8 00000000 		.word	.LANCHOR6
+ 738 00dc 00000000 		.word	.LANCHOR9
+ 739 00e0 00000000 		.word	.LANCHOR11
+ 740 00e4 00000000 		.word	.LANCHOR12
+ 741 00e8 00000000 		.word	.LANCHOR4
+ 742 00ec 00000000 		.word	.LANCHOR8
+ 743 00f0 00000000 		.word	.LANCHOR10
+ 744 00f4 00000000 		.word	.LANCHOR0
+ 745 00f8 00000000 		.word	.LANCHOR7
+ 746 00fc 00000000 		.word	.LANCHOR3
+ 747              		.cfi_endproc
+ 748              	.LFE135:
+ 750              		.comm	pxMBFrameCBTransmitFSMCur,4,4
+ 751              		.comm	pxMBFrameCBReceiveFSMCur,4,4
+ 752              		.comm	pxMBPortCBTimerExpired,4,4
+ 753              		.comm	pxMBFrameCBTransmitterEmpty,4,4
+ 754              		.comm	pxMBFrameCBByteReceived,4,4
+ 755              		.section	.bss.eException.9479,"aw",%nobits
+ 756              		.set	.LANCHOR12,. + 0
+ 759              	eException.9479:
+ 760 0000 00       		.space	1
+ 761              		.section	.bss.peMBFrameReceiveCur,"aw",%nobits
+ 762              		.align	2
+ 763              		.set	.LANCHOR4,. + 0
+ 766              	peMBFrameReceiveCur:
+ 767 0000 00000000 		.space	4
+ 768              		.section	.bss.peMBFrameSendCur,"aw",%nobits
+ 769              		.align	2
+ 770              		.set	.LANCHOR3,. + 0
+ 773              	peMBFrameSendCur:
+ 774 0000 00000000 		.space	4
+ 775              		.section	.bss.pvMBFrameCloseCur,"aw",%nobits
+ 776              		.align	2
+ 777              		.set	.LANCHOR5,. + 0
+ 780              	pvMBFrameCloseCur:
+ 781 0000 00000000 		.space	4
+ 782              		.section	.bss.pvMBFrameStartCur,"aw",%nobits
+ 783              		.align	2
+ 784              		.set	.LANCHOR1,. + 0
+ 787              	pvMBFrameStartCur:
+ 788 0000 00000000 		.space	4
+ 789              		.section	.bss.pvMBFrameStopCur,"aw",%nobits
+ 790              		.align	2
+ 791              		.set	.LANCHOR2,. + 0
+ 794              	pvMBFrameStopCur:
+ 795 0000 00000000 		.space	4
+ 796              		.section	.bss.ucFunctionCode.9477,"aw",%nobits
+ 797              		.set	.LANCHOR11,. + 0
+ 800              	ucFunctionCode.9477:
+ 801 0000 00       		.space	1
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 24
+
+
+ 802              		.section	.bss.ucMBAddress,"aw",%nobits
+ 803              		.set	.LANCHOR0,. + 0
+ 806              	ucMBAddress:
+ 807 0000 00       		.space	1
+ 808              		.section	.bss.ucMBFrame.9475,"aw",%nobits
+ 809              		.align	2
+ 810              		.set	.LANCHOR9,. + 0
+ 813              	ucMBFrame.9475:
+ 814 0000 00000000 		.space	4
+ 815              		.section	.bss.ucRcvAddress.9476,"aw",%nobits
+ 816              		.set	.LANCHOR10,. + 0
+ 819              	ucRcvAddress.9476:
+ 820 0000 00       		.space	1
+ 821              		.section	.bss.usLength.9478,"aw",%nobits
+ 822              		.align	1
+ 823              		.set	.LANCHOR8,. + 0
+ 826              	usLength.9478:
+ 827 0000 0000     		.space	2
+ 828              		.section	.data.eMBState,"aw"
+ 829              		.set	.LANCHOR6,. + 0
+ 832              	eMBState:
+ 833 0000 02       		.byte	2
+ 834              		.section	.data.xFuncHandlers,"aw"
+ 835              		.align	2
+ 836              		.set	.LANCHOR7,. + 0
+ 839              	xFuncHandlers:
+ 840 0000 11       		.byte	17
+ 841 0001 000000   		.space	3
+ 842 0004 00000000 		.word	eMBFuncReportSlaveID
+ 843 0008 04       		.byte	4
+ 844 0009 000000   		.space	3
+ 845 000c 00000000 		.word	eMBFuncReadInputRegister
+ 846 0010 03       		.byte	3
+ 847 0011 000000   		.space	3
+ 848 0014 00000000 		.word	eMBFuncReadHoldingRegister
+ 849 0018 10       		.byte	16
+ 850 0019 000000   		.space	3
+ 851 001c 00000000 		.word	eMBFuncWriteMultipleHoldingRegister
+ 852 0020 06       		.byte	6
+ 853 0021 000000   		.space	3
+ 854 0024 00000000 		.word	eMBFuncWriteHoldingRegister
+ 855 0028 17       		.byte	23
+ 856 0029 000000   		.space	3
+ 857 002c 00000000 		.word	eMBFuncReadWriteMultipleHoldingRegister
+ 858 0030 01       		.byte	1
+ 859 0031 000000   		.space	3
+ 860 0034 00000000 		.word	eMBFuncReadCoils
+ 861 0038 05       		.byte	5
+ 862 0039 000000   		.space	3
+ 863 003c 00000000 		.word	eMBFuncWriteCoil
+ 864 0040 0F       		.byte	15
+ 865 0041 000000   		.space	3
+ 866 0044 00000000 		.word	eMBFuncWriteMultipleCoils
+ 867 0048 02       		.byte	2
+ 868 0049 000000   		.space	3
+ 869 004c 00000000 		.word	eMBFuncReadDiscreteInputs
+ 870 0050 00000000 		.space	48
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 25
+
+
+ 870      00000000 
+ 870      00000000 
+ 870      00000000 
+ 870      00000000 
+ 871              		.text
+ 872              	.Letext0:
+ 873              		.file 2 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 874              		.file 3 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\lock.h"
+ 875              		.file 4 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\_types.h"
+ 876              		.file 5 "c:\\vscodeproject\\software\\arm_gcc\\lib\\gcc\\arm-none-eabi\\9.2.1\\include\\stddef.h"
+ 877              		.file 6 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\reent.h"
+ 878              		.file 7 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\stdlib.h"
+ 879              		.file 8 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 880              		.file 9 "Drivers/CMSIS/Include/core_cm4.h"
+ 881              		.file 10 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 882              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 883              		.file 12 "Drivers/FreeModbus/port/port.h"
+ 884              		.file 13 "Drivers/FreeModbus/include/mbport.h"
+ 885              		.file 14 "Drivers/FreeModbus/include/mbproto.h"
+ 886              		.file 15 "Drivers/FreeModbus/include/mb.h"
+ 887              		.file 16 "Drivers/FreeModbus/include/mbframe.h"
+ 888              		.file 17 "Drivers/FreeModbus/port/portcritical.h"
+ 889              		.file 18 "Drivers/FreeModbus/rtu/mbrtu.h"
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 26
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 mb.c
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:18     .text.eMBInit:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:26     .text.eMBInit:0000000000000000 eMBInit
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:151    .text.eMBInit:0000000000000070 $d
+                            *COM*:0000000000000004 pxMBFrameCBByteReceived
+                            *COM*:0000000000000004 pxMBFrameCBTransmitterEmpty
+                            *COM*:0000000000000004 pxMBPortCBTimerExpired
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:172    .text.eMBRegisterCB:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:179    .text.eMBRegisterCB:0000000000000000 eMBRegisterCB
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:320    .text.eMBRegisterCB:0000000000000074 $d
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:325    .text.eMBClose:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:332    .text.eMBClose:0000000000000000 eMBClose
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:379    .text.eMBClose:0000000000000020 $d
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:385    .text.eMBEnable:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:392    .text.eMBEnable:0000000000000000 eMBEnable
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:435    .text.eMBEnable:000000000000001c $d
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:441    .text.eMBDisable:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:448    .text.eMBDisable:0000000000000000 eMBDisable
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:499    .text.eMBDisable:0000000000000024 $d
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:505    .text.eMBPoll:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:512    .text.eMBPoll:0000000000000000 eMBPoll
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:737    .text.eMBPoll:00000000000000d8 $d
+                            *COM*:0000000000000004 pxMBFrameCBTransmitFSMCur
+                            *COM*:0000000000000004 pxMBFrameCBReceiveFSMCur
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:759    .bss.eException.9479:0000000000000000 eException.9479
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:760    .bss.eException.9479:0000000000000000 $d
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:762    .bss.peMBFrameReceiveCur:0000000000000000 $d
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:766    .bss.peMBFrameReceiveCur:0000000000000000 peMBFrameReceiveCur
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:769    .bss.peMBFrameSendCur:0000000000000000 $d
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:773    .bss.peMBFrameSendCur:0000000000000000 peMBFrameSendCur
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:776    .bss.pvMBFrameCloseCur:0000000000000000 $d
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:780    .bss.pvMBFrameCloseCur:0000000000000000 pvMBFrameCloseCur
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:783    .bss.pvMBFrameStartCur:0000000000000000 $d
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:787    .bss.pvMBFrameStartCur:0000000000000000 pvMBFrameStartCur
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:790    .bss.pvMBFrameStopCur:0000000000000000 $d
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:794    .bss.pvMBFrameStopCur:0000000000000000 pvMBFrameStopCur
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:800    .bss.ucFunctionCode.9477:0000000000000000 ucFunctionCode.9477
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:801    .bss.ucFunctionCode.9477:0000000000000000 $d
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:806    .bss.ucMBAddress:0000000000000000 ucMBAddress
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:807    .bss.ucMBAddress:0000000000000000 $d
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:809    .bss.ucMBFrame.9475:0000000000000000 $d
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:813    .bss.ucMBFrame.9475:0000000000000000 ucMBFrame.9475
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:819    .bss.ucRcvAddress.9476:0000000000000000 ucRcvAddress.9476
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:820    .bss.ucRcvAddress.9476:0000000000000000 $d
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:822    .bss.usLength.9478:0000000000000000 $d
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:826    .bss.usLength.9478:0000000000000000 usLength.9478
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:832    .data.eMBState:0000000000000000 eMBState
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:835    .data.xFuncHandlers:0000000000000000 $d
+C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s:839    .data.xFuncHandlers:0000000000000000 xFuncHandlers
+
+UNDEFINED SYMBOLS
+eMBRTUInit
+xMBPortEventInit
+eMBRTUStart
+eMBRTUStop
+eMBRTUSend
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccpNtJHH.s 			page 27
+
+
+eMBRTUReceive
+xMBRTUReceiveFSM
+xMBRTUTransmitFSM
+xMBRTUTimerT35Expired
+__critical_enter
+__critical_exit
+xMBPortEventGet
+xMBPortEventPost
+eMBFuncReportSlaveID
+eMBFuncReadInputRegister
+eMBFuncReadHoldingRegister
+eMBFuncWriteMultipleHoldingRegister
+eMBFuncWriteHoldingRegister
+eMBFuncReadWriteMultipleHoldingRegister
+eMBFuncReadCoils
+eMBFuncWriteCoil
+eMBFuncWriteMultipleCoils
+eMBFuncReadDiscreteInputs

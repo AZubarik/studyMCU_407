@@ -1,0 +1,563 @@
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"portserial.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.xMBPortSerialInit,"ax",%progbits
+  18              		.align	1
+  19              		.global	xMBPortSerialInit
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	xMBPortSerialInit:
+  27              	.LVL0:
+  28              	.LFB130:
+  29              		.file 1 "Drivers/FreeModbus/port/portserial.c"
+   1:Drivers/FreeModbus/port/portserial.c **** #include "port.h"
+   2:Drivers/FreeModbus/port/portserial.c **** #include "mb.h"
+   3:Drivers/FreeModbus/port/portserial.c **** #include "mbport.h"
+   4:Drivers/FreeModbus/port/portserial.c **** 
+   5:Drivers/FreeModbus/port/portserial.c **** #if MB_SLAVE_RTU_ENABLED > 0 || MB_SLAVE_ASCII_ENABLED > 0
+   6:Drivers/FreeModbus/port/portserial.c **** 
+   7:Drivers/FreeModbus/port/portserial.c **** /* ----------------------- Static variables ---------------------------------*/
+   8:Drivers/FreeModbus/port/portserial.c **** UART_HandleTypeDef *uart;
+   9:Drivers/FreeModbus/port/portserial.c **** static uint8_t singlechar;
+  10:Drivers/FreeModbus/port/portserial.c **** 
+  11:Drivers/FreeModbus/port/portserial.c **** /* ----------------------- User defenitions ---------------------------------*/
+  12:Drivers/FreeModbus/port/portserial.c **** // #define RS485_RTS_LOW	HAL_GPIO_WritePin(RS485_RTS_GPIO_Port, RS485_RTS_Pin, GPIO_PIN_RESET)
+  13:Drivers/FreeModbus/port/portserial.c **** // #define RS485_RTS_HIGH 	HAL_GPIO_WritePin(RS485_RTS_GPIO_Port, RS485_RTS_Pin, GPIO_PIN_SET)
+  14:Drivers/FreeModbus/port/portserial.c **** 
+  15:Drivers/FreeModbus/port/portserial.c **** 
+  16:Drivers/FreeModbus/port/portserial.c **** /* ----------------------- Start implementation -----------------------------*/
+  17:Drivers/FreeModbus/port/portserial.c **** BOOL xMBPortSerialInit( void *dHUART, ULONG ulBaudRate, void *dHTIM )
+  18:Drivers/FreeModbus/port/portserial.c **** {
+  30              		.loc 1 18 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+  19:Drivers/FreeModbus/port/portserial.c **** 	uart = (UART_HandleTypeDef *)dHUART;
+  35              		.loc 1 19 2 view .LVU1
+  36              		.loc 1 19 7 is_stmt 0 view .LVU2
+  37 0000 014B     		ldr	r3, .L2
+  38 0002 1860     		str	r0, [r3]
+  20:Drivers/FreeModbus/port/portserial.c **** 
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s 			page 2
+
+
+  21:Drivers/FreeModbus/port/portserial.c **** 	return TRUE;
+  39              		.loc 1 21 2 is_stmt 1 view .LVU3
+  22:Drivers/FreeModbus/port/portserial.c **** }
+  40              		.loc 1 22 1 is_stmt 0 view .LVU4
+  41 0004 0120     		movs	r0, #1
+  42              	.LVL1:
+  43              		.loc 1 22 1 view .LVU5
+  44 0006 7047     		bx	lr
+  45              	.L3:
+  46              		.align	2
+  47              	.L2:
+  48 0008 00000000 		.word	uart
+  49              		.cfi_endproc
+  50              	.LFE130:
+  52              		.section	.text.vMBPortSerialEnable,"ax",%progbits
+  53              		.align	1
+  54              		.global	vMBPortSerialEnable
+  55              		.syntax unified
+  56              		.thumb
+  57              		.thumb_func
+  58              		.fpu fpv4-sp-d16
+  60              	vMBPortSerialEnable:
+  61              	.LVL2:
+  62              	.LFB131:
+  23:Drivers/FreeModbus/port/portserial.c **** 
+  24:Drivers/FreeModbus/port/portserial.c **** void vMBPortSerialEnable(BOOL xRxEnable, BOOL xTxEnable)
+  25:Drivers/FreeModbus/port/portserial.c **** {
+  63              		.loc 1 25 1 is_stmt 1 view -0
+  64              		.cfi_startproc
+  65              		@ args = 0, pretend = 0, frame = 0
+  66              		@ frame_needed = 0, uses_anonymous_args = 0
+  67              		.loc 1 25 1 is_stmt 0 view .LVU7
+  68 0000 10B5     		push	{r4, lr}
+  69              	.LCFI0:
+  70              		.cfi_def_cfa_offset 8
+  71              		.cfi_offset 4, -8
+  72              		.cfi_offset 14, -4
+  73 0002 0C46     		mov	r4, r1
+  26:Drivers/FreeModbus/port/portserial.c **** 	if(xRxEnable)
+  74              		.loc 1 26 2 is_stmt 1 view .LVU8
+  75              		.loc 1 26 4 is_stmt 0 view .LVU9
+  76 0004 50B1     		cbz	r0, .L5
+  27:Drivers/FreeModbus/port/portserial.c **** 	{
+  28:Drivers/FreeModbus/port/portserial.c **** 		// RS485_RTS_LOW;
+  29:Drivers/FreeModbus/port/portserial.c **** 		HAL_UART_Receive_IT(uart, &singlechar, 1);
+  77              		.loc 1 29 3 is_stmt 1 view .LVU10
+  78 0006 0122     		movs	r2, #1
+  79 0008 0949     		ldr	r1, .L10
+  80              	.LVL3:
+  81              		.loc 1 29 3 is_stmt 0 view .LVU11
+  82 000a 0A4B     		ldr	r3, .L10+4
+  83 000c 1868     		ldr	r0, [r3]
+  84              	.LVL4:
+  85              		.loc 1 29 3 view .LVU12
+  86 000e FFF7FEFF 		bl	HAL_UART_Receive_IT
+  87              	.LVL5:
+  88              	.L6:
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s 			page 3
+
+
+  30:Drivers/FreeModbus/port/portserial.c **** 	}	
+  31:Drivers/FreeModbus/port/portserial.c **** 	else
+  32:Drivers/FreeModbus/port/portserial.c **** 	{
+  33:Drivers/FreeModbus/port/portserial.c **** 		HAL_UART_AbortReceive_IT(uart);
+  34:Drivers/FreeModbus/port/portserial.c **** 	}
+  35:Drivers/FreeModbus/port/portserial.c **** 
+  36:Drivers/FreeModbus/port/portserial.c **** 	if(xTxEnable)
+  89              		.loc 1 36 2 is_stmt 1 view .LVU13
+  90              		.loc 1 36 4 is_stmt 0 view .LVU14
+  91 0012 44B1     		cbz	r4, .L7
+  37:Drivers/FreeModbus/port/portserial.c **** 	{
+  38:Drivers/FreeModbus/port/portserial.c **** 		// RS485_RTS_HIGH;
+  39:Drivers/FreeModbus/port/portserial.c **** 		pxMBFrameCBTransmitterEmpty();
+  92              		.loc 1 39 3 is_stmt 1 view .LVU15
+  93 0014 084B     		ldr	r3, .L10+8
+  94 0016 1B68     		ldr	r3, [r3]
+  95 0018 9847     		blx	r3
+  96              	.LVL6:
+  97              	.L4:
+  40:Drivers/FreeModbus/port/portserial.c **** 	}
+  41:Drivers/FreeModbus/port/portserial.c **** 	else
+  42:Drivers/FreeModbus/port/portserial.c **** 	{
+  43:Drivers/FreeModbus/port/portserial.c **** 		HAL_UART_AbortTransmit_IT(uart);
+  44:Drivers/FreeModbus/port/portserial.c **** 	}
+  45:Drivers/FreeModbus/port/portserial.c **** }
+  98              		.loc 1 45 1 is_stmt 0 view .LVU16
+  99 001a 10BD     		pop	{r4, pc}
+ 100              	.LVL7:
+ 101              	.L5:
+  33:Drivers/FreeModbus/port/portserial.c **** 	}
+ 102              		.loc 1 33 3 is_stmt 1 view .LVU17
+ 103 001c 054B     		ldr	r3, .L10+4
+ 104 001e 1868     		ldr	r0, [r3]
+ 105              	.LVL8:
+  33:Drivers/FreeModbus/port/portserial.c **** 	}
+ 106              		.loc 1 33 3 is_stmt 0 view .LVU18
+ 107 0020 FFF7FEFF 		bl	HAL_UART_AbortReceive_IT
+ 108              	.LVL9:
+  33:Drivers/FreeModbus/port/portserial.c **** 	}
+ 109              		.loc 1 33 3 view .LVU19
+ 110 0024 F5E7     		b	.L6
+ 111              	.L7:
+  43:Drivers/FreeModbus/port/portserial.c **** 	}
+ 112              		.loc 1 43 3 is_stmt 1 view .LVU20
+ 113 0026 034B     		ldr	r3, .L10+4
+ 114 0028 1868     		ldr	r0, [r3]
+ 115 002a FFF7FEFF 		bl	HAL_UART_AbortTransmit_IT
+ 116              	.LVL10:
+ 117              		.loc 1 45 1 is_stmt 0 view .LVU21
+ 118 002e F4E7     		b	.L4
+ 119              	.L11:
+ 120              		.align	2
+ 121              	.L10:
+ 122 0030 00000000 		.word	.LANCHOR0
+ 123 0034 00000000 		.word	uart
+ 124 0038 00000000 		.word	pxMBFrameCBTransmitterEmpty
+ 125              		.cfi_endproc
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s 			page 4
+
+
+ 126              	.LFE131:
+ 128              		.section	.text.vMBPortClose,"ax",%progbits
+ 129              		.align	1
+ 130              		.global	vMBPortClose
+ 131              		.syntax unified
+ 132              		.thumb
+ 133              		.thumb_func
+ 134              		.fpu fpv4-sp-d16
+ 136              	vMBPortClose:
+ 137              	.LFB132:
+  46:Drivers/FreeModbus/port/portserial.c **** 
+  47:Drivers/FreeModbus/port/portserial.c **** void vMBPortClose(void)
+  48:Drivers/FreeModbus/port/portserial.c **** {
+ 138              		.loc 1 48 1 is_stmt 1 view -0
+ 139              		.cfi_startproc
+ 140              		@ args = 0, pretend = 0, frame = 0
+ 141              		@ frame_needed = 0, uses_anonymous_args = 0
+ 142 0000 10B5     		push	{r4, lr}
+ 143              	.LCFI1:
+ 144              		.cfi_def_cfa_offset 8
+ 145              		.cfi_offset 4, -8
+ 146              		.cfi_offset 14, -4
+  49:Drivers/FreeModbus/port/portserial.c **** 	HAL_UART_AbortReceive_IT(uart);
+ 147              		.loc 1 49 2 view .LVU23
+ 148 0002 044C     		ldr	r4, .L14
+ 149 0004 2068     		ldr	r0, [r4]
+ 150 0006 FFF7FEFF 		bl	HAL_UART_AbortReceive_IT
+ 151              	.LVL11:
+  50:Drivers/FreeModbus/port/portserial.c **** 	HAL_UART_AbortTransmit_IT(uart);
+ 152              		.loc 1 50 2 view .LVU24
+ 153 000a 2068     		ldr	r0, [r4]
+ 154 000c FFF7FEFF 		bl	HAL_UART_AbortTransmit_IT
+ 155              	.LVL12:
+  51:Drivers/FreeModbus/port/portserial.c **** }
+ 156              		.loc 1 51 1 is_stmt 0 view .LVU25
+ 157 0010 10BD     		pop	{r4, pc}
+ 158              	.L15:
+ 159 0012 00BF     		.align	2
+ 160              	.L14:
+ 161 0014 00000000 		.word	uart
+ 162              		.cfi_endproc
+ 163              	.LFE132:
+ 165              		.section	.text.xMBPortSerialPutByte,"ax",%progbits
+ 166              		.align	1
+ 167              		.global	xMBPortSerialPutByte
+ 168              		.syntax unified
+ 169              		.thumb
+ 170              		.thumb_func
+ 171              		.fpu fpv4-sp-d16
+ 173              	xMBPortSerialPutByte:
+ 174              	.LVL13:
+ 175              	.LFB133:
+  52:Drivers/FreeModbus/port/portserial.c **** 
+  53:Drivers/FreeModbus/port/portserial.c **** BOOL xMBPortSerialPutByte(CHAR ucByte)
+  54:Drivers/FreeModbus/port/portserial.c **** {
+ 176              		.loc 1 54 1 is_stmt 1 view -0
+ 177              		.cfi_startproc
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s 			page 5
+
+
+ 178              		@ args = 0, pretend = 0, frame = 8
+ 179              		@ frame_needed = 0, uses_anonymous_args = 0
+ 180              		.loc 1 54 1 is_stmt 0 view .LVU27
+ 181 0000 00B5     		push	{lr}
+ 182              	.LCFI2:
+ 183              		.cfi_def_cfa_offset 4
+ 184              		.cfi_offset 14, -4
+ 185 0002 83B0     		sub	sp, sp, #12
+ 186              	.LCFI3:
+ 187              		.cfi_def_cfa_offset 16
+ 188 0004 8DF80700 		strb	r0, [sp, #7]
+  55:Drivers/FreeModbus/port/portserial.c **** 	HAL_UART_Transmit_IT(uart, (uint8_t*)&ucByte, 1);
+ 189              		.loc 1 55 2 is_stmt 1 view .LVU28
+ 190 0008 0122     		movs	r2, #1
+ 191 000a 0DF10701 		add	r1, sp, #7
+ 192 000e 044B     		ldr	r3, .L18
+ 193 0010 1868     		ldr	r0, [r3]
+ 194              	.LVL14:
+ 195              		.loc 1 55 2 is_stmt 0 view .LVU29
+ 196 0012 FFF7FEFF 		bl	HAL_UART_Transmit_IT
+ 197              	.LVL15:
+  56:Drivers/FreeModbus/port/portserial.c **** 	return TRUE;
+ 198              		.loc 1 56 2 is_stmt 1 view .LVU30
+  57:Drivers/FreeModbus/port/portserial.c **** }
+ 199              		.loc 1 57 1 is_stmt 0 view .LVU31
+ 200 0016 0120     		movs	r0, #1
+ 201 0018 03B0     		add	sp, sp, #12
+ 202              	.LCFI4:
+ 203              		.cfi_def_cfa_offset 4
+ 204              		@ sp needed
+ 205 001a 5DF804FB 		ldr	pc, [sp], #4
+ 206              	.L19:
+ 207 001e 00BF     		.align	2
+ 208              	.L18:
+ 209 0020 00000000 		.word	uart
+ 210              		.cfi_endproc
+ 211              	.LFE133:
+ 213              		.section	.text.xMBPortSerialPutBytes,"ax",%progbits
+ 214              		.align	1
+ 215              		.global	xMBPortSerialPutBytes
+ 216              		.syntax unified
+ 217              		.thumb
+ 218              		.thumb_func
+ 219              		.fpu fpv4-sp-d16
+ 221              	xMBPortSerialPutBytes:
+ 222              	.LVL16:
+ 223              	.LFB134:
+  58:Drivers/FreeModbus/port/portserial.c **** 
+  59:Drivers/FreeModbus/port/portserial.c **** BOOL xMBPortSerialPutBytes(volatile UCHAR *ucByte, USHORT usSize)
+  60:Drivers/FreeModbus/port/portserial.c **** {
+ 224              		.loc 1 60 1 is_stmt 1 view -0
+ 225              		.cfi_startproc
+ 226              		@ args = 0, pretend = 0, frame = 0
+ 227              		@ frame_needed = 0, uses_anonymous_args = 0
+ 228              		.loc 1 60 1 is_stmt 0 view .LVU33
+ 229 0000 08B5     		push	{r3, lr}
+ 230              	.LCFI5:
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s 			page 6
+
+
+ 231              		.cfi_def_cfa_offset 8
+ 232              		.cfi_offset 3, -8
+ 233              		.cfi_offset 14, -4
+ 234 0002 0A46     		mov	r2, r1
+  61:Drivers/FreeModbus/port/portserial.c **** 	HAL_UART_Transmit_IT(uart, (uint8_t *)ucByte, usSize);
+ 235              		.loc 1 61 2 is_stmt 1 view .LVU34
+ 236 0004 0146     		mov	r1, r0
+ 237              	.LVL17:
+ 238              		.loc 1 61 2 is_stmt 0 view .LVU35
+ 239 0006 034B     		ldr	r3, .L22
+ 240 0008 1868     		ldr	r0, [r3]
+ 241              	.LVL18:
+ 242              		.loc 1 61 2 view .LVU36
+ 243 000a FFF7FEFF 		bl	HAL_UART_Transmit_IT
+ 244              	.LVL19:
+  62:Drivers/FreeModbus/port/portserial.c **** 	return TRUE;
+ 245              		.loc 1 62 2 is_stmt 1 view .LVU37
+  63:Drivers/FreeModbus/port/portserial.c **** }
+ 246              		.loc 1 63 1 is_stmt 0 view .LVU38
+ 247 000e 0120     		movs	r0, #1
+ 248 0010 08BD     		pop	{r3, pc}
+ 249              	.L23:
+ 250 0012 00BF     		.align	2
+ 251              	.L22:
+ 252 0014 00000000 		.word	uart
+ 253              		.cfi_endproc
+ 254              	.LFE134:
+ 256              		.section	.text.xMBPortSerialGetByte,"ax",%progbits
+ 257              		.align	1
+ 258              		.global	xMBPortSerialGetByte
+ 259              		.syntax unified
+ 260              		.thumb
+ 261              		.thumb_func
+ 262              		.fpu fpv4-sp-d16
+ 264              	xMBPortSerialGetByte:
+ 265              	.LVL20:
+ 266              	.LFB135:
+  64:Drivers/FreeModbus/port/portserial.c **** 
+  65:Drivers/FreeModbus/port/portserial.c **** BOOL xMBPortSerialGetByte(CHAR * pucByte)
+  66:Drivers/FreeModbus/port/portserial.c **** {
+ 267              		.loc 1 66 1 is_stmt 1 view -0
+ 268              		.cfi_startproc
+ 269              		@ args = 0, pretend = 0, frame = 0
+ 270              		@ frame_needed = 0, uses_anonymous_args = 0
+ 271              		@ link register save eliminated.
+  67:Drivers/FreeModbus/port/portserial.c **** 	*pucByte = (uint8_t)(singlechar);
+ 272              		.loc 1 67 2 view .LVU40
+ 273              		.loc 1 67 11 is_stmt 0 view .LVU41
+ 274 0000 024B     		ldr	r3, .L25
+ 275 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 276 0004 0370     		strb	r3, [r0]
+  68:Drivers/FreeModbus/port/portserial.c **** 	return TRUE;
+ 277              		.loc 1 68 2 is_stmt 1 view .LVU42
+  69:Drivers/FreeModbus/port/portserial.c **** }
+ 278              		.loc 1 69 1 is_stmt 0 view .LVU43
+ 279 0006 0120     		movs	r0, #1
+ 280              	.LVL21:
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s 			page 7
+
+
+ 281              		.loc 1 69 1 view .LVU44
+ 282 0008 7047     		bx	lr
+ 283              	.L26:
+ 284 000a 00BF     		.align	2
+ 285              	.L25:
+ 286 000c 00000000 		.word	.LANCHOR0
+ 287              		.cfi_endproc
+ 288              	.LFE135:
+ 290              		.section	.text.HAL_UART_RxCpltCallback,"ax",%progbits
+ 291              		.align	1
+ 292              		.global	HAL_UART_RxCpltCallback
+ 293              		.syntax unified
+ 294              		.thumb
+ 295              		.thumb_func
+ 296              		.fpu fpv4-sp-d16
+ 298              	HAL_UART_RxCpltCallback:
+ 299              	.LVL22:
+ 300              	.LFB136:
+  70:Drivers/FreeModbus/port/portserial.c **** 
+  71:Drivers/FreeModbus/port/portserial.c **** void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+  72:Drivers/FreeModbus/port/portserial.c **** {
+ 301              		.loc 1 72 1 is_stmt 1 view -0
+ 302              		.cfi_startproc
+ 303              		@ args = 0, pretend = 0, frame = 0
+ 304              		@ frame_needed = 0, uses_anonymous_args = 0
+ 305              		.loc 1 72 1 is_stmt 0 view .LVU46
+ 306 0000 08B5     		push	{r3, lr}
+ 307              	.LCFI6:
+ 308              		.cfi_def_cfa_offset 8
+ 309              		.cfi_offset 3, -8
+ 310              		.cfi_offset 14, -4
+  73:Drivers/FreeModbus/port/portserial.c **** 	if(huart->Instance == uart->Instance)
+ 311              		.loc 1 73 2 is_stmt 1 view .LVU47
+ 312              		.loc 1 73 10 is_stmt 0 view .LVU48
+ 313 0002 0268     		ldr	r2, [r0]
+ 314              		.loc 1 73 28 view .LVU49
+ 315 0004 074B     		ldr	r3, .L31
+ 316 0006 1B68     		ldr	r3, [r3]
+ 317 0008 1B68     		ldr	r3, [r3]
+ 318              		.loc 1 73 4 view .LVU50
+ 319 000a 9A42     		cmp	r2, r3
+ 320 000c 00D0     		beq	.L30
+ 321              	.LVL23:
+ 322              	.L27:
+  74:Drivers/FreeModbus/port/portserial.c **** 	{
+  75:Drivers/FreeModbus/port/portserial.c **** 		pxMBFrameCBByteReceived();
+  76:Drivers/FreeModbus/port/portserial.c **** 		HAL_UART_Receive_IT(uart, &singlechar, 1);
+  77:Drivers/FreeModbus/port/portserial.c **** 	}
+  78:Drivers/FreeModbus/port/portserial.c **** }
+ 323              		.loc 1 78 1 view .LVU51
+ 324 000e 08BD     		pop	{r3, pc}
+ 325              	.LVL24:
+ 326              	.L30:
+  75:Drivers/FreeModbus/port/portserial.c **** 		HAL_UART_Receive_IT(uart, &singlechar, 1);
+ 327              		.loc 1 75 3 is_stmt 1 view .LVU52
+ 328 0010 054B     		ldr	r3, .L31+4
+ 329 0012 1B68     		ldr	r3, [r3]
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s 			page 8
+
+
+ 330 0014 9847     		blx	r3
+ 331              	.LVL25:
+  76:Drivers/FreeModbus/port/portserial.c **** 	}
+ 332              		.loc 1 76 3 view .LVU53
+ 333 0016 0122     		movs	r2, #1
+ 334 0018 0449     		ldr	r1, .L31+8
+ 335 001a 024B     		ldr	r3, .L31
+ 336 001c 1868     		ldr	r0, [r3]
+ 337 001e FFF7FEFF 		bl	HAL_UART_Receive_IT
+ 338              	.LVL26:
+ 339              		.loc 1 78 1 is_stmt 0 view .LVU54
+ 340 0022 F4E7     		b	.L27
+ 341              	.L32:
+ 342              		.align	2
+ 343              	.L31:
+ 344 0024 00000000 		.word	uart
+ 345 0028 00000000 		.word	pxMBFrameCBByteReceived
+ 346 002c 00000000 		.word	.LANCHOR0
+ 347              		.cfi_endproc
+ 348              	.LFE136:
+ 350              		.section	.text.HAL_UART_TxCpltCallback,"ax",%progbits
+ 351              		.align	1
+ 352              		.global	HAL_UART_TxCpltCallback
+ 353              		.syntax unified
+ 354              		.thumb
+ 355              		.thumb_func
+ 356              		.fpu fpv4-sp-d16
+ 358              	HAL_UART_TxCpltCallback:
+ 359              	.LVL27:
+ 360              	.LFB137:
+  79:Drivers/FreeModbus/port/portserial.c **** 
+  80:Drivers/FreeModbus/port/portserial.c **** void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
+  81:Drivers/FreeModbus/port/portserial.c **** {
+ 361              		.loc 1 81 1 is_stmt 1 view -0
+ 362              		.cfi_startproc
+ 363              		@ args = 0, pretend = 0, frame = 0
+ 364              		@ frame_needed = 0, uses_anonymous_args = 0
+ 365              		.loc 1 81 1 is_stmt 0 view .LVU56
+ 366 0000 08B5     		push	{r3, lr}
+ 367              	.LCFI7:
+ 368              		.cfi_def_cfa_offset 8
+ 369              		.cfi_offset 3, -8
+ 370              		.cfi_offset 14, -4
+  82:Drivers/FreeModbus/port/portserial.c **** 	if(huart->Instance == uart->Instance)
+ 371              		.loc 1 82 2 is_stmt 1 view .LVU57
+ 372              		.loc 1 82 10 is_stmt 0 view .LVU58
+ 373 0002 0268     		ldr	r2, [r0]
+ 374              		.loc 1 82 28 view .LVU59
+ 375 0004 044B     		ldr	r3, .L37
+ 376 0006 1B68     		ldr	r3, [r3]
+ 377 0008 1B68     		ldr	r3, [r3]
+ 378              		.loc 1 82 4 view .LVU60
+ 379 000a 9A42     		cmp	r2, r3
+ 380 000c 00D0     		beq	.L36
+ 381              	.LVL28:
+ 382              	.L33:
+  83:Drivers/FreeModbus/port/portserial.c **** 	{
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s 			page 9
+
+
+  84:Drivers/FreeModbus/port/portserial.c **** 		pxMBFrameCBTransmitterEmpty();
+  85:Drivers/FreeModbus/port/portserial.c **** 	}
+  86:Drivers/FreeModbus/port/portserial.c **** }
+ 383              		.loc 1 86 1 view .LVU61
+ 384 000e 08BD     		pop	{r3, pc}
+ 385              	.LVL29:
+ 386              	.L36:
+  84:Drivers/FreeModbus/port/portserial.c **** 	}
+ 387              		.loc 1 84 3 is_stmt 1 view .LVU62
+ 388 0010 024B     		ldr	r3, .L37+4
+ 389 0012 1B68     		ldr	r3, [r3]
+ 390 0014 9847     		blx	r3
+ 391              	.LVL30:
+ 392              		.loc 1 86 1 is_stmt 0 view .LVU63
+ 393 0016 FAE7     		b	.L33
+ 394              	.L38:
+ 395              		.align	2
+ 396              	.L37:
+ 397 0018 00000000 		.word	uart
+ 398 001c 00000000 		.word	pxMBFrameCBTransmitterEmpty
+ 399              		.cfi_endproc
+ 400              	.LFE137:
+ 402              		.comm	uart,4,4
+ 403              		.section	.bss.singlechar,"aw",%nobits
+ 404              		.set	.LANCHOR0,. + 0
+ 407              	singlechar:
+ 408 0000 00       		.space	1
+ 409              		.text
+ 410              	.Letext0:
+ 411              		.file 2 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 412              		.file 3 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 413              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 414              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 415              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 416              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 417              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 418              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 419              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 420              		.file 11 "Drivers/FreeModbus/port/port.h"
+ 421              		.file 12 "Drivers/FreeModbus/include/mbport.h"
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 portserial.c
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:18     .text.xMBPortSerialInit:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:26     .text.xMBPortSerialInit:0000000000000000 xMBPortSerialInit
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:48     .text.xMBPortSerialInit:0000000000000008 $d
+                            *COM*:0000000000000004 uart
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:53     .text.vMBPortSerialEnable:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:60     .text.vMBPortSerialEnable:0000000000000000 vMBPortSerialEnable
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:122    .text.vMBPortSerialEnable:0000000000000030 $d
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:129    .text.vMBPortClose:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:136    .text.vMBPortClose:0000000000000000 vMBPortClose
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:161    .text.vMBPortClose:0000000000000014 $d
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:166    .text.xMBPortSerialPutByte:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:173    .text.xMBPortSerialPutByte:0000000000000000 xMBPortSerialPutByte
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:209    .text.xMBPortSerialPutByte:0000000000000020 $d
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:214    .text.xMBPortSerialPutBytes:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:221    .text.xMBPortSerialPutBytes:0000000000000000 xMBPortSerialPutBytes
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:252    .text.xMBPortSerialPutBytes:0000000000000014 $d
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:257    .text.xMBPortSerialGetByte:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:264    .text.xMBPortSerialGetByte:0000000000000000 xMBPortSerialGetByte
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:286    .text.xMBPortSerialGetByte:000000000000000c $d
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:291    .text.HAL_UART_RxCpltCallback:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:298    .text.HAL_UART_RxCpltCallback:0000000000000000 HAL_UART_RxCpltCallback
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:344    .text.HAL_UART_RxCpltCallback:0000000000000024 $d
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:351    .text.HAL_UART_TxCpltCallback:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:358    .text.HAL_UART_TxCpltCallback:0000000000000000 HAL_UART_TxCpltCallback
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:397    .text.HAL_UART_TxCpltCallback:0000000000000018 $d
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:407    .bss.singlechar:0000000000000000 singlechar
+C:\Users\Andre\AppData\Local\Temp\ccNGkauh.s:408    .bss.singlechar:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+HAL_UART_Receive_IT
+HAL_UART_AbortReceive_IT
+HAL_UART_AbortTransmit_IT
+pxMBFrameCBTransmitterEmpty
+HAL_UART_Transmit_IT
+pxMBFrameCBByteReceived

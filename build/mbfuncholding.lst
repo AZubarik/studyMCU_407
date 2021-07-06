@@ -1,0 +1,1093 @@
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"mbfuncholding.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.eMBFuncWriteHoldingRegister,"ax",%progbits
+  18              		.align	1
+  19              		.global	eMBFuncWriteHoldingRegister
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	eMBFuncWriteHoldingRegister:
+  27              	.LVL0:
+  28              	.LFB130:
+  29              		.file 1 "Drivers/FreeModbus/functions/mbfuncholding.c"
+   1:Drivers/FreeModbus/functions/mbfuncholding.c **** /* 
+   2:Drivers/FreeModbus/functions/mbfuncholding.c ****  * FreeModbus Libary: A portable Modbus implementation for Modbus ASCII/RTU.
+   3:Drivers/FreeModbus/functions/mbfuncholding.c ****  * Copyright (c) 2006-2018 Christian Walter <cwalter@embedded-solutions.at>
+   4:Drivers/FreeModbus/functions/mbfuncholding.c ****  * All rights reserved.
+   5:Drivers/FreeModbus/functions/mbfuncholding.c ****  *
+   6:Drivers/FreeModbus/functions/mbfuncholding.c ****  * Redistribution and use in source and binary forms, with or without
+   7:Drivers/FreeModbus/functions/mbfuncholding.c ****  * modification, are permitted provided that the following conditions
+   8:Drivers/FreeModbus/functions/mbfuncholding.c ****  * are met:
+   9:Drivers/FreeModbus/functions/mbfuncholding.c ****  * 1. Redistributions of source code must retain the above copyright
+  10:Drivers/FreeModbus/functions/mbfuncholding.c ****  *    notice, this list of conditions and the following disclaimer.
+  11:Drivers/FreeModbus/functions/mbfuncholding.c ****  * 2. Redistributions in binary form must reproduce the above copyright
+  12:Drivers/FreeModbus/functions/mbfuncholding.c ****  *    notice, this list of conditions and the following disclaimer in the
+  13:Drivers/FreeModbus/functions/mbfuncholding.c ****  *    documentation and/or other materials provided with the distribution.
+  14:Drivers/FreeModbus/functions/mbfuncholding.c ****  * 3. The name of the author may not be used to endorse or promote products
+  15:Drivers/FreeModbus/functions/mbfuncholding.c ****  *    derived from this software without specific prior written permission.
+  16:Drivers/FreeModbus/functions/mbfuncholding.c ****  *
+  17:Drivers/FreeModbus/functions/mbfuncholding.c ****  * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+  18:Drivers/FreeModbus/functions/mbfuncholding.c ****  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+  19:Drivers/FreeModbus/functions/mbfuncholding.c ****  * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  20:Drivers/FreeModbus/functions/mbfuncholding.c ****  * IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+  21:Drivers/FreeModbus/functions/mbfuncholding.c ****  * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  22:Drivers/FreeModbus/functions/mbfuncholding.c ****  * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  23:Drivers/FreeModbus/functions/mbfuncholding.c ****  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  24:Drivers/FreeModbus/functions/mbfuncholding.c ****  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  25:Drivers/FreeModbus/functions/mbfuncholding.c ****  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+  26:Drivers/FreeModbus/functions/mbfuncholding.c ****  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  27:Drivers/FreeModbus/functions/mbfuncholding.c ****  *
+  28:Drivers/FreeModbus/functions/mbfuncholding.c ****  * File: $Id: mbfuncholding.c,v 1.12 2007/02/18 23:48:22 wolti Exp $
+  29:Drivers/FreeModbus/functions/mbfuncholding.c ****  */
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s 			page 2
+
+
+  30:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+  31:Drivers/FreeModbus/functions/mbfuncholding.c **** /* ----------------------- System includes ----------------------------------*/
+  32:Drivers/FreeModbus/functions/mbfuncholding.c **** #include "stdlib.h"
+  33:Drivers/FreeModbus/functions/mbfuncholding.c **** #include "string.h"
+  34:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+  35:Drivers/FreeModbus/functions/mbfuncholding.c **** /* ----------------------- Platform includes --------------------------------*/
+  36:Drivers/FreeModbus/functions/mbfuncholding.c **** #include "port.h"
+  37:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+  38:Drivers/FreeModbus/functions/mbfuncholding.c **** /* ----------------------- Modbus includes ----------------------------------*/
+  39:Drivers/FreeModbus/functions/mbfuncholding.c **** #include "mb.h"
+  40:Drivers/FreeModbus/functions/mbfuncholding.c **** #include "mbframe.h"
+  41:Drivers/FreeModbus/functions/mbfuncholding.c **** #include "mbproto.h"
+  42:Drivers/FreeModbus/functions/mbfuncholding.c **** #include "mbconfig.h"
+  43:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+  44:Drivers/FreeModbus/functions/mbfuncholding.c **** /* ----------------------- Defines ------------------------------------------*/
+  45:Drivers/FreeModbus/functions/mbfuncholding.c **** #define MB_PDU_FUNC_READ_ADDR_OFF               ( MB_PDU_DATA_OFF + 0)
+  46:Drivers/FreeModbus/functions/mbfuncholding.c **** #define MB_PDU_FUNC_READ_REGCNT_OFF             ( MB_PDU_DATA_OFF + 2 )
+  47:Drivers/FreeModbus/functions/mbfuncholding.c **** #define MB_PDU_FUNC_READ_SIZE                   ( 4 )
+  48:Drivers/FreeModbus/functions/mbfuncholding.c **** #define MB_PDU_FUNC_READ_REGCNT_MAX             ( 0x007D )
+  49:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+  50:Drivers/FreeModbus/functions/mbfuncholding.c **** #define MB_PDU_FUNC_WRITE_ADDR_OFF              ( MB_PDU_DATA_OFF + 0)
+  51:Drivers/FreeModbus/functions/mbfuncholding.c **** #define MB_PDU_FUNC_WRITE_VALUE_OFF             ( MB_PDU_DATA_OFF + 2 )
+  52:Drivers/FreeModbus/functions/mbfuncholding.c **** #define MB_PDU_FUNC_WRITE_SIZE                  ( 4 )
+  53:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+  54:Drivers/FreeModbus/functions/mbfuncholding.c **** #define MB_PDU_FUNC_WRITE_MUL_ADDR_OFF          ( MB_PDU_DATA_OFF + 0 )
+  55:Drivers/FreeModbus/functions/mbfuncholding.c **** #define MB_PDU_FUNC_WRITE_MUL_REGCNT_OFF        ( MB_PDU_DATA_OFF + 2 )
+  56:Drivers/FreeModbus/functions/mbfuncholding.c **** #define MB_PDU_FUNC_WRITE_MUL_BYTECNT_OFF       ( MB_PDU_DATA_OFF + 4 )
+  57:Drivers/FreeModbus/functions/mbfuncholding.c **** #define MB_PDU_FUNC_WRITE_MUL_VALUES_OFF        ( MB_PDU_DATA_OFF + 5 )
+  58:Drivers/FreeModbus/functions/mbfuncholding.c **** #define MB_PDU_FUNC_WRITE_MUL_SIZE_MIN          ( 5 )
+  59:Drivers/FreeModbus/functions/mbfuncholding.c **** #define MB_PDU_FUNC_WRITE_MUL_REGCNT_MAX        ( 0x0078 )
+  60:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+  61:Drivers/FreeModbus/functions/mbfuncholding.c **** #define MB_PDU_FUNC_READWRITE_READ_ADDR_OFF     ( MB_PDU_DATA_OFF + 0 )
+  62:Drivers/FreeModbus/functions/mbfuncholding.c **** #define MB_PDU_FUNC_READWRITE_READ_REGCNT_OFF   ( MB_PDU_DATA_OFF + 2 )
+  63:Drivers/FreeModbus/functions/mbfuncholding.c **** #define MB_PDU_FUNC_READWRITE_WRITE_ADDR_OFF    ( MB_PDU_DATA_OFF + 4 )
+  64:Drivers/FreeModbus/functions/mbfuncholding.c **** #define MB_PDU_FUNC_READWRITE_WRITE_REGCNT_OFF  ( MB_PDU_DATA_OFF + 6 )
+  65:Drivers/FreeModbus/functions/mbfuncholding.c **** #define MB_PDU_FUNC_READWRITE_BYTECNT_OFF       ( MB_PDU_DATA_OFF + 8 )
+  66:Drivers/FreeModbus/functions/mbfuncholding.c **** #define MB_PDU_FUNC_READWRITE_WRITE_VALUES_OFF  ( MB_PDU_DATA_OFF + 9 )
+  67:Drivers/FreeModbus/functions/mbfuncholding.c **** #define MB_PDU_FUNC_READWRITE_SIZE_MIN          ( 9 )
+  68:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+  69:Drivers/FreeModbus/functions/mbfuncholding.c **** /* ----------------------- Static functions ---------------------------------*/
+  70:Drivers/FreeModbus/functions/mbfuncholding.c **** eMBException    prveMBError2Exception( eMBErrorCode eErrorCode );
+  71:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+  72:Drivers/FreeModbus/functions/mbfuncholding.c **** /* ----------------------- Start implementation -----------------------------*/
+  73:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+  74:Drivers/FreeModbus/functions/mbfuncholding.c **** #if MB_FUNC_WRITE_HOLDING_ENABLED > 0
+  75:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+  76:Drivers/FreeModbus/functions/mbfuncholding.c **** eMBException
+  77:Drivers/FreeModbus/functions/mbfuncholding.c **** eMBFuncWriteHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
+  78:Drivers/FreeModbus/functions/mbfuncholding.c **** {
+  30              		.loc 1 78 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		.loc 1 78 1 is_stmt 0 view .LVU1
+  35 0000 08B5     		push	{r3, lr}
+  36              	.LCFI0:
+  37              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s 			page 3
+
+
+  38              		.cfi_offset 3, -8
+  39              		.cfi_offset 14, -4
+  79:Drivers/FreeModbus/functions/mbfuncholding.c ****     USHORT          usRegAddress;
+  40              		.loc 1 79 5 is_stmt 1 view .LVU2
+  80:Drivers/FreeModbus/functions/mbfuncholding.c ****     eMBException    eStatus = MB_EX_NONE;
+  41              		.loc 1 80 5 view .LVU3
+  42              	.LVL1:
+  81:Drivers/FreeModbus/functions/mbfuncholding.c ****     eMBErrorCode    eRegStatus;
+  43              		.loc 1 81 5 view .LVU4
+  82:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+  83:Drivers/FreeModbus/functions/mbfuncholding.c ****     if( *usLen == ( MB_PDU_FUNC_WRITE_SIZE + MB_PDU_SIZE_MIN ) )
+  44              		.loc 1 83 5 view .LVU5
+  45              		.loc 1 83 9 is_stmt 0 view .LVU6
+  46 0002 0B88     		ldrh	r3, [r1]
+  47              		.loc 1 83 7 view .LVU7
+  48 0004 052B     		cmp	r3, #5
+  49 0006 01D0     		beq	.L5
+  84:Drivers/FreeModbus/functions/mbfuncholding.c ****     {
+  85:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegAddress = ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_ADDR_OFF] << 8 );
+  86:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_ADDR_OFF + 1] );
+  87:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegAddress++;
+  88:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+  89:Drivers/FreeModbus/functions/mbfuncholding.c ****         /* Make callback to update the value. */
+  90:Drivers/FreeModbus/functions/mbfuncholding.c ****         eRegStatus = eMBRegHoldingCB( &pucFrame[MB_PDU_FUNC_WRITE_VALUE_OFF],
+  91:Drivers/FreeModbus/functions/mbfuncholding.c ****                                       usRegAddress, 1, MB_REG_WRITE );
+  92:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+  93:Drivers/FreeModbus/functions/mbfuncholding.c ****         /* If an error occured convert it into a Modbus exception. */
+  94:Drivers/FreeModbus/functions/mbfuncholding.c ****         if( eRegStatus != MB_ENOERR )
+  95:Drivers/FreeModbus/functions/mbfuncholding.c ****         {
+  96:Drivers/FreeModbus/functions/mbfuncholding.c ****             eStatus = prveMBError2Exception( eRegStatus );
+  97:Drivers/FreeModbus/functions/mbfuncholding.c ****         }
+  98:Drivers/FreeModbus/functions/mbfuncholding.c ****     }
+  99:Drivers/FreeModbus/functions/mbfuncholding.c ****     else
+ 100:Drivers/FreeModbus/functions/mbfuncholding.c ****     {
+ 101:Drivers/FreeModbus/functions/mbfuncholding.c ****         /* Can't be a valid request because the length is incorrect. */
+ 102:Drivers/FreeModbus/functions/mbfuncholding.c ****         eStatus = MB_EX_ILLEGAL_DATA_VALUE;
+  50              		.loc 1 102 17 view .LVU8
+  51 0008 0320     		movs	r0, #3
+  52              	.LVL2:
+  53              	.L2:
+ 103:Drivers/FreeModbus/functions/mbfuncholding.c ****     }
+ 104:Drivers/FreeModbus/functions/mbfuncholding.c ****     return eStatus;
+  54              		.loc 1 104 5 is_stmt 1 view .LVU9
+ 105:Drivers/FreeModbus/functions/mbfuncholding.c **** }
+  55              		.loc 1 105 1 is_stmt 0 view .LVU10
+  56 000a 08BD     		pop	{r3, pc}
+  57              	.LVL3:
+  58              	.L5:
+  85:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_ADDR_OFF + 1] );
+  59              		.loc 1 85 9 is_stmt 1 view .LVU11
+  85:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_ADDR_OFF + 1] );
+  60              		.loc 1 85 44 is_stmt 0 view .LVU12
+  61 000c 4378     		ldrb	r3, [r0, #1]	@ zero_extendqisi2
+  62              	.LVL4:
+  86:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegAddress++;
+  63              		.loc 1 86 9 is_stmt 1 view .LVU13
+  86:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegAddress++;
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s 			page 4
+
+
+  64              		.loc 1 86 45 is_stmt 0 view .LVU14
+  65 000e 8178     		ldrb	r1, [r0, #2]	@ zero_extendqisi2
+  66              	.LVL5:
+  86:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegAddress++;
+  67              		.loc 1 86 22 view .LVU15
+  68 0010 41EA0321 		orr	r1, r1, r3, lsl #8
+  69              	.LVL6:
+  87:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+  70              		.loc 1 87 9 is_stmt 1 view .LVU16
+  87:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+  71              		.loc 1 87 21 is_stmt 0 view .LVU17
+  72 0014 0131     		adds	r1, r1, #1
+  73              	.LVL7:
+  90:Drivers/FreeModbus/functions/mbfuncholding.c ****                                       usRegAddress, 1, MB_REG_WRITE );
+  74              		.loc 1 90 9 is_stmt 1 view .LVU18
+  90:Drivers/FreeModbus/functions/mbfuncholding.c ****                                       usRegAddress, 1, MB_REG_WRITE );
+  75              		.loc 1 90 22 is_stmt 0 view .LVU19
+  76 0016 0123     		movs	r3, #1
+  77 0018 1A46     		mov	r2, r3
+  78 001a 89B2     		uxth	r1, r1
+  90:Drivers/FreeModbus/functions/mbfuncholding.c ****                                       usRegAddress, 1, MB_REG_WRITE );
+  79              		.loc 1 90 22 view .LVU20
+  80 001c 0330     		adds	r0, r0, #3
+  81              	.LVL8:
+  90:Drivers/FreeModbus/functions/mbfuncholding.c ****                                       usRegAddress, 1, MB_REG_WRITE );
+  82              		.loc 1 90 22 view .LVU21
+  83 001e FFF7FEFF 		bl	eMBRegHoldingCB
+  84              	.LVL9:
+  94:Drivers/FreeModbus/functions/mbfuncholding.c ****         {
+  85              		.loc 1 94 9 is_stmt 1 view .LVU22
+  94:Drivers/FreeModbus/functions/mbfuncholding.c ****         {
+  86              		.loc 1 94 11 is_stmt 0 view .LVU23
+  87 0022 0028     		cmp	r0, #0
+  88 0024 F1D0     		beq	.L2
+  96:Drivers/FreeModbus/functions/mbfuncholding.c ****         }
+  89              		.loc 1 96 13 is_stmt 1 view .LVU24
+  96:Drivers/FreeModbus/functions/mbfuncholding.c ****         }
+  90              		.loc 1 96 23 is_stmt 0 view .LVU25
+  91 0026 FFF7FEFF 		bl	prveMBError2Exception
+  92              	.LVL10:
+  96:Drivers/FreeModbus/functions/mbfuncholding.c ****         }
+  93              		.loc 1 96 23 view .LVU26
+  94 002a EEE7     		b	.L2
+  95              		.cfi_endproc
+  96              	.LFE130:
+  98              		.section	.text.eMBFuncWriteMultipleHoldingRegister,"ax",%progbits
+  99              		.align	1
+ 100              		.global	eMBFuncWriteMultipleHoldingRegister
+ 101              		.syntax unified
+ 102              		.thumb
+ 103              		.thumb_func
+ 104              		.fpu fpv4-sp-d16
+ 106              	eMBFuncWriteMultipleHoldingRegister:
+ 107              	.LVL11:
+ 108              	.LFB131:
+ 106:Drivers/FreeModbus/functions/mbfuncholding.c **** #endif
+ 107:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s 			page 5
+
+
+ 108:Drivers/FreeModbus/functions/mbfuncholding.c **** #if MB_FUNC_WRITE_MULTIPLE_HOLDING_ENABLED > 0
+ 109:Drivers/FreeModbus/functions/mbfuncholding.c **** eMBException
+ 110:Drivers/FreeModbus/functions/mbfuncholding.c **** eMBFuncWriteMultipleHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
+ 111:Drivers/FreeModbus/functions/mbfuncholding.c **** {
+ 109              		.loc 1 111 1 is_stmt 1 view -0
+ 110              		.cfi_startproc
+ 111              		@ args = 0, pretend = 0, frame = 0
+ 112              		@ frame_needed = 0, uses_anonymous_args = 0
+ 113              		.loc 1 111 1 is_stmt 0 view .LVU28
+ 114 0000 38B5     		push	{r3, r4, r5, lr}
+ 115              	.LCFI1:
+ 116              		.cfi_def_cfa_offset 16
+ 117              		.cfi_offset 3, -16
+ 118              		.cfi_offset 4, -12
+ 119              		.cfi_offset 5, -8
+ 120              		.cfi_offset 14, -4
+ 112:Drivers/FreeModbus/functions/mbfuncholding.c ****     USHORT          usRegAddress;
+ 121              		.loc 1 112 5 is_stmt 1 view .LVU29
+ 113:Drivers/FreeModbus/functions/mbfuncholding.c ****     USHORT          usRegCount;
+ 122              		.loc 1 113 5 view .LVU30
+ 114:Drivers/FreeModbus/functions/mbfuncholding.c ****     UCHAR           ucRegByteCount;
+ 123              		.loc 1 114 5 view .LVU31
+ 115:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 116:Drivers/FreeModbus/functions/mbfuncholding.c ****     eMBException    eStatus = MB_EX_NONE;
+ 124              		.loc 1 116 5 view .LVU32
+ 125              	.LVL12:
+ 117:Drivers/FreeModbus/functions/mbfuncholding.c ****     eMBErrorCode    eRegStatus;
+ 126              		.loc 1 117 5 view .LVU33
+ 118:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 119:Drivers/FreeModbus/functions/mbfuncholding.c ****     if( *usLen >= ( MB_PDU_FUNC_WRITE_MUL_SIZE_MIN + MB_PDU_SIZE_MIN ) )
+ 127              		.loc 1 119 5 view .LVU34
+ 128              		.loc 1 119 9 is_stmt 0 view .LVU35
+ 129 0002 0B88     		ldrh	r3, [r1]
+ 130              		.loc 1 119 7 view .LVU36
+ 131 0004 052B     		cmp	r3, #5
+ 132 0006 20D9     		bls	.L9
+ 133 0008 0C46     		mov	r4, r1
+ 120:Drivers/FreeModbus/functions/mbfuncholding.c ****     {
+ 121:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegAddress = ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_MUL_ADDR_OFF] << 8 );
+ 134              		.loc 1 121 9 is_stmt 1 view .LVU37
+ 135              		.loc 1 121 44 is_stmt 0 view .LVU38
+ 136 000a 4178     		ldrb	r1, [r0, #1]	@ zero_extendqisi2
+ 137              	.LVL13:
+ 122:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_MUL_ADDR_OFF + 1] );
+ 138              		.loc 1 122 9 is_stmt 1 view .LVU39
+ 139              		.loc 1 122 45 is_stmt 0 view .LVU40
+ 140 000c 8378     		ldrb	r3, [r0, #2]	@ zero_extendqisi2
+ 141              		.loc 1 122 22 view .LVU41
+ 142 000e 43EA0123 		orr	r3, r3, r1, lsl #8
+ 143              	.LVL14:
+ 123:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegAddress++;
+ 144              		.loc 1 123 9 is_stmt 1 view .LVU42
+ 145              		.loc 1 123 21 is_stmt 0 view .LVU43
+ 146 0012 0133     		adds	r3, r3, #1
+ 147              	.LVL15:
+ 148              		.loc 1 123 21 view .LVU44
+ 149 0014 99B2     		uxth	r1, r3
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s 			page 6
+
+
+ 150              	.LVL16:
+ 124:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 125:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegCount = ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_MUL_REGCNT_OFF] << 8 );
+ 151              		.loc 1 125 9 is_stmt 1 view .LVU45
+ 152              		.loc 1 125 42 is_stmt 0 view .LVU46
+ 153 0016 C378     		ldrb	r3, [r0, #3]	@ zero_extendqisi2
+ 154              	.LVL17:
+ 126:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegCount |= ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_MUL_REGCNT_OFF + 1] );
+ 155              		.loc 1 126 9 is_stmt 1 view .LVU47
+ 156              		.loc 1 126 43 is_stmt 0 view .LVU48
+ 157 0018 0279     		ldrb	r2, [r0, #4]	@ zero_extendqisi2
+ 158              		.loc 1 126 20 view .LVU49
+ 159 001a 42EA0322 		orr	r2, r2, r3, lsl #8
+ 160              	.LVL18:
+ 127:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 128:Drivers/FreeModbus/functions/mbfuncholding.c ****         ucRegByteCount = pucFrame[MB_PDU_FUNC_WRITE_MUL_BYTECNT_OFF];
+ 161              		.loc 1 128 9 is_stmt 1 view .LVU50
+ 162              		.loc 1 128 24 is_stmt 0 view .LVU51
+ 163 001e 4579     		ldrb	r5, [r0, #5]	@ zero_extendqisi2
+ 164              	.LVL19:
+ 129:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 130:Drivers/FreeModbus/functions/mbfuncholding.c ****         if( ( usRegCount >= 1 ) &&
+ 165              		.loc 1 130 9 is_stmt 1 view .LVU52
+ 166              		.loc 1 130 33 is_stmt 0 view .LVU53
+ 167 0020 531E     		subs	r3, r2, #1
+ 168 0022 9BB2     		uxth	r3, r3
+ 169              		.loc 1 130 11 view .LVU54
+ 170 0024 772B     		cmp	r3, #119
+ 171 0026 12D8     		bhi	.L10
+ 131:Drivers/FreeModbus/functions/mbfuncholding.c ****             ( usRegCount <= MB_PDU_FUNC_WRITE_MUL_REGCNT_MAX ) &&
+ 132:Drivers/FreeModbus/functions/mbfuncholding.c ****             ( ucRegByteCount == ( UCHAR ) ( 2 * usRegCount ) ) )
+ 172              		.loc 1 132 33 view .LVU55
+ 173 0028 5300     		lsls	r3, r2, #1
+ 174 002a DBB2     		uxtb	r3, r3
+ 131:Drivers/FreeModbus/functions/mbfuncholding.c ****             ( usRegCount <= MB_PDU_FUNC_WRITE_MUL_REGCNT_MAX ) &&
+ 175              		.loc 1 131 64 view .LVU56
+ 176 002c AB42     		cmp	r3, r5
+ 177 002e 01D0     		beq	.L13
+ 133:Drivers/FreeModbus/functions/mbfuncholding.c ****         {
+ 134:Drivers/FreeModbus/functions/mbfuncholding.c ****             /* Make callback to update the register values. */
+ 135:Drivers/FreeModbus/functions/mbfuncholding.c ****             eRegStatus =
+ 136:Drivers/FreeModbus/functions/mbfuncholding.c ****                 eMBRegHoldingCB( &pucFrame[MB_PDU_FUNC_WRITE_MUL_VALUES_OFF],
+ 137:Drivers/FreeModbus/functions/mbfuncholding.c ****                                  usRegAddress, usRegCount, MB_REG_WRITE );
+ 138:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 139:Drivers/FreeModbus/functions/mbfuncholding.c ****             /* If an error occured convert it into a Modbus exception. */
+ 140:Drivers/FreeModbus/functions/mbfuncholding.c ****             if( eRegStatus != MB_ENOERR )
+ 141:Drivers/FreeModbus/functions/mbfuncholding.c ****             {
+ 142:Drivers/FreeModbus/functions/mbfuncholding.c ****                 eStatus = prveMBError2Exception( eRegStatus );
+ 143:Drivers/FreeModbus/functions/mbfuncholding.c ****             }
+ 144:Drivers/FreeModbus/functions/mbfuncholding.c ****             else
+ 145:Drivers/FreeModbus/functions/mbfuncholding.c ****             {
+ 146:Drivers/FreeModbus/functions/mbfuncholding.c ****                 /* The response contains the function code, the starting
+ 147:Drivers/FreeModbus/functions/mbfuncholding.c ****                  * address and the quantity of registers. We reuse the
+ 148:Drivers/FreeModbus/functions/mbfuncholding.c ****                  * old values in the buffer because they are still valid.
+ 149:Drivers/FreeModbus/functions/mbfuncholding.c ****                  */
+ 150:Drivers/FreeModbus/functions/mbfuncholding.c ****                 *usLen = MB_PDU_FUNC_WRITE_MUL_BYTECNT_OFF;
+ 151:Drivers/FreeModbus/functions/mbfuncholding.c ****             }
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s 			page 7
+
+
+ 152:Drivers/FreeModbus/functions/mbfuncholding.c ****         }
+ 153:Drivers/FreeModbus/functions/mbfuncholding.c ****         else
+ 154:Drivers/FreeModbus/functions/mbfuncholding.c ****         {
+ 155:Drivers/FreeModbus/functions/mbfuncholding.c ****             eStatus = MB_EX_ILLEGAL_DATA_VALUE;
+ 178              		.loc 1 155 21 view .LVU57
+ 179 0030 0320     		movs	r0, #3
+ 180              	.LVL20:
+ 181              		.loc 1 155 21 view .LVU58
+ 182 0032 0BE0     		b	.L7
+ 183              	.LVL21:
+ 184              	.L13:
+ 135:Drivers/FreeModbus/functions/mbfuncholding.c ****                 eMBRegHoldingCB( &pucFrame[MB_PDU_FUNC_WRITE_MUL_VALUES_OFF],
+ 185              		.loc 1 135 13 is_stmt 1 view .LVU59
+ 136:Drivers/FreeModbus/functions/mbfuncholding.c ****                                  usRegAddress, usRegCount, MB_REG_WRITE );
+ 186              		.loc 1 136 17 is_stmt 0 view .LVU60
+ 187 0034 0123     		movs	r3, #1
+ 188 0036 0630     		adds	r0, r0, #6
+ 189              	.LVL22:
+ 136:Drivers/FreeModbus/functions/mbfuncholding.c ****                                  usRegAddress, usRegCount, MB_REG_WRITE );
+ 190              		.loc 1 136 17 view .LVU61
+ 191 0038 FFF7FEFF 		bl	eMBRegHoldingCB
+ 192              	.LVL23:
+ 140:Drivers/FreeModbus/functions/mbfuncholding.c ****             {
+ 193              		.loc 1 140 13 is_stmt 1 view .LVU62
+ 140:Drivers/FreeModbus/functions/mbfuncholding.c ****             {
+ 194              		.loc 1 140 15 is_stmt 0 view .LVU63
+ 195 003c 10B9     		cbnz	r0, .L14
+ 150:Drivers/FreeModbus/functions/mbfuncholding.c ****             }
+ 196              		.loc 1 150 17 is_stmt 1 view .LVU64
+ 150:Drivers/FreeModbus/functions/mbfuncholding.c ****             }
+ 197              		.loc 1 150 24 is_stmt 0 view .LVU65
+ 198 003e 0523     		movs	r3, #5
+ 199 0040 2380     		strh	r3, [r4]	@ movhi
+ 200 0042 03E0     		b	.L7
+ 201              	.L14:
+ 142:Drivers/FreeModbus/functions/mbfuncholding.c ****             }
+ 202              		.loc 1 142 17 is_stmt 1 view .LVU66
+ 142:Drivers/FreeModbus/functions/mbfuncholding.c ****             }
+ 203              		.loc 1 142 27 is_stmt 0 view .LVU67
+ 204 0044 FFF7FEFF 		bl	prveMBError2Exception
+ 205              	.LVL24:
+ 142:Drivers/FreeModbus/functions/mbfuncholding.c ****             }
+ 206              		.loc 1 142 27 view .LVU68
+ 207 0048 00E0     		b	.L7
+ 208              	.LVL25:
+ 209              	.L9:
+ 156:Drivers/FreeModbus/functions/mbfuncholding.c ****         }
+ 157:Drivers/FreeModbus/functions/mbfuncholding.c ****     }
+ 158:Drivers/FreeModbus/functions/mbfuncholding.c ****     else
+ 159:Drivers/FreeModbus/functions/mbfuncholding.c ****     {
+ 160:Drivers/FreeModbus/functions/mbfuncholding.c ****         /* Can't be a valid request because the length is incorrect. */
+ 161:Drivers/FreeModbus/functions/mbfuncholding.c ****         eStatus = MB_EX_ILLEGAL_DATA_VALUE;
+ 210              		.loc 1 161 17 view .LVU69
+ 211 004a 0320     		movs	r0, #3
+ 212              	.LVL26:
+ 213              	.L7:
+ 162:Drivers/FreeModbus/functions/mbfuncholding.c ****     }
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s 			page 8
+
+
+ 163:Drivers/FreeModbus/functions/mbfuncholding.c ****     return eStatus;
+ 214              		.loc 1 163 5 is_stmt 1 view .LVU70
+ 164:Drivers/FreeModbus/functions/mbfuncholding.c **** }
+ 215              		.loc 1 164 1 is_stmt 0 view .LVU71
+ 216 004c 38BD     		pop	{r3, r4, r5, pc}
+ 217              	.LVL27:
+ 218              	.L10:
+ 155:Drivers/FreeModbus/functions/mbfuncholding.c ****         }
+ 219              		.loc 1 155 21 view .LVU72
+ 220 004e 0320     		movs	r0, #3
+ 221              	.LVL28:
+ 155:Drivers/FreeModbus/functions/mbfuncholding.c ****         }
+ 222              		.loc 1 155 21 view .LVU73
+ 223 0050 FCE7     		b	.L7
+ 224              		.cfi_endproc
+ 225              	.LFE131:
+ 227              		.section	.text.eMBFuncReadHoldingRegister,"ax",%progbits
+ 228              		.align	1
+ 229              		.global	eMBFuncReadHoldingRegister
+ 230              		.syntax unified
+ 231              		.thumb
+ 232              		.thumb_func
+ 233              		.fpu fpv4-sp-d16
+ 235              	eMBFuncReadHoldingRegister:
+ 236              	.LVL29:
+ 237              	.LFB132:
+ 165:Drivers/FreeModbus/functions/mbfuncholding.c **** #endif
+ 166:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 167:Drivers/FreeModbus/functions/mbfuncholding.c **** #if MB_FUNC_READ_HOLDING_ENABLED > 0
+ 168:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 169:Drivers/FreeModbus/functions/mbfuncholding.c **** eMBException
+ 170:Drivers/FreeModbus/functions/mbfuncholding.c **** eMBFuncReadHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
+ 171:Drivers/FreeModbus/functions/mbfuncholding.c **** {
+ 238              		.loc 1 171 1 is_stmt 1 view -0
+ 239              		.cfi_startproc
+ 240              		@ args = 0, pretend = 0, frame = 0
+ 241              		@ frame_needed = 0, uses_anonymous_args = 0
+ 172:Drivers/FreeModbus/functions/mbfuncholding.c ****     USHORT          usRegAddress;
+ 242              		.loc 1 172 5 view .LVU75
+ 173:Drivers/FreeModbus/functions/mbfuncholding.c ****     USHORT          usRegCount;
+ 243              		.loc 1 173 5 view .LVU76
+ 174:Drivers/FreeModbus/functions/mbfuncholding.c ****     UCHAR          *pucFrameCur;
+ 244              		.loc 1 174 5 view .LVU77
+ 175:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 176:Drivers/FreeModbus/functions/mbfuncholding.c ****     eMBException    eStatus = MB_EX_NONE;
+ 245              		.loc 1 176 5 view .LVU78
+ 177:Drivers/FreeModbus/functions/mbfuncholding.c ****     eMBErrorCode    eRegStatus;
+ 246              		.loc 1 177 5 view .LVU79
+ 178:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 179:Drivers/FreeModbus/functions/mbfuncholding.c ****     if( *usLen == ( MB_PDU_FUNC_READ_SIZE + MB_PDU_SIZE_MIN ) )
+ 247              		.loc 1 179 5 view .LVU80
+ 248              		.loc 1 179 9 is_stmt 0 view .LVU81
+ 249 0000 0B88     		ldrh	r3, [r1]
+ 250              		.loc 1 179 7 view .LVU82
+ 251 0002 052B     		cmp	r3, #5
+ 252 0004 01D0     		beq	.L24
+ 180:Drivers/FreeModbus/functions/mbfuncholding.c ****     {
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s 			page 9
+
+
+ 181:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegAddress = ( USHORT )( pucFrame[MB_PDU_FUNC_READ_ADDR_OFF] << 8 );
+ 182:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_READ_ADDR_OFF + 1] );
+ 183:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegAddress++;
+ 184:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 185:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegCount = ( USHORT )( pucFrame[MB_PDU_FUNC_READ_REGCNT_OFF] << 8 );
+ 186:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegCount |= ( USHORT )( pucFrame[MB_PDU_FUNC_READ_REGCNT_OFF + 1] );
+ 187:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 188:Drivers/FreeModbus/functions/mbfuncholding.c ****         /* Check if the number of registers to read is valid. If not
+ 189:Drivers/FreeModbus/functions/mbfuncholding.c ****          * return Modbus illegal data value exception. 
+ 190:Drivers/FreeModbus/functions/mbfuncholding.c ****          */
+ 191:Drivers/FreeModbus/functions/mbfuncholding.c ****         if( ( usRegCount >= 1 ) && ( usRegCount <= MB_PDU_FUNC_READ_REGCNT_MAX ) )
+ 192:Drivers/FreeModbus/functions/mbfuncholding.c ****         {
+ 193:Drivers/FreeModbus/functions/mbfuncholding.c ****             /* Set the current PDU data pointer to the beginning. */
+ 194:Drivers/FreeModbus/functions/mbfuncholding.c ****             pucFrameCur = &pucFrame[MB_PDU_FUNC_OFF];
+ 195:Drivers/FreeModbus/functions/mbfuncholding.c ****             *usLen = MB_PDU_FUNC_OFF;
+ 196:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 197:Drivers/FreeModbus/functions/mbfuncholding.c ****             /* First byte contains the function code. */
+ 198:Drivers/FreeModbus/functions/mbfuncholding.c ****             *pucFrameCur++ = MB_FUNC_READ_HOLDING_REGISTER;
+ 199:Drivers/FreeModbus/functions/mbfuncholding.c ****             *usLen += 1;
+ 200:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 201:Drivers/FreeModbus/functions/mbfuncholding.c ****             /* Second byte in the response contain the number of bytes. */
+ 202:Drivers/FreeModbus/functions/mbfuncholding.c ****             *pucFrameCur++ = ( UCHAR ) ( usRegCount * 2 );
+ 203:Drivers/FreeModbus/functions/mbfuncholding.c ****             *usLen += 1;
+ 204:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 205:Drivers/FreeModbus/functions/mbfuncholding.c ****             /* Make callback to fill the buffer. */
+ 206:Drivers/FreeModbus/functions/mbfuncholding.c ****             eRegStatus = eMBRegHoldingCB( pucFrameCur, usRegAddress, usRegCount, MB_REG_READ );
+ 207:Drivers/FreeModbus/functions/mbfuncholding.c ****             /* If an error occured convert it into a Modbus exception. */
+ 208:Drivers/FreeModbus/functions/mbfuncholding.c ****             if( eRegStatus != MB_ENOERR )
+ 209:Drivers/FreeModbus/functions/mbfuncholding.c ****             {
+ 210:Drivers/FreeModbus/functions/mbfuncholding.c ****                 eStatus = prveMBError2Exception( eRegStatus );
+ 211:Drivers/FreeModbus/functions/mbfuncholding.c ****             }
+ 212:Drivers/FreeModbus/functions/mbfuncholding.c ****             else
+ 213:Drivers/FreeModbus/functions/mbfuncholding.c ****             {
+ 214:Drivers/FreeModbus/functions/mbfuncholding.c ****                 *usLen += usRegCount * 2;
+ 215:Drivers/FreeModbus/functions/mbfuncholding.c ****             }
+ 216:Drivers/FreeModbus/functions/mbfuncholding.c ****         }
+ 217:Drivers/FreeModbus/functions/mbfuncholding.c ****         else
+ 218:Drivers/FreeModbus/functions/mbfuncholding.c ****         {
+ 219:Drivers/FreeModbus/functions/mbfuncholding.c ****             eStatus = MB_EX_ILLEGAL_DATA_VALUE;
+ 220:Drivers/FreeModbus/functions/mbfuncholding.c ****         }
+ 221:Drivers/FreeModbus/functions/mbfuncholding.c ****     }
+ 222:Drivers/FreeModbus/functions/mbfuncholding.c ****     else
+ 223:Drivers/FreeModbus/functions/mbfuncholding.c ****     {
+ 224:Drivers/FreeModbus/functions/mbfuncholding.c ****         /* Can't be a valid request because the length is incorrect. */
+ 225:Drivers/FreeModbus/functions/mbfuncholding.c ****         eStatus = MB_EX_ILLEGAL_DATA_VALUE;
+ 253              		.loc 1 225 17 view .LVU83
+ 254 0006 0320     		movs	r0, #3
+ 255              	.LVL30:
+ 226:Drivers/FreeModbus/functions/mbfuncholding.c ****     }
+ 227:Drivers/FreeModbus/functions/mbfuncholding.c ****     return eStatus;
+ 256              		.loc 1 227 5 is_stmt 1 view .LVU84
+ 228:Drivers/FreeModbus/functions/mbfuncholding.c **** }
+ 257              		.loc 1 228 1 is_stmt 0 view .LVU85
+ 258 0008 7047     		bx	lr
+ 259              	.LVL31:
+ 260              	.L24:
+ 171:Drivers/FreeModbus/functions/mbfuncholding.c ****     USHORT          usRegAddress;
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s 			page 10
+
+
+ 261              		.loc 1 171 1 view .LVU86
+ 262 000a 70B5     		push	{r4, r5, r6, lr}
+ 263              	.LCFI2:
+ 264              		.cfi_def_cfa_offset 16
+ 265              		.cfi_offset 4, -16
+ 266              		.cfi_offset 5, -12
+ 267              		.cfi_offset 6, -8
+ 268              		.cfi_offset 14, -4
+ 269 000c 0C46     		mov	r4, r1
+ 181:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_READ_ADDR_OFF + 1] );
+ 270              		.loc 1 181 9 is_stmt 1 view .LVU87
+ 181:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_READ_ADDR_OFF + 1] );
+ 271              		.loc 1 181 44 is_stmt 0 view .LVU88
+ 272 000e 4378     		ldrb	r3, [r0, #1]	@ zero_extendqisi2
+ 273              	.LVL32:
+ 182:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegAddress++;
+ 274              		.loc 1 182 9 is_stmt 1 view .LVU89
+ 182:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegAddress++;
+ 275              		.loc 1 182 45 is_stmt 0 view .LVU90
+ 276 0010 8178     		ldrb	r1, [r0, #2]	@ zero_extendqisi2
+ 277              	.LVL33:
+ 182:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegAddress++;
+ 278              		.loc 1 182 22 view .LVU91
+ 279 0012 41EA0321 		orr	r1, r1, r3, lsl #8
+ 280              	.LVL34:
+ 183:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 281              		.loc 1 183 9 is_stmt 1 view .LVU92
+ 183:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 282              		.loc 1 183 21 is_stmt 0 view .LVU93
+ 283 0016 0131     		adds	r1, r1, #1
+ 284              	.LVL35:
+ 183:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 285              		.loc 1 183 21 view .LVU94
+ 286 0018 89B2     		uxth	r1, r1
+ 287              	.LVL36:
+ 185:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegCount |= ( USHORT )( pucFrame[MB_PDU_FUNC_READ_REGCNT_OFF + 1] );
+ 288              		.loc 1 185 9 is_stmt 1 view .LVU95
+ 185:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegCount |= ( USHORT )( pucFrame[MB_PDU_FUNC_READ_REGCNT_OFF + 1] );
+ 289              		.loc 1 185 42 is_stmt 0 view .LVU96
+ 290 001a C378     		ldrb	r3, [r0, #3]	@ zero_extendqisi2
+ 291              	.LVL37:
+ 186:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 292              		.loc 1 186 9 is_stmt 1 view .LVU97
+ 186:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 293              		.loc 1 186 43 is_stmt 0 view .LVU98
+ 294 001c 0579     		ldrb	r5, [r0, #4]	@ zero_extendqisi2
+ 186:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 295              		.loc 1 186 20 view .LVU99
+ 296 001e 45EA0325 		orr	r5, r5, r3, lsl #8
+ 297              	.LVL38:
+ 191:Drivers/FreeModbus/functions/mbfuncholding.c ****         {
+ 298              		.loc 1 191 9 is_stmt 1 view .LVU100
+ 191:Drivers/FreeModbus/functions/mbfuncholding.c ****         {
+ 299              		.loc 1 191 33 is_stmt 0 view .LVU101
+ 300 0022 6B1E     		subs	r3, r5, #1
+ 301 0024 9BB2     		uxth	r3, r3
+ 191:Drivers/FreeModbus/functions/mbfuncholding.c ****         {
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s 			page 11
+
+
+ 302              		.loc 1 191 11 view .LVU102
+ 303 0026 7C2B     		cmp	r3, #124
+ 304 0028 01D9     		bls	.L25
+ 219:Drivers/FreeModbus/functions/mbfuncholding.c ****         }
+ 305              		.loc 1 219 21 view .LVU103
+ 306 002a 0320     		movs	r0, #3
+ 307              	.LVL39:
+ 308              	.L16:
+ 227:Drivers/FreeModbus/functions/mbfuncholding.c **** }
+ 309              		.loc 1 227 5 is_stmt 1 view .LVU104
+ 310              		.loc 1 228 1 is_stmt 0 view .LVU105
+ 311 002c 70BD     		pop	{r4, r5, r6, pc}
+ 312              	.LVL40:
+ 313              	.L25:
+ 194:Drivers/FreeModbus/functions/mbfuncholding.c ****             *usLen = MB_PDU_FUNC_OFF;
+ 314              		.loc 1 194 13 is_stmt 1 view .LVU106
+ 195:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 315              		.loc 1 195 13 view .LVU107
+ 195:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 316              		.loc 1 195 20 is_stmt 0 view .LVU108
+ 317 002e 0023     		movs	r3, #0
+ 318 0030 2380     		strh	r3, [r4]	@ movhi
+ 198:Drivers/FreeModbus/functions/mbfuncholding.c ****             *usLen += 1;
+ 319              		.loc 1 198 13 is_stmt 1 view .LVU109
+ 320              	.LVL41:
+ 198:Drivers/FreeModbus/functions/mbfuncholding.c ****             *usLen += 1;
+ 321              		.loc 1 198 28 is_stmt 0 view .LVU110
+ 322 0032 0646     		mov	r6, r0
+ 323 0034 0322     		movs	r2, #3
+ 324 0036 06F8022B 		strb	r2, [r6], #2
+ 199:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 325              		.loc 1 199 13 is_stmt 1 view .LVU111
+ 199:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 326              		.loc 1 199 20 is_stmt 0 view .LVU112
+ 327 003a 2288     		ldrh	r2, [r4]
+ 328 003c 0132     		adds	r2, r2, #1
+ 329 003e 2280     		strh	r2, [r4]	@ movhi
+ 202:Drivers/FreeModbus/functions/mbfuncholding.c ****             *usLen += 1;
+ 330              		.loc 1 202 13 is_stmt 1 view .LVU113
+ 331              	.LVL42:
+ 202:Drivers/FreeModbus/functions/mbfuncholding.c ****             *usLen += 1;
+ 332              		.loc 1 202 30 is_stmt 0 view .LVU114
+ 333 0040 6A00     		lsls	r2, r5, #1
+ 202:Drivers/FreeModbus/functions/mbfuncholding.c ****             *usLen += 1;
+ 334              		.loc 1 202 28 view .LVU115
+ 335 0042 4270     		strb	r2, [r0, #1]
+ 203:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 336              		.loc 1 203 13 is_stmt 1 view .LVU116
+ 203:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 337              		.loc 1 203 20 is_stmt 0 view .LVU117
+ 338 0044 2288     		ldrh	r2, [r4]
+ 339 0046 0132     		adds	r2, r2, #1
+ 340 0048 2280     		strh	r2, [r4]	@ movhi
+ 206:Drivers/FreeModbus/functions/mbfuncholding.c ****             /* If an error occured convert it into a Modbus exception. */
+ 341              		.loc 1 206 13 is_stmt 1 view .LVU118
+ 206:Drivers/FreeModbus/functions/mbfuncholding.c ****             /* If an error occured convert it into a Modbus exception. */
+ 342              		.loc 1 206 26 is_stmt 0 view .LVU119
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s 			page 12
+
+
+ 343 004a 2A46     		mov	r2, r5
+ 344 004c 3046     		mov	r0, r6
+ 345              	.LVL43:
+ 206:Drivers/FreeModbus/functions/mbfuncholding.c ****             /* If an error occured convert it into a Modbus exception. */
+ 346              		.loc 1 206 26 view .LVU120
+ 347 004e FFF7FEFF 		bl	eMBRegHoldingCB
+ 348              	.LVL44:
+ 208:Drivers/FreeModbus/functions/mbfuncholding.c ****             {
+ 349              		.loc 1 208 13 is_stmt 1 view .LVU121
+ 208:Drivers/FreeModbus/functions/mbfuncholding.c ****             {
+ 350              		.loc 1 208 15 is_stmt 0 view .LVU122
+ 351 0052 20B9     		cbnz	r0, .L26
+ 214:Drivers/FreeModbus/functions/mbfuncholding.c ****             }
+ 352              		.loc 1 214 17 is_stmt 1 view .LVU123
+ 214:Drivers/FreeModbus/functions/mbfuncholding.c ****             }
+ 353              		.loc 1 214 24 is_stmt 0 view .LVU124
+ 354 0054 2388     		ldrh	r3, [r4]
+ 355 0056 03EB4505 		add	r5, r3, r5, lsl #1
+ 356              	.LVL45:
+ 214:Drivers/FreeModbus/functions/mbfuncholding.c ****             }
+ 357              		.loc 1 214 24 view .LVU125
+ 358 005a 2580     		strh	r5, [r4]	@ movhi
+ 359 005c E6E7     		b	.L16
+ 360              	.LVL46:
+ 361              	.L26:
+ 210:Drivers/FreeModbus/functions/mbfuncholding.c ****             }
+ 362              		.loc 1 210 17 is_stmt 1 view .LVU126
+ 210:Drivers/FreeModbus/functions/mbfuncholding.c ****             }
+ 363              		.loc 1 210 27 is_stmt 0 view .LVU127
+ 364 005e FFF7FEFF 		bl	prveMBError2Exception
+ 365              	.LVL47:
+ 210:Drivers/FreeModbus/functions/mbfuncholding.c ****             }
+ 366              		.loc 1 210 27 view .LVU128
+ 367 0062 E3E7     		b	.L16
+ 368              		.cfi_endproc
+ 369              	.LFE132:
+ 371              		.section	.text.eMBFuncReadWriteMultipleHoldingRegister,"ax",%progbits
+ 372              		.align	1
+ 373              		.global	eMBFuncReadWriteMultipleHoldingRegister
+ 374              		.syntax unified
+ 375              		.thumb
+ 376              		.thumb_func
+ 377              		.fpu fpv4-sp-d16
+ 379              	eMBFuncReadWriteMultipleHoldingRegister:
+ 380              	.LVL48:
+ 381              	.LFB133:
+ 229:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 230:Drivers/FreeModbus/functions/mbfuncholding.c **** #endif
+ 231:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 232:Drivers/FreeModbus/functions/mbfuncholding.c **** #if MB_FUNC_READWRITE_HOLDING_ENABLED > 0
+ 233:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 234:Drivers/FreeModbus/functions/mbfuncholding.c **** eMBException
+ 235:Drivers/FreeModbus/functions/mbfuncholding.c **** eMBFuncReadWriteMultipleHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
+ 236:Drivers/FreeModbus/functions/mbfuncholding.c **** {
+ 382              		.loc 1 236 1 is_stmt 1 view -0
+ 383              		.cfi_startproc
+ 384              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s 			page 13
+
+
+ 385              		@ frame_needed = 0, uses_anonymous_args = 0
+ 386              		.loc 1 236 1 is_stmt 0 view .LVU130
+ 387 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 388              	.LCFI3:
+ 389              		.cfi_def_cfa_offset 24
+ 390              		.cfi_offset 3, -24
+ 391              		.cfi_offset 4, -20
+ 392              		.cfi_offset 5, -16
+ 393              		.cfi_offset 6, -12
+ 394              		.cfi_offset 7, -8
+ 395              		.cfi_offset 14, -4
+ 237:Drivers/FreeModbus/functions/mbfuncholding.c ****     USHORT          usRegReadAddress;
+ 396              		.loc 1 237 5 is_stmt 1 view .LVU131
+ 238:Drivers/FreeModbus/functions/mbfuncholding.c ****     USHORT          usRegReadCount;
+ 397              		.loc 1 238 5 view .LVU132
+ 239:Drivers/FreeModbus/functions/mbfuncholding.c ****     USHORT          usRegWriteAddress;
+ 398              		.loc 1 239 5 view .LVU133
+ 240:Drivers/FreeModbus/functions/mbfuncholding.c ****     USHORT          usRegWriteCount;
+ 399              		.loc 1 240 5 view .LVU134
+ 241:Drivers/FreeModbus/functions/mbfuncholding.c ****     UCHAR           ucRegWriteByteCount;
+ 400              		.loc 1 241 5 view .LVU135
+ 242:Drivers/FreeModbus/functions/mbfuncholding.c ****     UCHAR          *pucFrameCur;
+ 401              		.loc 1 242 5 view .LVU136
+ 243:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 244:Drivers/FreeModbus/functions/mbfuncholding.c ****     eMBException    eStatus = MB_EX_NONE;
+ 402              		.loc 1 244 5 view .LVU137
+ 403              	.LVL49:
+ 245:Drivers/FreeModbus/functions/mbfuncholding.c ****     eMBErrorCode    eRegStatus;
+ 404              		.loc 1 245 5 view .LVU138
+ 246:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 247:Drivers/FreeModbus/functions/mbfuncholding.c ****     if( *usLen >= ( MB_PDU_FUNC_READWRITE_SIZE_MIN + MB_PDU_SIZE_MIN ) )
+ 405              		.loc 1 247 5 view .LVU139
+ 406              		.loc 1 247 9 is_stmt 0 view .LVU140
+ 407 0002 0B88     		ldrh	r3, [r1]
+ 408              		.loc 1 247 7 view .LVU141
+ 409 0004 092B     		cmp	r3, #9
+ 410 0006 45D9     		bls	.L30
+ 411 0008 0446     		mov	r4, r0
+ 412 000a 0D46     		mov	r5, r1
+ 248:Drivers/FreeModbus/functions/mbfuncholding.c ****     {
+ 249:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegReadAddress = ( USHORT )( pucFrame[MB_PDU_FUNC_READWRITE_READ_ADDR_OFF] << 8U );
+ 413              		.loc 1 249 9 is_stmt 1 view .LVU142
+ 414              		.loc 1 249 48 is_stmt 0 view .LVU143
+ 415 000c 4378     		ldrb	r3, [r0, #1]	@ zero_extendqisi2
+ 416              	.LVL50:
+ 250:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegReadAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_READWRITE_READ_ADDR_OFF + 1] );
+ 417              		.loc 1 250 9 is_stmt 1 view .LVU144
+ 418              		.loc 1 250 49 is_stmt 0 view .LVU145
+ 419 000e 8178     		ldrb	r1, [r0, #2]	@ zero_extendqisi2
+ 420              	.LVL51:
+ 421              		.loc 1 250 26 view .LVU146
+ 422 0010 41EA0321 		orr	r1, r1, r3, lsl #8
+ 423              	.LVL52:
+ 251:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegReadAddress++;
+ 424              		.loc 1 251 9 is_stmt 1 view .LVU147
+ 425              		.loc 1 251 25 is_stmt 0 view .LVU148
+ 426 0014 0131     		adds	r1, r1, #1
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s 			page 14
+
+
+ 427              	.LVL53:
+ 428              		.loc 1 251 25 view .LVU149
+ 429 0016 8EB2     		uxth	r6, r1
+ 430              	.LVL54:
+ 252:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 253:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegReadCount = ( USHORT )( pucFrame[MB_PDU_FUNC_READWRITE_READ_REGCNT_OFF] << 8U );
+ 431              		.loc 1 253 9 is_stmt 1 view .LVU150
+ 432              		.loc 1 253 46 is_stmt 0 view .LVU151
+ 433 0018 C378     		ldrb	r3, [r0, #3]	@ zero_extendqisi2
+ 434              	.LVL55:
+ 254:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegReadCount |= ( USHORT )( pucFrame[MB_PDU_FUNC_READWRITE_READ_REGCNT_OFF + 1] );
+ 435              		.loc 1 254 9 is_stmt 1 view .LVU152
+ 436              		.loc 1 254 47 is_stmt 0 view .LVU153
+ 437 001a 0779     		ldrb	r7, [r0, #4]	@ zero_extendqisi2
+ 438              		.loc 1 254 24 view .LVU154
+ 439 001c 47EA0327 		orr	r7, r7, r3, lsl #8
+ 440              	.LVL56:
+ 255:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 256:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegWriteAddress = ( USHORT )( pucFrame[MB_PDU_FUNC_READWRITE_WRITE_ADDR_OFF] << 8U );
+ 441              		.loc 1 256 9 is_stmt 1 view .LVU155
+ 442              		.loc 1 256 49 is_stmt 0 view .LVU156
+ 443 0020 4379     		ldrb	r3, [r0, #5]	@ zero_extendqisi2
+ 444              	.LVL57:
+ 257:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegWriteAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_READWRITE_WRITE_ADDR_OFF + 1] );
+ 445              		.loc 1 257 9 is_stmt 1 view .LVU157
+ 446              		.loc 1 257 50 is_stmt 0 view .LVU158
+ 447 0022 8179     		ldrb	r1, [r0, #6]	@ zero_extendqisi2
+ 448              		.loc 1 257 27 view .LVU159
+ 449 0024 41EA0321 		orr	r1, r1, r3, lsl #8
+ 450              	.LVL58:
+ 258:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegWriteAddress++;
+ 451              		.loc 1 258 9 is_stmt 1 view .LVU160
+ 452              		.loc 1 258 26 is_stmt 0 view .LVU161
+ 453 0028 0131     		adds	r1, r1, #1
+ 454              	.LVL59:
+ 455              		.loc 1 258 26 view .LVU162
+ 456 002a 89B2     		uxth	r1, r1
+ 457              	.LVL60:
+ 259:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 260:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegWriteCount = ( USHORT )( pucFrame[MB_PDU_FUNC_READWRITE_WRITE_REGCNT_OFF] << 8U );
+ 458              		.loc 1 260 9 is_stmt 1 view .LVU163
+ 459              		.loc 1 260 47 is_stmt 0 view .LVU164
+ 460 002c C379     		ldrb	r3, [r0, #7]	@ zero_extendqisi2
+ 461              	.LVL61:
+ 261:Drivers/FreeModbus/functions/mbfuncholding.c ****         usRegWriteCount |= ( USHORT )( pucFrame[MB_PDU_FUNC_READWRITE_WRITE_REGCNT_OFF + 1] );
+ 462              		.loc 1 261 9 is_stmt 1 view .LVU165
+ 463              		.loc 1 261 48 is_stmt 0 view .LVU166
+ 464 002e 027A     		ldrb	r2, [r0, #8]	@ zero_extendqisi2
+ 465              		.loc 1 261 25 view .LVU167
+ 466 0030 42EA0322 		orr	r2, r2, r3, lsl #8
+ 467              	.LVL62:
+ 262:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 263:Drivers/FreeModbus/functions/mbfuncholding.c ****         ucRegWriteByteCount = pucFrame[MB_PDU_FUNC_READWRITE_BYTECNT_OFF];
+ 468              		.loc 1 263 9 is_stmt 1 view .LVU168
+ 469              		.loc 1 263 29 is_stmt 0 view .LVU169
+ 470 0034 407A     		ldrb	r0, [r0, #9]	@ zero_extendqisi2
+ 471              	.LVL63:
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s 			page 15
+
+
+ 264:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 265:Drivers/FreeModbus/functions/mbfuncholding.c ****         if( ( usRegReadCount >= 1 ) && ( usRegReadCount <= 0x7D ) &&
+ 472              		.loc 1 265 9 is_stmt 1 view .LVU170
+ 473              		.loc 1 265 37 is_stmt 0 view .LVU171
+ 474 0036 7B1E     		subs	r3, r7, #1
+ 475 0038 9BB2     		uxth	r3, r3
+ 476              		.loc 1 265 11 view .LVU172
+ 477 003a 7C2B     		cmp	r3, #124
+ 478 003c 2CD8     		bhi	.L31
+ 479              		.loc 1 265 67 discriminator 1 view .LVU173
+ 480 003e 6AB3     		cbz	r2, .L32
+ 266:Drivers/FreeModbus/functions/mbfuncholding.c ****             ( usRegWriteCount >= 1 ) && ( usRegWriteCount <= 0x79 ) &&
+ 481              		.loc 1 266 38 view .LVU174
+ 482 0040 792A     		cmp	r2, #121
+ 483 0042 2DD8     		bhi	.L33
+ 484              		.loc 1 266 69 discriminator 1 view .LVU175
+ 485 0044 B0EB420F 		cmp	r0, r2, lsl #1
+ 486 0048 01D0     		beq	.L36
+ 267:Drivers/FreeModbus/functions/mbfuncholding.c ****             ( ( 2 * usRegWriteCount ) == ucRegWriteByteCount ) )
+ 268:Drivers/FreeModbus/functions/mbfuncholding.c ****         {
+ 269:Drivers/FreeModbus/functions/mbfuncholding.c ****             /* Make callback to update the register values. */
+ 270:Drivers/FreeModbus/functions/mbfuncholding.c ****             eRegStatus = eMBRegHoldingCB( &pucFrame[MB_PDU_FUNC_READWRITE_WRITE_VALUES_OFF],
+ 271:Drivers/FreeModbus/functions/mbfuncholding.c ****                                           usRegWriteAddress, usRegWriteCount, MB_REG_WRITE );
+ 272:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 273:Drivers/FreeModbus/functions/mbfuncholding.c ****             if( eRegStatus == MB_ENOERR )
+ 274:Drivers/FreeModbus/functions/mbfuncholding.c ****             {
+ 275:Drivers/FreeModbus/functions/mbfuncholding.c ****                 /* Set the current PDU data pointer to the beginning. */
+ 276:Drivers/FreeModbus/functions/mbfuncholding.c ****                 pucFrameCur = &pucFrame[MB_PDU_FUNC_OFF];
+ 277:Drivers/FreeModbus/functions/mbfuncholding.c ****                 *usLen = MB_PDU_FUNC_OFF;
+ 278:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 279:Drivers/FreeModbus/functions/mbfuncholding.c ****                 /* First byte contains the function code. */
+ 280:Drivers/FreeModbus/functions/mbfuncholding.c ****                 *pucFrameCur++ = MB_FUNC_READWRITE_MULTIPLE_REGISTERS;
+ 281:Drivers/FreeModbus/functions/mbfuncholding.c ****                 *usLen += 1;
+ 282:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 283:Drivers/FreeModbus/functions/mbfuncholding.c ****                 /* Second byte in the response contain the number of bytes. */
+ 284:Drivers/FreeModbus/functions/mbfuncholding.c ****                 *pucFrameCur++ = ( UCHAR ) ( usRegReadCount * 2 );
+ 285:Drivers/FreeModbus/functions/mbfuncholding.c ****                 *usLen += 1;
+ 286:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 287:Drivers/FreeModbus/functions/mbfuncholding.c ****                 /* Make the read callback. */
+ 288:Drivers/FreeModbus/functions/mbfuncholding.c ****                 eRegStatus =
+ 289:Drivers/FreeModbus/functions/mbfuncholding.c ****                     eMBRegHoldingCB( pucFrameCur, usRegReadAddress, usRegReadCount, MB_REG_READ );
+ 290:Drivers/FreeModbus/functions/mbfuncholding.c ****                 if( eRegStatus == MB_ENOERR )
+ 291:Drivers/FreeModbus/functions/mbfuncholding.c ****                 {
+ 292:Drivers/FreeModbus/functions/mbfuncholding.c ****                     *usLen += 2 * usRegReadCount;
+ 293:Drivers/FreeModbus/functions/mbfuncholding.c ****                 }
+ 294:Drivers/FreeModbus/functions/mbfuncholding.c ****             }
+ 295:Drivers/FreeModbus/functions/mbfuncholding.c ****             if( eRegStatus != MB_ENOERR )
+ 296:Drivers/FreeModbus/functions/mbfuncholding.c ****             {
+ 297:Drivers/FreeModbus/functions/mbfuncholding.c ****                 eStatus = prveMBError2Exception( eRegStatus );
+ 298:Drivers/FreeModbus/functions/mbfuncholding.c ****             }
+ 299:Drivers/FreeModbus/functions/mbfuncholding.c ****         }
+ 300:Drivers/FreeModbus/functions/mbfuncholding.c ****         else
+ 301:Drivers/FreeModbus/functions/mbfuncholding.c ****         {
+ 302:Drivers/FreeModbus/functions/mbfuncholding.c ****             eStatus = MB_EX_ILLEGAL_DATA_VALUE;
+ 487              		.loc 1 302 21 view .LVU176
+ 488 004a 0320     		movs	r0, #3
+ 489              	.LVL64:
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s 			page 16
+
+
+ 490              		.loc 1 302 21 view .LVU177
+ 491 004c 23E0     		b	.L28
+ 492              	.LVL65:
+ 493              	.L36:
+ 270:Drivers/FreeModbus/functions/mbfuncholding.c ****                                           usRegWriteAddress, usRegWriteCount, MB_REG_WRITE );
+ 494              		.loc 1 270 13 is_stmt 1 view .LVU178
+ 270:Drivers/FreeModbus/functions/mbfuncholding.c ****                                           usRegWriteAddress, usRegWriteCount, MB_REG_WRITE );
+ 495              		.loc 1 270 26 is_stmt 0 view .LVU179
+ 496 004e 0123     		movs	r3, #1
+ 497 0050 04F10A00 		add	r0, r4, #10
+ 498              	.LVL66:
+ 270:Drivers/FreeModbus/functions/mbfuncholding.c ****                                           usRegWriteAddress, usRegWriteCount, MB_REG_WRITE );
+ 499              		.loc 1 270 26 view .LVU180
+ 500 0054 FFF7FEFF 		bl	eMBRegHoldingCB
+ 501              	.LVL67:
+ 270:Drivers/FreeModbus/functions/mbfuncholding.c ****                                           usRegWriteAddress, usRegWriteCount, MB_REG_WRITE );
+ 502              		.loc 1 270 26 view .LVU181
+ 503 0058 0346     		mov	r3, r0
+ 504              	.LVL68:
+ 273:Drivers/FreeModbus/functions/mbfuncholding.c ****             {
+ 505              		.loc 1 273 13 is_stmt 1 view .LVU182
+ 273:Drivers/FreeModbus/functions/mbfuncholding.c ****             {
+ 506              		.loc 1 273 15 is_stmt 0 view .LVU183
+ 507 005a 18B1     		cbz	r0, .L37
+ 508              	.LVL69:
+ 509              	.L29:
+ 295:Drivers/FreeModbus/functions/mbfuncholding.c ****             {
+ 510              		.loc 1 295 13 is_stmt 1 view .LVU184
+ 295:Drivers/FreeModbus/functions/mbfuncholding.c ****             {
+ 511              		.loc 1 295 15 is_stmt 0 view .LVU185
+ 512 005c D8B1     		cbz	r0, .L28
+ 297:Drivers/FreeModbus/functions/mbfuncholding.c ****             }
+ 513              		.loc 1 297 17 is_stmt 1 view .LVU186
+ 297:Drivers/FreeModbus/functions/mbfuncholding.c ****             }
+ 514              		.loc 1 297 27 is_stmt 0 view .LVU187
+ 515 005e FFF7FEFF 		bl	prveMBError2Exception
+ 516              	.LVL70:
+ 297:Drivers/FreeModbus/functions/mbfuncholding.c ****             }
+ 517              		.loc 1 297 27 view .LVU188
+ 518 0062 18E0     		b	.L28
+ 519              	.LVL71:
+ 520              	.L37:
+ 276:Drivers/FreeModbus/functions/mbfuncholding.c ****                 *usLen = MB_PDU_FUNC_OFF;
+ 521              		.loc 1 276 17 is_stmt 1 view .LVU189
+ 277:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 522              		.loc 1 277 17 view .LVU190
+ 277:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 523              		.loc 1 277 24 is_stmt 0 view .LVU191
+ 524 0064 2880     		strh	r0, [r5]	@ movhi
+ 280:Drivers/FreeModbus/functions/mbfuncholding.c ****                 *usLen += 1;
+ 525              		.loc 1 280 17 is_stmt 1 view .LVU192
+ 526              	.LVL72:
+ 280:Drivers/FreeModbus/functions/mbfuncholding.c ****                 *usLen += 1;
+ 527              		.loc 1 280 32 is_stmt 0 view .LVU193
+ 528 0066 2046     		mov	r0, r4
+ 529              	.LVL73:
+ 280:Drivers/FreeModbus/functions/mbfuncholding.c ****                 *usLen += 1;
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s 			page 17
+
+
+ 530              		.loc 1 280 32 view .LVU194
+ 531 0068 1722     		movs	r2, #23
+ 532 006a 00F8022B 		strb	r2, [r0], #2
+ 281:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 533              		.loc 1 281 17 is_stmt 1 view .LVU195
+ 281:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 534              		.loc 1 281 24 is_stmt 0 view .LVU196
+ 535 006e 2A88     		ldrh	r2, [r5]
+ 536 0070 0132     		adds	r2, r2, #1
+ 537 0072 2A80     		strh	r2, [r5]	@ movhi
+ 284:Drivers/FreeModbus/functions/mbfuncholding.c ****                 *usLen += 1;
+ 538              		.loc 1 284 17 is_stmt 1 view .LVU197
+ 539              	.LVL74:
+ 284:Drivers/FreeModbus/functions/mbfuncholding.c ****                 *usLen += 1;
+ 540              		.loc 1 284 34 is_stmt 0 view .LVU198
+ 541 0074 7A00     		lsls	r2, r7, #1
+ 284:Drivers/FreeModbus/functions/mbfuncholding.c ****                 *usLen += 1;
+ 542              		.loc 1 284 32 view .LVU199
+ 543 0076 6270     		strb	r2, [r4, #1]
+ 285:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 544              		.loc 1 285 17 is_stmt 1 view .LVU200
+ 285:Drivers/FreeModbus/functions/mbfuncholding.c **** 
+ 545              		.loc 1 285 24 is_stmt 0 view .LVU201
+ 546 0078 2A88     		ldrh	r2, [r5]
+ 547 007a 0132     		adds	r2, r2, #1
+ 548 007c 2A80     		strh	r2, [r5]	@ movhi
+ 288:Drivers/FreeModbus/functions/mbfuncholding.c ****                     eMBRegHoldingCB( pucFrameCur, usRegReadAddress, usRegReadCount, MB_REG_READ );
+ 549              		.loc 1 288 17 is_stmt 1 view .LVU202
+ 289:Drivers/FreeModbus/functions/mbfuncholding.c ****                 if( eRegStatus == MB_ENOERR )
+ 550              		.loc 1 289 21 is_stmt 0 view .LVU203
+ 551 007e 3A46     		mov	r2, r7
+ 552 0080 3146     		mov	r1, r6
+ 553 0082 FFF7FEFF 		bl	eMBRegHoldingCB
+ 554              	.LVL75:
+ 290:Drivers/FreeModbus/functions/mbfuncholding.c ****                 {
+ 555              		.loc 1 290 17 is_stmt 1 view .LVU204
+ 290:Drivers/FreeModbus/functions/mbfuncholding.c ****                 {
+ 556              		.loc 1 290 19 is_stmt 0 view .LVU205
+ 557 0086 0028     		cmp	r0, #0
+ 558 0088 E8D1     		bne	.L29
+ 292:Drivers/FreeModbus/functions/mbfuncholding.c ****                 }
+ 559              		.loc 1 292 21 is_stmt 1 view .LVU206
+ 292:Drivers/FreeModbus/functions/mbfuncholding.c ****                 }
+ 560              		.loc 1 292 28 is_stmt 0 view .LVU207
+ 561 008a 2B88     		ldrh	r3, [r5]
+ 562 008c 03EB4707 		add	r7, r3, r7, lsl #1
+ 563              	.LVL76:
+ 292:Drivers/FreeModbus/functions/mbfuncholding.c ****                 }
+ 564              		.loc 1 292 28 view .LVU208
+ 565 0090 2F80     		strh	r7, [r5]	@ movhi
+ 566 0092 E3E7     		b	.L29
+ 567              	.LVL77:
+ 568              	.L30:
+ 244:Drivers/FreeModbus/functions/mbfuncholding.c ****     eMBErrorCode    eRegStatus;
+ 569              		.loc 1 244 21 view .LVU209
+ 570 0094 0020     		movs	r0, #0
+ 571              	.LVL78:
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s 			page 18
+
+
+ 572              	.L28:
+ 303:Drivers/FreeModbus/functions/mbfuncholding.c ****         }
+ 304:Drivers/FreeModbus/functions/mbfuncholding.c ****     }
+ 305:Drivers/FreeModbus/functions/mbfuncholding.c ****     return eStatus;
+ 573              		.loc 1 305 5 is_stmt 1 view .LVU210
+ 306:Drivers/FreeModbus/functions/mbfuncholding.c **** }
+ 574              		.loc 1 306 1 is_stmt 0 view .LVU211
+ 575 0096 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 576              	.LVL79:
+ 577              	.L31:
+ 302:Drivers/FreeModbus/functions/mbfuncholding.c ****         }
+ 578              		.loc 1 302 21 view .LVU212
+ 579 0098 0320     		movs	r0, #3
+ 580              	.LVL80:
+ 302:Drivers/FreeModbus/functions/mbfuncholding.c ****         }
+ 581              		.loc 1 302 21 view .LVU213
+ 582 009a FCE7     		b	.L28
+ 583              	.LVL81:
+ 584              	.L32:
+ 302:Drivers/FreeModbus/functions/mbfuncholding.c ****         }
+ 585              		.loc 1 302 21 view .LVU214
+ 586 009c 0320     		movs	r0, #3
+ 587              	.LVL82:
+ 302:Drivers/FreeModbus/functions/mbfuncholding.c ****         }
+ 588              		.loc 1 302 21 view .LVU215
+ 589 009e FAE7     		b	.L28
+ 590              	.LVL83:
+ 591              	.L33:
+ 302:Drivers/FreeModbus/functions/mbfuncholding.c ****         }
+ 592              		.loc 1 302 21 view .LVU216
+ 593 00a0 0320     		movs	r0, #3
+ 594              	.LVL84:
+ 302:Drivers/FreeModbus/functions/mbfuncholding.c ****         }
+ 595              		.loc 1 302 21 view .LVU217
+ 596 00a2 F8E7     		b	.L28
+ 597              		.cfi_endproc
+ 598              	.LFE133:
+ 600              		.text
+ 601              	.Letext0:
+ 602              		.file 2 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 603              		.file 3 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\lock.h"
+ 604              		.file 4 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\_types.h"
+ 605              		.file 5 "c:\\vscodeproject\\software\\arm_gcc\\lib\\gcc\\arm-none-eabi\\9.2.1\\include\\stddef.h"
+ 606              		.file 6 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\reent.h"
+ 607              		.file 7 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\stdlib.h"
+ 608              		.file 8 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 609              		.file 9 "Drivers/CMSIS/Include/core_cm4.h"
+ 610              		.file 10 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 611              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 612              		.file 12 "Drivers/FreeModbus/port/port.h"
+ 613              		.file 13 "Drivers/FreeModbus/include/mbport.h"
+ 614              		.file 14 "Drivers/FreeModbus/include/mbproto.h"
+ 615              		.file 15 "Drivers/FreeModbus/include/mb.h"
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s 			page 19
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 mbfuncholding.c
+C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s:18     .text.eMBFuncWriteHoldingRegister:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s:26     .text.eMBFuncWriteHoldingRegister:0000000000000000 eMBFuncWriteHoldingRegister
+C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s:99     .text.eMBFuncWriteMultipleHoldingRegister:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s:106    .text.eMBFuncWriteMultipleHoldingRegister:0000000000000000 eMBFuncWriteMultipleHoldingRegister
+C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s:228    .text.eMBFuncReadHoldingRegister:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s:235    .text.eMBFuncReadHoldingRegister:0000000000000000 eMBFuncReadHoldingRegister
+C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s:372    .text.eMBFuncReadWriteMultipleHoldingRegister:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cc0TNZUn.s:379    .text.eMBFuncReadWriteMultipleHoldingRegister:0000000000000000 eMBFuncReadWriteMultipleHoldingRegister
+
+UNDEFINED SYMBOLS
+eMBRegHoldingCB
+prveMBError2Exception

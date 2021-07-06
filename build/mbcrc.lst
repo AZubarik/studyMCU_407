@@ -1,0 +1,388 @@
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccETnAeC.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"mbcrc.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.usMBCRC16,"ax",%progbits
+  18              		.align	1
+  19              		.global	usMBCRC16
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	usMBCRC16:
+  27              	.LVL0:
+  28              	.LFB130:
+  29              		.file 1 "Drivers/FreeModbus/rtu/mbcrc.c"
+   1:Drivers/FreeModbus/rtu/mbcrc.c **** /* 
+   2:Drivers/FreeModbus/rtu/mbcrc.c ****  * FreeModbus Libary: A portable Modbus implementation for Modbus ASCII/RTU.
+   3:Drivers/FreeModbus/rtu/mbcrc.c ****  * Copyright (c) 2006-2018 Christian Walter <cwalter@embedded-solutions.at>
+   4:Drivers/FreeModbus/rtu/mbcrc.c ****  * All rights reserved.
+   5:Drivers/FreeModbus/rtu/mbcrc.c ****  *
+   6:Drivers/FreeModbus/rtu/mbcrc.c ****  * Redistribution and use in source and binary forms, with or without
+   7:Drivers/FreeModbus/rtu/mbcrc.c ****  * modification, are permitted provided that the following conditions
+   8:Drivers/FreeModbus/rtu/mbcrc.c ****  * are met:
+   9:Drivers/FreeModbus/rtu/mbcrc.c ****  * 1. Redistributions of source code must retain the above copyright
+  10:Drivers/FreeModbus/rtu/mbcrc.c ****  *    notice, this list of conditions and the following disclaimer.
+  11:Drivers/FreeModbus/rtu/mbcrc.c ****  * 2. Redistributions in binary form must reproduce the above copyright
+  12:Drivers/FreeModbus/rtu/mbcrc.c ****  *    notice, this list of conditions and the following disclaimer in the
+  13:Drivers/FreeModbus/rtu/mbcrc.c ****  *    documentation and/or other materials provided with the distribution.
+  14:Drivers/FreeModbus/rtu/mbcrc.c ****  * 3. The name of the author may not be used to endorse or promote products
+  15:Drivers/FreeModbus/rtu/mbcrc.c ****  *    derived from this software without specific prior written permission.
+  16:Drivers/FreeModbus/rtu/mbcrc.c ****  *
+  17:Drivers/FreeModbus/rtu/mbcrc.c ****  * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+  18:Drivers/FreeModbus/rtu/mbcrc.c ****  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+  19:Drivers/FreeModbus/rtu/mbcrc.c ****  * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  20:Drivers/FreeModbus/rtu/mbcrc.c ****  * IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+  21:Drivers/FreeModbus/rtu/mbcrc.c ****  * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  22:Drivers/FreeModbus/rtu/mbcrc.c ****  * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  23:Drivers/FreeModbus/rtu/mbcrc.c ****  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  24:Drivers/FreeModbus/rtu/mbcrc.c ****  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  25:Drivers/FreeModbus/rtu/mbcrc.c ****  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+  26:Drivers/FreeModbus/rtu/mbcrc.c ****  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  27:Drivers/FreeModbus/rtu/mbcrc.c ****  *
+  28:Drivers/FreeModbus/rtu/mbcrc.c ****  * File: $Id: mbcrc.c,v 1.7 2007/02/18 23:50:27 wolti Exp $
+  29:Drivers/FreeModbus/rtu/mbcrc.c ****  */
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccETnAeC.s 			page 2
+
+
+  30:Drivers/FreeModbus/rtu/mbcrc.c **** 
+  31:Drivers/FreeModbus/rtu/mbcrc.c **** /* ----------------------- Platform includes --------------------------------*/
+  32:Drivers/FreeModbus/rtu/mbcrc.c **** #include "port.h"
+  33:Drivers/FreeModbus/rtu/mbcrc.c **** 
+  34:Drivers/FreeModbus/rtu/mbcrc.c **** static const UCHAR aucCRCHi[] = {
+  35:Drivers/FreeModbus/rtu/mbcrc.c ****     0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x01, 0xC0, 0x80, 0x41,
+  36:Drivers/FreeModbus/rtu/mbcrc.c ****     0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x00, 0xC1, 0x81, 0x40,
+  37:Drivers/FreeModbus/rtu/mbcrc.c ****     0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x01, 0xC0, 0x80, 0x41,
+  38:Drivers/FreeModbus/rtu/mbcrc.c ****     0x00, 0xC1, 0x81, 0x40, 0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41,
+  39:Drivers/FreeModbus/rtu/mbcrc.c ****     0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x01, 0xC0, 0x80, 0x41,
+  40:Drivers/FreeModbus/rtu/mbcrc.c ****     0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x00, 0xC1, 0x81, 0x40,
+  41:Drivers/FreeModbus/rtu/mbcrc.c ****     0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x00, 0xC1, 0x81, 0x40,
+  42:Drivers/FreeModbus/rtu/mbcrc.c ****     0x01, 0xC0, 0x80, 0x41, 0x01, 0xC0, 0x80, 0x41, 0x00, 0xC1, 0x81, 0x40,
+  43:Drivers/FreeModbus/rtu/mbcrc.c ****     0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x01, 0xC0, 0x80, 0x41,
+  44:Drivers/FreeModbus/rtu/mbcrc.c ****     0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x00, 0xC1, 0x81, 0x40,
+  45:Drivers/FreeModbus/rtu/mbcrc.c ****     0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x01, 0xC0, 0x80, 0x41,
+  46:Drivers/FreeModbus/rtu/mbcrc.c ****     0x00, 0xC1, 0x81, 0x40, 0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 
+  47:Drivers/FreeModbus/rtu/mbcrc.c ****     0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x01, 0xC0, 0x80, 0x41,
+  48:Drivers/FreeModbus/rtu/mbcrc.c ****     0x00, 0xC1, 0x81, 0x40, 0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 
+  49:Drivers/FreeModbus/rtu/mbcrc.c ****     0x01, 0xC0, 0x80, 0x41, 0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41,
+  50:Drivers/FreeModbus/rtu/mbcrc.c ****     0x00, 0xC1, 0x81, 0x40, 0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41,
+  51:Drivers/FreeModbus/rtu/mbcrc.c ****     0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x01, 0xC0, 0x80, 0x41, 
+  52:Drivers/FreeModbus/rtu/mbcrc.c ****     0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x00, 0xC1, 0x81, 0x40,
+  53:Drivers/FreeModbus/rtu/mbcrc.c ****     0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x01, 0xC0, 0x80, 0x41,
+  54:Drivers/FreeModbus/rtu/mbcrc.c ****     0x00, 0xC1, 0x81, 0x40, 0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41,
+  55:Drivers/FreeModbus/rtu/mbcrc.c ****     0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x01, 0xC0, 0x80, 0x41,
+  56:Drivers/FreeModbus/rtu/mbcrc.c ****     0x00, 0xC1, 0x81, 0x40
+  57:Drivers/FreeModbus/rtu/mbcrc.c **** };
+  58:Drivers/FreeModbus/rtu/mbcrc.c **** 
+  59:Drivers/FreeModbus/rtu/mbcrc.c **** static const UCHAR aucCRCLo[] = {
+  60:Drivers/FreeModbus/rtu/mbcrc.c ****     0x00, 0xC0, 0xC1, 0x01, 0xC3, 0x03, 0x02, 0xC2, 0xC6, 0x06, 0x07, 0xC7,
+  61:Drivers/FreeModbus/rtu/mbcrc.c ****     0x05, 0xC5, 0xC4, 0x04, 0xCC, 0x0C, 0x0D, 0xCD, 0x0F, 0xCF, 0xCE, 0x0E,
+  62:Drivers/FreeModbus/rtu/mbcrc.c ****     0x0A, 0xCA, 0xCB, 0x0B, 0xC9, 0x09, 0x08, 0xC8, 0xD8, 0x18, 0x19, 0xD9,
+  63:Drivers/FreeModbus/rtu/mbcrc.c ****     0x1B, 0xDB, 0xDA, 0x1A, 0x1E, 0xDE, 0xDF, 0x1F, 0xDD, 0x1D, 0x1C, 0xDC,
+  64:Drivers/FreeModbus/rtu/mbcrc.c ****     0x14, 0xD4, 0xD5, 0x15, 0xD7, 0x17, 0x16, 0xD6, 0xD2, 0x12, 0x13, 0xD3,
+  65:Drivers/FreeModbus/rtu/mbcrc.c ****     0x11, 0xD1, 0xD0, 0x10, 0xF0, 0x30, 0x31, 0xF1, 0x33, 0xF3, 0xF2, 0x32,
+  66:Drivers/FreeModbus/rtu/mbcrc.c ****     0x36, 0xF6, 0xF7, 0x37, 0xF5, 0x35, 0x34, 0xF4, 0x3C, 0xFC, 0xFD, 0x3D,
+  67:Drivers/FreeModbus/rtu/mbcrc.c ****     0xFF, 0x3F, 0x3E, 0xFE, 0xFA, 0x3A, 0x3B, 0xFB, 0x39, 0xF9, 0xF8, 0x38, 
+  68:Drivers/FreeModbus/rtu/mbcrc.c ****     0x28, 0xE8, 0xE9, 0x29, 0xEB, 0x2B, 0x2A, 0xEA, 0xEE, 0x2E, 0x2F, 0xEF,
+  69:Drivers/FreeModbus/rtu/mbcrc.c ****     0x2D, 0xED, 0xEC, 0x2C, 0xE4, 0x24, 0x25, 0xE5, 0x27, 0xE7, 0xE6, 0x26,
+  70:Drivers/FreeModbus/rtu/mbcrc.c ****     0x22, 0xE2, 0xE3, 0x23, 0xE1, 0x21, 0x20, 0xE0, 0xA0, 0x60, 0x61, 0xA1,
+  71:Drivers/FreeModbus/rtu/mbcrc.c ****     0x63, 0xA3, 0xA2, 0x62, 0x66, 0xA6, 0xA7, 0x67, 0xA5, 0x65, 0x64, 0xA4,
+  72:Drivers/FreeModbus/rtu/mbcrc.c ****     0x6C, 0xAC, 0xAD, 0x6D, 0xAF, 0x6F, 0x6E, 0xAE, 0xAA, 0x6A, 0x6B, 0xAB, 
+  73:Drivers/FreeModbus/rtu/mbcrc.c ****     0x69, 0xA9, 0xA8, 0x68, 0x78, 0xB8, 0xB9, 0x79, 0xBB, 0x7B, 0x7A, 0xBA,
+  74:Drivers/FreeModbus/rtu/mbcrc.c ****     0xBE, 0x7E, 0x7F, 0xBF, 0x7D, 0xBD, 0xBC, 0x7C, 0xB4, 0x74, 0x75, 0xB5,
+  75:Drivers/FreeModbus/rtu/mbcrc.c ****     0x77, 0xB7, 0xB6, 0x76, 0x72, 0xB2, 0xB3, 0x73, 0xB1, 0x71, 0x70, 0xB0,
+  76:Drivers/FreeModbus/rtu/mbcrc.c ****     0x50, 0x90, 0x91, 0x51, 0x93, 0x53, 0x52, 0x92, 0x96, 0x56, 0x57, 0x97,
+  77:Drivers/FreeModbus/rtu/mbcrc.c ****     0x55, 0x95, 0x94, 0x54, 0x9C, 0x5C, 0x5D, 0x9D, 0x5F, 0x9F, 0x9E, 0x5E,
+  78:Drivers/FreeModbus/rtu/mbcrc.c ****     0x5A, 0x9A, 0x9B, 0x5B, 0x99, 0x59, 0x58, 0x98, 0x88, 0x48, 0x49, 0x89,
+  79:Drivers/FreeModbus/rtu/mbcrc.c ****     0x4B, 0x8B, 0x8A, 0x4A, 0x4E, 0x8E, 0x8F, 0x4F, 0x8D, 0x4D, 0x4C, 0x8C,
+  80:Drivers/FreeModbus/rtu/mbcrc.c ****     0x44, 0x84, 0x85, 0x45, 0x87, 0x47, 0x46, 0x86, 0x82, 0x42, 0x43, 0x83,
+  81:Drivers/FreeModbus/rtu/mbcrc.c ****     0x41, 0x81, 0x80, 0x40
+  82:Drivers/FreeModbus/rtu/mbcrc.c **** };
+  83:Drivers/FreeModbus/rtu/mbcrc.c **** 
+  84:Drivers/FreeModbus/rtu/mbcrc.c **** USHORT
+  85:Drivers/FreeModbus/rtu/mbcrc.c **** usMBCRC16( UCHAR * pucFrame, USHORT usLen )
+  86:Drivers/FreeModbus/rtu/mbcrc.c **** {
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccETnAeC.s 			page 3
+
+
+  30              		.loc 1 86 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+  35              		.loc 1 86 1 is_stmt 0 view .LVU1
+  36 0000 30B4     		push	{r4, r5}
+  37              	.LCFI0:
+  38              		.cfi_def_cfa_offset 8
+  39              		.cfi_offset 4, -8
+  40              		.cfi_offset 5, -4
+  87:Drivers/FreeModbus/rtu/mbcrc.c ****     UCHAR           ucCRCHi = 0xFF;
+  41              		.loc 1 87 5 is_stmt 1 view .LVU2
+  42              	.LVL1:
+  88:Drivers/FreeModbus/rtu/mbcrc.c ****     UCHAR           ucCRCLo = 0xFF;
+  43              		.loc 1 88 5 view .LVU3
+  89:Drivers/FreeModbus/rtu/mbcrc.c ****     int             iIndex;
+  44              		.loc 1 89 5 view .LVU4
+  90:Drivers/FreeModbus/rtu/mbcrc.c **** 
+  91:Drivers/FreeModbus/rtu/mbcrc.c ****     while( usLen-- )
+  45              		.loc 1 91 5 view .LVU5
+  88:Drivers/FreeModbus/rtu/mbcrc.c ****     int             iIndex;
+  46              		.loc 1 88 21 is_stmt 0 view .LVU6
+  47 0002 FF22     		movs	r2, #255
+  87:Drivers/FreeModbus/rtu/mbcrc.c ****     UCHAR           ucCRCLo = 0xFF;
+  48              		.loc 1 87 21 view .LVU7
+  49 0004 1546     		mov	r5, r2
+  50              	.LVL2:
+  51              	.L2:
+  52              		.loc 1 91 10 is_stmt 1 view .LVU8
+  53              		.loc 1 91 17 is_stmt 0 view .LVU9
+  54 0006 4B1E     		subs	r3, r1, #1
+  55 0008 9CB2     		uxth	r4, r3
+  56              	.LVL3:
+  57              		.loc 1 91 10 view .LVU10
+  58 000a 49B1     		cbz	r1, .L5
+  92:Drivers/FreeModbus/rtu/mbcrc.c ****     {
+  93:Drivers/FreeModbus/rtu/mbcrc.c ****         iIndex = ucCRCLo ^ *( pucFrame++ );
+  59              		.loc 1 93 9 is_stmt 1 view .LVU11
+  60              	.LVL4:
+  61              		.loc 1 93 28 is_stmt 0 view .LVU12
+  62 000c 10F8013B 		ldrb	r3, [r0], #1	@ zero_extendqisi2
+  63              	.LVL5:
+  64              		.loc 1 93 26 view .LVU13
+  65 0010 5340     		eors	r3, r3, r2
+  66              	.LVL6:
+  94:Drivers/FreeModbus/rtu/mbcrc.c ****         ucCRCLo = ( UCHAR )( ucCRCHi ^ aucCRCHi[iIndex] );
+  67              		.loc 1 94 9 is_stmt 1 view .LVU14
+  68              		.loc 1 94 48 is_stmt 0 view .LVU15
+  69 0012 054A     		ldr	r2, .L6
+  70              	.LVL7:
+  71              		.loc 1 94 48 view .LVU16
+  72 0014 D25C     		ldrb	r2, [r2, r3]	@ zero_extendqisi2
+  73              		.loc 1 94 17 view .LVU17
+  74 0016 6A40     		eors	r2, r2, r5
+  75              	.LVL8:
+  95:Drivers/FreeModbus/rtu/mbcrc.c ****         ucCRCHi = aucCRCLo[iIndex];
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccETnAeC.s 			page 4
+
+
+  76              		.loc 1 95 9 is_stmt 1 view .LVU18
+  77              		.loc 1 95 17 is_stmt 0 view .LVU19
+  78 0018 0449     		ldr	r1, .L6+4
+  79 001a CD5C     		ldrb	r5, [r1, r3]	@ zero_extendqisi2
+  80              	.LVL9:
+  91:Drivers/FreeModbus/rtu/mbcrc.c ****     {
+  81              		.loc 1 91 17 view .LVU20
+  82 001c 2146     		mov	r1, r4
+  83 001e F2E7     		b	.L2
+  84              	.LVL10:
+  85              	.L5:
+  96:Drivers/FreeModbus/rtu/mbcrc.c ****     }
+  97:Drivers/FreeModbus/rtu/mbcrc.c ****     return ( USHORT )( ucCRCHi << 8 | ucCRCLo );
+  86              		.loc 1 97 5 is_stmt 1 view .LVU21
+  98:Drivers/FreeModbus/rtu/mbcrc.c **** }
+  87              		.loc 1 98 1 is_stmt 0 view .LVU22
+  88 0020 42EA0520 		orr	r0, r2, r5, lsl #8
+  89              	.LVL11:
+  90              		.loc 1 98 1 view .LVU23
+  91 0024 30BC     		pop	{r4, r5}
+  92              	.LCFI1:
+  93              		.cfi_restore 5
+  94              		.cfi_restore 4
+  95              		.cfi_def_cfa_offset 0
+  96              	.LVL12:
+  97              		.loc 1 98 1 view .LVU24
+  98 0026 7047     		bx	lr
+  99              	.L7:
+ 100              		.align	2
+ 101              	.L6:
+ 102 0028 00000000 		.word	.LANCHOR0
+ 103 002c 00000000 		.word	.LANCHOR1
+ 104              		.cfi_endproc
+ 105              	.LFE130:
+ 107              		.section	.rodata.aucCRCHi,"a"
+ 108              		.align	2
+ 109              		.set	.LANCHOR0,. + 0
+ 112              	aucCRCHi:
+ 113 0000 00C18140 		.ascii	"\000\301\201@\001\300\200A\001\300\200A\000\301\201"
+ 113      01C08041 
+ 113      01C08041 
+ 113      00C181
+ 114 000f 4001C080 		.ascii	"@\001\300\200A\000\301\201@\000\301\201@\001\300\200"
+ 114      4100C181 
+ 114      4000C181 
+ 114      4001C080 
+ 115 001f 4101C080 		.ascii	"A\001\300\200A\000\301\201@\000\301\201@\001\300\200"
+ 115      4100C181 
+ 115      4000C181 
+ 115      4001C080 
+ 116 002f 4100C181 		.ascii	"A\000\301\201@\001\300\200A\001\300\200A\000\301\201"
+ 116      4001C080 
+ 116      4101C080 
+ 116      4100C181 
+ 117 003f 4001C080 		.ascii	"@\001\300\200A\000\301\201@\000\301\201@\001\300\200"
+ 117      4100C181 
+ 117      4000C181 
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccETnAeC.s 			page 5
+
+
+ 117      4001C080 
+ 118 004f 4100C181 		.ascii	"A\000\301\201@\001\300\200A\001\300\200A\000\301\201"
+ 118      4001C080 
+ 118      4101C080 
+ 118      4100C181 
+ 119 005f 4000C181 		.ascii	"@\000\301\201@\001\300\200A\001\300\200A\000\301\201"
+ 119      4001C080 
+ 119      4101C080 
+ 119      4100C181 
+ 120 006f 4001C080 		.ascii	"@\001\300\200A\000\301\201@\000\301\201@\001\300\200"
+ 120      4100C181 
+ 120      4000C181 
+ 120      4001C080 
+ 121 007f 4101C080 		.ascii	"A\001\300\200A\000\301\201@\000\301\201@\001\300\200"
+ 121      4100C181 
+ 121      4000C181 
+ 121      4001C080 
+ 122 008f 4100C181 		.ascii	"A\000\301\201@\001\300\200A\001\300\200A\000\301\201"
+ 122      4001C080 
+ 122      4101C080 
+ 122      4100C181 
+ 123 009f 4000C181 		.ascii	"@\000\301\201@\001\300\200A\001\300\200A\000\301\201"
+ 123      4001C080 
+ 123      4101C080 
+ 123      4100C181 
+ 124 00af 4001C080 		.ascii	"@\001\300\200A\000\301\201@\000\301\201@\001\300\200"
+ 124      4100C181 
+ 124      4000C181 
+ 124      4001C080 
+ 125 00bf 4100C181 		.ascii	"A\000\301\201@\001\300\200A\001\300\200A\000\301\201"
+ 125      4001C080 
+ 125      4101C080 
+ 125      4100C181 
+ 126 00cf 4001C080 		.ascii	"@\001\300\200A\000\301\201@\000\301\201@\001\300\200"
+ 126      4100C181 
+ 126      4000C181 
+ 126      4001C080 
+ 127 00df 4101C080 		.ascii	"A\001\300\200A\000\301\201@\000\301\201@\001\300\200"
+ 127      4100C181 
+ 127      4000C181 
+ 127      4001C080 
+ 128 00ef 4100C181 		.ascii	"A\000\301\201@\001\300\200A\001\300\200A\000\301\201"
+ 128      4001C080 
+ 128      4101C080 
+ 128      4100C181 
+ 129 00ff 40       		.ascii	"@"
+ 130              		.section	.rodata.aucCRCLo,"a"
+ 131              		.align	2
+ 132              		.set	.LANCHOR1,. + 0
+ 135              	aucCRCLo:
+ 136 0000 00C0C101 		.ascii	"\000\300\301\001\303\003\002\302\306\006\007\307\005"
+ 136      C30302C2 
+ 136      C60607C7 
+ 136      05
+ 137 000d C5C404CC 		.ascii	"\305\304\004\314\014\015\315\017\317\316\016\012\312"
+ 137      0C0DCD0F 
+ 137      CFCE0E0A 
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccETnAeC.s 			page 6
+
+
+ 137      CA
+ 138 001a CB0BC909 		.ascii	"\313\013\311\011\010\310\330\030\031\331\033\333\332"
+ 138      08C8D818 
+ 138      19D91BDB 
+ 138      DA
+ 139 0027 1A1EDEDF 		.ascii	"\032\036\336\337\037\335\035\034\334\024\324\325\025"
+ 139      1FDD1D1C 
+ 139      DC14D4D5 
+ 139      15
+ 140 0034 D71716D6 		.ascii	"\327\027\026\326\322\022\023\323\021\321\320\020\360"
+ 140      D21213D3 
+ 140      11D1D010 
+ 140      F0
+ 141 0041 3031F133 		.ascii	"01\3613\363\36226\366\3677\36554\364<\374\375=\377?"
+ 141      F3F23236 
+ 141      F6F737F5 
+ 141      3534F43C 
+ 141      FCFD3DFF 
+ 142 0056 3EFEFA3A 		.ascii	">\376\372:;\3739\371\3708(\350\351)\353+*\352\356./"
+ 142      3BFB39F9 
+ 142      F83828E8 
+ 142      E929EB2B 
+ 142      2AEAEE2E 
+ 143 006b EF2DEDEC 		.ascii	"\357-\355\354,\344$%\345'\347\346&\"\342\343#\341! "
+ 143      2CE42425 
+ 143      E527E7E6 
+ 143      2622E2E3 
+ 143      23E12120 
+ 144 007f E0A06061 		.ascii	"\340\240`a\241c\243\242bf\246\247g\245ed\244l\254\255"
+ 144      A163A3A2 
+ 144      6266A6A7 
+ 144      67A56564 
+ 144      A46CACAD 
+ 145 0093 6DAF6F6E 		.ascii	"m\257on\256\252jk\253i\251\250hx\270\271y\273{z\272"
+ 145      AEAA6A6B 
+ 145      AB69A9A8 
+ 145      6878B8B9 
+ 145      79BB7B7A 
+ 146 00a8 BE7E7FBF 		.ascii	"\276~\177\277}\275\274|\264tu\265w\267\266vr\262\263"
+ 146      7DBDBC7C 
+ 146      B47475B5 
+ 146      77B7B676 
+ 146      72B2B3
+ 147 00bb 73B17170 		.ascii	"s\261qp\260P\220\221Q\223SR\222\226VW\227U\225\224T"
+ 147      B0509091 
+ 147      51935352 
+ 147      92965657 
+ 147      97559594 
+ 148 00d0 9C5C5D9D 		.ascii	"\234\\]\235_\237\236^Z\232\233[\231YX\230\210HI\211"
+ 148      5F9F9E5E 
+ 148      5A9A9B5B 
+ 148      99595898 
+ 148      88484989 
+ 149 00e4 4B8B8A4A 		.ascii	"K\213\212JN\216\217O\215ML\214D\204\205E\207GF\206\202"
+ 149      4E8E8F4F 
+ 149      8D4D4C8C 
+ 149      44848545 
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccETnAeC.s 			page 7
+
+
+ 149      87474686 
+ 150 00f9 42438341 		.ascii	"BC\203A\201\200@"
+ 150      818040
+ 151              		.text
+ 152              	.Letext0:
+ 153              		.file 2 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 154              		.file 3 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 155              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 156              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 157              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 158              		.file 7 "Drivers/FreeModbus/port/port.h"
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccETnAeC.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 mbcrc.c
+C:\Users\Andre\AppData\Local\Temp\ccETnAeC.s:18     .text.usMBCRC16:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccETnAeC.s:26     .text.usMBCRC16:0000000000000000 usMBCRC16
+C:\Users\Andre\AppData\Local\Temp\ccETnAeC.s:102    .text.usMBCRC16:0000000000000028 $d
+C:\Users\Andre\AppData\Local\Temp\ccETnAeC.s:108    .rodata.aucCRCHi:0000000000000000 $d
+C:\Users\Andre\AppData\Local\Temp\ccETnAeC.s:112    .rodata.aucCRCHi:0000000000000000 aucCRCHi
+C:\Users\Andre\AppData\Local\Temp\ccETnAeC.s:131    .rodata.aucCRCLo:0000000000000000 $d
+C:\Users\Andre\AppData\Local\Temp\ccETnAeC.s:135    .rodata.aucCRCLo:0000000000000000 aucCRCLo
+
+NO UNDEFINED SYMBOLS
