@@ -19,7 +19,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "crc.h"
+#include "spi.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -30,18 +30,16 @@
 #include "mbport.h"
 #include "user_mb_app.h"
 
-#include "FlashPROM.h"
+#include "w25qxx.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 extern uint16_t usSRegInBuf[];
 extern uint16_t usSRegHoldBuf[];
-extern uint8_t ucSCoilBuf[];
-extern uint8_t ucSDiscInBuf[];
+extern uint8_t  ucSCoilBuf[];
+extern uint8_t  ucSDiscInBuf[];
 
-uint16_t flash = 0;
-uint32_t res_addr = 0;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -101,15 +99,19 @@ int main(void)
   MX_TIM4_Init();
   MX_USART1_UART_Init();
   MX_USART2_UART_Init();
-  MX_CRC_Init();
+  MX_SPI1_Init();
+  
+  /* Инициализация и очистка: всей флешки, блока, сектора */
+  W25qxx_Init();
+  // W25qxx_EraseChip();
+  // W25qxx_EraseBlock(0);
+  // W25qxx_EraseSector(0);
+
   /* USER CODE BEGIN 2 */
 
  	eMBInit(MB_RTU, 1, &huart2, 115200, &htim4);
 	eMBEnable();
 
-  // erase_flash();
-  res_addr = flash_search_adress(STARTADDR, BUFFSIZE * DATAWIDTH);
-  myBuf_t wdata[BUFFSIZE] = {0x1111, 0x2222, 0x3333, 0x4444, 0x0000};
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -120,6 +122,22 @@ int main(void)
 
     usSRegInBuf[0] = 404;
     usSRegHoldBuf[0] = 505;
+
+    if(ucSCoilBuf[1] == 1) {
+      usSRegInBuf[0] = 303;
+    }
+
+    if(usSRegHoldBuf[1] == 15) {
+       usSRegHoldBuf[1] = 0;
+       uint8_t b0 = usSRegHoldBuf[3];
+      W25qxx_WriteByte(b0, 25);
+    }
+    if(usSRegHoldBuf[2] == 25) {
+      usSRegHoldBuf[2] = 0;
+      uint8_t buf[64] = {0,};
+      W25qxx_ReadByte(&buf[0], 25);
+      usSRegInBuf[1] = buf[0];
+    }
     HAL_Delay(20);
     eMBPoll();
 
