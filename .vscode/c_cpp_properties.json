@@ -9,7 +9,7 @@
                 "C:/VSCodeProject/Software/arm_gcc/lib/**",
                 "${workspaceRoot}\\Drivers\\**",
                 "${workspaceRoot}\\Drivers\\FreeModbus\\**",
-                "${workspaceRoot}\\Drivers\\Flash\\**",
+                "${workspaceRoot}\\Drivers\\W25qxx\\**",
                 // "${workspaceRoot}\\Drivers\\Middlewares**",
                 "${workspaceRoot}\\Src\\**",
                 "${workspaceRoot}\\Inc\\**",
