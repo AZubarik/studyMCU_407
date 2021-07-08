@@ -100,13 +100,7 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USART2_UART_Init();
   MX_SPI1_Init();
-  
-  /* Инициализация и очистка: всей флешки, блока, сектора */
-  W25qxx_Init();
-  // W25qxx_EraseChip();
-  // W25qxx_EraseBlock(0);
-  // W25qxx_EraseSector(0);
-
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 
  	eMBInit(MB_RTU, 1, &huart2, 115200, &htim4);
@@ -118,13 +112,19 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_1);
 
     usSRegInBuf[0] = 404;
     usSRegHoldBuf[0] = 505;
 
-    if(ucSCoilBuf[1] == 1) {
-      usSRegInBuf[0] = 303;
+    if(usSRegHoldBuf[4] == 1) {
+      HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
+    }
+    if(usSRegHoldBuf[4] == 2) {
+      int i = usSRegHoldBuf[5]; 
+      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, i);
+    }
+    if(usSRegHoldBuf[4] == 3) {
+      HAL_TIM_PWM_Stop(&htim2, TIM_CHANNEL_2);   
     }
 
     if(usSRegHoldBuf[1] == 15) {
