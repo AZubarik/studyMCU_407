@@ -1,0 +1,18 @@
+// Поместите настраиваемые сочетания клавиш в этот файл, чтобы переопределить сочетания клавиш по умолчанию.
+[
+    {
+    "key": "F6",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Make Build"
+    },
+    {
+    "key": "F7",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Make Clean"
+    },
+    {
+    "key": "F8",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Write to Flash MCU"
+    }
+]

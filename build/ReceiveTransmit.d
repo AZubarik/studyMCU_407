@@ -1,4 +1,9 @@
-build/main.o: Src/main.c Inc/main.h \
+build/ReceiveTransmit.o: \
+ Drivers/FreeModbus/ReceiveTransmit/ReceiveTransmit.c \
+ Drivers/FreeModbus/ReceiveTransmit/ReceiveTransmit.h \
+ Drivers/FreeModbus/include/mb.h Drivers/FreeModbus/port/port.h \
+ Drivers/FreeModbus/include/mbconfig.h \
+ Drivers/FreeModbus/port/portcritical.h Inc/main.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  Inc/stm32f4xx_hal_conf.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -25,16 +30,21 @@ build/main.o: Src/main.c Inc/main.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
- Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h Inc/spi.h \
- Inc/main.h Inc/tim.h Inc/usart.h Inc/gpio.h \
- Drivers/FreeModbus/include/mb.h Drivers/FreeModbus/port/port.h \
- Drivers/FreeModbus/include/mbconfig.h \
- Drivers/FreeModbus/port/portcritical.h \
+ Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  Drivers/FreeModbus/include/mbport.h Drivers/FreeModbus/include/mbproto.h \
  Drivers/FreeModbus/include/mbport.h Drivers/FreeModbus/app/user_mb_app.h \
  Drivers/FreeModbus/include/mb_m.h Drivers/FreeModbus/include/mbframe.h \
- Drivers/FreeModbus/include/mbutils.h Drivers/W25qxx/w25qxx.h \
- Drivers/FreeModbus/ReceiveTransmit/ReceiveTransmit.h
+ Drivers/FreeModbus/include/mbutils.h
+
+Drivers/FreeModbus/ReceiveTransmit/ReceiveTransmit.h:
+
+Drivers/FreeModbus/include/mb.h:
+
+Drivers/FreeModbus/port/port.h:
+
+Drivers/FreeModbus/include/mbconfig.h:
+
+Drivers/FreeModbus/port/portcritical.h:
 
 Inc/main.h:
 
@@ -96,24 +106,6 @@ Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 
-Inc/spi.h:
-
-Inc/main.h:
-
-Inc/tim.h:
-
-Inc/usart.h:
-
-Inc/gpio.h:
-
-Drivers/FreeModbus/include/mb.h:
-
-Drivers/FreeModbus/port/port.h:
-
-Drivers/FreeModbus/include/mbconfig.h:
-
-Drivers/FreeModbus/port/portcritical.h:
-
 Drivers/FreeModbus/include/mbport.h:
 
 Drivers/FreeModbus/include/mbproto.h:
@@ -127,7 +119,3 @@ Drivers/FreeModbus/include/mb_m.h:
 Drivers/FreeModbus/include/mbframe.h:
 
 Drivers/FreeModbus/include/mbutils.h:
-
-Drivers/W25qxx/w25qxx.h:
-
-Drivers/FreeModbus/ReceiveTransmit/ReceiveTransmit.h:

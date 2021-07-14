@@ -83,12 +83,14 @@ Drivers/FreeModbus/mb.c \
 Drivers/FreeModbus/mb_m.c \
 Drivers/FreeModbus/app/user_mb_app.c \
 Drivers/FreeModbus/app/user_mb_app_m.c \
+Drivers/FreeModbus/ReceiveTransmit/ReceiveTransmit.c \
 Src/gpio.c \
 Src/tim.c \
 Src/usart.c \
 Src/spi.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c \
-Drivers/W25qxx/w25qxx.c
+Drivers/W25qxx/w25qxx.c 
+
 
 # ASM sources
 ASM_SOURCES =  \
@@ -155,6 +157,7 @@ C_INCLUDES =  \
 -IDrivers/FreeModbus/port \
 -IDrivers/FreeModbus/app \
 -IDrivers/FreeModbus/rtu \
+-IDrivers/FreeModbus/ReceiveTransmit \
 -IDrivers/W25qxx
 
 

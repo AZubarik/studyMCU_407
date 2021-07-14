@@ -31,6 +31,8 @@
 #include "user_mb_app.h"
 
 #include "w25qxx.h"
+
+#include "ReceiveTransmit.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -138,6 +140,8 @@ int main(void)
       W25qxx_ReadByte(&buf[0], 25);
       usSRegInBuf[1] = buf[0];
     }
+
+    dataTransmit(6, 556.87);
     HAL_Delay(20);
     eMBPoll();
 
