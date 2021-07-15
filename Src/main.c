@@ -103,6 +103,9 @@ int main(void)
   MX_USART2_UART_Init();
   MX_SPI1_Init();
   MX_TIM2_Init();
+
+  W25qxx_Init();
+  // W25qxx_EraseSector(0);
   /* USER CODE BEGIN 2 */
 
  	eMBInit(MB_RTU, 1, &huart2, 115200, &htim4);
@@ -114,7 +117,6 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
     usSRegInBuf[0] = 404;
     usSRegHoldBuf[0] = 505;
 
@@ -130,8 +132,9 @@ int main(void)
     }
 
     if(usSRegHoldBuf[1] == 15) {
-       usSRegHoldBuf[1] = 0;
-       uint8_t b0 = usSRegHoldBuf[3];
+      usSRegHoldBuf[1] = 0;
+      W25qxx_EraseSector(0);
+      uint8_t b0 = usSRegHoldBuf[3];
       W25qxx_WriteByte(b0, 25);
     }
     if(usSRegHoldBuf[2] == 25) {
