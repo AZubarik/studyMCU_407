@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -26,7 +26,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
   23              		.thumb_func
   24              		.fpu fpv4-sp-d16
   26              	HAL_MspInit:
-  27              	.LFB132:
+  27              	.LFB237:
   28              		.file 1 "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c"
    1:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
    2:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   ******************************************************************************
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
   28:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * the "License"; You may not use this file except in compliance with the
   29:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * License. You may obtain a copy of the License at:
   30:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   *                        opensource.org/licenses/BSD-3-Clause
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 2
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 2
 
 
   31:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   *
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
   85:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
   86:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @}
   87:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   */
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 3
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 3
 
 
   88:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  142:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   *         instruction to be executed in the main program (before to call any other
  143:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   *         HAL function), it performs the following:
  144:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   *           Configure the Flash prefetch, instruction and Data caches.
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 4
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 4
 
 
  145:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   *           Configures the SysTick to generate an interrupt each 1 millisecond,
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  199:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   __HAL_RCC_AHB1_FORCE_RESET();
  200:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   __HAL_RCC_AHB1_RELEASE_RESET();
  201:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 5
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 5
 
 
  202:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   __HAL_RCC_AHB2_FORCE_RESET();
@@ -272,7 +272,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
   34              		.loc 1 224 1 view .LVU1
   35 0000 7047     		bx	lr
   36              		.cfi_endproc
-  37              	.LFE132:
+  37              	.LFE237:
   39              		.section	.text.HAL_MspDeInit,"ax",%progbits
   40              		.align	1
   41              		.weak	HAL_MspDeInit
@@ -281,7 +281,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
   44              		.thumb_func
   45              		.fpu fpv4-sp-d16
   47              	HAL_MspDeInit:
-  48              	.LFB133:
+  48              	.LFB238:
  225:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  226:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  227:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief  DeInitializes the MSP.
@@ -298,13 +298,13 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  233:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****             the HAL_MspDeInit could be implemented in the user file
  234:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****    */ 
  235:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** }
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 6
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 6
 
 
   54              		.loc 1 235 1 view .LVU3
   55 0000 7047     		bx	lr
   56              		.cfi_endproc
-  57              	.LFE133:
+  57              	.LFE238:
   59              		.section	.text.HAL_DeInit,"ax",%progbits
   60              		.align	1
   61              		.global	HAL_DeInit
@@ -313,7 +313,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
   64              		.thumb_func
   65              		.fpu fpv4-sp-d16
   67              	HAL_DeInit:
-  68              	.LFB131:
+  68              	.LFB236:
  191:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   /* Reset of all peripherals */
   69              		.loc 1 191 1 view -0
   70              		.cfi_startproc
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
   99              		.loc 1 206 3 view .LVU14
  100 001c 9C61     		str	r4, [r3, #24]
  209:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****     
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 7
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 7
 
 
  101              		.loc 1 209 3 view .LVU15
@@ -375,7 +375,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  110              	.L5:
  111 0028 00380240 		.word	1073887232
  112              		.cfi_endproc
- 113              	.LFE131:
+ 113              	.LFE236:
  115              		.section	.text.HAL_InitTick,"ax",%progbits
  116              		.align	1
  117              		.weak	HAL_InitTick
@@ -385,7 +385,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  121              		.fpu fpv4-sp-d16
  123              	HAL_InitTick:
  124              	.LVL1:
- 125              	.LFB134:
+ 125              	.LFB239:
  236:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  237:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  238:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief This function configures the source of the time base.
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  136 0002 0446     		mov	r4, r0
  255:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   /* Configure the SysTick to have interrupt in 1ms time basis*/
  256:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   if (HAL_SYSTICK_Config(SystemCoreClock / (1000U / uwTickFreq)) > 0U)
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 8
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 8
 
 
  137              		.loc 1 256 3 is_stmt 1 view .LVU20
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  171              		.loc 1 273 3 is_stmt 1 view .LVU31
  172              		.loc 1 273 10 is_stmt 0 view .LVU32
  173 0036 0020     		movs	r0, #0
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 9
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 9
 
 
  174 0038 00E0     		b	.L8
@@ -499,7 +499,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  187 0044 00000000 		.word	SystemCoreClock
  188 0048 00000000 		.word	.LANCHOR1
  189              		.cfi_endproc
- 190              	.LFE134:
+ 190              	.LFE239:
  192              		.section	.text.HAL_Init,"ax",%progbits
  193              		.align	1
  194              		.global	HAL_Init
@@ -508,7 +508,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  197              		.thumb_func
  198              		.fpu fpv4-sp-d16
  200              	HAL_Init:
- 201              	.LFB130:
+ 201              	.LFB235:
  158:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   /* Configure Flash prefetch, Instruction cache, Data cache */ 
  202              		.loc 1 158 1 is_stmt 1 view -0
  203              		.cfi_startproc
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  173:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  224              		.loc 1 173 3 view .LVU40
  225 001c 0320     		movs	r0, #3
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 10
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 10
 
 
  226 001e FFF7FEFF 		bl	HAL_NVIC_SetPriorityGrouping
@@ -563,7 +563,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  241              	.L17:
  242 0030 003C0240 		.word	1073888256
  243              		.cfi_endproc
- 244              	.LFE130:
+ 244              	.LFE235:
  246              		.section	.text.HAL_IncTick,"ax",%progbits
  247              		.align	1
  248              		.weak	HAL_IncTick
@@ -572,7 +572,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  251              		.thumb_func
  252              		.fpu fpv4-sp-d16
  254              	HAL_IncTick:
- 255              	.LFB135:
+ 255              	.LFB240:
  275:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  276:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  277:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @}
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  297:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****       (+) Enable/Disable Debug module during STANDBY mode
  298:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  299:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** @endverbatim
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 11
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 11
 
 
  300:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @{
@@ -638,7 +638,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  274 0010 00000000 		.word	uwTick
  275 0014 00000000 		.word	.LANCHOR0
  276              		.cfi_endproc
- 277              	.LFE135:
+ 277              	.LFE240:
  279              		.section	.text.HAL_GetTick,"ax",%progbits
  280              		.align	1
  281              		.weak	HAL_GetTick
@@ -647,7 +647,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  284              		.thumb_func
  285              		.fpu fpv4-sp-d16
  287              	HAL_GetTick:
- 288              	.LFB136:
+ 288              	.LFB241:
  316:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  317:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  318:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief Provides a tick value in millisecond.
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  323:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** __weak uint32_t HAL_GetTick(void)
  324:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** {
  289              		.loc 1 324 1 is_stmt 1 view -0
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 12
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 12
 
 
  290              		.cfi_startproc
@@ -678,7 +678,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  302              	.L23:
  303 0008 00000000 		.word	uwTick
  304              		.cfi_endproc
- 305              	.LFE136:
+ 305              	.LFE241:
  307              		.section	.text.HAL_GetTickPrio,"ax",%progbits
  308              		.align	1
  309              		.global	HAL_GetTickPrio
@@ -687,7 +687,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  312              		.thumb_func
  313              		.fpu fpv4-sp-d16
  315              	HAL_GetTickPrio:
- 316              	.LFB137:
+ 316              	.LFB242:
  327:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  328:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  329:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief This function returns a tick priority.
@@ -712,20 +712,20 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  329              	.L26:
  330 0008 00000000 		.word	.LANCHOR1
  331              		.cfi_endproc
- 332              	.LFE137:
+ 332              	.LFE242:
  334              		.section	.text.HAL_SetTickFreq,"ax",%progbits
  335              		.align	1
  336              		.global	HAL_SetTickFreq
  337              		.syntax unified
  338              		.thumb
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 13
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 13
 
 
  339              		.thumb_func
  340              		.fpu fpv4-sp-d16
  342              	HAL_SetTickFreq:
  343              	.LVL9:
- 344              	.LFB138:
+ 344              	.LFB243:
  336:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  337:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  338:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief Set new tick Freq.
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  359:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****     if (status != HAL_OK)
  360:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****     {
  361:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****       /* Restore previous tick frequency */
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 14
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 14
 
 
  362:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****       uwTickFreq = prevTickFreq;
@@ -829,7 +829,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  399 0024 00000000 		.word	.LANCHOR0
  400 0028 00000000 		.word	.LANCHOR1
  401              		.cfi_endproc
- 402              	.LFE138:
+ 402              	.LFE243:
  404              		.section	.text.HAL_GetTickFreq,"ax",%progbits
  405              		.align	1
  406              		.global	HAL_GetTickFreq
@@ -838,10 +838,10 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  409              		.thumb_func
  410              		.fpu fpv4-sp-d16
  412              	HAL_GetTickFreq:
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 15
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 15
 
 
- 413              	.LFB139:
+ 413              	.LFB244:
  368:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  369:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  370:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief Return tick frequency.
@@ -866,7 +866,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  426              	.L36:
  427 0008 00000000 		.word	.LANCHOR0
  428              		.cfi_endproc
- 429              	.LFE139:
+ 429              	.LFE244:
  431              		.section	.text.HAL_Delay,"ax",%progbits
  432              		.align	1
  433              		.weak	HAL_Delay
@@ -876,7 +876,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  437              		.fpu fpv4-sp-d16
  439              	HAL_Delay:
  440              	.LVL15:
- 441              	.LFB140:
+ 441              	.LFB245:
  377:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  378:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  379:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief This function provides minimum delay (in milliseconds) based 
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  446              		.loc 1 390 1 is_stmt 0 view .LVU81
  447 0000 38B5     		push	{r3, r4, r5, lr}
  448              	.LCFI4:
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 16
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 16
 
 
  449              		.cfi_def_cfa_offset 16
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  486 0020 38BD     		pop	{r3, r4, r5, pc}
  487              	.LVL20:
  488              	.L43:
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 17
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 17
 
 
  489              		.loc 1 403 1 view .LVU97
@@ -966,7 +966,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  491              	.L42:
  492 0024 00000000 		.word	.LANCHOR0
  493              		.cfi_endproc
- 494              	.LFE140:
+ 494              	.LFE245:
  496              		.section	.text.HAL_SuspendTick,"ax",%progbits
  497              		.align	1
  498              		.weak	HAL_SuspendTick
@@ -975,7 +975,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  501              		.thumb_func
  502              		.fpu fpv4-sp-d16
  504              	HAL_SuspendTick:
- 505              	.LFB141:
+ 505              	.LFB246:
  404:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  405:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  406:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief Suspend Tick increment.
@@ -1010,7 +1010,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  521              	.L45:
  522 000c 10E000E0 		.word	-536813552
  523              		.cfi_endproc
- 524              	.LFE141:
+ 524              	.LFE246:
  526              		.section	.text.HAL_ResumeTick,"ax",%progbits
  527              		.align	1
  528              		.weak	HAL_ResumeTick
@@ -1018,11 +1018,11 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  530              		.thumb
  531              		.thumb_func
  532              		.fpu fpv4-sp-d16
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 18
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 18
 
 
  534              	HAL_ResumeTick:
- 535              	.LFB142:
+ 535              	.LFB247:
  420:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  421:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  422:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief Resume Tick increment.
@@ -1057,7 +1057,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  551              	.L48:
  552 000c 10E000E0 		.word	-536813552
  553              		.cfi_endproc
- 554              	.LFE142:
+ 554              	.LFE247:
  556              		.section	.text.HAL_GetHalVersion,"ax",%progbits
  557              		.align	1
  558              		.global	HAL_GetHalVersion
@@ -1066,7 +1066,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  561              		.thumb_func
  562              		.fpu fpv4-sp-d16
  564              	HAL_GetHalVersion:
- 565              	.LFB143:
+ 565              	.LFB248:
  436:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  437:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  438:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief  Returns the HAL revision
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  567              		.cfi_startproc
  568              		@ args = 0, pretend = 0, frame = 0
  569              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 19
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 19
 
 
  570              		@ link register save eliminated.
@@ -1093,7 +1093,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  577              	.L51:
  578 0004 000C0701 		.word	17239040
  579              		.cfi_endproc
- 580              	.LFE143:
+ 580              	.LFE248:
  582              		.section	.text.HAL_GetREVID,"ax",%progbits
  583              		.align	1
  584              		.global	HAL_GetREVID
@@ -1102,7 +1102,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  587              		.thumb_func
  588              		.fpu fpv4-sp-d16
  590              	HAL_GetREVID:
- 591              	.LFB144:
+ 591              	.LFB249:
  445:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  446:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  447:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief  Returns the device revision identifier.
@@ -1129,7 +1129,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  606              	.L54:
  607 0008 002004E0 		.word	-536600576
  608              		.cfi_endproc
- 609              	.LFE144:
+ 609              	.LFE249:
  611              		.section	.text.HAL_GetDEVID,"ax",%progbits
  612              		.align	1
  613              		.global	HAL_GetDEVID
@@ -1138,10 +1138,10 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  616              		.thumb_func
  617              		.fpu fpv4-sp-d16
  619              	HAL_GetDEVID:
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 20
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 20
 
 
- 620              	.LFB145:
+ 620              	.LFB250:
  454:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  455:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  456:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief  Returns the device identifier.
@@ -1168,7 +1168,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  635              	.L57:
  636 000c 002004E0 		.word	-536600576
  637              		.cfi_endproc
- 638              	.LFE145:
+ 638              	.LFE250:
  640              		.section	.text.HAL_DBGMCU_EnableDBGSleepMode,"ax",%progbits
  641              		.align	1
  642              		.global	HAL_DBGMCU_EnableDBGSleepMode
@@ -1177,7 +1177,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  645              		.thumb_func
  646              		.fpu fpv4-sp-d16
  648              	HAL_DBGMCU_EnableDBGSleepMode:
- 649              	.LFB146:
+ 649              	.LFB251:
  463:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  464:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  465:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief  Enable the Debug Module during SLEEP mode
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  659 0008 5360     		str	r3, [r2, #4]
  471:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** }
  660              		.loc 1 471 1 is_stmt 0 view .LVU119
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 21
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 21
 
 
  661 000a 7047     		bx	lr
@@ -1207,7 +1207,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  664              	.L60:
  665 000c 002004E0 		.word	-536600576
  666              		.cfi_endproc
- 667              	.LFE146:
+ 667              	.LFE251:
  669              		.section	.text.HAL_DBGMCU_DisableDBGSleepMode,"ax",%progbits
  670              		.align	1
  671              		.global	HAL_DBGMCU_DisableDBGSleepMode
@@ -1216,7 +1216,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  674              		.thumb_func
  675              		.fpu fpv4-sp-d16
  677              	HAL_DBGMCU_DisableDBGSleepMode:
- 678              	.LFB147:
+ 678              	.LFB252:
  472:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  473:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  474:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief  Disable the Debug Module during SLEEP mode
@@ -1243,7 +1243,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  693              	.L63:
  694 000c 002004E0 		.word	-536600576
  695              		.cfi_endproc
- 696              	.LFE147:
+ 696              	.LFE252:
  698              		.section	.text.HAL_DBGMCU_EnableDBGStopMode,"ax",%progbits
  699              		.align	1
  700              		.global	HAL_DBGMCU_EnableDBGStopMode
@@ -1252,13 +1252,13 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  703              		.thumb_func
  704              		.fpu fpv4-sp-d16
  706              	HAL_DBGMCU_EnableDBGStopMode:
- 707              	.LFB148:
+ 707              	.LFB253:
  481:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  482:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  483:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief  Enable the Debug Module during STOP mode
  484:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @retval None
  485:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   */
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 22
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 22
 
 
  486:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** void HAL_DBGMCU_EnableDBGStopMode(void)
@@ -1282,7 +1282,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  722              	.L66:
  723 000c 002004E0 		.word	-536600576
  724              		.cfi_endproc
- 725              	.LFE148:
+ 725              	.LFE253:
  727              		.section	.text.HAL_DBGMCU_DisableDBGStopMode,"ax",%progbits
  728              		.align	1
  729              		.global	HAL_DBGMCU_DisableDBGStopMode
@@ -1291,7 +1291,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  732              		.thumb_func
  733              		.fpu fpv4-sp-d16
  735              	HAL_DBGMCU_DisableDBGStopMode:
- 736              	.LFB149:
+ 736              	.LFB254:
  490:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  491:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  492:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief  Disable the Debug Module during STOP mode
@@ -1318,10 +1318,10 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  751              	.L69:
  752 000c 002004E0 		.word	-536600576
  753              		.cfi_endproc
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 23
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 23
 
 
- 754              	.LFE149:
+ 754              	.LFE254:
  756              		.section	.text.HAL_DBGMCU_EnableDBGStandbyMode,"ax",%progbits
  757              		.align	1
  758              		.global	HAL_DBGMCU_EnableDBGStandbyMode
@@ -1330,7 +1330,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  761              		.thumb_func
  762              		.fpu fpv4-sp-d16
  764              	HAL_DBGMCU_EnableDBGStandbyMode:
- 765              	.LFB150:
+ 765              	.LFB255:
  499:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  500:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  501:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief  Enable the Debug Module during STANDBY mode
@@ -1357,7 +1357,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  780              	.L72:
  781 000c 002004E0 		.word	-536600576
  782              		.cfi_endproc
- 783              	.LFE150:
+ 783              	.LFE255:
  785              		.section	.text.HAL_DBGMCU_DisableDBGStandbyMode,"ax",%progbits
  786              		.align	1
  787              		.global	HAL_DBGMCU_DisableDBGStandbyMode
@@ -1366,7 +1366,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  790              		.thumb_func
  791              		.fpu fpv4-sp-d16
  793              	HAL_DBGMCU_DisableDBGStandbyMode:
- 794              	.LFB151:
+ 794              	.LFB256:
  508:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  509:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  510:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief  Disable the Debug Module during STANDBY mode
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  796              		.cfi_startproc
  797              		@ args = 0, pretend = 0, frame = 0
  798              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 24
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 24
 
 
  799              		@ link register save eliminated.
@@ -1396,7 +1396,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  809              	.L75:
  810 000c 002004E0 		.word	-536600576
  811              		.cfi_endproc
- 812              	.LFE151:
+ 812              	.LFE256:
  814              		.section	.text.HAL_EnableCompensationCell,"ax",%progbits
  815              		.align	1
  816              		.global	HAL_EnableCompensationCell
@@ -1405,7 +1405,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  819              		.thumb_func
  820              		.fpu fpv4-sp-d16
  822              	HAL_EnableCompensationCell:
- 823              	.LFB152:
+ 823              	.LFB257:
  517:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  518:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  519:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief  Enables the I/O Compensation Cell.
@@ -1434,11 +1434,11 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  838              	.L78:
  839 0008 00042742 		.word	1109853184
  840              		.cfi_endproc
- 841              	.LFE152:
+ 841              	.LFE257:
  843              		.section	.text.HAL_DisableCompensationCell,"ax",%progbits
  844              		.align	1
  845              		.global	HAL_DisableCompensationCell
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 25
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 25
 
 
  846              		.syntax unified
@@ -1446,7 +1446,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  848              		.thumb_func
  849              		.fpu fpv4-sp-d16
  851              	HAL_DisableCompensationCell:
- 852              	.LFB153:
+ 852              	.LFB258:
  528:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  529:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  530:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief  Power-down the I/O Compensation Cell.
@@ -1475,7 +1475,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  867              	.L81:
  868 0008 00042742 		.word	1109853184
  869              		.cfi_endproc
- 870              	.LFE153:
+ 870              	.LFE258:
  872              		.section	.text.HAL_GetUIDw0,"ax",%progbits
  873              		.align	1
  874              		.global	HAL_GetUIDw0
@@ -1484,7 +1484,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  877              		.thumb_func
  878              		.fpu fpv4-sp-d16
  880              	HAL_GetUIDw0:
- 881              	.LFB154:
+ 881              	.LFB259:
  539:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  540:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  541:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief  Returns first word of the unique device identifier (UID based on 96 bits)
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  885              		@ frame_needed = 0, uses_anonymous_args = 0
  886              		@ link register save eliminated.
  546:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   return (READ_REG(*((uint32_t *)UID_BASE)));
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 26
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 26
 
 
  887              		.loc 1 546 3 view .LVU144
@@ -1512,7 +1512,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  894              	.L84:
  895 0008 107AFF1F 		.word	536836624
  896              		.cfi_endproc
- 897              	.LFE154:
+ 897              	.LFE259:
  899              		.section	.text.HAL_GetUIDw1,"ax",%progbits
  900              		.align	1
  901              		.global	HAL_GetUIDw1
@@ -1521,7 +1521,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  904              		.thumb_func
  905              		.fpu fpv4-sp-d16
  907              	HAL_GetUIDw1:
- 908              	.LFB155:
+ 908              	.LFB260:
  548:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  549:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  550:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief  Returns second word of the unique device identifier (UID based on 96 bits)
@@ -1546,7 +1546,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  921              	.L87:
  922 0008 147AFF1F 		.word	536836628
  923              		.cfi_endproc
- 924              	.LFE155:
+ 924              	.LFE260:
  926              		.section	.text.HAL_GetUIDw2,"ax",%progbits
  927              		.align	1
  928              		.global	HAL_GetUIDw2
@@ -1555,10 +1555,10 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  931              		.thumb_func
  932              		.fpu fpv4-sp-d16
  934              	HAL_GetUIDw2:
- 935              	.LFB156:
+ 935              	.LFB261:
  557:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  558:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 27
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 27
 
 
  559:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief  Returns third word of the unique device identifier (UID based on 96 bits)
@@ -1583,7 +1583,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  948              	.L90:
  949 0008 187AFF1F 		.word	536836632
  950              		.cfi_endproc
- 951              	.LFE156:
+ 951              	.LFE261:
  953              		.global	uwTickFreq
  954              		.global	uwTickPrio
  955              		.comm	uwTick,4,4
@@ -1607,97 +1607,97 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 1
  977              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
  978              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
  979              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 28
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 28
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f4xx_hal.c
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:18     .text.HAL_MspInit:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:26     .text.HAL_MspInit:0000000000000000 HAL_MspInit
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:40     .text.HAL_MspDeInit:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:47     .text.HAL_MspDeInit:0000000000000000 HAL_MspDeInit
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:60     .text.HAL_DeInit:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:67     .text.HAL_DeInit:0000000000000000 HAL_DeInit
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:111    .text.HAL_DeInit:0000000000000028 $d
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:116    .text.HAL_InitTick:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:123    .text.HAL_InitTick:0000000000000000 HAL_InitTick
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:186    .text.HAL_InitTick:0000000000000040 $d
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:193    .text.HAL_Init:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:200    .text.HAL_Init:0000000000000000 HAL_Init
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:242    .text.HAL_Init:0000000000000030 $d
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:247    .text.HAL_IncTick:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:254    .text.HAL_IncTick:0000000000000000 HAL_IncTick
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:274    .text.HAL_IncTick:0000000000000010 $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:18     .text.HAL_MspInit:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:26     .text.HAL_MspInit:0000000000000000 HAL_MspInit
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:40     .text.HAL_MspDeInit:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:47     .text.HAL_MspDeInit:0000000000000000 HAL_MspDeInit
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:60     .text.HAL_DeInit:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:67     .text.HAL_DeInit:0000000000000000 HAL_DeInit
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:111    .text.HAL_DeInit:0000000000000028 $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:116    .text.HAL_InitTick:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:123    .text.HAL_InitTick:0000000000000000 HAL_InitTick
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:186    .text.HAL_InitTick:0000000000000040 $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:193    .text.HAL_Init:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:200    .text.HAL_Init:0000000000000000 HAL_Init
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:242    .text.HAL_Init:0000000000000030 $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:247    .text.HAL_IncTick:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:254    .text.HAL_IncTick:0000000000000000 HAL_IncTick
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:274    .text.HAL_IncTick:0000000000000010 $d
                             *COM*:0000000000000004 uwTick
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:280    .text.HAL_GetTick:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:287    .text.HAL_GetTick:0000000000000000 HAL_GetTick
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:303    .text.HAL_GetTick:0000000000000008 $d
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:308    .text.HAL_GetTickPrio:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:315    .text.HAL_GetTickPrio:0000000000000000 HAL_GetTickPrio
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:330    .text.HAL_GetTickPrio:0000000000000008 $d
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:335    .text.HAL_SetTickFreq:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:342    .text.HAL_SetTickFreq:0000000000000000 HAL_SetTickFreq
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:399    .text.HAL_SetTickFreq:0000000000000024 $d
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:405    .text.HAL_GetTickFreq:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:412    .text.HAL_GetTickFreq:0000000000000000 HAL_GetTickFreq
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:427    .text.HAL_GetTickFreq:0000000000000008 $d
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:432    .text.HAL_Delay:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:439    .text.HAL_Delay:0000000000000000 HAL_Delay
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:492    .text.HAL_Delay:0000000000000024 $d
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:497    .text.HAL_SuspendTick:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:504    .text.HAL_SuspendTick:0000000000000000 HAL_SuspendTick
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:522    .text.HAL_SuspendTick:000000000000000c $d
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:527    .text.HAL_ResumeTick:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:534    .text.HAL_ResumeTick:0000000000000000 HAL_ResumeTick
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:552    .text.HAL_ResumeTick:000000000000000c $d
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:557    .text.HAL_GetHalVersion:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:564    .text.HAL_GetHalVersion:0000000000000000 HAL_GetHalVersion
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:578    .text.HAL_GetHalVersion:0000000000000004 $d
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:583    .text.HAL_GetREVID:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:590    .text.HAL_GetREVID:0000000000000000 HAL_GetREVID
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:607    .text.HAL_GetREVID:0000000000000008 $d
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:612    .text.HAL_GetDEVID:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:619    .text.HAL_GetDEVID:0000000000000000 HAL_GetDEVID
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:636    .text.HAL_GetDEVID:000000000000000c $d
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:641    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:648    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 HAL_DBGMCU_EnableDBGSleepMode
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:665    .text.HAL_DBGMCU_EnableDBGSleepMode:000000000000000c $d
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:670    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:677    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 HAL_DBGMCU_DisableDBGSleepMode
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:694    .text.HAL_DBGMCU_DisableDBGSleepMode:000000000000000c $d
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:699    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:706    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 HAL_DBGMCU_EnableDBGStopMode
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccVKNt15.s 			page 29
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:280    .text.HAL_GetTick:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:287    .text.HAL_GetTick:0000000000000000 HAL_GetTick
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:303    .text.HAL_GetTick:0000000000000008 $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:308    .text.HAL_GetTickPrio:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:315    .text.HAL_GetTickPrio:0000000000000000 HAL_GetTickPrio
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:330    .text.HAL_GetTickPrio:0000000000000008 $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:335    .text.HAL_SetTickFreq:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:342    .text.HAL_SetTickFreq:0000000000000000 HAL_SetTickFreq
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:399    .text.HAL_SetTickFreq:0000000000000024 $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:405    .text.HAL_GetTickFreq:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:412    .text.HAL_GetTickFreq:0000000000000000 HAL_GetTickFreq
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:427    .text.HAL_GetTickFreq:0000000000000008 $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:432    .text.HAL_Delay:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:439    .text.HAL_Delay:0000000000000000 HAL_Delay
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:492    .text.HAL_Delay:0000000000000024 $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:497    .text.HAL_SuspendTick:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:504    .text.HAL_SuspendTick:0000000000000000 HAL_SuspendTick
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:522    .text.HAL_SuspendTick:000000000000000c $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:527    .text.HAL_ResumeTick:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:534    .text.HAL_ResumeTick:0000000000000000 HAL_ResumeTick
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:552    .text.HAL_ResumeTick:000000000000000c $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:557    .text.HAL_GetHalVersion:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:564    .text.HAL_GetHalVersion:0000000000000000 HAL_GetHalVersion
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:578    .text.HAL_GetHalVersion:0000000000000004 $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:583    .text.HAL_GetREVID:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:590    .text.HAL_GetREVID:0000000000000000 HAL_GetREVID
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:607    .text.HAL_GetREVID:0000000000000008 $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:612    .text.HAL_GetDEVID:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:619    .text.HAL_GetDEVID:0000000000000000 HAL_GetDEVID
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:636    .text.HAL_GetDEVID:000000000000000c $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:641    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:648    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 HAL_DBGMCU_EnableDBGSleepMode
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:665    .text.HAL_DBGMCU_EnableDBGSleepMode:000000000000000c $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:670    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:677    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 HAL_DBGMCU_DisableDBGSleepMode
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:694    .text.HAL_DBGMCU_DisableDBGSleepMode:000000000000000c $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:699    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:706    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 HAL_DBGMCU_EnableDBGStopMode
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s 			page 29
 
 
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:723    .text.HAL_DBGMCU_EnableDBGStopMode:000000000000000c $d
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:728    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:735    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 HAL_DBGMCU_DisableDBGStopMode
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:752    .text.HAL_DBGMCU_DisableDBGStopMode:000000000000000c $d
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:757    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:764    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 HAL_DBGMCU_EnableDBGStandbyMode
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:781    .text.HAL_DBGMCU_EnableDBGStandbyMode:000000000000000c $d
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:786    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:793    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 HAL_DBGMCU_DisableDBGStandbyMode
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:810    .text.HAL_DBGMCU_DisableDBGStandbyMode:000000000000000c $d
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:815    .text.HAL_EnableCompensationCell:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:822    .text.HAL_EnableCompensationCell:0000000000000000 HAL_EnableCompensationCell
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:839    .text.HAL_EnableCompensationCell:0000000000000008 $d
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:844    .text.HAL_DisableCompensationCell:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:851    .text.HAL_DisableCompensationCell:0000000000000000 HAL_DisableCompensationCell
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:868    .text.HAL_DisableCompensationCell:0000000000000008 $d
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:873    .text.HAL_GetUIDw0:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:880    .text.HAL_GetUIDw0:0000000000000000 HAL_GetUIDw0
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:895    .text.HAL_GetUIDw0:0000000000000008 $d
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:900    .text.HAL_GetUIDw1:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:907    .text.HAL_GetUIDw1:0000000000000000 HAL_GetUIDw1
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:922    .text.HAL_GetUIDw1:0000000000000008 $d
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:927    .text.HAL_GetUIDw2:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:934    .text.HAL_GetUIDw2:0000000000000000 HAL_GetUIDw2
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:949    .text.HAL_GetUIDw2:0000000000000008 $d
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:960    .data.uwTickFreq:0000000000000000 uwTickFreq
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:967    .data.uwTickPrio:0000000000000000 uwTickPrio
-C:\Users\du4\AppData\Local\Temp\ccVKNt15.s:963    .data.uwTickPrio:0000000000000000 $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:723    .text.HAL_DBGMCU_EnableDBGStopMode:000000000000000c $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:728    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:735    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 HAL_DBGMCU_DisableDBGStopMode
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:752    .text.HAL_DBGMCU_DisableDBGStopMode:000000000000000c $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:757    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:764    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 HAL_DBGMCU_EnableDBGStandbyMode
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:781    .text.HAL_DBGMCU_EnableDBGStandbyMode:000000000000000c $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:786    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:793    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 HAL_DBGMCU_DisableDBGStandbyMode
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:810    .text.HAL_DBGMCU_DisableDBGStandbyMode:000000000000000c $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:815    .text.HAL_EnableCompensationCell:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:822    .text.HAL_EnableCompensationCell:0000000000000000 HAL_EnableCompensationCell
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:839    .text.HAL_EnableCompensationCell:0000000000000008 $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:844    .text.HAL_DisableCompensationCell:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:851    .text.HAL_DisableCompensationCell:0000000000000000 HAL_DisableCompensationCell
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:868    .text.HAL_DisableCompensationCell:0000000000000008 $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:873    .text.HAL_GetUIDw0:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:880    .text.HAL_GetUIDw0:0000000000000000 HAL_GetUIDw0
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:895    .text.HAL_GetUIDw0:0000000000000008 $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:900    .text.HAL_GetUIDw1:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:907    .text.HAL_GetUIDw1:0000000000000000 HAL_GetUIDw1
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:922    .text.HAL_GetUIDw1:0000000000000008 $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:927    .text.HAL_GetUIDw2:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:934    .text.HAL_GetUIDw2:0000000000000000 HAL_GetUIDw2
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:949    .text.HAL_GetUIDw2:0000000000000008 $d
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:960    .data.uwTickFreq:0000000000000000 uwTickFreq
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:967    .data.uwTickPrio:0000000000000000 uwTickPrio
+C:\Users\Andre\AppData\Local\Temp\ccGpaTWf.s:963    .data.uwTickPrio:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_SYSTICK_Config

@@ -27,17 +27,22 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
-
+#include "ReceiveTransmit.h"
 /* USER CODE END TD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+extern ADC_HandleTypeDef hadc1;
 
+extern uint16_t usSRegInBuf[];
+extern uint16_t usSRegHoldBuf[];
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-
+float Result = 0;
+float voltageADC = 0;
+float temp;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -56,6 +61,7 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
+extern TIM_HandleTypeDef htim3;
 extern TIM_HandleTypeDef htim4;
 extern UART_HandleTypeDef huart1;
 extern UART_HandleTypeDef huart2;
@@ -200,6 +206,30 @@ void SysTick_Handler(void)
 /* For the available peripheral interrupt handler names,                      */
 /* please refer to the startup file (startup_stm32f4xx.s).                    */
 /******************************************************************************/
+
+/**
+  * @brief This function handles TIM3 global interrupt.
+  */
+void TIM3_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM3_IRQn 0 */
+  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_1);
+  HAL_ADC_Start(&hadc1);
+  if (HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK) {   // Ожидание завершения преобразования.
+    Result = HAL_ADC_GetValue(&hadc1);                      // Считывание с АЦП.
+    voltageADC = (float) Result / 4096 * Vref;              // Напряжение в вольтах на датчике.
+    temp = (voltageADC - tV_25) / tSlope + 25;              // Температура в градусах.
+    Result = (float) temp;
+    dataTransmit(0, Result);                                // Передача данных Modbus registr 0.
+  }
+  HAL_ADC_Stop(&hadc1); // Остановка АЦП.
+  usSRegInBuf[2] += 1;
+  /* USER CODE END TIM3_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim3);
+  /* USER CODE BEGIN TIM3_IRQn 1 */
+
+  /* USER CODE END TIM3_IRQn 1 */
+}
 
 /**
   * @brief This function handles TIM4 global interrupt.

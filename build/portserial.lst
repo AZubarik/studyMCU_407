@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 1
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -27,7 +27,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 1
   24              		.fpu fpv4-sp-d16
   26              	xMBPortSerialInit:
   27              	.LVL0:
-  28              	.LFB130:
+  28              	.LFB235:
   29              		.file 1 "Drivers/FreeModbus/port/portserial.c"
    1:Drivers/FreeModbus/port/portserial.c **** #include "port.h"
    2:Drivers/FreeModbus/port/portserial.c **** #include "mb.h"
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 1
   37 0000 014B     		ldr	r3, .L2
   38 0002 1860     		str	r0, [r3]
   20:Drivers/FreeModbus/port/portserial.c **** 
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 2
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s 			page 2
 
 
   21:Drivers/FreeModbus/port/portserial.c **** 	return TRUE;
@@ -74,7 +74,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 1
   47              	.L2:
   48 0008 00000000 		.word	uart
   49              		.cfi_endproc
-  50              	.LFE130:
+  50              	.LFE235:
   52              		.section	.text.vMBPortSerialEnable,"ax",%progbits
   53              		.align	1
   54              		.global	vMBPortSerialEnable
@@ -84,7 +84,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 1
   58              		.fpu fpv4-sp-d16
   60              	vMBPortSerialEnable:
   61              	.LVL2:
-  62              	.LFB131:
+  62              	.LFB236:
   23:Drivers/FreeModbus/port/portserial.c **** 
   24:Drivers/FreeModbus/port/portserial.c **** void vMBPortSerialEnable(BOOL xRxEnable, BOOL xTxEnable)
   25:Drivers/FreeModbus/port/portserial.c **** {
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 1
   86 000e FFF7FEFF 		bl	HAL_UART_Receive_IT
   87              	.LVL5:
   88              	.L6:
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 3
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s 			page 3
 
 
   30:Drivers/FreeModbus/port/portserial.c **** 	}	
@@ -178,10 +178,10 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 1
  123 0034 00000000 		.word	uart
  124 0038 00000000 		.word	pxMBFrameCBTransmitterEmpty
  125              		.cfi_endproc
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 4
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s 			page 4
 
 
- 126              	.LFE131:
+ 126              	.LFE236:
  128              		.section	.text.vMBPortClose,"ax",%progbits
  129              		.align	1
  130              		.global	vMBPortClose
@@ -190,7 +190,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 1
  133              		.thumb_func
  134              		.fpu fpv4-sp-d16
  136              	vMBPortClose:
- 137              	.LFB132:
+ 137              	.LFB237:
   46:Drivers/FreeModbus/port/portserial.c **** 
   47:Drivers/FreeModbus/port/portserial.c **** void vMBPortClose(void)
   48:Drivers/FreeModbus/port/portserial.c **** {
@@ -222,7 +222,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 1
  160              	.L14:
  161 0014 00000000 		.word	uart
  162              		.cfi_endproc
- 163              	.LFE132:
+ 163              	.LFE237:
  165              		.section	.text.xMBPortSerialPutByte,"ax",%progbits
  166              		.align	1
  167              		.global	xMBPortSerialPutByte
@@ -232,13 +232,13 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 1
  171              		.fpu fpv4-sp-d16
  173              	xMBPortSerialPutByte:
  174              	.LVL13:
- 175              	.LFB133:
+ 175              	.LFB238:
   52:Drivers/FreeModbus/port/portserial.c **** 
   53:Drivers/FreeModbus/port/portserial.c **** BOOL xMBPortSerialPutByte(CHAR ucByte)
   54:Drivers/FreeModbus/port/portserial.c **** {
  176              		.loc 1 54 1 is_stmt 1 view -0
  177              		.cfi_startproc
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 5
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s 			page 5
 
 
  178              		@ args = 0, pretend = 0, frame = 8
@@ -277,7 +277,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 1
  208              	.L18:
  209 0020 00000000 		.word	uart
  210              		.cfi_endproc
- 211              	.LFE133:
+ 211              	.LFE238:
  213              		.section	.text.xMBPortSerialPutBytes,"ax",%progbits
  214              		.align	1
  215              		.global	xMBPortSerialPutBytes
@@ -287,7 +287,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 1
  219              		.fpu fpv4-sp-d16
  221              	xMBPortSerialPutBytes:
  222              	.LVL16:
- 223              	.LFB134:
+ 223              	.LFB239:
   58:Drivers/FreeModbus/port/portserial.c **** 
   59:Drivers/FreeModbus/port/portserial.c **** BOOL xMBPortSerialPutBytes(volatile UCHAR *ucByte, USHORT usSize)
   60:Drivers/FreeModbus/port/portserial.c **** {
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 1
  228              		.loc 1 60 1 is_stmt 0 view .LVU33
  229 0000 08B5     		push	{r3, lr}
  230              	.LCFI5:
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 6
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s 			page 6
 
 
  231              		.cfi_def_cfa_offset 8
@@ -327,7 +327,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 1
  251              	.L22:
  252 0014 00000000 		.word	uart
  253              		.cfi_endproc
- 254              	.LFE134:
+ 254              	.LFE239:
  256              		.section	.text.xMBPortSerialGetByte,"ax",%progbits
  257              		.align	1
  258              		.global	xMBPortSerialGetByte
@@ -337,7 +337,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 1
  262              		.fpu fpv4-sp-d16
  264              	xMBPortSerialGetByte:
  265              	.LVL20:
- 266              	.LFB135:
+ 266              	.LFB240:
   64:Drivers/FreeModbus/port/portserial.c **** 
   65:Drivers/FreeModbus/port/portserial.c **** BOOL xMBPortSerialGetByte(CHAR * pucByte)
   66:Drivers/FreeModbus/port/portserial.c **** {
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 1
  278              		.loc 1 69 1 is_stmt 0 view .LVU43
  279 0006 0120     		movs	r0, #1
  280              	.LVL21:
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 7
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s 			page 7
 
 
  281              		.loc 1 69 1 view .LVU44
@@ -368,7 +368,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 1
  285              	.L25:
  286 000c 00000000 		.word	.LANCHOR0
  287              		.cfi_endproc
- 288              	.LFE135:
+ 288              	.LFE240:
  290              		.section	.text.HAL_UART_RxCpltCallback,"ax",%progbits
  291              		.align	1
  292              		.global	HAL_UART_RxCpltCallback
@@ -378,7 +378,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 1
  296              		.fpu fpv4-sp-d16
  298              	HAL_UART_RxCpltCallback:
  299              	.LVL22:
- 300              	.LFB136:
+ 300              	.LFB241:
   70:Drivers/FreeModbus/port/portserial.c **** 
   71:Drivers/FreeModbus/port/portserial.c **** void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
   72:Drivers/FreeModbus/port/portserial.c **** {
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 1
  327              		.loc 1 75 3 is_stmt 1 view .LVU52
  328 0010 054B     		ldr	r3, .L31+4
  329 0012 1B68     		ldr	r3, [r3]
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 8
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s 			page 8
 
 
  330 0014 9847     		blx	r3
@@ -440,7 +440,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 1
  345 0028 00000000 		.word	pxMBFrameCBByteReceived
  346 002c 00000000 		.word	.LANCHOR0
  347              		.cfi_endproc
- 348              	.LFE136:
+ 348              	.LFE241:
  350              		.section	.text.HAL_UART_TxCpltCallback,"ax",%progbits
  351              		.align	1
  352              		.global	HAL_UART_TxCpltCallback
@@ -450,7 +450,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 1
  356              		.fpu fpv4-sp-d16
  358              	HAL_UART_TxCpltCallback:
  359              	.LVL27:
- 360              	.LFB137:
+ 360              	.LFB242:
   79:Drivers/FreeModbus/port/portserial.c **** 
   80:Drivers/FreeModbus/port/portserial.c **** void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
   81:Drivers/FreeModbus/port/portserial.c **** {
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 1
  381              	.LVL28:
  382              	.L33:
   83:Drivers/FreeModbus/port/portserial.c **** 	{
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 9
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s 			page 9
 
 
   84:Drivers/FreeModbus/port/portserial.c **** 		pxMBFrameCBTransmitterEmpty();
@@ -502,7 +502,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 1
  397 0018 00000000 		.word	uart
  398 001c 00000000 		.word	pxMBFrameCBTransmitterEmpty
  399              		.cfi_endproc
- 400              	.LFE137:
+ 400              	.LFE242:
  402              		.comm	uart,4,4
  403              		.section	.bss.singlechar,"aw",%nobits
  404              		.set	.LANCHOR0,. + 0
@@ -521,38 +521,38 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 1
  419              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
  420              		.file 11 "Drivers/FreeModbus/port/port.h"
  421              		.file 12 "Drivers/FreeModbus/include/mbport.h"
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccUubkZS.s 			page 10
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 portserial.c
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:18     .text.xMBPortSerialInit:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:26     .text.xMBPortSerialInit:0000000000000000 xMBPortSerialInit
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:48     .text.xMBPortSerialInit:0000000000000008 $d
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:18     .text.xMBPortSerialInit:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:26     .text.xMBPortSerialInit:0000000000000000 xMBPortSerialInit
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:48     .text.xMBPortSerialInit:0000000000000008 $d
                             *COM*:0000000000000004 uart
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:53     .text.vMBPortSerialEnable:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:60     .text.vMBPortSerialEnable:0000000000000000 vMBPortSerialEnable
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:122    .text.vMBPortSerialEnable:0000000000000030 $d
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:129    .text.vMBPortClose:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:136    .text.vMBPortClose:0000000000000000 vMBPortClose
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:161    .text.vMBPortClose:0000000000000014 $d
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:166    .text.xMBPortSerialPutByte:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:173    .text.xMBPortSerialPutByte:0000000000000000 xMBPortSerialPutByte
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:209    .text.xMBPortSerialPutByte:0000000000000020 $d
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:214    .text.xMBPortSerialPutBytes:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:221    .text.xMBPortSerialPutBytes:0000000000000000 xMBPortSerialPutBytes
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:252    .text.xMBPortSerialPutBytes:0000000000000014 $d
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:257    .text.xMBPortSerialGetByte:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:264    .text.xMBPortSerialGetByte:0000000000000000 xMBPortSerialGetByte
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:286    .text.xMBPortSerialGetByte:000000000000000c $d
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:291    .text.HAL_UART_RxCpltCallback:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:298    .text.HAL_UART_RxCpltCallback:0000000000000000 HAL_UART_RxCpltCallback
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:344    .text.HAL_UART_RxCpltCallback:0000000000000024 $d
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:351    .text.HAL_UART_TxCpltCallback:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:358    .text.HAL_UART_TxCpltCallback:0000000000000000 HAL_UART_TxCpltCallback
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:397    .text.HAL_UART_TxCpltCallback:0000000000000018 $d
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:407    .bss.singlechar:0000000000000000 singlechar
-C:\Users\du4\AppData\Local\Temp\ccUubkZS.s:408    .bss.singlechar:0000000000000000 $d
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:53     .text.vMBPortSerialEnable:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:60     .text.vMBPortSerialEnable:0000000000000000 vMBPortSerialEnable
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:122    .text.vMBPortSerialEnable:0000000000000030 $d
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:129    .text.vMBPortClose:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:136    .text.vMBPortClose:0000000000000000 vMBPortClose
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:161    .text.vMBPortClose:0000000000000014 $d
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:166    .text.xMBPortSerialPutByte:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:173    .text.xMBPortSerialPutByte:0000000000000000 xMBPortSerialPutByte
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:209    .text.xMBPortSerialPutByte:0000000000000020 $d
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:214    .text.xMBPortSerialPutBytes:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:221    .text.xMBPortSerialPutBytes:0000000000000000 xMBPortSerialPutBytes
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:252    .text.xMBPortSerialPutBytes:0000000000000014 $d
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:257    .text.xMBPortSerialGetByte:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:264    .text.xMBPortSerialGetByte:0000000000000000 xMBPortSerialGetByte
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:286    .text.xMBPortSerialGetByte:000000000000000c $d
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:291    .text.HAL_UART_RxCpltCallback:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:298    .text.HAL_UART_RxCpltCallback:0000000000000000 HAL_UART_RxCpltCallback
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:344    .text.HAL_UART_RxCpltCallback:0000000000000024 $d
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:351    .text.HAL_UART_TxCpltCallback:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:358    .text.HAL_UART_TxCpltCallback:0000000000000000 HAL_UART_TxCpltCallback
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:397    .text.HAL_UART_TxCpltCallback:0000000000000018 $d
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:407    .bss.singlechar:0000000000000000 singlechar
+C:\Users\Andre\AppData\Local\Temp\ccb3TxWS.s:408    .bss.singlechar:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_UART_Receive_IT

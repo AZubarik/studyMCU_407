@@ -19,6 +19,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "adc.h"
 #include "spi.h"
 #include "tim.h"
 #include "usart.h"
@@ -30,18 +31,14 @@
 #include "mbport.h"
 #include "user_mb_app.h"
 
-#include "w25qxx.h"
-
 #include "ReceiveTransmit.h"
+#include "w25qxx.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 extern uint16_t usSRegInBuf[];
 extern uint16_t usSRegHoldBuf[];
-extern uint8_t  ucSCoilBuf[];
-extern uint8_t  ucSDiscInBuf[];
-
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -102,14 +99,14 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USART2_UART_Init();
   MX_SPI1_Init();
-  MX_TIM2_Init();
-
-  W25qxx_Init();
-  // W25qxx_EraseSector(0);
+  MX_ADC1_Init();
+  MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
 
  	eMBInit(MB_RTU, 1, &huart2, 115200, &htim4);
 	eMBEnable();
+
+  HAL_TIM_Base_Start_IT(&htim3);
 
   /* USER CODE END 2 */
 
@@ -117,19 +114,18 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    usSRegInBuf[0] = 404;
     usSRegHoldBuf[0] = 505;
 
-    if(usSRegHoldBuf[4] == 1) {
-      HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
-    }
-    if(usSRegHoldBuf[4] == 2) {
-      int pulseDuration = usSRegHoldBuf[5]; 
-      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, pulseDuration);
-    }
-    if(usSRegHoldBuf[4] == 3) {
-      HAL_TIM_PWM_Stop(&htim2, TIM_CHANNEL_2);   
-    }
+    // if(usSRegHoldBuf[4] == 1) {
+    //   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
+    // }
+    // if(usSRegHoldBuf[4] == 2) {
+    //   int pulseDuration = usSRegHoldBuf[5]; 
+    //   __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, pulseDuration);
+    // }
+    // if(usSRegHoldBuf[4] == 3) {
+    //   HAL_TIM_PWM_Stop(&htim2, TIM_CHANNEL_2);   
+    // }
 
     if(usSRegHoldBuf[1] == 15) {
       usSRegHoldBuf[1] = 0;
@@ -190,7 +186,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV2;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
   {

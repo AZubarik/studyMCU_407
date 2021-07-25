@@ -8,7 +8,8 @@
 		"flashprom.h": "c",
 		"main.h": "c",
 		"stm32f4xx_hal.h": "c",
-		"receivetransmit.h": "c"
+		"receivetransmit.h": "c",
+		"adc.h": "c"
 	},
 	"C_Cpp.errorSquiggles": "Enabled"
 }

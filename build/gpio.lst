@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccwlHWaD.s 			page 1
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccrjDdDf.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -26,7 +26,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccwlHWaD.s 			page 1
   23              		.thumb_func
   24              		.fpu fpv4-sp-d16
   26              	MX_GPIO_Init:
-  27              	.LFB130:
+  27              	.LFB235:
   28              		.file 1 "Src/gpio.c"
    1:Src/gpio.c    **** /**
    2:Src/gpio.c    ****   ******************************************************************************
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccwlHWaD.s 			page 1
   28:Src/gpio.c    **** /* Configure GPIO                                                             */
   29:Src/gpio.c    **** /*----------------------------------------------------------------------------*/
   30:Src/gpio.c    **** /* USER CODE BEGIN 1 */
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccwlHWaD.s 			page 2
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccrjDdDf.s 			page 2
 
 
   31:Src/gpio.c    **** 
@@ -104,7 +104,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccwlHWaD.s 			page 1
   52              		.loc 1 47 3 view .LVU4
   53 0010 0094     		str	r4, [sp]
   54              		.loc 1 47 3 view .LVU5
-  55 0012 194B     		ldr	r3, .L3
+  55 0012 1B4B     		ldr	r3, .L3
   56 0014 1A6B     		ldr	r2, [r3, #48]
   57 0016 42F08002 		orr	r2, r2, #128
   58 001a 1A63     		str	r2, [r3, #48]
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccwlHWaD.s 			page 1
   66              		.loc 1 47 3 view .LVU8
   48:Src/gpio.c    ****   __HAL_RCC_GPIOA_CLK_ENABLE();
   67              		.loc 1 48 3 view .LVU9
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccwlHWaD.s 			page 3
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccrjDdDf.s 			page 3
 
 
   68              	.LBB3:
@@ -155,75 +155,84 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccwlHWaD.s 			page 1
   98              		.loc 1 49 3 view .LVU20
   50:Src/gpio.c    **** 
   51:Src/gpio.c    ****   /*Configure GPIO pin Output Level */
-  52:Src/gpio.c    ****   HAL_GPIO_WritePin(FLASH_CS_GPIO_Port, FLASH_CS_Pin, GPIO_PIN_SET);
+  52:Src/gpio.c    ****   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_RESET);
   99              		.loc 1 52 3 view .LVU21
- 100 004e 0B4D     		ldr	r5, .L3+4
- 101 0050 0122     		movs	r2, #1
- 102 0052 4FF40041 		mov	r1, #32768
- 103 0056 2846     		mov	r0, r5
- 104 0058 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 100 004e 0D4D     		ldr	r5, .L3+4
+ 101 0050 2246     		mov	r2, r4
+ 102 0052 0221     		movs	r1, #2
+ 103 0054 2846     		mov	r0, r5
+ 104 0056 FFF7FEFF 		bl	HAL_GPIO_WritePin
  105              	.LVL0:
   53:Src/gpio.c    **** 
-  54:Src/gpio.c    ****   /*Configure GPIO pin : PtPin */
-  55:Src/gpio.c    ****   GPIO_InitStruct.Pin = FLASH_CS_Pin;
+  54:Src/gpio.c    ****   /*Configure GPIO pin Output Level */
+  55:Src/gpio.c    ****   HAL_GPIO_WritePin(FLASH_CS_GPIO_Port, FLASH_CS_Pin, GPIO_PIN_SET);
  106              		.loc 1 55 3 view .LVU22
- 107              		.loc 1 55 23 is_stmt 0 view .LVU23
- 108 005c 4FF40043 		mov	r3, #32768
- 109 0060 0393     		str	r3, [sp, #12]
-  56:Src/gpio.c    ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
- 110              		.loc 1 56 3 is_stmt 1 view .LVU24
- 111              		.loc 1 56 24 is_stmt 0 view .LVU25
- 112 0062 0123     		movs	r3, #1
- 113 0064 0493     		str	r3, [sp, #16]
-  57:Src/gpio.c    ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
- 114              		.loc 1 57 3 is_stmt 1 view .LVU26
- 115              		.loc 1 57 24 is_stmt 0 view .LVU27
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccwlHWaD.s 			page 4
+ 107 005a 0122     		movs	r2, #1
+ 108 005c 4FF40041 		mov	r1, #32768
+ 109 0060 2846     		mov	r0, r5
+ 110 0062 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 111              	.LVL1:
+  56:Src/gpio.c    **** 
+  57:Src/gpio.c    ****   /*Configure GPIO pins : PA1 PAPin */
+  58:Src/gpio.c    ****   GPIO_InitStruct.Pin = GPIO_PIN_1|FLASH_CS_Pin;
+ 112              		.loc 1 58 3 view .LVU23
+ 113              		.loc 1 58 23 is_stmt 0 view .LVU24
+ 114 0066 48F20203 		movw	r3, #32770
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccrjDdDf.s 			page 4
 
 
- 116 0066 0594     		str	r4, [sp, #20]
-  58:Src/gpio.c    ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
- 117              		.loc 1 58 3 is_stmt 1 view .LVU28
- 118              		.loc 1 58 25 is_stmt 0 view .LVU29
- 119 0068 0694     		str	r4, [sp, #24]
-  59:Src/gpio.c    ****   HAL_GPIO_Init(FLASH_CS_GPIO_Port, &GPIO_InitStruct);
- 120              		.loc 1 59 3 is_stmt 1 view .LVU30
- 121 006a 03A9     		add	r1, sp, #12
- 122 006c 2846     		mov	r0, r5
- 123 006e FFF7FEFF 		bl	HAL_GPIO_Init
- 124              	.LVL1:
-  60:Src/gpio.c    **** 
-  61:Src/gpio.c    **** }
- 125              		.loc 1 61 1 is_stmt 0 view .LVU31
- 126 0072 09B0     		add	sp, sp, #36
- 127              	.LCFI2:
- 128              		.cfi_def_cfa_offset 12
- 129              		@ sp needed
- 130 0074 30BD     		pop	{r4, r5, pc}
- 131              	.L4:
- 132 0076 00BF     		.align	2
- 133              	.L3:
- 134 0078 00380240 		.word	1073887232
- 135 007c 00000240 		.word	1073872896
- 136              		.cfi_endproc
- 137              	.LFE130:
- 139              		.text
- 140              	.Letext0:
- 141              		.file 2 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\machine\\_default_types.h"
- 142              		.file 3 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\_stdint.h"
- 143              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 144              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 145              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
- 146              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
- 147              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccwlHWaD.s 			page 5
+ 115 006a 0393     		str	r3, [sp, #12]
+  59:Src/gpio.c    ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 116              		.loc 1 59 3 is_stmt 1 view .LVU25
+ 117              		.loc 1 59 24 is_stmt 0 view .LVU26
+ 118 006c 0123     		movs	r3, #1
+ 119 006e 0493     		str	r3, [sp, #16]
+  60:Src/gpio.c    ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 120              		.loc 1 60 3 is_stmt 1 view .LVU27
+ 121              		.loc 1 60 24 is_stmt 0 view .LVU28
+ 122 0070 0594     		str	r4, [sp, #20]
+  61:Src/gpio.c    ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 123              		.loc 1 61 3 is_stmt 1 view .LVU29
+ 124              		.loc 1 61 25 is_stmt 0 view .LVU30
+ 125 0072 0694     		str	r4, [sp, #24]
+  62:Src/gpio.c    ****   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+ 126              		.loc 1 62 3 is_stmt 1 view .LVU31
+ 127 0074 03A9     		add	r1, sp, #12
+ 128 0076 2846     		mov	r0, r5
+ 129 0078 FFF7FEFF 		bl	HAL_GPIO_Init
+ 130              	.LVL2:
+  63:Src/gpio.c    **** 
+  64:Src/gpio.c    **** }
+ 131              		.loc 1 64 1 is_stmt 0 view .LVU32
+ 132 007c 09B0     		add	sp, sp, #36
+ 133              	.LCFI2:
+ 134              		.cfi_def_cfa_offset 12
+ 135              		@ sp needed
+ 136 007e 30BD     		pop	{r4, r5, pc}
+ 137              	.L4:
+ 138              		.align	2
+ 139              	.L3:
+ 140 0080 00380240 		.word	1073887232
+ 141 0084 00000240 		.word	1073872896
+ 142              		.cfi_endproc
+ 143              	.LFE235:
+ 145              		.text
+ 146              	.Letext0:
+ 147              		.file 2 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 148              		.file 3 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 149              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 150              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 151              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 152              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 153              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccrjDdDf.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 gpio.c
-C:\Users\du4\AppData\Local\Temp\ccwlHWaD.s:18     .text.MX_GPIO_Init:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccwlHWaD.s:26     .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
-C:\Users\du4\AppData\Local\Temp\ccwlHWaD.s:134    .text.MX_GPIO_Init:0000000000000078 $d
+C:\Users\Andre\AppData\Local\Temp\ccrjDdDf.s:18     .text.MX_GPIO_Init:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccrjDdDf.s:26     .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
+C:\Users\Andre\AppData\Local\Temp\ccrjDdDf.s:140    .text.MX_GPIO_Init:0000000000000080 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin
