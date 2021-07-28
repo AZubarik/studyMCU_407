@@ -106,6 +106,7 @@ int main(void)
  	eMBInit(MB_RTU, 1, &huart2, 115200, &htim4);
 	eMBEnable();
 
+  W25qxx_Init();
   HAL_TIM_Base_Start_IT(&htim3);
 
   /* USER CODE END 2 */

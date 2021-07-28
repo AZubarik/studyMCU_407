@@ -42,7 +42,11 @@ extern uint16_t usSRegHoldBuf[];
 /* USER CODE BEGIN PM */
 float Result = 0;
 float voltageADC = 0;
+float meanADC = 0;
+float AverageADC = 0;
 float temp;
+
+uint16_t MassifADC[5];
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -214,15 +218,24 @@ void TIM3_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM3_IRQn 0 */
   HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_1);
-  HAL_ADC_Start(&hadc1);
-  if (HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK) {   // Ожидание завершения преобразования.
-    Result = HAL_ADC_GetValue(&hadc1);                      // Считывание с АЦП.
-    voltageADC = (float) Result / 4096 * Vref;              // Напряжение в вольтах на датчике.
-    temp = (voltageADC - tV_25) / tSlope + 25;              // Температура в градусах.
-    Result = (float) temp;
-    dataTransmit(0, Result);                                // Передача данных Modbus registr 0.
+  for (int i = 0; i < 5; i++) {
+    HAL_ADC_Start(&hadc1);
+    if (HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK) {   // Ожидание завершения преобразования.
+      Result = HAL_ADC_GetValue(&hadc1);                      // Считывание с АЦП.
+      MassifADC[i] = Result;
+      HAL_ADC_Stop(&hadc1);                                   // Остановка АЦП.
+    }
   }
-  HAL_ADC_Stop(&hadc1); // Остановка АЦП.
+  AverageADC = 0;
+  for (int j = 0; j < 5; j++) {
+    AverageADC += MassifADC[j];
+  }
+  meanADC = AverageADC / 5;
+  voltageADC = (float) meanADC / 4096 * Vref;              // Напряжение в вольтах на датчике.
+  temp = (voltageADC - tV_25) / tSlope + 25;              // Температура в градусах.
+  Result = (float) temp;
+  dataTransmit(0, Result);                                // Передача данных Modbus registr 0.
+
   usSRegInBuf[2] += 1;
   /* USER CODE END TIM3_IRQn 0 */
   HAL_TIM_IRQHandler(&htim3);
