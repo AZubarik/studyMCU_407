@@ -40,10 +40,7 @@ extern uint16_t usSRegHoldBuf[];
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-float Result = 0;
-float voltageADC = 0;
-float meanADC = 0;
-float AverageADC = 0;
+float Result = 0, voltageADC = 0, meanADC = 0, AverageADC = 0;
 float temp;
 
 uint16_t MassifADC[5];
@@ -237,6 +234,8 @@ void TIM3_IRQHandler(void)
   dataTransmit(0, Result);                                // Передача данных Modbus registr 0.
 
   usSRegInBuf[2] += 1;
+
+
   /* USER CODE END TIM3_IRQn 0 */
   HAL_TIM_IRQHandler(&htim3);
   /* USER CODE BEGIN TIM3_IRQn 1 */
