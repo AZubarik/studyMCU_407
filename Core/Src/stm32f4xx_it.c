@@ -23,27 +23,33 @@
 #include "stm32f4xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "ReceiveTransmit.h"
+
+#define tV_25   0.76            // Напряжение (в вольтах) на датчике при температуре 25 °C.
+#define tSlope  0.0025          // �?зменение напряжения (в вольтах) при изменении температуры на градус.
+#define Vref    3.3             // Образцовое напряжение АЦП (в вольтах).
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
-#include "ReceiveTransmit.h"
-/* USER CODE END TD */
-
-/* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN PD */
 extern ADC_HandleTypeDef hadc1;
 
 extern uint16_t usSRegInBuf[];
 extern uint16_t usSRegHoldBuf[];
+
+/* USER CODE END TD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+float Result = 0, voltageADC = 0, meanADC = 0, AverageADC = 0;
+float temp;
+uint16_t MassifADC[5];
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-float Result = 0, voltageADC = 0, meanADC = 0, AverageADC = 0;
-float temp;
 
-uint16_t MassifADC[5];
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -234,7 +240,6 @@ void TIM3_IRQHandler(void)
   dataTransmit(0, Result);                                // Передача данных Modbus registr 0.
 
   usSRegInBuf[2] += 1;
-
 
   /* USER CODE END TIM3_IRQn 0 */
   HAL_TIM_IRQHandler(&htim3);

@@ -4,7 +4,7 @@
 		{
 			"name": "cortex-debug",
 			"cwd": "${workspaceRoot}",
-			"executable": "./build/studyMCU_407.elf",
+			"executable": "./Build/studyMCU_407.elf",
 			"svdFile": "./JLink/STM32F407.svd",
 			"request": "launch",
 			"type": "cortex-debug",

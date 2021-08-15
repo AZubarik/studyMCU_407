@@ -1,9 +1,9 @@
 build/user_mb_app.o: Drivers/FreeModbus/app/user_mb_app.c \
  Drivers/FreeModbus/app/user_mb_app.h Drivers/FreeModbus/include/mb.h \
  Drivers/FreeModbus/port/port.h Drivers/FreeModbus/include/mbconfig.h \
- Drivers/FreeModbus/port/portcritical.h Inc/main.h \
+ Drivers/FreeModbus/port/portcritical.h Core/Inc/main.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
- Inc/stm32f4xx_hal_conf.h \
+ Core/Inc/stm32f4xx_hal_conf.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h \
  Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
@@ -46,11 +46,11 @@ Drivers/FreeModbus/include/mbconfig.h:
 
 Drivers/FreeModbus/port/portcritical.h:
 
-Inc/main.h:
+Core/Inc/main.h:
 
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 
-Inc/stm32f4xx_hal_conf.h:
+Core/Inc/stm32f4xx_hal_conf.h:
 
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:
 

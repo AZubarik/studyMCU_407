@@ -1,6 +1,6 @@
-build/stm32f4xx_it.o: Src/stm32f4xx_it.c Inc/main.h \
+build/stm32f4xx_it.o: Core/Src/stm32f4xx_it.c Core/Inc/main.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
- Inc/stm32f4xx_hal_conf.h \
+ Core/Inc/stm32f4xx_hal_conf.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h \
  Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
@@ -28,7 +28,8 @@ build/stm32f4xx_it.o: Src/stm32f4xx_it.c Inc/main.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
- Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h Inc/stm32f4xx_it.h \
+ Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
+ Core/Inc/stm32f4xx_it.h \
  Drivers/FreeModbus/ReceiveTransmit/ReceiveTransmit.h \
  Drivers/FreeModbus/include/mb.h Drivers/FreeModbus/port/port.h \
  Drivers/FreeModbus/include/mbconfig.h \
@@ -38,11 +39,11 @@ build/stm32f4xx_it.o: Src/stm32f4xx_it.c Inc/main.h \
  Drivers/FreeModbus/include/mb_m.h Drivers/FreeModbus/include/mbframe.h \
  Drivers/FreeModbus/include/mbutils.h
 
-Inc/main.h:
+Core/Inc/main.h:
 
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 
-Inc/stm32f4xx_hal_conf.h:
+Core/Inc/stm32f4xx_hal_conf.h:
 
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:
 
@@ -104,7 +105,7 @@ Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 
-Inc/stm32f4xx_it.h:
+Core/Inc/stm32f4xx_it.h:
 
 Drivers/FreeModbus/ReceiveTransmit/ReceiveTransmit.h:
 

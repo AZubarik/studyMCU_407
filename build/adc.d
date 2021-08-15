@@ -1,6 +1,6 @@
-build/adc.o: Src/adc.c Inc/adc.h Inc/main.h \
+build/adc.o: Core/Src/adc.c Core/Inc/adc.h Core/Inc/main.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
- Inc/stm32f4xx_hal_conf.h \
+ Core/Inc/stm32f4xx_hal_conf.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h \
  Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
@@ -30,13 +30,13 @@ build/adc.o: Src/adc.c Inc/adc.h Inc/main.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 
-Inc/adc.h:
+Core/Inc/adc.h:
 
-Inc/main.h:
+Core/Inc/main.h:
 
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 
-Inc/stm32f4xx_hal_conf.h:
+Core/Inc/stm32f4xx_hal_conf.h:
 
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:
 

@@ -11,8 +11,8 @@
                 "${workspaceRoot}\\Drivers\\FreeModbus\\**",
                 "${workspaceRoot}\\Drivers\\W25qxx\\**",
                 // "${workspaceRoot}\\Drivers\\Middlewares**",
-                "${workspaceRoot}\\Src\\**",
-                "${workspaceRoot}\\Inc\\**",
+                "${workspaceRoot}\\Core\\Src\\**",
+                "${workspaceRoot}\\Core\\Inc\\**",
                 "${workspaceFolder}/Drivers/CMSIS/Device/ST/STM32F4xx/Include"
             ],
             "defines": [

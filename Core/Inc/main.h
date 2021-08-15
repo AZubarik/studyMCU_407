@@ -37,10 +37,6 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-/* CPU temperanura */
-#define tV_25   0.76      // Напряжение (в вольтах) на датчике при температуре 25 °C.
-#define tSlope  0.0025    // Изменение напряжения (в вольтах) при изменении температуры на градус.
-#define Vref    3.3       // Образцовое напряжение АЦП (в вольтах).
 
 /* USER CODE END ET */
 
@@ -62,8 +58,6 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define FLASH_CS_Pin GPIO_PIN_15
-#define FLASH_CS_GPIO_Port GPIOA
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

@@ -1,6 +1,6 @@
-build/usart.o: Src/usart.c Inc/usart.h Inc/main.h \
+build/usart.o: Core/Src/usart.c Core/Inc/usart.h Core/Inc/main.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
- Inc/stm32f4xx_hal_conf.h \
+ Core/Inc/stm32f4xx_hal_conf.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h \
  Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
@@ -30,13 +30,13 @@ build/usart.o: Src/usart.c Inc/usart.h Inc/main.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 
-Inc/usart.h:
+Core/Inc/usart.h:
 
-Inc/main.h:
+Core/Inc/main.h:
 
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 
-Inc/stm32f4xx_hal_conf.h:
+Core/Inc/stm32f4xx_hal_conf.h:
 
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:
 
