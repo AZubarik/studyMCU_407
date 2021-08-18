@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 1
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 1
   28:Core/Src/spi.c **** SPI_HandleTypeDef hspi2;
   29:Core/Src/spi.c **** 
   30:Core/Src/spi.c **** /* SPI1 init function */
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 2
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s 			page 2
 
 
   31:Core/Src/spi.c **** void MX_SPI1_Init(void)
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 1
   65              		.loc 1 48 32 is_stmt 0 view .LVU16
   66 001e C361     		str	r3, [r0, #28]
   49:Core/Src/spi.c ****   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 3
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s 			page 3
 
 
   67              		.loc 1 49 3 is_stmt 1 view .LVU17
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 1
  109              		.fpu fpv4-sp-d16
  111              	MX_SPI2_Init:
  112              	.LFB236:
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 4
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s 			page 4
 
 
   62:Core/Src/spi.c **** /* SPI2 init function */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 1
  148              		.loc 1 80 3 is_stmt 1 view .LVU46
  149              		.loc 1 80 32 is_stmt 0 view .LVU47
  150 001e C361     		str	r3, [r0, #28]
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 5
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s 			page 5
 
 
   81:Core/Src/spi.c ****   hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 1
  192              		.thumb_func
  193              		.fpu fpv4-sp-d16
  195              	HAL_SPI_MspInit:
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 6
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s 			page 6
 
 
  196              	.LVL4:
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 1
  119:Core/Src/spi.c **** 
  120:Core/Src/spi.c ****   /* USER CODE BEGIN SPI1_MspInit 1 */
  121:Core/Src/spi.c **** 
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 7
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s 			page 7
 
 
  122:Core/Src/spi.c ****   /* USER CODE END SPI1_MspInit 1 */
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 1
  248              		.loc 1 105 5 view .LVU74
  249 0028 254B     		ldr	r3, .L19+8
  250 002a 596C     		ldr	r1, [r3, #68]
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 8
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s 			page 8
 
 
  251 002c 41F48051 		orr	r1, r1, #4096
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 1
  116:Core/Src/spi.c ****     GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
  289              		.loc 1 116 27 is_stmt 0 view .LVU91
  290 005a 0323     		movs	r3, #3
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 9
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s 			page 9
 
 
  291 005c 0893     		str	r3, [sp, #32]
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 1
  132:Core/Src/spi.c ****     /**SPI2 GPIO Configuration
  332              		.loc 1 132 5 view .LVU105
  333 008e 1B6B     		ldr	r3, [r3, #48]
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 10
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s 			page 10
 
 
  334 0090 03F00203 		and	r3, r3, #2
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 1
  374 00c4 00000240 		.word	1073872896
  375 00c8 00040240 		.word	1073873920
  376              		.cfi_endproc
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 11
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s 			page 11
 
 
  377              	.LFE237:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 1
  409 000a 0E4A     		ldr	r2, .L27+4
  410 000c 9342     		cmp	r3, r2
  411 000e 0BD0     		beq	.L26
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 12
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s 			page 12
 
 
  412              	.LVL13:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 1
  186:Core/Src/spi.c **** 
  442              		.loc 1 186 5 is_stmt 0 view .LVU134
  443 003a FFF7FEFF 		bl	HAL_GPIO_DeInit
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 13
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s 			page 13
 
 
  444              	.LVL19:
@@ -749,25 +749,25 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 1
  470              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
  471              		.file 12 "Core/Inc/spi.h"
  472              		.file 13 "Core/Inc/main.h"
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s 			page 14
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s 			page 14
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 spi.c
-C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s:18     .text.MX_SPI1_Init:0000000000000000 $t
-C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s:26     .text.MX_SPI1_Init:0000000000000000 MX_SPI1_Init
-C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s:98     .text.MX_SPI1_Init:0000000000000038 $d
+C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s:18     .text.MX_SPI1_Init:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s:26     .text.MX_SPI1_Init:0000000000000000 MX_SPI1_Init
+C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s:98     .text.MX_SPI1_Init:0000000000000038 $d
                             *COM*:0000000000000058 hspi1
-C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s:104    .text.MX_SPI2_Init:0000000000000000 $t
-C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s:111    .text.MX_SPI2_Init:0000000000000000 MX_SPI2_Init
-C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s:182    .text.MX_SPI2_Init:0000000000000038 $d
+C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s:104    .text.MX_SPI2_Init:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s:111    .text.MX_SPI2_Init:0000000000000000 MX_SPI2_Init
+C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s:182    .text.MX_SPI2_Init:0000000000000038 $d
                             *COM*:0000000000000058 hspi2
-C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s:188    .text.HAL_SPI_MspInit:0000000000000000 $t
-C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s:195    .text.HAL_SPI_MspInit:0000000000000000 HAL_SPI_MspInit
-C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s:371    .text.HAL_SPI_MspInit:00000000000000b8 $d
-C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s:380    .text.HAL_SPI_MspDeInit:0000000000000000 $t
-C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s:387    .text.HAL_SPI_MspDeInit:0000000000000000 HAL_SPI_MspDeInit
-C:\Users\Andre\AppData\Local\Temp\ccZtds5x.s:450    .text.HAL_SPI_MspDeInit:0000000000000040 $d
+C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s:188    .text.HAL_SPI_MspInit:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s:195    .text.HAL_SPI_MspInit:0000000000000000 HAL_SPI_MspInit
+C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s:371    .text.HAL_SPI_MspInit:00000000000000b8 $d
+C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s:380    .text.HAL_SPI_MspDeInit:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s:387    .text.HAL_SPI_MspDeInit:0000000000000000 HAL_SPI_MspDeInit
+C:\Users\Andre\AppData\Local\Temp\ccYRPEXw.s:450    .text.HAL_SPI_MspDeInit:0000000000000040 $d
 
 UNDEFINED SYMBOLS
 HAL_SPI_Init

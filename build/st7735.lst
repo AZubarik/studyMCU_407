@@ -1,0 +1,1781 @@
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"st7735.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.ST7735_Select,"ax",%progbits
+  18              		.align	1
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	ST7735_Select:
+  26              	.LFB235:
+  27              		.file 1 "Drivers/TFT/st7735.c"
+   1:Drivers/TFT/st7735.c **** /* vim: set ai et ts=4 sw=4: */
+   2:Drivers/TFT/st7735.c **** #include "stm32f4xx_hal.h"
+   3:Drivers/TFT/st7735.c **** #include "st7735.h"
+   4:Drivers/TFT/st7735.c **** 
+   5:Drivers/TFT/st7735.c **** #define DELAY 0x80
+   6:Drivers/TFT/st7735.c **** 
+   7:Drivers/TFT/st7735.c **** // based on Adafruit ST7735 library for Arduino
+   8:Drivers/TFT/st7735.c **** static const uint8_t
+   9:Drivers/TFT/st7735.c ****   init_cmds1[] = {            // Init for 7735R, part 1 (red or green tab)
+  10:Drivers/TFT/st7735.c ****     15,                       // 15 commands in list:
+  11:Drivers/TFT/st7735.c ****     ST7735_SWRESET,   DELAY,  //  1: Software reset, 0 args, w/delay
+  12:Drivers/TFT/st7735.c ****       150,                    //     150 ms delay
+  13:Drivers/TFT/st7735.c ****     ST7735_SLPOUT ,   DELAY,  //  2: Out of sleep mode, 0 args, w/delay
+  14:Drivers/TFT/st7735.c ****       255,                    //     500 ms delay
+  15:Drivers/TFT/st7735.c ****     ST7735_FRMCTR1, 3      ,  //  3: Frame rate ctrl - normal mode, 3 args:
+  16:Drivers/TFT/st7735.c ****       0x01, 0x2C, 0x2D,       //     Rate = fosc/(1x2+40) * (LINE+2C+2D)
+  17:Drivers/TFT/st7735.c ****     ST7735_FRMCTR2, 3      ,  //  4: Frame rate control - idle mode, 3 args:
+  18:Drivers/TFT/st7735.c ****       0x01, 0x2C, 0x2D,       //     Rate = fosc/(1x2+40) * (LINE+2C+2D)
+  19:Drivers/TFT/st7735.c ****     ST7735_FRMCTR3, 6      ,  //  5: Frame rate ctrl - partial mode, 6 args:
+  20:Drivers/TFT/st7735.c ****       0x01, 0x2C, 0x2D,       //     Dot inversion mode
+  21:Drivers/TFT/st7735.c ****       0x01, 0x2C, 0x2D,       //     Line inversion mode
+  22:Drivers/TFT/st7735.c ****     ST7735_INVCTR , 1      ,  //  6: Display inversion ctrl, 1 arg, no delay:
+  23:Drivers/TFT/st7735.c ****       0x07,                   //     No inversion
+  24:Drivers/TFT/st7735.c ****     ST7735_PWCTR1 , 3      ,  //  7: Power control, 3 args, no delay:
+  25:Drivers/TFT/st7735.c ****       0xA2,
+  26:Drivers/TFT/st7735.c ****       0x02,                   //     -4.6V
+  27:Drivers/TFT/st7735.c ****       0x84,                   //     AUTO mode
+  28:Drivers/TFT/st7735.c ****     ST7735_PWCTR2 , 1      ,  //  8: Power control, 1 arg, no delay:
+  29:Drivers/TFT/st7735.c ****       0xC5,                   //     VGH25 = 2.4C VGSEL = -10 VGH = 3 * AVDD
+  30:Drivers/TFT/st7735.c ****     ST7735_PWCTR3 , 2      ,  //  9: Power control, 2 args, no delay:
+  31:Drivers/TFT/st7735.c ****       0x0A,                   //     Opamp current small
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 2
+
+
+  32:Drivers/TFT/st7735.c ****       0x00,                   //     Boost frequency
+  33:Drivers/TFT/st7735.c ****     ST7735_PWCTR4 , 2      ,  // 10: Power control, 2 args, no delay:
+  34:Drivers/TFT/st7735.c ****       0x8A,                   //     BCLK/2, Opamp current small & Medium low
+  35:Drivers/TFT/st7735.c ****       0x2A,  
+  36:Drivers/TFT/st7735.c ****     ST7735_PWCTR5 , 2      ,  // 11: Power control, 2 args, no delay:
+  37:Drivers/TFT/st7735.c ****       0x8A, 0xEE,
+  38:Drivers/TFT/st7735.c ****     ST7735_VMCTR1 , 1      ,  // 12: Power control, 1 arg, no delay:
+  39:Drivers/TFT/st7735.c ****       0x0E,
+  40:Drivers/TFT/st7735.c ****     ST7735_INVOFF , 0      ,  // 13: Don't invert display, no args, no delay
+  41:Drivers/TFT/st7735.c ****     ST7735_MADCTL , 1      ,  // 14: Memory access control (directions), 1 arg:
+  42:Drivers/TFT/st7735.c ****       ST7735_ROTATION,        //     row addr/col addr, bottom to top refresh
+  43:Drivers/TFT/st7735.c ****     ST7735_COLMOD , 1      ,  // 15: set color mode, 1 arg, no delay:
+  44:Drivers/TFT/st7735.c ****       0x05 },                 //     16-bit color
+  45:Drivers/TFT/st7735.c **** 
+  46:Drivers/TFT/st7735.c **** #if (defined(ST7735_IS_128X128) || defined(ST7735_IS_160X128))
+  47:Drivers/TFT/st7735.c ****   init_cmds2[] = {            // Init for 7735R, part 2 (1.44" display)
+  48:Drivers/TFT/st7735.c ****     2,                        //  2 commands in list:
+  49:Drivers/TFT/st7735.c ****     ST7735_CASET  , 4      ,  //  1: Column addr set, 4 args, no delay:
+  50:Drivers/TFT/st7735.c ****       0x00, 0x00,             //     XSTART = 0
+  51:Drivers/TFT/st7735.c ****       0x00, 0x7F,             //     XEND = 127
+  52:Drivers/TFT/st7735.c ****     ST7735_RASET  , 4      ,  //  2: Row addr set, 4 args, no delay:
+  53:Drivers/TFT/st7735.c ****       0x00, 0x00,             //     XSTART = 0
+  54:Drivers/TFT/st7735.c ****       0x00, 0x7F },           //     XEND = 127
+  55:Drivers/TFT/st7735.c **** #endif // ST7735_IS_128X128
+  56:Drivers/TFT/st7735.c **** 
+  57:Drivers/TFT/st7735.c **** #ifdef ST7735_IS_160X80
+  58:Drivers/TFT/st7735.c ****   init_cmds2[] = {            // Init for 7735S, part 2 (160x80 display)
+  59:Drivers/TFT/st7735.c ****     3,                        //  3 commands in list:
+  60:Drivers/TFT/st7735.c ****     ST7735_CASET  , 4      ,  //  1: Column addr set, 4 args, no delay:
+  61:Drivers/TFT/st7735.c ****       0x00, 0x00,             //     XSTART = 0
+  62:Drivers/TFT/st7735.c ****       0x00, 0x4F,             //     XEND = 79
+  63:Drivers/TFT/st7735.c ****     ST7735_RASET  , 4      ,  //  2: Row addr set, 4 args, no delay:
+  64:Drivers/TFT/st7735.c ****       0x00, 0x00,             //     XSTART = 0
+  65:Drivers/TFT/st7735.c ****       0x00, 0x9F ,            //     XEND = 159
+  66:Drivers/TFT/st7735.c ****     ST7735_INVON, 0 },        //  3: Invert colors
+  67:Drivers/TFT/st7735.c **** #endif
+  68:Drivers/TFT/st7735.c **** 
+  69:Drivers/TFT/st7735.c ****   init_cmds3[] = {            // Init for 7735R, part 3 (red or green tab)
+  70:Drivers/TFT/st7735.c ****     4,                        //  4 commands in list:
+  71:Drivers/TFT/st7735.c ****     ST7735_GMCTRP1, 16      , //  1: Magical unicorn dust, 16 args, no delay:
+  72:Drivers/TFT/st7735.c ****       0x02, 0x1c, 0x07, 0x12,
+  73:Drivers/TFT/st7735.c ****       0x37, 0x32, 0x29, 0x2d,
+  74:Drivers/TFT/st7735.c ****       0x29, 0x25, 0x2B, 0x39,
+  75:Drivers/TFT/st7735.c ****       0x00, 0x01, 0x03, 0x10,
+  76:Drivers/TFT/st7735.c ****     ST7735_GMCTRN1, 16      , //  2: Sparkles and rainbows, 16 args, no delay:
+  77:Drivers/TFT/st7735.c ****       0x03, 0x1d, 0x07, 0x06,
+  78:Drivers/TFT/st7735.c ****       0x2E, 0x2C, 0x29, 0x2D,
+  79:Drivers/TFT/st7735.c ****       0x2E, 0x2E, 0x37, 0x3F,
+  80:Drivers/TFT/st7735.c ****       0x00, 0x00, 0x02, 0x10,
+  81:Drivers/TFT/st7735.c ****     ST7735_NORON  ,    DELAY, //  3: Normal display on, no args, w/delay
+  82:Drivers/TFT/st7735.c ****       10,                     //     10 ms delay
+  83:Drivers/TFT/st7735.c ****     ST7735_DISPON ,    DELAY, //  4: Main screen turn on, no args w/delay
+  84:Drivers/TFT/st7735.c ****       100 };                  //     100 ms delay
+  85:Drivers/TFT/st7735.c **** 
+  86:Drivers/TFT/st7735.c **** static void ST7735_Select() {
+  28              		.loc 1 86 29 view -0
+  29              		.cfi_startproc
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 3
+
+
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 3, -8
+  36              		.cfi_offset 14, -4
+  87:Drivers/TFT/st7735.c ****     HAL_GPIO_WritePin(ST7735_CS_GPIO_Port, ST7735_CS_Pin, GPIO_PIN_RESET);
+  37              		.loc 1 87 5 view .LVU1
+  38 0002 0022     		movs	r2, #0
+  39 0004 4FF48051 		mov	r1, #4096
+  40 0008 0148     		ldr	r0, .L3
+  41 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
+  42              	.LVL0:
+  88:Drivers/TFT/st7735.c **** }
+  43              		.loc 1 88 1 is_stmt 0 view .LVU2
+  44 000e 08BD     		pop	{r3, pc}
+  45              	.L4:
+  46              		.align	2
+  47              	.L3:
+  48 0010 00040240 		.word	1073873920
+  49              		.cfi_endproc
+  50              	.LFE235:
+  52              		.section	.text.ST7735_Reset,"ax",%progbits
+  53              		.align	1
+  54              		.syntax unified
+  55              		.thumb
+  56              		.thumb_func
+  57              		.fpu fpv4-sp-d16
+  59              	ST7735_Reset:
+  60              	.LFB237:
+  89:Drivers/TFT/st7735.c **** 
+  90:Drivers/TFT/st7735.c **** void ST7735_Unselect() {
+  91:Drivers/TFT/st7735.c ****     HAL_GPIO_WritePin(ST7735_CS_GPIO_Port, ST7735_CS_Pin, GPIO_PIN_SET);
+  92:Drivers/TFT/st7735.c **** }
+  93:Drivers/TFT/st7735.c **** 
+  94:Drivers/TFT/st7735.c **** static void ST7735_Reset() {
+  61              		.loc 1 94 28 is_stmt 1 view -0
+  62              		.cfi_startproc
+  63              		@ args = 0, pretend = 0, frame = 0
+  64              		@ frame_needed = 0, uses_anonymous_args = 0
+  65 0000 10B5     		push	{r4, lr}
+  66              	.LCFI1:
+  67              		.cfi_def_cfa_offset 8
+  68              		.cfi_offset 4, -8
+  69              		.cfi_offset 14, -4
+  95:Drivers/TFT/st7735.c ****     HAL_GPIO_WritePin(ST7735_RES_GPIO_Port, ST7735_RES_Pin, GPIO_PIN_RESET);
+  70              		.loc 1 95 5 view .LVU4
+  71 0002 074C     		ldr	r4, .L7
+  72 0004 0022     		movs	r2, #0
+  73 0006 2021     		movs	r1, #32
+  74 0008 2046     		mov	r0, r4
+  75 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
+  76              	.LVL1:
+  96:Drivers/TFT/st7735.c ****     HAL_Delay(5);
+  77              		.loc 1 96 5 view .LVU5
+  78 000e 0520     		movs	r0, #5
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 4
+
+
+  79 0010 FFF7FEFF 		bl	HAL_Delay
+  80              	.LVL2:
+  97:Drivers/TFT/st7735.c ****     HAL_GPIO_WritePin(ST7735_RES_GPIO_Port, ST7735_RES_Pin, GPIO_PIN_SET);
+  81              		.loc 1 97 5 view .LVU6
+  82 0014 0122     		movs	r2, #1
+  83 0016 2021     		movs	r1, #32
+  84 0018 2046     		mov	r0, r4
+  85 001a FFF7FEFF 		bl	HAL_GPIO_WritePin
+  86              	.LVL3:
+  98:Drivers/TFT/st7735.c **** }
+  87              		.loc 1 98 1 is_stmt 0 view .LVU7
+  88 001e 10BD     		pop	{r4, pc}
+  89              	.L8:
+  90              		.align	2
+  91              	.L7:
+  92 0020 00080240 		.word	1073874944
+  93              		.cfi_endproc
+  94              	.LFE237:
+  96              		.section	.text.ST7735_WriteCommand,"ax",%progbits
+  97              		.align	1
+  98              		.syntax unified
+  99              		.thumb
+ 100              		.thumb_func
+ 101              		.fpu fpv4-sp-d16
+ 103              	ST7735_WriteCommand:
+ 104              	.LVL4:
+ 105              	.LFB238:
+  99:Drivers/TFT/st7735.c **** 
+ 100:Drivers/TFT/st7735.c **** static void ST7735_WriteCommand(uint8_t cmd) {
+ 106              		.loc 1 100 46 is_stmt 1 view -0
+ 107              		.cfi_startproc
+ 108              		@ args = 0, pretend = 0, frame = 8
+ 109              		@ frame_needed = 0, uses_anonymous_args = 0
+ 110              		.loc 1 100 46 is_stmt 0 view .LVU9
+ 111 0000 00B5     		push	{lr}
+ 112              	.LCFI2:
+ 113              		.cfi_def_cfa_offset 4
+ 114              		.cfi_offset 14, -4
+ 115 0002 83B0     		sub	sp, sp, #12
+ 116              	.LCFI3:
+ 117              		.cfi_def_cfa_offset 16
+ 118 0004 8DF80700 		strb	r0, [sp, #7]
+ 101:Drivers/TFT/st7735.c ****     HAL_GPIO_WritePin(ST7735_DC_GPIO_Port, ST7735_DC_Pin, GPIO_PIN_RESET);
+ 119              		.loc 1 101 5 is_stmt 1 view .LVU10
+ 120 0008 0022     		movs	r2, #0
+ 121 000a 0221     		movs	r1, #2
+ 122 000c 0648     		ldr	r0, .L11
+ 123              	.LVL5:
+ 124              		.loc 1 101 5 is_stmt 0 view .LVU11
+ 125 000e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 126              	.LVL6:
+ 102:Drivers/TFT/st7735.c ****     HAL_SPI_Transmit(&ST7735_SPI_PORT, &cmd, sizeof(cmd), HAL_MAX_DELAY);
+ 127              		.loc 1 102 5 is_stmt 1 view .LVU12
+ 128 0012 4FF0FF33 		mov	r3, #-1
+ 129 0016 0122     		movs	r2, #1
+ 130 0018 0DF10701 		add	r1, sp, #7
+ 131 001c 0348     		ldr	r0, .L11+4
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 5
+
+
+ 132 001e FFF7FEFF 		bl	HAL_SPI_Transmit
+ 133              	.LVL7:
+ 103:Drivers/TFT/st7735.c **** }
+ 134              		.loc 1 103 1 is_stmt 0 view .LVU13
+ 135 0022 03B0     		add	sp, sp, #12
+ 136              	.LCFI4:
+ 137              		.cfi_def_cfa_offset 4
+ 138              		@ sp needed
+ 139 0024 5DF804FB 		ldr	pc, [sp], #4
+ 140              	.L12:
+ 141              		.align	2
+ 142              	.L11:
+ 143 0028 00040240 		.word	1073873920
+ 144 002c 00000000 		.word	hspi2
+ 145              		.cfi_endproc
+ 146              	.LFE238:
+ 148              		.section	.text.ST7735_WriteData,"ax",%progbits
+ 149              		.align	1
+ 150              		.syntax unified
+ 151              		.thumb
+ 152              		.thumb_func
+ 153              		.fpu fpv4-sp-d16
+ 155              	ST7735_WriteData:
+ 156              	.LVL8:
+ 157              	.LFB239:
+ 104:Drivers/TFT/st7735.c **** 
+ 105:Drivers/TFT/st7735.c **** static void ST7735_WriteData(uint8_t* buff, size_t buff_size) {
+ 158              		.loc 1 105 63 is_stmt 1 view -0
+ 159              		.cfi_startproc
+ 160              		@ args = 0, pretend = 0, frame = 0
+ 161              		@ frame_needed = 0, uses_anonymous_args = 0
+ 162              		.loc 1 105 63 is_stmt 0 view .LVU15
+ 163 0000 38B5     		push	{r3, r4, r5, lr}
+ 164              	.LCFI5:
+ 165              		.cfi_def_cfa_offset 16
+ 166              		.cfi_offset 3, -16
+ 167              		.cfi_offset 4, -12
+ 168              		.cfi_offset 5, -8
+ 169              		.cfi_offset 14, -4
+ 170 0002 0446     		mov	r4, r0
+ 171 0004 0D46     		mov	r5, r1
+ 106:Drivers/TFT/st7735.c ****     HAL_GPIO_WritePin(ST7735_DC_GPIO_Port, ST7735_DC_Pin, GPIO_PIN_SET);
+ 172              		.loc 1 106 5 is_stmt 1 view .LVU16
+ 173 0006 0122     		movs	r2, #1
+ 174 0008 0221     		movs	r1, #2
+ 175              	.LVL9:
+ 176              		.loc 1 106 5 is_stmt 0 view .LVU17
+ 177 000a 0548     		ldr	r0, .L15
+ 178              	.LVL10:
+ 179              		.loc 1 106 5 view .LVU18
+ 180 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 181              	.LVL11:
+ 107:Drivers/TFT/st7735.c ****     HAL_SPI_Transmit(&ST7735_SPI_PORT, buff, buff_size, HAL_MAX_DELAY);
+ 182              		.loc 1 107 5 is_stmt 1 view .LVU19
+ 183 0010 4FF0FF33 		mov	r3, #-1
+ 184 0014 AAB2     		uxth	r2, r5
+ 185 0016 2146     		mov	r1, r4
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 6
+
+
+ 186 0018 0248     		ldr	r0, .L15+4
+ 187 001a FFF7FEFF 		bl	HAL_SPI_Transmit
+ 188              	.LVL12:
+ 108:Drivers/TFT/st7735.c **** }
+ 189              		.loc 1 108 1 is_stmt 0 view .LVU20
+ 190 001e 38BD     		pop	{r3, r4, r5, pc}
+ 191              	.LVL13:
+ 192              	.L16:
+ 193              		.loc 1 108 1 view .LVU21
+ 194              		.align	2
+ 195              	.L15:
+ 196 0020 00040240 		.word	1073873920
+ 197 0024 00000000 		.word	hspi2
+ 198              		.cfi_endproc
+ 199              	.LFE239:
+ 201              		.section	.text.ST7735_ExecuteCommandList,"ax",%progbits
+ 202              		.align	1
+ 203              		.syntax unified
+ 204              		.thumb
+ 205              		.thumb_func
+ 206              		.fpu fpv4-sp-d16
+ 208              	ST7735_ExecuteCommandList:
+ 209              	.LVL14:
+ 210              	.LFB240:
+ 109:Drivers/TFT/st7735.c **** 
+ 110:Drivers/TFT/st7735.c **** static void ST7735_ExecuteCommandList(const uint8_t *addr) {
+ 211              		.loc 1 110 60 is_stmt 1 view -0
+ 212              		.cfi_startproc
+ 213              		@ args = 0, pretend = 0, frame = 0
+ 214              		@ frame_needed = 0, uses_anonymous_args = 0
+ 215              		.loc 1 110 60 is_stmt 0 view .LVU23
+ 216 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 217              	.LCFI6:
+ 218              		.cfi_def_cfa_offset 24
+ 219              		.cfi_offset 3, -24
+ 220              		.cfi_offset 4, -20
+ 221              		.cfi_offset 5, -16
+ 222              		.cfi_offset 6, -12
+ 223              		.cfi_offset 7, -8
+ 224              		.cfi_offset 14, -4
+ 111:Drivers/TFT/st7735.c ****     uint8_t numCommands, numArgs;
+ 225              		.loc 1 111 5 is_stmt 1 view .LVU24
+ 112:Drivers/TFT/st7735.c ****     uint16_t ms;
+ 226              		.loc 1 112 5 view .LVU25
+ 113:Drivers/TFT/st7735.c **** 
+ 114:Drivers/TFT/st7735.c ****     numCommands = *addr++;
+ 227              		.loc 1 114 5 view .LVU26
+ 228              		.loc 1 114 24 is_stmt 0 view .LVU27
+ 229 0002 0646     		mov	r6, r0
+ 230              	.LVL15:
+ 231              		.loc 1 114 17 view .LVU28
+ 232 0004 16F8012B 		ldrb	r2, [r6], #1	@ zero_extendqisi2
+ 233              	.LVL16:
+ 115:Drivers/TFT/st7735.c ****     while(numCommands--) {
+ 234              		.loc 1 115 5 is_stmt 1 view .LVU29
+ 235              		.loc 1 115 10 is_stmt 0 view .LVU30
+ 236 0008 09E0     		b	.L18
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 7
+
+
+ 237              	.LVL17:
+ 238              	.L26:
+ 239              	.LBB2:
+ 116:Drivers/TFT/st7735.c ****         uint8_t cmd = *addr++;
+ 117:Drivers/TFT/st7735.c ****         ST7735_WriteCommand(cmd);
+ 118:Drivers/TFT/st7735.c **** 
+ 119:Drivers/TFT/st7735.c ****         numArgs = *addr++;
+ 120:Drivers/TFT/st7735.c ****         // If high bit set, delay follows args
+ 121:Drivers/TFT/st7735.c ****         ms = numArgs & DELAY;
+ 122:Drivers/TFT/st7735.c ****         numArgs &= ~DELAY;
+ 123:Drivers/TFT/st7735.c ****         if(numArgs) {
+ 124:Drivers/TFT/st7735.c ****             ST7735_WriteData((uint8_t*)addr, numArgs);
+ 240              		.loc 1 124 13 is_stmt 1 view .LVU31
+ 241 000a 3946     		mov	r1, r7
+ 242 000c 2046     		mov	r0, r4
+ 243 000e FFF7FEFF 		bl	ST7735_WriteData
+ 244              	.LVL18:
+ 125:Drivers/TFT/st7735.c ****             addr += numArgs;
+ 245              		.loc 1 125 13 view .LVU32
+ 246              		.loc 1 125 18 is_stmt 0 view .LVU33
+ 247 0012 3C44     		add	r4, r4, r7
+ 248              	.LVL19:
+ 249              		.loc 1 125 18 view .LVU34
+ 250 0014 0FE0     		b	.L19
+ 251              	.LVL20:
+ 252              	.L21:
+ 126:Drivers/TFT/st7735.c ****         }
+ 127:Drivers/TFT/st7735.c **** 
+ 128:Drivers/TFT/st7735.c ****         if(ms) {
+ 129:Drivers/TFT/st7735.c ****             ms = *addr++;
+ 130:Drivers/TFT/st7735.c ****             if(ms == 255) ms = 500;
+ 131:Drivers/TFT/st7735.c ****             HAL_Delay(ms);
+ 253              		.loc 1 131 13 is_stmt 1 view .LVU35
+ 254 0016 FFF7FEFF 		bl	HAL_Delay
+ 255              	.LVL21:
+ 256              	.L20:
+ 129:Drivers/TFT/st7735.c ****             if(ms == 255) ms = 500;
+ 257              		.loc 1 129 23 is_stmt 0 view .LVU36
+ 258 001a 2A46     		mov	r2, r5
+ 259 001c 2646     		mov	r6, r4
+ 260              	.LVL22:
+ 261              	.L18:
+ 129:Drivers/TFT/st7735.c ****             if(ms == 255) ms = 500;
+ 262              		.loc 1 129 23 view .LVU37
+ 263              	.LBE2:
+ 115:Drivers/TFT/st7735.c ****         uint8_t cmd = *addr++;
+ 264              		.loc 1 115 10 is_stmt 1 view .LVU38
+ 115:Drivers/TFT/st7735.c ****         uint8_t cmd = *addr++;
+ 265              		.loc 1 115 22 is_stmt 0 view .LVU39
+ 266 001e 531E     		subs	r3, r2, #1
+ 267 0020 DDB2     		uxtb	r5, r3
+ 268              	.LVL23:
+ 115:Drivers/TFT/st7735.c ****         uint8_t cmd = *addr++;
+ 269              		.loc 1 115 10 view .LVU40
+ 270 0022 92B1     		cbz	r2, .L25
+ 271              	.LBB3:
+ 116:Drivers/TFT/st7735.c ****         ST7735_WriteCommand(cmd);
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 8
+
+
+ 272              		.loc 1 116 9 is_stmt 1 view .LVU41
+ 273              	.LVL24:
+ 116:Drivers/TFT/st7735.c ****         ST7735_WriteCommand(cmd);
+ 274              		.loc 1 116 17 is_stmt 0 view .LVU42
+ 275 0024 3446     		mov	r4, r6
+ 276              	.LVL25:
+ 117:Drivers/TFT/st7735.c **** 
+ 277              		.loc 1 117 9 is_stmt 1 view .LVU43
+ 278 0026 14F8020B 		ldrb	r0, [r4], #2	@ zero_extendqisi2
+ 279 002a FFF7FEFF 		bl	ST7735_WriteCommand
+ 280              	.LVL26:
+ 119:Drivers/TFT/st7735.c ****         // If high bit set, delay follows args
+ 281              		.loc 1 119 9 view .LVU44
+ 119:Drivers/TFT/st7735.c ****         // If high bit set, delay follows args
+ 282              		.loc 1 119 17 is_stmt 0 view .LVU45
+ 283 002e 7678     		ldrb	r6, [r6, #1]	@ zero_extendqisi2
+ 284              	.LVL27:
+ 121:Drivers/TFT/st7735.c ****         numArgs &= ~DELAY;
+ 285              		.loc 1 121 9 is_stmt 1 view .LVU46
+ 122:Drivers/TFT/st7735.c ****         if(numArgs) {
+ 286              		.loc 1 122 9 view .LVU47
+ 123:Drivers/TFT/st7735.c ****             ST7735_WriteData((uint8_t*)addr, numArgs);
+ 287              		.loc 1 123 9 view .LVU48
+ 123:Drivers/TFT/st7735.c ****             ST7735_WriteData((uint8_t*)addr, numArgs);
+ 288              		.loc 1 123 11 is_stmt 0 view .LVU49
+ 289 0030 16F07F07 		ands	r7, r6, #127
+ 290 0034 E9D1     		bne	.L26
+ 291              	.L19:
+ 128:Drivers/TFT/st7735.c ****             ms = *addr++;
+ 292              		.loc 1 128 9 is_stmt 1 view .LVU50
+ 128:Drivers/TFT/st7735.c ****             ms = *addr++;
+ 293              		.loc 1 128 11 is_stmt 0 view .LVU51
+ 294 0036 16F0800F 		tst	r6, #128
+ 295 003a EED0     		beq	.L20
+ 129:Drivers/TFT/st7735.c ****             if(ms == 255) ms = 500;
+ 296              		.loc 1 129 13 is_stmt 1 view .LVU52
+ 297              	.LVL28:
+ 129:Drivers/TFT/st7735.c ****             if(ms == 255) ms = 500;
+ 298              		.loc 1 129 16 is_stmt 0 view .LVU53
+ 299 003c 14F8010B 		ldrb	r0, [r4], #1	@ zero_extendqisi2
+ 300              	.LVL29:
+ 130:Drivers/TFT/st7735.c ****             HAL_Delay(ms);
+ 301              		.loc 1 130 13 is_stmt 1 view .LVU54
+ 130:Drivers/TFT/st7735.c ****             HAL_Delay(ms);
+ 302              		.loc 1 130 15 is_stmt 0 view .LVU55
+ 303 0040 FF28     		cmp	r0, #255
+ 304 0042 E8D1     		bne	.L21
+ 130:Drivers/TFT/st7735.c ****             HAL_Delay(ms);
+ 305              		.loc 1 130 30 view .LVU56
+ 306 0044 4FF4FA70 		mov	r0, #500
+ 307              	.LVL30:
+ 130:Drivers/TFT/st7735.c ****             HAL_Delay(ms);
+ 308              		.loc 1 130 30 view .LVU57
+ 309 0048 E5E7     		b	.L21
+ 310              	.LVL31:
+ 311              	.L25:
+ 130:Drivers/TFT/st7735.c ****             HAL_Delay(ms);
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 9
+
+
+ 312              		.loc 1 130 30 view .LVU58
+ 313              	.LBE3:
+ 132:Drivers/TFT/st7735.c ****         }
+ 133:Drivers/TFT/st7735.c ****     }
+ 134:Drivers/TFT/st7735.c **** }
+ 314              		.loc 1 134 1 view .LVU59
+ 315 004a F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 316              		.loc 1 134 1 view .LVU60
+ 317              		.cfi_endproc
+ 318              	.LFE240:
+ 320              		.section	.text.ST7735_SetAddressWindow,"ax",%progbits
+ 321              		.align	1
+ 322              		.syntax unified
+ 323              		.thumb
+ 324              		.thumb_func
+ 325              		.fpu fpv4-sp-d16
+ 327              	ST7735_SetAddressWindow:
+ 328              	.LVL32:
+ 329              	.LFB241:
+ 135:Drivers/TFT/st7735.c **** 
+ 136:Drivers/TFT/st7735.c **** static void ST7735_SetAddressWindow(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1) {
+ 330              		.loc 1 136 85 is_stmt 1 view -0
+ 331              		.cfi_startproc
+ 332              		@ args = 0, pretend = 0, frame = 8
+ 333              		@ frame_needed = 0, uses_anonymous_args = 0
+ 334              		.loc 1 136 85 is_stmt 0 view .LVU62
+ 335 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 336              	.LCFI7:
+ 337              		.cfi_def_cfa_offset 20
+ 338              		.cfi_offset 4, -20
+ 339              		.cfi_offset 5, -16
+ 340              		.cfi_offset 6, -12
+ 341              		.cfi_offset 7, -8
+ 342              		.cfi_offset 14, -4
+ 343 0002 83B0     		sub	sp, sp, #12
+ 344              	.LCFI8:
+ 345              		.cfi_def_cfa_offset 32
+ 346 0004 0746     		mov	r7, r0
+ 347 0006 0D46     		mov	r5, r1
+ 348 0008 1646     		mov	r6, r2
+ 349 000a 1C46     		mov	r4, r3
+ 137:Drivers/TFT/st7735.c ****     // column address set
+ 138:Drivers/TFT/st7735.c ****     ST7735_WriteCommand(ST7735_CASET);
+ 350              		.loc 1 138 5 is_stmt 1 view .LVU63
+ 351 000c 2A20     		movs	r0, #42
+ 352              	.LVL33:
+ 353              		.loc 1 138 5 is_stmt 0 view .LVU64
+ 354 000e FFF7FEFF 		bl	ST7735_WriteCommand
+ 355              	.LVL34:
+ 139:Drivers/TFT/st7735.c ****     uint8_t data[] = { 0x00, x0 + ST7735_XSTART, 0x00, x1 + ST7735_XSTART };
+ 356              		.loc 1 139 5 is_stmt 1 view .LVU65
+ 357              		.loc 1 139 13 is_stmt 0 view .LVU66
+ 358 0012 0023     		movs	r3, #0
+ 359 0014 8DF80430 		strb	r3, [sp, #4]
+ 360              		.loc 1 139 33 view .LVU67
+ 361 0018 0237     		adds	r7, r7, #2
+ 362              		.loc 1 139 13 view .LVU68
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 10
+
+
+ 363 001a 8DF80570 		strb	r7, [sp, #5]
+ 364 001e 8DF80630 		strb	r3, [sp, #6]
+ 365              		.loc 1 139 59 view .LVU69
+ 366 0022 0236     		adds	r6, r6, #2
+ 367              		.loc 1 139 13 view .LVU70
+ 368 0024 8DF80760 		strb	r6, [sp, #7]
+ 140:Drivers/TFT/st7735.c ****     ST7735_WriteData(data, sizeof(data));
+ 369              		.loc 1 140 5 is_stmt 1 view .LVU71
+ 370 0028 0421     		movs	r1, #4
+ 371 002a 0DEB0100 		add	r0, sp, r1
+ 372 002e FFF7FEFF 		bl	ST7735_WriteData
+ 373              	.LVL35:
+ 141:Drivers/TFT/st7735.c **** 
+ 142:Drivers/TFT/st7735.c ****     // row address set
+ 143:Drivers/TFT/st7735.c ****     ST7735_WriteCommand(ST7735_RASET);
+ 374              		.loc 1 143 5 view .LVU72
+ 375 0032 2B20     		movs	r0, #43
+ 376 0034 FFF7FEFF 		bl	ST7735_WriteCommand
+ 377              	.LVL36:
+ 144:Drivers/TFT/st7735.c ****     data[1] = y0 + ST7735_YSTART;
+ 378              		.loc 1 144 5 view .LVU73
+ 379              		.loc 1 144 18 is_stmt 0 view .LVU74
+ 380 0038 0335     		adds	r5, r5, #3
+ 381              		.loc 1 144 13 view .LVU75
+ 382 003a 8DF80550 		strb	r5, [sp, #5]
+ 145:Drivers/TFT/st7735.c ****     data[3] = y1 + ST7735_YSTART;
+ 383              		.loc 1 145 5 is_stmt 1 view .LVU76
+ 384              		.loc 1 145 18 is_stmt 0 view .LVU77
+ 385 003e 0334     		adds	r4, r4, #3
+ 386              		.loc 1 145 13 view .LVU78
+ 387 0040 8DF80740 		strb	r4, [sp, #7]
+ 146:Drivers/TFT/st7735.c ****     ST7735_WriteData(data, sizeof(data));
+ 388              		.loc 1 146 5 is_stmt 1 view .LVU79
+ 389 0044 0421     		movs	r1, #4
+ 390 0046 0DEB0100 		add	r0, sp, r1
+ 391 004a FFF7FEFF 		bl	ST7735_WriteData
+ 392              	.LVL37:
+ 147:Drivers/TFT/st7735.c **** 
+ 148:Drivers/TFT/st7735.c ****     // write to RAM
+ 149:Drivers/TFT/st7735.c ****     ST7735_WriteCommand(ST7735_RAMWR);
+ 393              		.loc 1 149 5 view .LVU80
+ 394 004e 2C20     		movs	r0, #44
+ 395 0050 FFF7FEFF 		bl	ST7735_WriteCommand
+ 396              	.LVL38:
+ 150:Drivers/TFT/st7735.c **** }
+ 397              		.loc 1 150 1 is_stmt 0 view .LVU81
+ 398 0054 03B0     		add	sp, sp, #12
+ 399              	.LCFI9:
+ 400              		.cfi_def_cfa_offset 20
+ 401              		@ sp needed
+ 402 0056 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 403              		.cfi_endproc
+ 404              	.LFE241:
+ 406              		.section	.text.ST7735_WriteChar,"ax",%progbits
+ 407              		.align	1
+ 408              		.syntax unified
+ 409              		.thumb
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 11
+
+
+ 410              		.thumb_func
+ 411              		.fpu fpv4-sp-d16
+ 413              	ST7735_WriteChar:
+ 414              	.LVL39:
+ 415              	.LFB244:
+ 151:Drivers/TFT/st7735.c **** 
+ 152:Drivers/TFT/st7735.c **** void ST7735_Init() {
+ 153:Drivers/TFT/st7735.c ****     ST7735_Select();
+ 154:Drivers/TFT/st7735.c ****     ST7735_Reset();
+ 155:Drivers/TFT/st7735.c ****     ST7735_ExecuteCommandList(init_cmds1);
+ 156:Drivers/TFT/st7735.c ****     ST7735_ExecuteCommandList(init_cmds2);
+ 157:Drivers/TFT/st7735.c ****     ST7735_ExecuteCommandList(init_cmds3);
+ 158:Drivers/TFT/st7735.c ****     ST7735_Unselect();
+ 159:Drivers/TFT/st7735.c **** }
+ 160:Drivers/TFT/st7735.c **** 
+ 161:Drivers/TFT/st7735.c **** void ST7735_DrawPixel(uint16_t x, uint16_t y, uint16_t color) {
+ 162:Drivers/TFT/st7735.c ****     if((x >= ST7735_WIDTH) || (y >= ST7735_HEIGHT))
+ 163:Drivers/TFT/st7735.c ****         return;
+ 164:Drivers/TFT/st7735.c **** 
+ 165:Drivers/TFT/st7735.c ****     ST7735_Select();
+ 166:Drivers/TFT/st7735.c **** 
+ 167:Drivers/TFT/st7735.c ****     ST7735_SetAddressWindow(x, y, x+1, y+1);
+ 168:Drivers/TFT/st7735.c ****     uint8_t data[] = { color >> 8, color & 0xFF };
+ 169:Drivers/TFT/st7735.c ****     ST7735_WriteData(data, sizeof(data));
+ 170:Drivers/TFT/st7735.c **** 
+ 171:Drivers/TFT/st7735.c ****     ST7735_Unselect();
+ 172:Drivers/TFT/st7735.c **** }
+ 173:Drivers/TFT/st7735.c **** 
+ 174:Drivers/TFT/st7735.c **** static void ST7735_WriteChar(uint16_t x, uint16_t y, char ch, FontDef font, uint16_t color, uint16_
+ 416              		.loc 1 174 111 is_stmt 1 view -0
+ 417              		.cfi_startproc
+ 418              		@ args = 20, pretend = 8, frame = 8
+ 419              		@ frame_needed = 0, uses_anonymous_args = 0
+ 420              		.loc 1 174 111 is_stmt 0 view .LVU83
+ 421 0000 82B0     		sub	sp, sp, #8
+ 422              	.LCFI10:
+ 423              		.cfi_def_cfa_offset 8
+ 424 0002 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 425              	.LCFI11:
+ 426              		.cfi_def_cfa_offset 44
+ 427              		.cfi_offset 4, -44
+ 428              		.cfi_offset 5, -40
+ 429              		.cfi_offset 6, -36
+ 430              		.cfi_offset 7, -32
+ 431              		.cfi_offset 8, -28
+ 432              		.cfi_offset 9, -24
+ 433              		.cfi_offset 10, -20
+ 434              		.cfi_offset 11, -16
+ 435              		.cfi_offset 14, -12
+ 436 0006 83B0     		sub	sp, sp, #12
+ 437              	.LCFI12:
+ 438              		.cfi_def_cfa_offset 56
+ 439 0008 9346     		mov	fp, r2
+ 440 000a 0D93     		str	r3, [sp, #52]
+ 441 000c BDF83C80 		ldrh	r8, [sp, #60]
+ 442 0010 BDF84070 		ldrh	r7, [sp, #64]
+ 175:Drivers/TFT/st7735.c ****     uint32_t i, b, j;
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 12
+
+
+ 443              		.loc 1 175 5 is_stmt 1 view .LVU84
+ 176:Drivers/TFT/st7735.c **** 
+ 177:Drivers/TFT/st7735.c ****     ST7735_SetAddressWindow(x, y, x+font.width-1, y+font.height-1);
+ 444              		.loc 1 177 5 view .LVU85
+ 445 0014 C0B2     		uxtb	r0, r0
+ 446              	.LVL40:
+ 447              		.loc 1 177 5 is_stmt 0 view .LVU86
+ 448 0016 C9B2     		uxtb	r1, r1
+ 449              	.LVL41:
+ 450              		.loc 1 177 41 view .LVU87
+ 451 0018 DDB2     		uxtb	r5, r3
+ 452              		.loc 1 177 36 view .LVU88
+ 453 001a 4219     		adds	r2, r0, r5
+ 454              	.LVL42:
+ 455              		.loc 1 177 36 view .LVU89
+ 456 001c D2B2     		uxtb	r2, r2
+ 457              		.loc 1 177 57 view .LVU90
+ 458 001e C3F3072A 		ubfx	r10, r3, #8, #8
+ 459              		.loc 1 177 52 view .LVU91
+ 460 0022 01EB0A03 		add	r3, r1, r10
+ 461 0026 DBB2     		uxtb	r3, r3
+ 462              		.loc 1 177 5 view .LVU92
+ 463 0028 013B     		subs	r3, r3, #1
+ 464 002a 013A     		subs	r2, r2, #1
+ 465 002c DBB2     		uxtb	r3, r3
+ 466 002e D2B2     		uxtb	r2, r2
+ 467 0030 FFF7FEFF 		bl	ST7735_SetAddressWindow
+ 468              	.LVL43:
+ 178:Drivers/TFT/st7735.c **** 
+ 179:Drivers/TFT/st7735.c ****     for(i = 0; i < font.height; i++) {
+ 469              		.loc 1 179 5 is_stmt 1 view .LVU93
+ 470              		.loc 1 179 11 is_stmt 0 view .LVU94
+ 471 0034 4FF00009 		mov	r9, #0
+ 472              		.loc 1 179 5 view .LVU95
+ 473 0038 1DE0     		b	.L30
+ 474              	.LVL44:
+ 475              	.L32:
+ 476              	.LBB4:
+ 180:Drivers/TFT/st7735.c ****         b = font.data[(ch - 32) * font.height + i];
+ 181:Drivers/TFT/st7735.c ****         for(j = 0; j < font.width; j++) {
+ 182:Drivers/TFT/st7735.c ****             if((b << j) & 0x8000)  {
+ 183:Drivers/TFT/st7735.c ****                 uint8_t data[] = { color >> 8, color & 0xFF };
+ 184:Drivers/TFT/st7735.c ****                 ST7735_WriteData(data, sizeof(data));
+ 185:Drivers/TFT/st7735.c ****             } else {
+ 186:Drivers/TFT/st7735.c ****                 uint8_t data[] = { bgcolor >> 8, bgcolor & 0xFF };
+ 477              		.loc 1 186 17 is_stmt 1 view .LVU96
+ 478              		.loc 1 186 25 is_stmt 0 view .LVU97
+ 479 003a 3B0A     		lsrs	r3, r7, #8
+ 480 003c 8DF80430 		strb	r3, [sp, #4]
+ 481 0040 8DF80570 		strb	r7, [sp, #5]
+ 187:Drivers/TFT/st7735.c ****                 ST7735_WriteData(data, sizeof(data));
+ 482              		.loc 1 187 17 is_stmt 1 view .LVU98
+ 483 0044 0221     		movs	r1, #2
+ 484 0046 01A8     		add	r0, sp, #4
+ 485 0048 FFF7FEFF 		bl	ST7735_WriteData
+ 486              	.LVL45:
+ 487              	.L33:
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 13
+
+
+ 488              		.loc 1 187 17 is_stmt 0 view .LVU99
+ 489              	.LBE4:
+ 181:Drivers/TFT/st7735.c ****             if((b << j) & 0x8000)  {
+ 490              		.loc 1 181 36 is_stmt 1 discriminator 2 view .LVU100
+ 181:Drivers/TFT/st7735.c ****             if((b << j) & 0x8000)  {
+ 491              		.loc 1 181 37 is_stmt 0 discriminator 2 view .LVU101
+ 492 004c 0134     		adds	r4, r4, #1
+ 493              	.LVL46:
+ 494              	.L31:
+ 181:Drivers/TFT/st7735.c ****             if((b << j) & 0x8000)  {
+ 495              		.loc 1 181 20 is_stmt 1 discriminator 1 view .LVU102
+ 181:Drivers/TFT/st7735.c ****             if((b << j) & 0x8000)  {
+ 496              		.loc 1 181 9 is_stmt 0 discriminator 1 view .LVU103
+ 497 004e A542     		cmp	r5, r4
+ 498 0050 0FD9     		bls	.L37
+ 182:Drivers/TFT/st7735.c ****                 uint8_t data[] = { color >> 8, color & 0xFF };
+ 499              		.loc 1 182 13 is_stmt 1 view .LVU104
+ 182:Drivers/TFT/st7735.c ****                 uint8_t data[] = { color >> 8, color & 0xFF };
+ 500              		.loc 1 182 19 is_stmt 0 view .LVU105
+ 501 0052 06FA04F3 		lsl	r3, r6, r4
+ 182:Drivers/TFT/st7735.c ****                 uint8_t data[] = { color >> 8, color & 0xFF };
+ 502              		.loc 1 182 15 view .LVU106
+ 503 0056 13F4004F 		tst	r3, #32768
+ 504 005a EED0     		beq	.L32
+ 505              	.LBB5:
+ 183:Drivers/TFT/st7735.c ****                 ST7735_WriteData(data, sizeof(data));
+ 506              		.loc 1 183 17 is_stmt 1 view .LVU107
+ 183:Drivers/TFT/st7735.c ****                 ST7735_WriteData(data, sizeof(data));
+ 507              		.loc 1 183 25 is_stmt 0 view .LVU108
+ 508 005c 4FEA1823 		lsr	r3, r8, #8
+ 509 0060 8DF80430 		strb	r3, [sp, #4]
+ 510 0064 8DF80580 		strb	r8, [sp, #5]
+ 184:Drivers/TFT/st7735.c ****             } else {
+ 511              		.loc 1 184 17 is_stmt 1 view .LVU109
+ 512 0068 0221     		movs	r1, #2
+ 513 006a 01A8     		add	r0, sp, #4
+ 514 006c FFF7FEFF 		bl	ST7735_WriteData
+ 515              	.LVL47:
+ 516              	.LBE5:
+ 517 0070 ECE7     		b	.L33
+ 518              	.L37:
+ 179:Drivers/TFT/st7735.c ****         b = font.data[(ch - 32) * font.height + i];
+ 519              		.loc 1 179 33 discriminator 2 view .LVU110
+ 179:Drivers/TFT/st7735.c ****         b = font.data[(ch - 32) * font.height + i];
+ 520              		.loc 1 179 34 is_stmt 0 discriminator 2 view .LVU111
+ 521 0072 09F10109 		add	r9, r9, #1
+ 522              	.LVL48:
+ 523              	.L30:
+ 179:Drivers/TFT/st7735.c ****         b = font.data[(ch - 32) * font.height + i];
+ 524              		.loc 1 179 16 is_stmt 1 discriminator 1 view .LVU112
+ 179:Drivers/TFT/st7735.c ****         b = font.data[(ch - 32) * font.height + i];
+ 525              		.loc 1 179 5 is_stmt 0 discriminator 1 view .LVU113
+ 526 0076 CA45     		cmp	r10, r9
+ 527 0078 08D9     		bls	.L38
+ 180:Drivers/TFT/st7735.c ****         for(j = 0; j < font.width; j++) {
+ 528              		.loc 1 180 9 is_stmt 1 view .LVU114
+ 180:Drivers/TFT/st7735.c ****         for(j = 0; j < font.width; j++) {
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 14
+
+
+ 529              		.loc 1 180 27 is_stmt 0 view .LVU115
+ 530 007a ABF12003 		sub	r3, fp, #32
+ 180:Drivers/TFT/st7735.c ****         for(j = 0; j < font.width; j++) {
+ 531              		.loc 1 180 47 view .LVU116
+ 532 007e 0AFB0393 		mla	r3, r10, r3, r9
+ 180:Drivers/TFT/st7735.c ****         for(j = 0; j < font.width; j++) {
+ 533              		.loc 1 180 22 view .LVU117
+ 534 0082 0E9A     		ldr	r2, [sp, #56]
+ 535 0084 32F81360 		ldrh	r6, [r2, r3, lsl #1]
+ 536              	.LVL49:
+ 181:Drivers/TFT/st7735.c ****             if((b << j) & 0x8000)  {
+ 537              		.loc 1 181 9 is_stmt 1 view .LVU118
+ 181:Drivers/TFT/st7735.c ****             if((b << j) & 0x8000)  {
+ 538              		.loc 1 181 15 is_stmt 0 view .LVU119
+ 539 0088 0024     		movs	r4, #0
+ 181:Drivers/TFT/st7735.c ****             if((b << j) & 0x8000)  {
+ 540              		.loc 1 181 9 view .LVU120
+ 541 008a E0E7     		b	.L31
+ 542              	.LVL50:
+ 543              	.L38:
+ 188:Drivers/TFT/st7735.c ****             }
+ 189:Drivers/TFT/st7735.c ****         }
+ 190:Drivers/TFT/st7735.c ****     }
+ 191:Drivers/TFT/st7735.c **** }
+ 544              		.loc 1 191 1 view .LVU121
+ 545 008c 03B0     		add	sp, sp, #12
+ 546              	.LCFI13:
+ 547              		.cfi_def_cfa_offset 44
+ 548              		@ sp needed
+ 549 008e BDE8F04F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 550              	.LCFI14:
+ 551              		.cfi_restore 14
+ 552              		.cfi_restore 11
+ 553              		.cfi_restore 10
+ 554              		.cfi_restore 9
+ 555              		.cfi_restore 8
+ 556              		.cfi_restore 7
+ 557              		.cfi_restore 6
+ 558              		.cfi_restore 5
+ 559              		.cfi_restore 4
+ 560              		.cfi_def_cfa_offset 8
+ 561              	.LVL51:
+ 562              		.loc 1 191 1 view .LVU122
+ 563 0092 02B0     		add	sp, sp, #8
+ 564              	.LCFI15:
+ 565              		.cfi_def_cfa_offset 0
+ 566 0094 7047     		bx	lr
+ 567              		.cfi_endproc
+ 568              	.LFE244:
+ 570              		.section	.text.ST7735_Unselect,"ax",%progbits
+ 571              		.align	1
+ 572              		.global	ST7735_Unselect
+ 573              		.syntax unified
+ 574              		.thumb
+ 575              		.thumb_func
+ 576              		.fpu fpv4-sp-d16
+ 578              	ST7735_Unselect:
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 15
+
+
+ 579              	.LFB236:
+  90:Drivers/TFT/st7735.c ****     HAL_GPIO_WritePin(ST7735_CS_GPIO_Port, ST7735_CS_Pin, GPIO_PIN_SET);
+ 580              		.loc 1 90 24 is_stmt 1 view -0
+ 581              		.cfi_startproc
+ 582              		@ args = 0, pretend = 0, frame = 0
+ 583              		@ frame_needed = 0, uses_anonymous_args = 0
+ 584 0000 08B5     		push	{r3, lr}
+ 585              	.LCFI16:
+ 586              		.cfi_def_cfa_offset 8
+ 587              		.cfi_offset 3, -8
+ 588              		.cfi_offset 14, -4
+  91:Drivers/TFT/st7735.c **** }
+ 589              		.loc 1 91 5 view .LVU124
+ 590 0002 0122     		movs	r2, #1
+ 591 0004 4FF48051 		mov	r1, #4096
+ 592 0008 0148     		ldr	r0, .L41
+ 593 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 594              	.LVL52:
+  92:Drivers/TFT/st7735.c **** 
+ 595              		.loc 1 92 1 is_stmt 0 view .LVU125
+ 596 000e 08BD     		pop	{r3, pc}
+ 597              	.L42:
+ 598              		.align	2
+ 599              	.L41:
+ 600 0010 00040240 		.word	1073873920
+ 601              		.cfi_endproc
+ 602              	.LFE236:
+ 604              		.section	.text.ST7735_Init,"ax",%progbits
+ 605              		.align	1
+ 606              		.global	ST7735_Init
+ 607              		.syntax unified
+ 608              		.thumb
+ 609              		.thumb_func
+ 610              		.fpu fpv4-sp-d16
+ 612              	ST7735_Init:
+ 613              	.LFB242:
+ 152:Drivers/TFT/st7735.c ****     ST7735_Select();
+ 614              		.loc 1 152 20 is_stmt 1 view -0
+ 615              		.cfi_startproc
+ 616              		@ args = 0, pretend = 0, frame = 0
+ 617              		@ frame_needed = 0, uses_anonymous_args = 0
+ 618 0000 08B5     		push	{r3, lr}
+ 619              	.LCFI17:
+ 620              		.cfi_def_cfa_offset 8
+ 621              		.cfi_offset 3, -8
+ 622              		.cfi_offset 14, -4
+ 153:Drivers/TFT/st7735.c ****     ST7735_Reset();
+ 623              		.loc 1 153 5 view .LVU127
+ 624 0002 FFF7FEFF 		bl	ST7735_Select
+ 625              	.LVL53:
+ 154:Drivers/TFT/st7735.c ****     ST7735_ExecuteCommandList(init_cmds1);
+ 626              		.loc 1 154 5 view .LVU128
+ 627 0006 FFF7FEFF 		bl	ST7735_Reset
+ 628              	.LVL54:
+ 155:Drivers/TFT/st7735.c ****     ST7735_ExecuteCommandList(init_cmds2);
+ 629              		.loc 1 155 5 view .LVU129
+ 630 000a 0648     		ldr	r0, .L45
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 16
+
+
+ 631 000c FFF7FEFF 		bl	ST7735_ExecuteCommandList
+ 632              	.LVL55:
+ 156:Drivers/TFT/st7735.c ****     ST7735_ExecuteCommandList(init_cmds3);
+ 633              		.loc 1 156 5 view .LVU130
+ 634 0010 0548     		ldr	r0, .L45+4
+ 635 0012 FFF7FEFF 		bl	ST7735_ExecuteCommandList
+ 636              	.LVL56:
+ 157:Drivers/TFT/st7735.c ****     ST7735_Unselect();
+ 637              		.loc 1 157 5 view .LVU131
+ 638 0016 0548     		ldr	r0, .L45+8
+ 639 0018 FFF7FEFF 		bl	ST7735_ExecuteCommandList
+ 640              	.LVL57:
+ 158:Drivers/TFT/st7735.c **** }
+ 641              		.loc 1 158 5 view .LVU132
+ 642 001c FFF7FEFF 		bl	ST7735_Unselect
+ 643              	.LVL58:
+ 159:Drivers/TFT/st7735.c **** 
+ 644              		.loc 1 159 1 is_stmt 0 view .LVU133
+ 645 0020 08BD     		pop	{r3, pc}
+ 646              	.L46:
+ 647 0022 00BF     		.align	2
+ 648              	.L45:
+ 649 0024 00000000 		.word	.LANCHOR0
+ 650 0028 00000000 		.word	.LANCHOR1
+ 651 002c 00000000 		.word	.LANCHOR2
+ 652              		.cfi_endproc
+ 653              	.LFE242:
+ 655              		.section	.text.ST7735_DrawPixel,"ax",%progbits
+ 656              		.align	1
+ 657              		.global	ST7735_DrawPixel
+ 658              		.syntax unified
+ 659              		.thumb
+ 660              		.thumb_func
+ 661              		.fpu fpv4-sp-d16
+ 663              	ST7735_DrawPixel:
+ 664              	.LVL59:
+ 665              	.LFB243:
+ 161:Drivers/TFT/st7735.c ****     if((x >= ST7735_WIDTH) || (y >= ST7735_HEIGHT))
+ 666              		.loc 1 161 63 is_stmt 1 view -0
+ 667              		.cfi_startproc
+ 668              		@ args = 0, pretend = 0, frame = 8
+ 669              		@ frame_needed = 0, uses_anonymous_args = 0
+ 162:Drivers/TFT/st7735.c ****         return;
+ 670              		.loc 1 162 5 view .LVU135
+ 162:Drivers/TFT/st7735.c ****         return;
+ 671              		.loc 1 162 7 is_stmt 0 view .LVU136
+ 672 0000 7F28     		cmp	r0, #127
+ 673 0002 1ED8     		bhi	.L52
+ 161:Drivers/TFT/st7735.c ****     if((x >= ST7735_WIDTH) || (y >= ST7735_HEIGHT))
+ 674              		.loc 1 161 63 discriminator 1 view .LVU137
+ 675 0004 70B5     		push	{r4, r5, r6, lr}
+ 676              	.LCFI18:
+ 677              		.cfi_def_cfa_offset 16
+ 678              		.cfi_offset 4, -16
+ 679              		.cfi_offset 5, -12
+ 680              		.cfi_offset 6, -8
+ 681              		.cfi_offset 14, -4
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 17
+
+
+ 682 0006 82B0     		sub	sp, sp, #8
+ 683              	.LCFI19:
+ 684              		.cfi_def_cfa_offset 24
+ 685 0008 0446     		mov	r4, r0
+ 686 000a 0D46     		mov	r5, r1
+ 687 000c 1646     		mov	r6, r2
+ 162:Drivers/TFT/st7735.c ****         return;
+ 688              		.loc 1 162 28 discriminator 1 view .LVU138
+ 689 000e 7F29     		cmp	r1, #127
+ 690 0010 01D9     		bls	.L55
+ 691              	.LVL60:
+ 692              	.L47:
+ 172:Drivers/TFT/st7735.c **** 
+ 693              		.loc 1 172 1 view .LVU139
+ 694 0012 02B0     		add	sp, sp, #8
+ 695              	.LCFI20:
+ 696              		.cfi_remember_state
+ 697              		.cfi_def_cfa_offset 16
+ 698              		@ sp needed
+ 699 0014 70BD     		pop	{r4, r5, r6, pc}
+ 700              	.LVL61:
+ 701              	.L55:
+ 702              	.LCFI21:
+ 703              		.cfi_restore_state
+ 165:Drivers/TFT/st7735.c **** 
+ 704              		.loc 1 165 5 is_stmt 1 view .LVU140
+ 705 0016 FFF7FEFF 		bl	ST7735_Select
+ 706              	.LVL62:
+ 167:Drivers/TFT/st7735.c ****     uint8_t data[] = { color >> 8, color & 0xFF };
+ 707              		.loc 1 167 5 view .LVU141
+ 708 001a E0B2     		uxtb	r0, r4
+ 709 001c E9B2     		uxtb	r1, r5
+ 710 001e 4B1C     		adds	r3, r1, #1
+ 711 0020 421C     		adds	r2, r0, #1
+ 712 0022 DBB2     		uxtb	r3, r3
+ 713 0024 D2B2     		uxtb	r2, r2
+ 714 0026 FFF7FEFF 		bl	ST7735_SetAddressWindow
+ 715              	.LVL63:
+ 168:Drivers/TFT/st7735.c ****     ST7735_WriteData(data, sizeof(data));
+ 716              		.loc 1 168 5 view .LVU142
+ 168:Drivers/TFT/st7735.c ****     ST7735_WriteData(data, sizeof(data));
+ 717              		.loc 1 168 13 is_stmt 0 view .LVU143
+ 718 002a 330A     		lsrs	r3, r6, #8
+ 719 002c 8DF80430 		strb	r3, [sp, #4]
+ 720 0030 8DF80560 		strb	r6, [sp, #5]
+ 169:Drivers/TFT/st7735.c **** 
+ 721              		.loc 1 169 5 is_stmt 1 view .LVU144
+ 722 0034 0221     		movs	r1, #2
+ 723 0036 01A8     		add	r0, sp, #4
+ 724 0038 FFF7FEFF 		bl	ST7735_WriteData
+ 725              	.LVL64:
+ 171:Drivers/TFT/st7735.c **** }
+ 726              		.loc 1 171 5 view .LVU145
+ 727 003c FFF7FEFF 		bl	ST7735_Unselect
+ 728              	.LVL65:
+ 729 0040 E7E7     		b	.L47
+ 730              	.LVL66:
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 18
+
+
+ 731              	.L52:
+ 732              	.LCFI22:
+ 733              		.cfi_def_cfa_offset 0
+ 734              		.cfi_restore 4
+ 735              		.cfi_restore 5
+ 736              		.cfi_restore 6
+ 737              		.cfi_restore 14
+ 171:Drivers/TFT/st7735.c **** }
+ 738              		.loc 1 171 5 is_stmt 0 view .LVU146
+ 739 0042 7047     		bx	lr
+ 740              		.cfi_endproc
+ 741              	.LFE243:
+ 743              		.section	.text.ST7735_WriteString,"ax",%progbits
+ 744              		.align	1
+ 745              		.global	ST7735_WriteString
+ 746              		.syntax unified
+ 747              		.thumb
+ 748              		.thumb_func
+ 749              		.fpu fpv4-sp-d16
+ 751              	ST7735_WriteString:
+ 752              	.LVL67:
+ 753              	.LFB245:
+ 192:Drivers/TFT/st7735.c **** 
+ 193:Drivers/TFT/st7735.c **** /*
+ 194:Drivers/TFT/st7735.c **** Simpler (and probably slower) implementation:
+ 195:Drivers/TFT/st7735.c **** 
+ 196:Drivers/TFT/st7735.c **** static void ST7735_WriteChar(uint16_t x, uint16_t y, char ch, FontDef font, uint16_t color) {
+ 197:Drivers/TFT/st7735.c ****     uint32_t i, b, j;
+ 198:Drivers/TFT/st7735.c **** 
+ 199:Drivers/TFT/st7735.c ****     for(i = 0; i < font.height; i++) {
+ 200:Drivers/TFT/st7735.c ****         b = font.data[(ch - 32) * font.height + i];
+ 201:Drivers/TFT/st7735.c ****         for(j = 0; j < font.width; j++) {
+ 202:Drivers/TFT/st7735.c ****             if((b << j) & 0x8000)  {
+ 203:Drivers/TFT/st7735.c ****                 ST7735_DrawPixel(x + j, y + i, color);
+ 204:Drivers/TFT/st7735.c ****             } 
+ 205:Drivers/TFT/st7735.c ****         }
+ 206:Drivers/TFT/st7735.c ****     }
+ 207:Drivers/TFT/st7735.c **** }
+ 208:Drivers/TFT/st7735.c **** */
+ 209:Drivers/TFT/st7735.c **** 
+ 210:Drivers/TFT/st7735.c **** void ST7735_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint
+ 754              		.loc 1 210 114 is_stmt 1 view -0
+ 755              		.cfi_startproc
+ 756              		@ args = 20, pretend = 8, frame = 0
+ 757              		@ frame_needed = 0, uses_anonymous_args = 0
+ 758              		.loc 1 210 114 is_stmt 0 view .LVU148
+ 759 0000 82B0     		sub	sp, sp, #8
+ 760              	.LCFI23:
+ 761              		.cfi_def_cfa_offset 8
+ 762 0002 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 763              	.LCFI24:
+ 764              		.cfi_def_cfa_offset 36
+ 765              		.cfi_offset 4, -36
+ 766              		.cfi_offset 5, -32
+ 767              		.cfi_offset 6, -28
+ 768              		.cfi_offset 7, -24
+ 769              		.cfi_offset 8, -20
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 19
+
+
+ 770              		.cfi_offset 9, -16
+ 771              		.cfi_offset 14, -12
+ 772 0006 85B0     		sub	sp, sp, #20
+ 773              	.LCFI25:
+ 774              		.cfi_def_cfa_offset 56
+ 775 0008 0646     		mov	r6, r0
+ 776 000a 0D46     		mov	r5, r1
+ 777 000c 1746     		mov	r7, r2
+ 778 000e 0D93     		str	r3, [sp, #52]
+ 779 0010 BDF83C90 		ldrh	r9, [sp, #60]
+ 780 0014 BDF84080 		ldrh	r8, [sp, #64]
+ 211:Drivers/TFT/st7735.c ****     ST7735_Select();
+ 781              		.loc 1 211 5 is_stmt 1 view .LVU149
+ 782 0018 FFF7FEFF 		bl	ST7735_Select
+ 783              	.LVL68:
+ 212:Drivers/TFT/st7735.c **** 
+ 213:Drivers/TFT/st7735.c ****     while(*str) {
+ 784              		.loc 1 213 5 view .LVU150
+ 785              		.loc 1 213 10 is_stmt 0 view .LVU151
+ 786 001c 10E0     		b	.L57
+ 787              	.LVL69:
+ 788              	.L64:
+ 214:Drivers/TFT/st7735.c ****         if(x + font.width >= ST7735_WIDTH) {
+ 215:Drivers/TFT/st7735.c ****             x = 0;
+ 216:Drivers/TFT/st7735.c ****             y += font.height;
+ 217:Drivers/TFT/st7735.c ****             if(y + font.height >= ST7735_HEIGHT) {
+ 218:Drivers/TFT/st7735.c ****                 break;
+ 219:Drivers/TFT/st7735.c ****             }
+ 220:Drivers/TFT/st7735.c **** 
+ 221:Drivers/TFT/st7735.c ****             if(*str == ' ') {
+ 222:Drivers/TFT/st7735.c ****                 // skip spaces in the beginning of the new line
+ 223:Drivers/TFT/st7735.c ****                 str++;
+ 789              		.loc 1 223 17 is_stmt 1 view .LVU152
+ 790              		.loc 1 223 20 is_stmt 0 view .LVU153
+ 791 001e 0137     		adds	r7, r7, #1
+ 792              	.LVL70:
+ 224:Drivers/TFT/st7735.c ****                 continue;
+ 793              		.loc 1 224 17 is_stmt 1 view .LVU154
+ 215:Drivers/TFT/st7735.c ****             y += font.height;
+ 794              		.loc 1 215 15 is_stmt 0 view .LVU155
+ 795 0020 0026     		movs	r6, #0
+ 796              		.loc 1 224 17 view .LVU156
+ 797 0022 0DE0     		b	.L57
+ 798              	.LVL71:
+ 799              	.L58:
+ 225:Drivers/TFT/st7735.c ****             }
+ 226:Drivers/TFT/st7735.c ****         }
+ 227:Drivers/TFT/st7735.c **** 
+ 228:Drivers/TFT/st7735.c ****         ST7735_WriteChar(x, y, *str, font, color, bgcolor);
+ 800              		.loc 1 228 9 is_stmt 1 view .LVU157
+ 801 0024 CDF80880 		str	r8, [sp, #8]
+ 802 0028 CDF80490 		str	r9, [sp, #4]
+ 803 002c 0E9B     		ldr	r3, [sp, #56]
+ 804 002e 0093     		str	r3, [sp]
+ 805 0030 0D9B     		ldr	r3, [sp, #52]
+ 806 0032 2946     		mov	r1, r5
+ 807 0034 3046     		mov	r0, r6
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 20
+
+
+ 808 0036 FFF7FEFF 		bl	ST7735_WriteChar
+ 809              	.LVL72:
+ 229:Drivers/TFT/st7735.c ****         x += font.width;
+ 810              		.loc 1 229 9 view .LVU158
+ 811              		.loc 1 229 11 is_stmt 0 view .LVU159
+ 812 003a 3444     		add	r4, r4, r6
+ 813 003c A6B2     		uxth	r6, r4
+ 814              	.LVL73:
+ 230:Drivers/TFT/st7735.c ****         str++;
+ 815              		.loc 1 230 9 is_stmt 1 view .LVU160
+ 816              		.loc 1 230 12 is_stmt 0 view .LVU161
+ 817 003e 0137     		adds	r7, r7, #1
+ 818              	.LVL74:
+ 819              	.L57:
+ 213:Drivers/TFT/st7735.c ****         if(x + font.width >= ST7735_WIDTH) {
+ 820              		.loc 1 213 10 is_stmt 1 view .LVU162
+ 213:Drivers/TFT/st7735.c ****         if(x + font.width >= ST7735_WIDTH) {
+ 821              		.loc 1 213 11 is_stmt 0 view .LVU163
+ 822 0040 3A78     		ldrb	r2, [r7]	@ zero_extendqisi2
+ 213:Drivers/TFT/st7735.c ****         if(x + font.width >= ST7735_WIDTH) {
+ 823              		.loc 1 213 10 view .LVU164
+ 824 0042 7AB1     		cbz	r2, .L59
+ 214:Drivers/TFT/st7735.c ****             x = 0;
+ 825              		.loc 1 214 9 is_stmt 1 view .LVU165
+ 214:Drivers/TFT/st7735.c ****             x = 0;
+ 826              		.loc 1 214 20 is_stmt 0 view .LVU166
+ 827 0044 9DF83440 		ldrb	r4, [sp, #52]	@ zero_extendqisi2
+ 214:Drivers/TFT/st7735.c ****             x = 0;
+ 828              		.loc 1 214 14 view .LVU167
+ 829 0048 3319     		adds	r3, r6, r4
+ 214:Drivers/TFT/st7735.c ****             x = 0;
+ 830              		.loc 1 214 11 view .LVU168
+ 831 004a 7F2B     		cmp	r3, #127
+ 832 004c EADD     		ble	.L58
+ 215:Drivers/TFT/st7735.c ****             y += font.height;
+ 833              		.loc 1 215 13 is_stmt 1 view .LVU169
+ 834              	.LVL75:
+ 216:Drivers/TFT/st7735.c ****             if(y + font.height >= ST7735_HEIGHT) {
+ 835              		.loc 1 216 13 view .LVU170
+ 216:Drivers/TFT/st7735.c ****             if(y + font.height >= ST7735_HEIGHT) {
+ 836              		.loc 1 216 22 is_stmt 0 view .LVU171
+ 837 004e 9DF83530 		ldrb	r3, [sp, #53]	@ zero_extendqisi2
+ 216:Drivers/TFT/st7735.c ****             if(y + font.height >= ST7735_HEIGHT) {
+ 838              		.loc 1 216 15 view .LVU172
+ 839 0052 1D44     		add	r5, r5, r3
+ 840              	.LVL76:
+ 216:Drivers/TFT/st7735.c ****             if(y + font.height >= ST7735_HEIGHT) {
+ 841              		.loc 1 216 15 view .LVU173
+ 842 0054 ADB2     		uxth	r5, r5
+ 843              	.LVL77:
+ 217:Drivers/TFT/st7735.c ****                 break;
+ 844              		.loc 1 217 13 is_stmt 1 view .LVU174
+ 217:Drivers/TFT/st7735.c ****                 break;
+ 845              		.loc 1 217 18 is_stmt 0 view .LVU175
+ 846 0056 2B44     		add	r3, r3, r5
+ 217:Drivers/TFT/st7735.c ****                 break;
+ 847              		.loc 1 217 15 view .LVU176
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 21
+
+
+ 848 0058 7F2B     		cmp	r3, #127
+ 849 005a 03DC     		bgt	.L59
+ 221:Drivers/TFT/st7735.c ****                 // skip spaces in the beginning of the new line
+ 850              		.loc 1 221 13 is_stmt 1 view .LVU177
+ 221:Drivers/TFT/st7735.c ****                 // skip spaces in the beginning of the new line
+ 851              		.loc 1 221 15 is_stmt 0 view .LVU178
+ 852 005c 202A     		cmp	r2, #32
+ 853 005e DED0     		beq	.L64
+ 215:Drivers/TFT/st7735.c ****             y += font.height;
+ 854              		.loc 1 215 15 view .LVU179
+ 855 0060 0026     		movs	r6, #0
+ 856 0062 DFE7     		b	.L58
+ 857              	.LVL78:
+ 858              	.L59:
+ 231:Drivers/TFT/st7735.c ****     }
+ 232:Drivers/TFT/st7735.c **** 
+ 233:Drivers/TFT/st7735.c ****     ST7735_Unselect();
+ 859              		.loc 1 233 5 is_stmt 1 view .LVU180
+ 860 0064 FFF7FEFF 		bl	ST7735_Unselect
+ 861              	.LVL79:
+ 234:Drivers/TFT/st7735.c **** }
+ 862              		.loc 1 234 1 is_stmt 0 view .LVU181
+ 863 0068 05B0     		add	sp, sp, #20
+ 864              	.LCFI26:
+ 865              		.cfi_def_cfa_offset 36
+ 866              		@ sp needed
+ 867 006a BDE8F043 		pop	{r4, r5, r6, r7, r8, r9, lr}
+ 868              	.LCFI27:
+ 869              		.cfi_restore 14
+ 870              		.cfi_restore 9
+ 871              		.cfi_restore 8
+ 872              		.cfi_restore 7
+ 873              		.cfi_restore 6
+ 874              		.cfi_restore 5
+ 875              		.cfi_restore 4
+ 876              		.cfi_def_cfa_offset 8
+ 877              	.LVL80:
+ 878              		.loc 1 234 1 view .LVU182
+ 879 006e 02B0     		add	sp, sp, #8
+ 880              	.LCFI28:
+ 881              		.cfi_def_cfa_offset 0
+ 882 0070 7047     		bx	lr
+ 883              		.cfi_endproc
+ 884              	.LFE245:
+ 886              		.section	.text.ST7735_FillRectangle,"ax",%progbits
+ 887              		.align	1
+ 888              		.global	ST7735_FillRectangle
+ 889              		.syntax unified
+ 890              		.thumb
+ 891              		.thumb_func
+ 892              		.fpu fpv4-sp-d16
+ 894              	ST7735_FillRectangle:
+ 895              	.LVL81:
+ 896              	.LFB246:
+ 235:Drivers/TFT/st7735.c **** 
+ 236:Drivers/TFT/st7735.c **** void ST7735_FillRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color) {
+ 897              		.loc 1 236 91 is_stmt 1 view -0
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 22
+
+
+ 898              		.cfi_startproc
+ 899              		@ args = 4, pretend = 0, frame = 8
+ 900              		@ frame_needed = 0, uses_anonymous_args = 0
+ 901              		.loc 1 236 91 is_stmt 0 view .LVU184
+ 902 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 903              	.LCFI29:
+ 904              		.cfi_def_cfa_offset 24
+ 905              		.cfi_offset 4, -24
+ 906              		.cfi_offset 5, -20
+ 907              		.cfi_offset 6, -16
+ 908              		.cfi_offset 7, -12
+ 909              		.cfi_offset 8, -8
+ 910              		.cfi_offset 14, -4
+ 911 0004 82B0     		sub	sp, sp, #8
+ 912              	.LCFI30:
+ 913              		.cfi_def_cfa_offset 32
+ 914 0006 BDF82070 		ldrh	r7, [sp, #32]
+ 237:Drivers/TFT/st7735.c ****     // clipping
+ 238:Drivers/TFT/st7735.c ****     if((x >= ST7735_WIDTH) || (y >= ST7735_HEIGHT)) return;
+ 915              		.loc 1 238 5 is_stmt 1 view .LVU185
+ 916              		.loc 1 238 7 is_stmt 0 view .LVU186
+ 917 000a 7F28     		cmp	r0, #127
+ 918 000c 3DD8     		bhi	.L65
+ 919 000e 8046     		mov	r8, r0
+ 920 0010 0C46     		mov	r4, r1
+ 921 0012 1646     		mov	r6, r2
+ 922 0014 1D46     		mov	r5, r3
+ 923              		.loc 1 238 28 discriminator 2 view .LVU187
+ 924 0016 7F29     		cmp	r1, #127
+ 925 0018 37D8     		bhi	.L65
+ 239:Drivers/TFT/st7735.c ****     if((x + w - 1) >= ST7735_WIDTH) w = ST7735_WIDTH - x;
+ 926              		.loc 1 239 5 is_stmt 1 view .LVU188
+ 927              		.loc 1 239 11 is_stmt 0 view .LVU189
+ 928 001a 8318     		adds	r3, r0, r2
+ 929              	.LVL82:
+ 930              		.loc 1 239 7 view .LVU190
+ 931 001c 802B     		cmp	r3, #128
+ 932 001e 02DD     		ble	.L69
+ 933              		.loc 1 239 37 is_stmt 1 discriminator 1 view .LVU191
+ 934              		.loc 1 239 39 is_stmt 0 discriminator 1 view .LVU192
+ 935 0020 C0F18006 		rsb	r6, r0, #128
+ 936 0024 B6B2     		uxth	r6, r6
+ 937              	.LVL83:
+ 938              	.L69:
+ 240:Drivers/TFT/st7735.c ****     if((y + h - 1) >= ST7735_HEIGHT) h = ST7735_HEIGHT - y;
+ 939              		.loc 1 240 5 is_stmt 1 view .LVU193
+ 940              		.loc 1 240 11 is_stmt 0 view .LVU194
+ 941 0026 6319     		adds	r3, r4, r5
+ 942              		.loc 1 240 7 view .LVU195
+ 943 0028 802B     		cmp	r3, #128
+ 944 002a 02DD     		ble	.L70
+ 945              		.loc 1 240 38 is_stmt 1 discriminator 1 view .LVU196
+ 946              		.loc 1 240 40 is_stmt 0 discriminator 1 view .LVU197
+ 947 002c C4F18005 		rsb	r5, r4, #128
+ 948 0030 ADB2     		uxth	r5, r5
+ 949              	.LVL84:
+ 950              	.L70:
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 23
+
+
+ 241:Drivers/TFT/st7735.c **** 
+ 242:Drivers/TFT/st7735.c ****     ST7735_Select();
+ 951              		.loc 1 242 5 is_stmt 1 view .LVU198
+ 952 0032 FFF7FEFF 		bl	ST7735_Select
+ 953              	.LVL85:
+ 243:Drivers/TFT/st7735.c ****     ST7735_SetAddressWindow(x, y, x+w-1, y+h-1);
+ 954              		.loc 1 243 5 view .LVU199
+ 955 0036 5FFA88F0 		uxtb	r0, r8
+ 956 003a E1B2     		uxtb	r1, r4
+ 957              		.loc 1 243 36 is_stmt 0 view .LVU200
+ 958 003c 8219     		adds	r2, r0, r6
+ 959 003e D2B2     		uxtb	r2, r2
+ 960              		.loc 1 243 43 view .LVU201
+ 961 0040 4B19     		adds	r3, r1, r5
+ 962 0042 DBB2     		uxtb	r3, r3
+ 963              		.loc 1 243 5 view .LVU202
+ 964 0044 013B     		subs	r3, r3, #1
+ 965 0046 013A     		subs	r2, r2, #1
+ 966 0048 DBB2     		uxtb	r3, r3
+ 967 004a D2B2     		uxtb	r2, r2
+ 968 004c FFF7FEFF 		bl	ST7735_SetAddressWindow
+ 969              	.LVL86:
+ 244:Drivers/TFT/st7735.c **** 
+ 245:Drivers/TFT/st7735.c ****     uint8_t data[] = { color >> 8, color & 0xFF };
+ 970              		.loc 1 245 5 is_stmt 1 view .LVU203
+ 971              		.loc 1 245 13 is_stmt 0 view .LVU204
+ 972 0050 3B0A     		lsrs	r3, r7, #8
+ 973 0052 8DF80430 		strb	r3, [sp, #4]
+ 974 0056 8DF80570 		strb	r7, [sp, #5]
+ 246:Drivers/TFT/st7735.c ****     HAL_GPIO_WritePin(ST7735_DC_GPIO_Port, ST7735_DC_Pin, GPIO_PIN_SET);
+ 975              		.loc 1 246 5 is_stmt 1 view .LVU205
+ 976 005a 0122     		movs	r2, #1
+ 977 005c 0221     		movs	r1, #2
+ 978 005e 0C48     		ldr	r0, .L77
+ 979 0060 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 980              	.LVL87:
+ 247:Drivers/TFT/st7735.c ****     for(y = h; y > 0; y--) {
+ 981              		.loc 1 247 5 view .LVU206
+ 982              		.loc 1 247 5 is_stmt 0 view .LVU207
+ 983 0064 0CE0     		b	.L71
+ 984              	.LVL88:
+ 985              	.L72:
+ 248:Drivers/TFT/st7735.c ****         for(x = w; x > 0; x--) {
+ 249:Drivers/TFT/st7735.c ****             HAL_SPI_Transmit(&ST7735_SPI_PORT, data, sizeof(data), HAL_MAX_DELAY);
+ 986              		.loc 1 249 13 is_stmt 1 discriminator 3 view .LVU208
+ 987 0066 4FF0FF33 		mov	r3, #-1
+ 988 006a 0222     		movs	r2, #2
+ 989 006c 01A9     		add	r1, sp, #4
+ 990 006e 0948     		ldr	r0, .L77+4
+ 991 0070 FFF7FEFF 		bl	HAL_SPI_Transmit
+ 992              	.LVL89:
+ 248:Drivers/TFT/st7735.c ****         for(x = w; x > 0; x--) {
+ 993              		.loc 1 248 27 discriminator 3 view .LVU209
+ 248:Drivers/TFT/st7735.c ****         for(x = w; x > 0; x--) {
+ 994              		.loc 1 248 28 is_stmt 0 discriminator 3 view .LVU210
+ 995 0074 013C     		subs	r4, r4, #1
+ 996              	.LVL90:
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 24
+
+
+ 248:Drivers/TFT/st7735.c ****         for(x = w; x > 0; x--) {
+ 997              		.loc 1 248 28 discriminator 3 view .LVU211
+ 998 0076 A4B2     		uxth	r4, r4
+ 999              	.LVL91:
+ 1000              	.L73:
+ 248:Drivers/TFT/st7735.c ****         for(x = w; x > 0; x--) {
+ 1001              		.loc 1 248 20 is_stmt 1 discriminator 1 view .LVU212
+ 248:Drivers/TFT/st7735.c ****         for(x = w; x > 0; x--) {
+ 1002              		.loc 1 248 9 is_stmt 0 discriminator 1 view .LVU213
+ 1003 0078 002C     		cmp	r4, #0
+ 1004 007a F4D1     		bne	.L72
+ 247:Drivers/TFT/st7735.c ****     for(y = h; y > 0; y--) {
+ 1005              		.loc 1 247 23 is_stmt 1 discriminator 2 view .LVU214
+ 247:Drivers/TFT/st7735.c ****     for(y = h; y > 0; y--) {
+ 1006              		.loc 1 247 24 is_stmt 0 discriminator 2 view .LVU215
+ 1007 007c 013D     		subs	r5, r5, #1
+ 1008              	.LVL92:
+ 247:Drivers/TFT/st7735.c ****     for(y = h; y > 0; y--) {
+ 1009              		.loc 1 247 24 discriminator 2 view .LVU216
+ 1010 007e ADB2     		uxth	r5, r5
+ 1011              	.LVL93:
+ 1012              	.L71:
+ 247:Drivers/TFT/st7735.c ****     for(y = h; y > 0; y--) {
+ 1013              		.loc 1 247 16 is_stmt 1 discriminator 1 view .LVU217
+ 247:Drivers/TFT/st7735.c ****     for(y = h; y > 0; y--) {
+ 1014              		.loc 1 247 5 is_stmt 0 discriminator 1 view .LVU218
+ 1015 0080 0DB1     		cbz	r5, .L76
+ 248:Drivers/TFT/st7735.c ****         for(x = w; x > 0; x--) {
+ 1016              		.loc 1 248 15 view .LVU219
+ 1017 0082 3446     		mov	r4, r6
+ 1018 0084 F8E7     		b	.L73
+ 1019              	.L76:
+ 250:Drivers/TFT/st7735.c ****         }
+ 251:Drivers/TFT/st7735.c ****     }
+ 252:Drivers/TFT/st7735.c **** 
+ 253:Drivers/TFT/st7735.c ****     ST7735_Unselect();
+ 1020              		.loc 1 253 5 is_stmt 1 view .LVU220
+ 1021 0086 FFF7FEFF 		bl	ST7735_Unselect
+ 1022              	.LVL94:
+ 1023              	.L65:
+ 254:Drivers/TFT/st7735.c **** }
+ 1024              		.loc 1 254 1 is_stmt 0 view .LVU221
+ 1025 008a 02B0     		add	sp, sp, #8
+ 1026              	.LCFI31:
+ 1027              		.cfi_def_cfa_offset 24
+ 1028              		@ sp needed
+ 1029 008c BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 1030              	.LVL95:
+ 1031              	.L78:
+ 1032              		.loc 1 254 1 view .LVU222
+ 1033              		.align	2
+ 1034              	.L77:
+ 1035 0090 00040240 		.word	1073873920
+ 1036 0094 00000000 		.word	hspi2
+ 1037              		.cfi_endproc
+ 1038              	.LFE246:
+ 1040              		.section	.text.ST7735_FillScreen,"ax",%progbits
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 25
+
+
+ 1041              		.align	1
+ 1042              		.global	ST7735_FillScreen
+ 1043              		.syntax unified
+ 1044              		.thumb
+ 1045              		.thumb_func
+ 1046              		.fpu fpv4-sp-d16
+ 1048              	ST7735_FillScreen:
+ 1049              	.LVL96:
+ 1050              	.LFB247:
+ 255:Drivers/TFT/st7735.c **** 
+ 256:Drivers/TFT/st7735.c **** void ST7735_FillScreen(uint16_t color) {
+ 1051              		.loc 1 256 40 is_stmt 1 view -0
+ 1052              		.cfi_startproc
+ 1053              		@ args = 0, pretend = 0, frame = 0
+ 1054              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1055              		.loc 1 256 40 is_stmt 0 view .LVU224
+ 1056 0000 00B5     		push	{lr}
+ 1057              	.LCFI32:
+ 1058              		.cfi_def_cfa_offset 4
+ 1059              		.cfi_offset 14, -4
+ 1060 0002 83B0     		sub	sp, sp, #12
+ 1061              	.LCFI33:
+ 1062              		.cfi_def_cfa_offset 16
+ 257:Drivers/TFT/st7735.c ****     ST7735_FillRectangle(0, 0, ST7735_WIDTH, ST7735_HEIGHT, color);
+ 1063              		.loc 1 257 5 is_stmt 1 view .LVU225
+ 1064 0004 0090     		str	r0, [sp]
+ 1065 0006 8023     		movs	r3, #128
+ 1066 0008 1A46     		mov	r2, r3
+ 1067 000a 0021     		movs	r1, #0
+ 1068 000c 0846     		mov	r0, r1
+ 1069              	.LVL97:
+ 1070              		.loc 1 257 5 is_stmt 0 view .LVU226
+ 1071 000e FFF7FEFF 		bl	ST7735_FillRectangle
+ 1072              	.LVL98:
+ 258:Drivers/TFT/st7735.c **** }
+ 1073              		.loc 1 258 1 view .LVU227
+ 1074 0012 03B0     		add	sp, sp, #12
+ 1075              	.LCFI34:
+ 1076              		.cfi_def_cfa_offset 4
+ 1077              		@ sp needed
+ 1078 0014 5DF804FB 		ldr	pc, [sp], #4
+ 1079              		.cfi_endproc
+ 1080              	.LFE247:
+ 1082              		.section	.text.ST7735_DrawImage,"ax",%progbits
+ 1083              		.align	1
+ 1084              		.global	ST7735_DrawImage
+ 1085              		.syntax unified
+ 1086              		.thumb
+ 1087              		.thumb_func
+ 1088              		.fpu fpv4-sp-d16
+ 1090              	ST7735_DrawImage:
+ 1091              	.LVL99:
+ 1092              	.LFB248:
+ 259:Drivers/TFT/st7735.c **** 
+ 260:Drivers/TFT/st7735.c **** void ST7735_DrawImage(uint16_t x, uint16_t y, uint16_t w, uint16_t h, const uint16_t* data) {
+ 1093              		.loc 1 260 93 is_stmt 1 view -0
+ 1094              		.cfi_startproc
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 26
+
+
+ 1095              		@ args = 4, pretend = 0, frame = 0
+ 1096              		@ frame_needed = 0, uses_anonymous_args = 0
+ 261:Drivers/TFT/st7735.c ****     if((x >= ST7735_WIDTH) || (y >= ST7735_HEIGHT)) return;
+ 1097              		.loc 1 261 5 view .LVU229
+ 1098              		.loc 1 261 7 is_stmt 0 view .LVU230
+ 1099 0000 7F28     		cmp	r0, #127
+ 1100 0002 24D8     		bhi	.L84
+ 260:Drivers/TFT/st7735.c ****     if((x >= ST7735_WIDTH) || (y >= ST7735_HEIGHT)) return;
+ 1101              		.loc 1 260 93 discriminator 2 view .LVU231
+ 1102 0004 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 1103              	.LCFI35:
+ 1104              		.cfi_def_cfa_offset 24
+ 1105              		.cfi_offset 3, -24
+ 1106              		.cfi_offset 4, -20
+ 1107              		.cfi_offset 5, -16
+ 1108              		.cfi_offset 6, -12
+ 1109              		.cfi_offset 7, -8
+ 1110              		.cfi_offset 14, -4
+ 1111 0006 0446     		mov	r4, r0
+ 1112 0008 0D46     		mov	r5, r1
+ 1113 000a 1746     		mov	r7, r2
+ 1114 000c 1E46     		mov	r6, r3
+ 1115              		.loc 1 261 28 discriminator 2 view .LVU232
+ 1116 000e 7F29     		cmp	r1, #127
+ 1117 0010 05D8     		bhi	.L81
+ 262:Drivers/TFT/st7735.c ****     if((x + w - 1) >= ST7735_WIDTH) return;
+ 1118              		.loc 1 262 5 is_stmt 1 view .LVU233
+ 1119              		.loc 1 262 11 is_stmt 0 view .LVU234
+ 1120 0012 8318     		adds	r3, r0, r2
+ 1121              	.LVL100:
+ 1122              		.loc 1 262 7 view .LVU235
+ 1123 0014 802B     		cmp	r3, #128
+ 1124 0016 02DC     		bgt	.L81
+ 263:Drivers/TFT/st7735.c ****     if((y + h - 1) >= ST7735_HEIGHT) return;
+ 1125              		.loc 1 263 5 is_stmt 1 view .LVU236
+ 1126              		.loc 1 263 11 is_stmt 0 view .LVU237
+ 1127 0018 8B19     		adds	r3, r1, r6
+ 1128              		.loc 1 263 7 view .LVU238
+ 1129 001a 802B     		cmp	r3, #128
+ 1130 001c 00DD     		ble	.L87
+ 1131              	.LVL101:
+ 1132              	.L81:
+ 264:Drivers/TFT/st7735.c **** 
+ 265:Drivers/TFT/st7735.c ****     ST7735_Select();
+ 266:Drivers/TFT/st7735.c ****     ST7735_SetAddressWindow(x, y, x+w-1, y+h-1);
+ 267:Drivers/TFT/st7735.c ****     ST7735_WriteData((uint8_t*)data, sizeof(uint16_t)*w*h);
+ 268:Drivers/TFT/st7735.c ****     ST7735_Unselect();
+ 269:Drivers/TFT/st7735.c **** }
+ 1133              		.loc 1 269 1 view .LVU239
+ 1134 001e F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 1135              	.LVL102:
+ 1136              	.L87:
+ 265:Drivers/TFT/st7735.c ****     ST7735_SetAddressWindow(x, y, x+w-1, y+h-1);
+ 1137              		.loc 1 265 5 is_stmt 1 view .LVU240
+ 1138 0020 FFF7FEFF 		bl	ST7735_Select
+ 1139              	.LVL103:
+ 266:Drivers/TFT/st7735.c ****     ST7735_WriteData((uint8_t*)data, sizeof(uint16_t)*w*h);
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 27
+
+
+ 1140              		.loc 1 266 5 view .LVU241
+ 1141 0024 E0B2     		uxtb	r0, r4
+ 1142 0026 E9B2     		uxtb	r1, r5
+ 266:Drivers/TFT/st7735.c ****     ST7735_WriteData((uint8_t*)data, sizeof(uint16_t)*w*h);
+ 1143              		.loc 1 266 36 is_stmt 0 view .LVU242
+ 1144 0028 C219     		adds	r2, r0, r7
+ 1145 002a D2B2     		uxtb	r2, r2
+ 266:Drivers/TFT/st7735.c ****     ST7735_WriteData((uint8_t*)data, sizeof(uint16_t)*w*h);
+ 1146              		.loc 1 266 43 view .LVU243
+ 1147 002c 8B19     		adds	r3, r1, r6
+ 1148 002e DBB2     		uxtb	r3, r3
+ 266:Drivers/TFT/st7735.c ****     ST7735_WriteData((uint8_t*)data, sizeof(uint16_t)*w*h);
+ 1149              		.loc 1 266 5 view .LVU244
+ 1150 0030 013B     		subs	r3, r3, #1
+ 1151 0032 013A     		subs	r2, r2, #1
+ 1152 0034 DBB2     		uxtb	r3, r3
+ 1153 0036 D2B2     		uxtb	r2, r2
+ 1154 0038 FFF7FEFF 		bl	ST7735_SetAddressWindow
+ 1155              	.LVL104:
+ 267:Drivers/TFT/st7735.c ****     ST7735_Unselect();
+ 1156              		.loc 1 267 5 is_stmt 1 view .LVU245
+ 267:Drivers/TFT/st7735.c ****     ST7735_Unselect();
+ 1157              		.loc 1 267 56 is_stmt 0 view .LVU246
+ 1158 003c 06FB07F1 		mul	r1, r6, r7
+ 267:Drivers/TFT/st7735.c ****     ST7735_Unselect();
+ 1159              		.loc 1 267 5 view .LVU247
+ 1160 0040 4900     		lsls	r1, r1, #1
+ 1161 0042 0698     		ldr	r0, [sp, #24]
+ 1162 0044 FFF7FEFF 		bl	ST7735_WriteData
+ 1163              	.LVL105:
+ 268:Drivers/TFT/st7735.c **** }
+ 1164              		.loc 1 268 5 is_stmt 1 view .LVU248
+ 1165 0048 FFF7FEFF 		bl	ST7735_Unselect
+ 1166              	.LVL106:
+ 1167 004c E7E7     		b	.L81
+ 1168              	.LVL107:
+ 1169              	.L84:
+ 1170              	.LCFI36:
+ 1171              		.cfi_def_cfa_offset 0
+ 1172              		.cfi_restore 3
+ 1173              		.cfi_restore 4
+ 1174              		.cfi_restore 5
+ 1175              		.cfi_restore 6
+ 1176              		.cfi_restore 7
+ 1177              		.cfi_restore 14
+ 268:Drivers/TFT/st7735.c **** }
+ 1178              		.loc 1 268 5 is_stmt 0 view .LVU249
+ 1179 004e 7047     		bx	lr
+ 1180              		.cfi_endproc
+ 1181              	.LFE248:
+ 1183              		.section	.text.ST7735_InvertColors,"ax",%progbits
+ 1184              		.align	1
+ 1185              		.global	ST7735_InvertColors
+ 1186              		.syntax unified
+ 1187              		.thumb
+ 1188              		.thumb_func
+ 1189              		.fpu fpv4-sp-d16
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 28
+
+
+ 1191              	ST7735_InvertColors:
+ 1192              	.LVL108:
+ 1193              	.LFB249:
+ 270:Drivers/TFT/st7735.c **** 
+ 271:Drivers/TFT/st7735.c **** void ST7735_InvertColors(bool invert) {
+ 1194              		.loc 1 271 39 is_stmt 1 view -0
+ 1195              		.cfi_startproc
+ 1196              		@ args = 0, pretend = 0, frame = 0
+ 1197              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1198              		.loc 1 271 39 is_stmt 0 view .LVU251
+ 1199 0000 10B5     		push	{r4, lr}
+ 1200              	.LCFI37:
+ 1201              		.cfi_def_cfa_offset 8
+ 1202              		.cfi_offset 4, -8
+ 1203              		.cfi_offset 14, -4
+ 1204 0002 0446     		mov	r4, r0
+ 272:Drivers/TFT/st7735.c ****     ST7735_Select();
+ 1205              		.loc 1 272 5 is_stmt 1 view .LVU252
+ 1206 0004 FFF7FEFF 		bl	ST7735_Select
+ 1207              	.LVL109:
+ 273:Drivers/TFT/st7735.c ****     ST7735_WriteCommand(invert ? ST7735_INVON : ST7735_INVOFF);
+ 1208              		.loc 1 273 5 view .LVU253
+ 1209 0008 2CB1     		cbz	r4, .L90
+ 1210 000a 2120     		movs	r0, #33
+ 1211              	.L89:
+ 1212              		.loc 1 273 5 is_stmt 0 discriminator 4 view .LVU254
+ 1213 000c FFF7FEFF 		bl	ST7735_WriteCommand
+ 1214              	.LVL110:
+ 274:Drivers/TFT/st7735.c ****     ST7735_Unselect();
+ 1215              		.loc 1 274 5 is_stmt 1 discriminator 4 view .LVU255
+ 1216 0010 FFF7FEFF 		bl	ST7735_Unselect
+ 1217              	.LVL111:
+ 275:Drivers/TFT/st7735.c **** }
+ 1218              		.loc 1 275 1 is_stmt 0 discriminator 4 view .LVU256
+ 1219 0014 10BD     		pop	{r4, pc}
+ 1220              	.L90:
+ 273:Drivers/TFT/st7735.c ****     ST7735_WriteCommand(invert ? ST7735_INVON : ST7735_INVOFF);
+ 1221              		.loc 1 273 5 view .LVU257
+ 1222 0016 2020     		movs	r0, #32
+ 1223 0018 F8E7     		b	.L89
+ 1224              		.cfi_endproc
+ 1225              	.LFE249:
+ 1227              		.section	.rodata.init_cmds1,"a"
+ 1228              		.align	2
+ 1229              		.set	.LANCHOR0,. + 0
+ 1232              	init_cmds1:
+ 1233 0000 0F018096 		.ascii	"\017\001\200\226\021\200\377\261\003\001,-\262\003\001"
+ 1233      1180FFB1 
+ 1233      03012C2D 
+ 1233      B20301
+ 1234 000f 2C2DB306 		.ascii	",-\263\006\001,-\001,-\264\001\007\300\003\242\002\204"
+ 1234      012C2D01 
+ 1234      2C2DB401 
+ 1234      07C003A2 
+ 1234      0284
+ 1235 0021 C101C5C2 		.ascii	"\301\001\305\302\002\012\000\303\002\212*\304\002\212"
+ 1235      020A00C3 
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 29
+
+
+ 1235      028A2AC4 
+ 1235      028A
+ 1236 002f EEC5010E 		.ascii	"\356\305\001\016 \0006\001\310:\001\005"
+ 1236      20003601 
+ 1236      C83A0105 
+ 1237              		.section	.rodata.init_cmds2,"a"
+ 1238              		.align	2
+ 1239              		.set	.LANCHOR1,. + 0
+ 1242              	init_cmds2:
+ 1243 0000 022A0400 		.ascii	"\002*\004\000\000\000\177+\004\000\000\000\177"
+ 1243      00007F2B 
+ 1243      04000000 
+ 1243      7F
+ 1244              		.section	.rodata.init_cmds3,"a"
+ 1245              		.align	2
+ 1246              		.set	.LANCHOR2,. + 0
+ 1249              	init_cmds3:
+ 1250 0000 04E01002 		.ascii	"\004\340\020\002\034\007\02272)-)%+9\000\001\003\020"
+ 1250      1C071237 
+ 1250      32292D29 
+ 1250      252B3900 
+ 1250      010310
+ 1251 0013 E110031D 		.ascii	"\341\020\003\035\007\006.,)-..7?\000\000\002\020\023"
+ 1251      07062E2C 
+ 1251      292D2E2E 
+ 1251      373F0000 
+ 1251      021013
+ 1252 0026 800A2980 		.ascii	"\200\012)\200d"
+ 1252      64
+ 1253              		.text
+ 1254              	.Letext0:
+ 1255              		.file 2 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 1256              		.file 3 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 1257              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 1258              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 1259              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 1260              		.file 7 "c:\\vscodeproject\\software\\arm_gcc\\lib\\gcc\\arm-none-eabi\\9.2.1\\include\\stddef.h"
+ 1261              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 1262              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 1263              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 1264              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 1265              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 1266              		.file 13 "Drivers/TFT/fonts.h"
+ 1267              		.file 14 "Drivers/TFT/st7735.h"
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s 			page 30
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 st7735.c
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:18     .text.ST7735_Select:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:25     .text.ST7735_Select:0000000000000000 ST7735_Select
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:48     .text.ST7735_Select:0000000000000010 $d
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:53     .text.ST7735_Reset:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:59     .text.ST7735_Reset:0000000000000000 ST7735_Reset
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:92     .text.ST7735_Reset:0000000000000020 $d
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:97     .text.ST7735_WriteCommand:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:103    .text.ST7735_WriteCommand:0000000000000000 ST7735_WriteCommand
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:143    .text.ST7735_WriteCommand:0000000000000028 $d
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:149    .text.ST7735_WriteData:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:155    .text.ST7735_WriteData:0000000000000000 ST7735_WriteData
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:196    .text.ST7735_WriteData:0000000000000020 $d
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:202    .text.ST7735_ExecuteCommandList:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:208    .text.ST7735_ExecuteCommandList:0000000000000000 ST7735_ExecuteCommandList
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:321    .text.ST7735_SetAddressWindow:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:327    .text.ST7735_SetAddressWindow:0000000000000000 ST7735_SetAddressWindow
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:407    .text.ST7735_WriteChar:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:413    .text.ST7735_WriteChar:0000000000000000 ST7735_WriteChar
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:571    .text.ST7735_Unselect:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:578    .text.ST7735_Unselect:0000000000000000 ST7735_Unselect
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:600    .text.ST7735_Unselect:0000000000000010 $d
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:605    .text.ST7735_Init:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:612    .text.ST7735_Init:0000000000000000 ST7735_Init
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:649    .text.ST7735_Init:0000000000000024 $d
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:656    .text.ST7735_DrawPixel:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:663    .text.ST7735_DrawPixel:0000000000000000 ST7735_DrawPixel
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:744    .text.ST7735_WriteString:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:751    .text.ST7735_WriteString:0000000000000000 ST7735_WriteString
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:887    .text.ST7735_FillRectangle:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:894    .text.ST7735_FillRectangle:0000000000000000 ST7735_FillRectangle
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:1035   .text.ST7735_FillRectangle:0000000000000090 $d
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:1041   .text.ST7735_FillScreen:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:1048   .text.ST7735_FillScreen:0000000000000000 ST7735_FillScreen
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:1083   .text.ST7735_DrawImage:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:1090   .text.ST7735_DrawImage:0000000000000000 ST7735_DrawImage
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:1184   .text.ST7735_InvertColors:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:1191   .text.ST7735_InvertColors:0000000000000000 ST7735_InvertColors
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:1228   .rodata.init_cmds1:0000000000000000 $d
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:1232   .rodata.init_cmds1:0000000000000000 init_cmds1
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:1238   .rodata.init_cmds2:0000000000000000 $d
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:1242   .rodata.init_cmds2:0000000000000000 init_cmds2
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:1245   .rodata.init_cmds3:0000000000000000 $d
+C:\Users\Andre\AppData\Local\Temp\ccnx7lK9.s:1249   .rodata.init_cmds3:0000000000000000 init_cmds3
+
+UNDEFINED SYMBOLS
+HAL_GPIO_WritePin
+HAL_Delay
+HAL_SPI_Transmit
+hspi2

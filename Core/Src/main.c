@@ -32,6 +32,10 @@
 #include "user_mb_app.h"
 #include "ReceiveTransmit.h"
 
+#include "st7735.h"
+#include "fonts.h"
+#include "img.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -50,12 +54,14 @@
 
 /* Private variables ---------------------------------------------------------*/
 
+
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -87,6 +93,7 @@ int main(void)
   /* Configure the system clock */
   SystemClock_Config();
 
+
   /* USER CODE BEGIN SysInit */
 
   /* USER CODE END SysInit */
@@ -101,6 +108,7 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
+  ST7735_Init();
   eMBInit(MB_RTU, 1, &huart2, 115200, &htim4);
 	eMBEnable();
 
@@ -112,6 +120,10 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    ST7735_FillScreen(ST7735_BLACK);
+    ST7735_WriteString(0, 0, "BLACK", Font_11x18, ST7735_WHITE, ST7735_BLACK);
+    HAL_Delay(500);
+
     HAL_Delay(20);
     eMBPoll();
     /* USER CODE END WHILE */

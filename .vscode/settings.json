@@ -9,7 +9,9 @@
 		"main.h": "c",
 		"stm32f4xx_hal.h": "c",
 		"receivetransmit.h": "c",
-		"adc.h": "c"
+		"adc.h": "c",
+		"fonts.h": "c",
+		"st7735.h": "c"
 	},
 	"C_Cpp.errorSquiggles": "Enabled"
 }
