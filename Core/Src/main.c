@@ -35,6 +35,7 @@
 #include <string.h>
 #include "st7735.h"
 #include "fonts.h"
+//#include "testimg.h"
 #include "img.h"
 
 /* USER CODE END Includes */
@@ -106,11 +107,11 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  ST7735_Init();
   eMBInit(MB_RTU, 1, &huart2, 115200, &htim4);
 	eMBEnable();
 
   HAL_TIM_Base_Start_IT(&htim3);
+  ST7735_Init();
 
   /* USER CODE END 2 */
 
@@ -118,13 +119,27 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    ST7735_FillScreen(ST7735_BLUE);
-    ST7735_WriteString(0, 0, "BLUE", Font_11x18, ST7735_BLACK, ST7735_BLUE);
-    HAL_Delay(500);
+    // ST7735_FillScreen(ST7735_BLACK);
+    // HAL_Delay(1000);
+    // ST7735_FillScreen(ST7735_BLUE);
+    // HAL_Delay(1000);
+    #ifdef ST7735_IS_128X128
+	    // Display test image 128x128
+	    ST7735_DrawImage(0, 0, ST7735_WIDTH, ST7735_HEIGHT, (uint16_t*)test_img_128x128);
 
-    ST7735_FillScreen(ST7735_RED);
-    ST7735_WriteString(0, 0, "RED", Font_11x18, ST7735_BLACK, ST7735_RED);
-    HAL_Delay(500);
+	/*
+	    // Display test image 128x128 pixel by pixel
+	    for(int x = 0; x < ST7735_WIDTH; x++) {
+	        for(int y = 0; y < ST7735_HEIGHT; y++) {
+	            uint16_t color565 = test_img_128x128[y][x];
+	            // fix endiness
+	            color565 = ((color565 & 0xFF00) >> 8) | ((color565 & 0xFF) << 8);
+	            ST7735_DrawPixel(x, y, color565);
+	        }
+	    }
+	*/
+	    HAL_Delay(15000);
+	#endif // ST7735_IS_128X128
 
     HAL_Delay(20);
     eMBPoll();
