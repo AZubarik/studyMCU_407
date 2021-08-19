@@ -32,6 +32,7 @@
 #include "user_mb_app.h"
 #include "ReceiveTransmit.h"
 
+#include <string.h>
 #include "st7735.h"
 #include "fonts.h"
 #include "img.h"
@@ -54,14 +55,12 @@
 
 /* Private variables ---------------------------------------------------------*/
 
-
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -93,7 +92,6 @@ int main(void)
   /* Configure the system clock */
   SystemClock_Config();
 
-
   /* USER CODE BEGIN SysInit */
 
   /* USER CODE END SysInit */
@@ -120,8 +118,12 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    ST7735_FillScreen(ST7735_BLACK);
-    ST7735_WriteString(0, 0, "BLACK", Font_11x18, ST7735_WHITE, ST7735_BLACK);
+    ST7735_FillScreen(ST7735_BLUE);
+    ST7735_WriteString(0, 0, "BLUE", Font_11x18, ST7735_BLACK, ST7735_BLUE);
+    HAL_Delay(500);
+
+    ST7735_FillScreen(ST7735_RED);
+    ST7735_WriteString(0, 0, "RED", Font_11x18, ST7735_BLACK, ST7735_RED);
     HAL_Delay(500);
 
     HAL_Delay(20);
