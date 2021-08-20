@@ -35,8 +35,8 @@
 #include <string.h>
 #include "st7735.h"
 #include "fonts.h"
-//#include "testimg.h"
-#include "img.h"
+#include "testimg.h"
+// #include "img.h"
 
 /* USER CODE END Includes */
 
@@ -119,27 +119,21 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    // ST7735_FillScreen(ST7735_BLACK);
-    // HAL_Delay(1000);
+    ST7735_FillScreen(ST7735_BLACK);
+ 
+      ST7735_DrawPixel(0, 127, ST7735_WHITE);
+
+    HAL_Delay(2500);
+
+
     // ST7735_FillScreen(ST7735_BLUE);
     // HAL_Delay(1000);
-    #ifdef ST7735_IS_128X128
-	    // Display test image 128x128
-	    ST7735_DrawImage(0, 0, ST7735_WIDTH, ST7735_HEIGHT, (uint16_t*)test_img_128x128);
 
-	/*
-	    // Display test image 128x128 pixel by pixel
-	    for(int x = 0; x < ST7735_WIDTH; x++) {
-	        for(int y = 0; y < ST7735_HEIGHT; y++) {
-	            uint16_t color565 = test_img_128x128[y][x];
-	            // fix endiness
-	            color565 = ((color565 & 0xFF00) >> 8) | ((color565 & 0xFF) << 8);
-	            ST7735_DrawPixel(x, y, color565);
-	        }
-	    }
-	*/
-	    HAL_Delay(15000);
-	#endif // ST7735_IS_128X128
+  // #ifdef ST7735_IS_128X128
+	//     // Display test image 128x128
+	//     ST7735_DrawImage(0, 0, ST7735_WIDTH, ST7735_HEIGHT, (uint16_t*)test_img_128x128);
+	//     HAL_Delay(15000);
+	//#endif // ST7735_IS_128X128
 
     HAL_Delay(20);
     eMBPoll();

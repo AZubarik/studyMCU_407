@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 1
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -56,9 +56,9 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 1
   26:Core/Src/stm32f4xx_it.c **** #include "ReceiveTransmit.h"
   27:Core/Src/stm32f4xx_it.c **** 
   28:Core/Src/stm32f4xx_it.c **** #define tV_25   0.76            // Напряжение (в вольтах) на датчике п�
-  29:Core/Src/stm32f4xx_it.c **** #define tSlope  0.0025          // �?зменение напряжения (в вольтах) пр
+  29:Core/Src/stm32f4xx_it.c **** #define tSlope  0.0025          // �?зменение напряжения (в вольтах) п
   30:Core/Src/stm32f4xx_it.c **** #define Vref    3.3             // Образцовое напряжение АЦП (в вольт�
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 2
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s 			page 2
 
 
   31:Core/Src/stm32f4xx_it.c **** /* USER CODE END Includes */
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 1
   85:Core/Src/stm32f4xx_it.c **** void NMI_Handler(void)
   86:Core/Src/stm32f4xx_it.c **** {
   29              		.loc 1 86 1 view -0
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 3
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s 			page 3
 
 
   30              		.cfi_startproc
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 1
  105:Core/Src/stm32f4xx_it.c ****   {
   62              		.loc 1 105 9 discriminator 1 view .LVU7
   63 0000 FEE7     		b	.L4
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 4
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s 			page 4
 
 
   64              		.cfi_endproc
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 1
  130:Core/Src/stm32f4xx_it.c **** void BusFault_Handler(void)
  131:Core/Src/stm32f4xx_it.c **** {
  101              		.loc 1 131 1 view -0
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 5
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s 			page 5
 
 
  102              		.cfi_startproc
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 1
  150:Core/Src/stm32f4xx_it.c ****   {
  134              		.loc 1 150 9 discriminator 1 view .LVU19
  135 0000 FEE7     		b	.L10
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 6
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s 			page 6
 
 
  136              		.cfi_endproc
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 1
  175:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN DebugMonitor_IRQn 0 */
  176:Core/Src/stm32f4xx_it.c **** 
  177:Core/Src/stm32f4xx_it.c ****   /* USER CODE END DebugMonitor_IRQn 0 */
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 7
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s 			page 7
 
 
  178:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN DebugMonitor_IRQn 1 */
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 1
  209              		.loc 1 200 1 view -0
  210              		.cfi_startproc
  211              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 8
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s 			page 8
 
 
  212              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -442,21 +442,15 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 1
  222 0006 08BD     		pop	{r3, pc}
  223              		.cfi_endproc
  224              	.LFE243:
- 226              		.global	__aeabi_f2d
- 227              		.global	__aeabi_dmul
- 228              		.global	__aeabi_d2f
- 229              		.global	__aeabi_dsub
- 230              		.global	__aeabi_ddiv
- 231              		.global	__aeabi_dadd
- 232              		.section	.text.TIM3_IRQHandler,"ax",%progbits
- 233              		.align	1
- 234              		.global	TIM3_IRQHandler
- 235              		.syntax unified
- 236              		.thumb
- 237              		.thumb_func
- 238              		.fpu fpv4-sp-d16
- 240              	TIM3_IRQHandler:
- 241              	.LFB244:
+ 226              		.section	.text.EXTI0_IRQHandler,"ax",%progbits
+ 227              		.align	1
+ 228              		.global	EXTI0_IRQHandler
+ 229              		.syntax unified
+ 230              		.thumb
+ 231              		.thumb_func
+ 232              		.fpu fpv4-sp-d16
+ 234              	EXTI0_IRQHandler:
+ 235              	.LFB244:
  209:Core/Src/stm32f4xx_it.c **** 
  210:Core/Src/stm32f4xx_it.c **** /******************************************************************************/
  211:Core/Src/stm32f4xx_it.c **** /* STM32F4xx Peripheral Interrupt Handlers                                    */
@@ -466,524 +460,587 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 1
  215:Core/Src/stm32f4xx_it.c **** /******************************************************************************/
  216:Core/Src/stm32f4xx_it.c **** 
  217:Core/Src/stm32f4xx_it.c **** /**
- 218:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM3 global interrupt.
+ 218:Core/Src/stm32f4xx_it.c ****   * @brief This function handles EXTI line0 interrupt.
  219:Core/Src/stm32f4xx_it.c ****   */
- 220:Core/Src/stm32f4xx_it.c **** void TIM3_IRQHandler(void)
+ 220:Core/Src/stm32f4xx_it.c **** void EXTI0_IRQHandler(void)
  221:Core/Src/stm32f4xx_it.c **** {
- 242              		.loc 1 221 1 is_stmt 1 view -0
- 243              		.cfi_startproc
- 244              		@ args = 0, pretend = 0, frame = 0
- 245              		@ frame_needed = 0, uses_anonymous_args = 0
- 246 0000 38B5     		push	{r3, r4, r5, lr}
- 247              	.LCFI1:
- 248              		.cfi_def_cfa_offset 16
- 249              		.cfi_offset 3, -16
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 9
-
-
- 250              		.cfi_offset 4, -12
- 251              		.cfi_offset 5, -8
- 252              		.cfi_offset 14, -4
- 222:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM3_IRQn 0 */
+ 236              		.loc 1 221 1 is_stmt 1 view -0
+ 237              		.cfi_startproc
+ 238              		@ args = 0, pretend = 0, frame = 0
+ 239              		@ frame_needed = 0, uses_anonymous_args = 0
+ 240 0000 08B5     		push	{r3, lr}
+ 241              	.LCFI1:
+ 242              		.cfi_def_cfa_offset 8
+ 243              		.cfi_offset 3, -8
+ 244              		.cfi_offset 14, -4
+ 222:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN EXTI0_IRQn 0 */
  223:Core/Src/stm32f4xx_it.c ****   HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_1);
- 253              		.loc 1 223 3 view .LVU30
- 254 0002 0221     		movs	r1, #2
- 255 0004 4448     		ldr	r0, .L26+24
- 256 0006 FFF7FEFF 		bl	HAL_GPIO_TogglePin
- 257              	.LVL1:
- 224:Core/Src/stm32f4xx_it.c ****   for (int i = 0; i < 5; i++) {
- 258              		.loc 1 224 3 view .LVU31
- 259              	.LBB2:
- 260              		.loc 1 224 8 view .LVU32
- 261              		.loc 1 224 12 is_stmt 0 view .LVU33
- 262 000a 0024     		movs	r4, #0
- 263              		.loc 1 224 3 view .LVU34
- 264 000c 14E0     		b	.L17
- 265              	.LVL2:
- 266              	.L24:
- 225:Core/Src/stm32f4xx_it.c ****     HAL_ADC_Start(&hadc1);
- 226:Core/Src/stm32f4xx_it.c ****     if (HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK) {   // Ожидание завершен�
- 227:Core/Src/stm32f4xx_it.c ****       Result = HAL_ADC_GetValue(&hadc1);                      // Считывание с АЦП.
- 267              		.loc 1 227 7 is_stmt 1 view .LVU35
- 268              		.loc 1 227 16 is_stmt 0 view .LVU36
- 269 000e 2846     		mov	r0, r5
- 270 0010 FFF7FEFF 		bl	HAL_ADC_GetValue
- 271              	.LVL3:
- 272 0014 07EE900A 		vmov	s15, r0	@ int
- 273              		.loc 1 227 14 view .LVU37
- 274 0018 F8EE677A 		vcvt.f32.u32	s15, s15
- 275 001c 3F4B     		ldr	r3, .L26+28
- 276 001e C3ED007A 		vstr.32	s15, [r3]
- 228:Core/Src/stm32f4xx_it.c ****       MassifADC[i] = Result;
- 277              		.loc 1 228 7 is_stmt 1 view .LVU38
- 278              		.loc 1 228 20 is_stmt 0 view .LVU39
- 279 0022 FCEEE77A 		vcvt.u32.f32	s15, s15
- 280 0026 3E4B     		ldr	r3, .L26+32
- 281 0028 17EE902A 		vmov	r2, s15	@ int
- 282 002c 23F81420 		strh	r2, [r3, r4, lsl #1]	@ movhi
- 229:Core/Src/stm32f4xx_it.c ****       HAL_ADC_Stop(&hadc1);                                   // Остановка АЦП.
- 283              		.loc 1 229 7 is_stmt 1 view .LVU40
- 284 0030 2846     		mov	r0, r5
- 285 0032 FFF7FEFF 		bl	HAL_ADC_Stop
- 286              	.LVL4:
- 287              	.L18:
- 224:Core/Src/stm32f4xx_it.c ****     HAL_ADC_Start(&hadc1);
- 288              		.loc 1 224 26 discriminator 2 view .LVU41
- 224:Core/Src/stm32f4xx_it.c ****     HAL_ADC_Start(&hadc1);
- 289              		.loc 1 224 27 is_stmt 0 discriminator 2 view .LVU42
- 290 0036 0134     		adds	r4, r4, #1
- 291              	.LVL5:
- 292              	.L17:
- 224:Core/Src/stm32f4xx_it.c ****     HAL_ADC_Start(&hadc1);
- 293              		.loc 1 224 19 is_stmt 1 discriminator 1 view .LVU43
- 224:Core/Src/stm32f4xx_it.c ****     HAL_ADC_Start(&hadc1);
- 294              		.loc 1 224 3 is_stmt 0 discriminator 1 view .LVU44
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 10
+ 245              		.loc 1 223 3 view .LVU30
+ 246 0002 0221     		movs	r1, #2
+ 247 0004 0348     		ldr	r0, .L18
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s 			page 9
 
 
- 295 0038 042C     		cmp	r4, #4
- 296 003a 0ADC     		bgt	.L23
- 225:Core/Src/stm32f4xx_it.c ****     if (HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK) {   // Ожидание завершен�
- 297              		.loc 1 225 5 is_stmt 1 view .LVU45
- 298 003c 394D     		ldr	r5, .L26+36
- 299 003e 2846     		mov	r0, r5
- 300 0040 FFF7FEFF 		bl	HAL_ADC_Start
- 301              	.LVL6:
- 226:Core/Src/stm32f4xx_it.c ****       Result = HAL_ADC_GetValue(&hadc1);                      // Считывание с АЦП.
- 302              		.loc 1 226 5 view .LVU46
- 226:Core/Src/stm32f4xx_it.c ****       Result = HAL_ADC_GetValue(&hadc1);                      // Считывание с АЦП.
- 303              		.loc 1 226 9 is_stmt 0 view .LVU47
- 304 0044 6421     		movs	r1, #100
- 305 0046 2846     		mov	r0, r5
- 306 0048 FFF7FEFF 		bl	HAL_ADC_PollForConversion
- 307              	.LVL7:
- 226:Core/Src/stm32f4xx_it.c ****       Result = HAL_ADC_GetValue(&hadc1);                      // Считывание с АЦП.
- 308              		.loc 1 226 8 view .LVU48
- 309 004c 0028     		cmp	r0, #0
- 310 004e F2D1     		bne	.L18
- 311 0050 DDE7     		b	.L24
- 312              	.L23:
- 313              	.LBE2:
- 230:Core/Src/stm32f4xx_it.c ****     }
- 231:Core/Src/stm32f4xx_it.c ****   }
- 232:Core/Src/stm32f4xx_it.c ****   AverageADC = 0;
- 314              		.loc 1 232 3 is_stmt 1 view .LVU49
- 315              		.loc 1 232 14 is_stmt 0 view .LVU50
- 316 0052 354B     		ldr	r3, .L26+40
- 317 0054 0022     		movs	r2, #0
- 318 0056 1A60     		str	r2, [r3]	@ float
- 233:Core/Src/stm32f4xx_it.c ****   for (int j = 0; j < 5; j++) {
- 319              		.loc 1 233 3 is_stmt 1 view .LVU51
- 320              	.LBB3:
- 321              		.loc 1 233 8 view .LVU52
- 322              	.LVL8:
- 323              		.loc 1 233 12 is_stmt 0 view .LVU53
- 324 0058 0023     		movs	r3, #0
- 325              	.LVL9:
- 326              	.L20:
- 327              		.loc 1 233 19 is_stmt 1 discriminator 1 view .LVU54
- 328              		.loc 1 233 3 is_stmt 0 discriminator 1 view .LVU55
- 329 005a 042B     		cmp	r3, #4
- 330 005c 0FDC     		bgt	.L25
- 234:Core/Src/stm32f4xx_it.c ****     AverageADC += MassifADC[j];
- 331              		.loc 1 234 5 is_stmt 1 discriminator 3 view .LVU56
- 332              		.loc 1 234 28 is_stmt 0 discriminator 3 view .LVU57
- 333 005e 304A     		ldr	r2, .L26+32
- 334 0060 32F81320 		ldrh	r2, [r2, r3, lsl #1]
- 335 0064 07EE902A 		vmov	s15, r2	@ int
- 336              		.loc 1 234 16 discriminator 3 view .LVU58
- 337 0068 2F4A     		ldr	r2, .L26+40
- 338 006a F8EEE77A 		vcvt.f32.s32	s15, s15
- 339 006e 92ED007A 		vldr.32	s14, [r2]
- 340 0072 77EE877A 		vadd.f32	s15, s15, s14
- 341 0076 C2ED007A 		vstr.32	s15, [r2]
- 233:Core/Src/stm32f4xx_it.c ****   for (int j = 0; j < 5; j++) {
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 11
+ 248 0006 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 249              	.LVL1:
+ 224:Core/Src/stm32f4xx_it.c **** 
+ 225:Core/Src/stm32f4xx_it.c ****   /* USER CODE END EXTI0_IRQn 0 */
+ 226:Core/Src/stm32f4xx_it.c ****   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
+ 250              		.loc 1 226 3 view .LVU31
+ 251 000a 0120     		movs	r0, #1
+ 252 000c FFF7FEFF 		bl	HAL_GPIO_EXTI_IRQHandler
+ 253              	.LVL2:
+ 227:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN EXTI0_IRQn 1 */
+ 228:Core/Src/stm32f4xx_it.c **** 
+ 229:Core/Src/stm32f4xx_it.c ****   /* USER CODE END EXTI0_IRQn 1 */
+ 230:Core/Src/stm32f4xx_it.c **** }
+ 254              		.loc 1 230 1 is_stmt 0 view .LVU32
+ 255 0010 08BD     		pop	{r3, pc}
+ 256              	.L19:
+ 257 0012 00BF     		.align	2
+ 258              	.L18:
+ 259 0014 00000240 		.word	1073872896
+ 260              		.cfi_endproc
+ 261              	.LFE244:
+ 263              		.global	__aeabi_f2d
+ 264              		.global	__aeabi_dmul
+ 265              		.global	__aeabi_d2f
+ 266              		.global	__aeabi_dsub
+ 267              		.global	__aeabi_ddiv
+ 268              		.global	__aeabi_dadd
+ 269              		.section	.text.TIM3_IRQHandler,"ax",%progbits
+ 270              		.align	1
+ 271              		.global	TIM3_IRQHandler
+ 272              		.syntax unified
+ 273              		.thumb
+ 274              		.thumb_func
+ 275              		.fpu fpv4-sp-d16
+ 277              	TIM3_IRQHandler:
+ 278              	.LFB245:
+ 231:Core/Src/stm32f4xx_it.c **** 
+ 232:Core/Src/stm32f4xx_it.c **** /**
+ 233:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM3 global interrupt.
+ 234:Core/Src/stm32f4xx_it.c ****   */
+ 235:Core/Src/stm32f4xx_it.c **** void TIM3_IRQHandler(void)
+ 236:Core/Src/stm32f4xx_it.c **** {
+ 279              		.loc 1 236 1 is_stmt 1 view -0
+ 280              		.cfi_startproc
+ 281              		@ args = 0, pretend = 0, frame = 0
+ 282              		@ frame_needed = 0, uses_anonymous_args = 0
+ 283 0000 38B5     		push	{r3, r4, r5, lr}
+ 284              	.LCFI2:
+ 285              		.cfi_def_cfa_offset 16
+ 286              		.cfi_offset 3, -16
+ 287              		.cfi_offset 4, -12
+ 288              		.cfi_offset 5, -8
+ 289              		.cfi_offset 14, -4
+ 237:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM3_IRQn 0 */
+ 238:Core/Src/stm32f4xx_it.c ****   HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_1);
+ 290              		.loc 1 238 3 view .LVU34
+ 291 0002 0221     		movs	r1, #2
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s 			page 10
 
 
- 342              		.loc 1 233 26 is_stmt 1 discriminator 3 view .LVU59
- 233:Core/Src/stm32f4xx_it.c ****   for (int j = 0; j < 5; j++) {
- 343              		.loc 1 233 27 is_stmt 0 discriminator 3 view .LVU60
- 344 007a 0133     		adds	r3, r3, #1
- 345              	.LVL10:
- 233:Core/Src/stm32f4xx_it.c ****   for (int j = 0; j < 5; j++) {
- 346              		.loc 1 233 27 discriminator 3 view .LVU61
- 347 007c EDE7     		b	.L20
- 348              	.L25:
- 233:Core/Src/stm32f4xx_it.c ****   for (int j = 0; j < 5; j++) {
- 349              		.loc 1 233 27 discriminator 3 view .LVU62
- 350              	.LBE3:
- 235:Core/Src/stm32f4xx_it.c ****   }
- 236:Core/Src/stm32f4xx_it.c ****   meanADC = AverageADC / 5;
- 351              		.loc 1 236 3 is_stmt 1 view .LVU63
- 352              		.loc 1 236 24 is_stmt 0 view .LVU64
- 353 007e 2A4B     		ldr	r3, .L26+40
- 354              	.LVL11:
- 355              		.loc 1 236 24 view .LVU65
- 356 0080 D3ED006A 		vldr.32	s13, [r3]
- 357 0084 B1EE047A 		vmov.f32	s14, #5.0e+0
- 358 0088 C6EE877A 		vdiv.f32	s15, s13, s14
- 359              		.loc 1 236 11 view .LVU66
- 360 008c 274B     		ldr	r3, .L26+44
- 361 008e C3ED007A 		vstr.32	s15, [r3]
- 237:Core/Src/stm32f4xx_it.c ****   voltageADC = (float) meanADC / 4096 * Vref;               // Напряжение в вольта
- 362              		.loc 1 237 3 is_stmt 1 view .LVU67
- 363              		.loc 1 237 32 is_stmt 0 view .LVU68
- 364 0092 9FED277A 		vldr.32	s14, .L26+48
- 365 0096 67EE877A 		vmul.f32	s15, s15, s14
- 366 009a 17EE900A 		vmov	r0, s15
- 367 009e FFF7FEFF 		bl	__aeabi_f2d
- 368              	.LVL12:
- 369              		.loc 1 237 39 view .LVU69
- 370 00a2 17A3     		adr	r3, .L26
- 371 00a4 D3E90023 		ldrd	r2, [r3]
- 372 00a8 FFF7FEFF 		bl	__aeabi_dmul
- 373              	.LVL13:
- 374 00ac FFF7FEFF 		bl	__aeabi_d2f
- 375              	.LVL14:
- 376              		.loc 1 237 14 view .LVU70
- 377 00b0 204B     		ldr	r3, .L26+52
- 378 00b2 1860     		str	r0, [r3]	@ float
- 238:Core/Src/stm32f4xx_it.c ****   temp = (voltageADC - tV_25) / tSlope + 25;                // Температура в граду
- 379              		.loc 1 238 3 is_stmt 1 view .LVU71
- 380              		.loc 1 238 22 is_stmt 0 view .LVU72
- 381 00b4 FFF7FEFF 		bl	__aeabi_f2d
- 382              	.LVL15:
- 383 00b8 13A3     		adr	r3, .L26+8
- 384 00ba D3E90023 		ldrd	r2, [r3]
- 385 00be FFF7FEFF 		bl	__aeabi_dsub
- 386              	.LVL16:
- 387              		.loc 1 238 31 view .LVU73
- 388 00c2 13A3     		adr	r3, .L26+16
- 389 00c4 D3E90023 		ldrd	r2, [r3]
- 390 00c8 FFF7FEFF 		bl	__aeabi_ddiv
- 391              	.LVL17:
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 12
+ 292 0004 4448     		ldr	r0, .L30+24
+ 293 0006 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 294              	.LVL3:
+ 239:Core/Src/stm32f4xx_it.c ****   for (int i = 0; i < 5; i++) {
+ 295              		.loc 1 239 3 view .LVU35
+ 296              	.LBB2:
+ 297              		.loc 1 239 8 view .LVU36
+ 298              		.loc 1 239 12 is_stmt 0 view .LVU37
+ 299 000a 0024     		movs	r4, #0
+ 300              		.loc 1 239 3 view .LVU38
+ 301 000c 14E0     		b	.L21
+ 302              	.LVL4:
+ 303              	.L28:
+ 240:Core/Src/stm32f4xx_it.c ****     HAL_ADC_Start(&hadc1);
+ 241:Core/Src/stm32f4xx_it.c ****     if (HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK) {   // Ожидание завершен�
+ 242:Core/Src/stm32f4xx_it.c ****       Result = HAL_ADC_GetValue(&hadc1);                      // Считывание с АЦП.
+ 304              		.loc 1 242 7 is_stmt 1 view .LVU39
+ 305              		.loc 1 242 16 is_stmt 0 view .LVU40
+ 306 000e 2846     		mov	r0, r5
+ 307 0010 FFF7FEFF 		bl	HAL_ADC_GetValue
+ 308              	.LVL5:
+ 309 0014 07EE900A 		vmov	s15, r0	@ int
+ 310              		.loc 1 242 14 view .LVU41
+ 311 0018 F8EE677A 		vcvt.f32.u32	s15, s15
+ 312 001c 3F4B     		ldr	r3, .L30+28
+ 313 001e C3ED007A 		vstr.32	s15, [r3]
+ 243:Core/Src/stm32f4xx_it.c ****       MassifADC[i] = Result;
+ 314              		.loc 1 243 7 is_stmt 1 view .LVU42
+ 315              		.loc 1 243 20 is_stmt 0 view .LVU43
+ 316 0022 FCEEE77A 		vcvt.u32.f32	s15, s15
+ 317 0026 3E4B     		ldr	r3, .L30+32
+ 318 0028 17EE902A 		vmov	r2, s15	@ int
+ 319 002c 23F81420 		strh	r2, [r3, r4, lsl #1]	@ movhi
+ 244:Core/Src/stm32f4xx_it.c ****       HAL_ADC_Stop(&hadc1);                                   // Остановка АЦП.
+ 320              		.loc 1 244 7 is_stmt 1 view .LVU44
+ 321 0030 2846     		mov	r0, r5
+ 322 0032 FFF7FEFF 		bl	HAL_ADC_Stop
+ 323              	.LVL6:
+ 324              	.L22:
+ 239:Core/Src/stm32f4xx_it.c ****     HAL_ADC_Start(&hadc1);
+ 325              		.loc 1 239 26 discriminator 2 view .LVU45
+ 239:Core/Src/stm32f4xx_it.c ****     HAL_ADC_Start(&hadc1);
+ 326              		.loc 1 239 27 is_stmt 0 discriminator 2 view .LVU46
+ 327 0036 0134     		adds	r4, r4, #1
+ 328              	.LVL7:
+ 329              	.L21:
+ 239:Core/Src/stm32f4xx_it.c ****     HAL_ADC_Start(&hadc1);
+ 330              		.loc 1 239 19 is_stmt 1 discriminator 1 view .LVU47
+ 239:Core/Src/stm32f4xx_it.c ****     HAL_ADC_Start(&hadc1);
+ 331              		.loc 1 239 3 is_stmt 0 discriminator 1 view .LVU48
+ 332 0038 042C     		cmp	r4, #4
+ 333 003a 0ADC     		bgt	.L27
+ 240:Core/Src/stm32f4xx_it.c ****     if (HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK) {   // Ожидание завершен�
+ 334              		.loc 1 240 5 is_stmt 1 view .LVU49
+ 335 003c 394D     		ldr	r5, .L30+36
+ 336 003e 2846     		mov	r0, r5
+ 337 0040 FFF7FEFF 		bl	HAL_ADC_Start
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s 			page 11
 
 
- 392              		.loc 1 238 40 view .LVU74
- 393 00cc 0022     		movs	r2, #0
- 394 00ce 1A4B     		ldr	r3, .L26+56
- 395 00d0 FFF7FEFF 		bl	__aeabi_dadd
- 396              	.LVL18:
- 397 00d4 FFF7FEFF 		bl	__aeabi_d2f
- 398              	.LVL19:
- 399 00d8 00EE100A 		vmov	s0, r0
- 400              		.loc 1 238 8 view .LVU75
- 401 00dc 174B     		ldr	r3, .L26+60
- 402 00de 1860     		str	r0, [r3]	@ float
- 239:Core/Src/stm32f4xx_it.c ****   Result = (float) temp;
- 403              		.loc 1 239 3 is_stmt 1 view .LVU76
- 404              		.loc 1 239 10 is_stmt 0 view .LVU77
- 405 00e0 0E4B     		ldr	r3, .L26+28
- 406 00e2 1860     		str	r0, [r3]	@ float
- 240:Core/Src/stm32f4xx_it.c ****   dataTransmit(0, Result);                                  // Передача данных Modbus
- 407              		.loc 1 240 3 is_stmt 1 view .LVU78
- 408 00e4 0020     		movs	r0, #0
- 409 00e6 FFF7FEFF 		bl	dataTransmit
- 410              	.LVL20:
- 241:Core/Src/stm32f4xx_it.c **** 
- 242:Core/Src/stm32f4xx_it.c ****   usSRegInBuf[2] += 1;
- 411              		.loc 1 242 3 view .LVU79
- 412              		.loc 1 242 18 is_stmt 0 view .LVU80
- 413 00ea 154A     		ldr	r2, .L26+64
- 414 00ec 9388     		ldrh	r3, [r2, #4]
- 415 00ee 0133     		adds	r3, r3, #1
- 416 00f0 9380     		strh	r3, [r2, #4]	@ movhi
- 243:Core/Src/stm32f4xx_it.c **** 
- 244:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM3_IRQn 0 */
- 245:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim3);
- 417              		.loc 1 245 3 is_stmt 1 view .LVU81
- 418 00f2 1448     		ldr	r0, .L26+68
- 419 00f4 FFF7FEFF 		bl	HAL_TIM_IRQHandler
- 420              	.LVL21:
- 246:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM3_IRQn 1 */
- 247:Core/Src/stm32f4xx_it.c **** 
- 248:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM3_IRQn 1 */
- 249:Core/Src/stm32f4xx_it.c **** }
- 421              		.loc 1 249 1 is_stmt 0 view .LVU82
- 422 00f8 38BD     		pop	{r3, r4, r5, pc}
- 423              	.LVL22:
- 424              	.L27:
- 425              		.loc 1 249 1 view .LVU83
- 426 00fa 00BFAFF3 		.align	3
- 426      0080
- 427              	.L26:
- 428 0100 66666666 		.word	1717986918
- 429 0104 66660A40 		.word	1074423398
- 430 0108 52B81E85 		.word	-2061584302
- 431 010c EB51E83F 		.word	1072189931
- 432 0110 7B14AE47 		.word	1202590843
- 433 0114 E17A643F 		.word	1063549665
- 434 0118 00000240 		.word	1073872896
- 435 011c 00000000 		.word	.LANCHOR0
- 436 0120 00000000 		.word	MassifADC
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 13
+ 338              	.LVL8:
+ 241:Core/Src/stm32f4xx_it.c ****       Result = HAL_ADC_GetValue(&hadc1);                      // Считывание с АЦП.
+ 339              		.loc 1 241 5 view .LVU50
+ 241:Core/Src/stm32f4xx_it.c ****       Result = HAL_ADC_GetValue(&hadc1);                      // Считывание с АЦП.
+ 340              		.loc 1 241 9 is_stmt 0 view .LVU51
+ 341 0044 6421     		movs	r1, #100
+ 342 0046 2846     		mov	r0, r5
+ 343 0048 FFF7FEFF 		bl	HAL_ADC_PollForConversion
+ 344              	.LVL9:
+ 241:Core/Src/stm32f4xx_it.c ****       Result = HAL_ADC_GetValue(&hadc1);                      // Считывание с АЦП.
+ 345              		.loc 1 241 8 view .LVU52
+ 346 004c 0028     		cmp	r0, #0
+ 347 004e F2D1     		bne	.L22
+ 348 0050 DDE7     		b	.L28
+ 349              	.L27:
+ 350              	.LBE2:
+ 245:Core/Src/stm32f4xx_it.c ****     }
+ 246:Core/Src/stm32f4xx_it.c ****   }
+ 247:Core/Src/stm32f4xx_it.c ****   AverageADC = 0;
+ 351              		.loc 1 247 3 is_stmt 1 view .LVU53
+ 352              		.loc 1 247 14 is_stmt 0 view .LVU54
+ 353 0052 354B     		ldr	r3, .L30+40
+ 354 0054 0022     		movs	r2, #0
+ 355 0056 1A60     		str	r2, [r3]	@ float
+ 248:Core/Src/stm32f4xx_it.c ****   for (int j = 0; j < 5; j++) {
+ 356              		.loc 1 248 3 is_stmt 1 view .LVU55
+ 357              	.LBB3:
+ 358              		.loc 1 248 8 view .LVU56
+ 359              	.LVL10:
+ 360              		.loc 1 248 12 is_stmt 0 view .LVU57
+ 361 0058 0023     		movs	r3, #0
+ 362              	.LVL11:
+ 363              	.L24:
+ 364              		.loc 1 248 19 is_stmt 1 discriminator 1 view .LVU58
+ 365              		.loc 1 248 3 is_stmt 0 discriminator 1 view .LVU59
+ 366 005a 042B     		cmp	r3, #4
+ 367 005c 0FDC     		bgt	.L29
+ 249:Core/Src/stm32f4xx_it.c ****     AverageADC += MassifADC[j];
+ 368              		.loc 1 249 5 is_stmt 1 discriminator 3 view .LVU60
+ 369              		.loc 1 249 28 is_stmt 0 discriminator 3 view .LVU61
+ 370 005e 304A     		ldr	r2, .L30+32
+ 371 0060 32F81320 		ldrh	r2, [r2, r3, lsl #1]
+ 372 0064 07EE902A 		vmov	s15, r2	@ int
+ 373              		.loc 1 249 16 discriminator 3 view .LVU62
+ 374 0068 2F4A     		ldr	r2, .L30+40
+ 375 006a F8EEE77A 		vcvt.f32.s32	s15, s15
+ 376 006e 92ED007A 		vldr.32	s14, [r2]
+ 377 0072 77EE877A 		vadd.f32	s15, s15, s14
+ 378 0076 C2ED007A 		vstr.32	s15, [r2]
+ 248:Core/Src/stm32f4xx_it.c ****   for (int j = 0; j < 5; j++) {
+ 379              		.loc 1 248 26 is_stmt 1 discriminator 3 view .LVU63
+ 248:Core/Src/stm32f4xx_it.c ****   for (int j = 0; j < 5; j++) {
+ 380              		.loc 1 248 27 is_stmt 0 discriminator 3 view .LVU64
+ 381 007a 0133     		adds	r3, r3, #1
+ 382              	.LVL12:
+ 248:Core/Src/stm32f4xx_it.c ****   for (int j = 0; j < 5; j++) {
+ 383              		.loc 1 248 27 discriminator 3 view .LVU65
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s 			page 12
 
 
- 437 0124 00000000 		.word	hadc1
- 438 0128 00000000 		.word	.LANCHOR1
- 439 012c 00000000 		.word	.LANCHOR2
- 440 0130 00008039 		.word	964689920
- 441 0134 00000000 		.word	.LANCHOR3
- 442 0138 00003940 		.word	1077477376
- 443 013c 00000000 		.word	temp
- 444 0140 00000000 		.word	usSRegInBuf
- 445 0144 00000000 		.word	htim3
- 446              		.cfi_endproc
- 447              	.LFE244:
- 449              		.section	.text.TIM4_IRQHandler,"ax",%progbits
- 450              		.align	1
- 451              		.global	TIM4_IRQHandler
- 452              		.syntax unified
- 453              		.thumb
- 454              		.thumb_func
- 455              		.fpu fpv4-sp-d16
- 457              	TIM4_IRQHandler:
- 458              	.LFB245:
- 250:Core/Src/stm32f4xx_it.c **** 
- 251:Core/Src/stm32f4xx_it.c **** /**
- 252:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM4 global interrupt.
- 253:Core/Src/stm32f4xx_it.c ****   */
- 254:Core/Src/stm32f4xx_it.c **** void TIM4_IRQHandler(void)
- 255:Core/Src/stm32f4xx_it.c **** {
- 459              		.loc 1 255 1 is_stmt 1 view -0
- 460              		.cfi_startproc
- 461              		@ args = 0, pretend = 0, frame = 0
- 462              		@ frame_needed = 0, uses_anonymous_args = 0
- 463 0000 08B5     		push	{r3, lr}
- 464              	.LCFI2:
- 465              		.cfi_def_cfa_offset 8
- 466              		.cfi_offset 3, -8
- 467              		.cfi_offset 14, -4
- 256:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM4_IRQn 0 */
- 257:Core/Src/stm32f4xx_it.c **** 
- 258:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM4_IRQn 0 */
- 259:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim4);
- 468              		.loc 1 259 3 view .LVU85
- 469 0002 0248     		ldr	r0, .L30
- 470 0004 FFF7FEFF 		bl	HAL_TIM_IRQHandler
- 471              	.LVL23:
- 260:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM4_IRQn 1 */
- 261:Core/Src/stm32f4xx_it.c **** 
- 262:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM4_IRQn 1 */
- 263:Core/Src/stm32f4xx_it.c **** }
- 472              		.loc 1 263 1 is_stmt 0 view .LVU86
- 473 0008 08BD     		pop	{r3, pc}
- 474              	.L31:
- 475 000a 00BF     		.align	2
- 476              	.L30:
- 477 000c 00000000 		.word	htim4
- 478              		.cfi_endproc
- 479              	.LFE245:
- 481              		.section	.text.USART1_IRQHandler,"ax",%progbits
- 482              		.align	1
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 14
+ 384 007c EDE7     		b	.L24
+ 385              	.L29:
+ 248:Core/Src/stm32f4xx_it.c ****   for (int j = 0; j < 5; j++) {
+ 386              		.loc 1 248 27 discriminator 3 view .LVU66
+ 387              	.LBE3:
+ 250:Core/Src/stm32f4xx_it.c ****   }
+ 251:Core/Src/stm32f4xx_it.c ****   meanADC = AverageADC / 5;
+ 388              		.loc 1 251 3 is_stmt 1 view .LVU67
+ 389              		.loc 1 251 24 is_stmt 0 view .LVU68
+ 390 007e 2A4B     		ldr	r3, .L30+40
+ 391              	.LVL13:
+ 392              		.loc 1 251 24 view .LVU69
+ 393 0080 D3ED006A 		vldr.32	s13, [r3]
+ 394 0084 B1EE047A 		vmov.f32	s14, #5.0e+0
+ 395 0088 C6EE877A 		vdiv.f32	s15, s13, s14
+ 396              		.loc 1 251 11 view .LVU70
+ 397 008c 274B     		ldr	r3, .L30+44
+ 398 008e C3ED007A 		vstr.32	s15, [r3]
+ 252:Core/Src/stm32f4xx_it.c ****   voltageADC = (float) meanADC / 4096 * Vref;               // Напряжение в вольта
+ 399              		.loc 1 252 3 is_stmt 1 view .LVU71
+ 400              		.loc 1 252 32 is_stmt 0 view .LVU72
+ 401 0092 9FED277A 		vldr.32	s14, .L30+48
+ 402 0096 67EE877A 		vmul.f32	s15, s15, s14
+ 403 009a 17EE900A 		vmov	r0, s15
+ 404 009e FFF7FEFF 		bl	__aeabi_f2d
+ 405              	.LVL14:
+ 406              		.loc 1 252 39 view .LVU73
+ 407 00a2 17A3     		adr	r3, .L30
+ 408 00a4 D3E90023 		ldrd	r2, [r3]
+ 409 00a8 FFF7FEFF 		bl	__aeabi_dmul
+ 410              	.LVL15:
+ 411 00ac FFF7FEFF 		bl	__aeabi_d2f
+ 412              	.LVL16:
+ 413              		.loc 1 252 14 view .LVU74
+ 414 00b0 204B     		ldr	r3, .L30+52
+ 415 00b2 1860     		str	r0, [r3]	@ float
+ 253:Core/Src/stm32f4xx_it.c ****   temp = (voltageADC - tV_25) / tSlope + 25;                // Температура в граду
+ 416              		.loc 1 253 3 is_stmt 1 view .LVU75
+ 417              		.loc 1 253 22 is_stmt 0 view .LVU76
+ 418 00b4 FFF7FEFF 		bl	__aeabi_f2d
+ 419              	.LVL17:
+ 420 00b8 13A3     		adr	r3, .L30+8
+ 421 00ba D3E90023 		ldrd	r2, [r3]
+ 422 00be FFF7FEFF 		bl	__aeabi_dsub
+ 423              	.LVL18:
+ 424              		.loc 1 253 31 view .LVU77
+ 425 00c2 13A3     		adr	r3, .L30+16
+ 426 00c4 D3E90023 		ldrd	r2, [r3]
+ 427 00c8 FFF7FEFF 		bl	__aeabi_ddiv
+ 428              	.LVL19:
+ 429              		.loc 1 253 40 view .LVU78
+ 430 00cc 0022     		movs	r2, #0
+ 431 00ce 1A4B     		ldr	r3, .L30+56
+ 432 00d0 FFF7FEFF 		bl	__aeabi_dadd
+ 433              	.LVL20:
+ 434 00d4 FFF7FEFF 		bl	__aeabi_d2f
+ 435              	.LVL21:
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s 			page 13
 
 
- 483              		.global	USART1_IRQHandler
- 484              		.syntax unified
- 485              		.thumb
- 486              		.thumb_func
- 487              		.fpu fpv4-sp-d16
- 489              	USART1_IRQHandler:
- 490              	.LFB246:
- 264:Core/Src/stm32f4xx_it.c **** 
- 265:Core/Src/stm32f4xx_it.c **** /**
- 266:Core/Src/stm32f4xx_it.c ****   * @brief This function handles USART1 global interrupt.
- 267:Core/Src/stm32f4xx_it.c ****   */
- 268:Core/Src/stm32f4xx_it.c **** void USART1_IRQHandler(void)
- 269:Core/Src/stm32f4xx_it.c **** {
- 491              		.loc 1 269 1 is_stmt 1 view -0
- 492              		.cfi_startproc
- 493              		@ args = 0, pretend = 0, frame = 0
- 494              		@ frame_needed = 0, uses_anonymous_args = 0
- 495 0000 08B5     		push	{r3, lr}
- 496              	.LCFI3:
- 497              		.cfi_def_cfa_offset 8
- 498              		.cfi_offset 3, -8
- 499              		.cfi_offset 14, -4
- 270:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN USART1_IRQn 0 */
- 271:Core/Src/stm32f4xx_it.c **** 
- 272:Core/Src/stm32f4xx_it.c ****   /* USER CODE END USART1_IRQn 0 */
- 273:Core/Src/stm32f4xx_it.c ****   HAL_UART_IRQHandler(&huart1);
- 500              		.loc 1 273 3 view .LVU88
- 501 0002 0248     		ldr	r0, .L34
- 502 0004 FFF7FEFF 		bl	HAL_UART_IRQHandler
- 503              	.LVL24:
- 274:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN USART1_IRQn 1 */
- 275:Core/Src/stm32f4xx_it.c **** 
- 276:Core/Src/stm32f4xx_it.c ****   /* USER CODE END USART1_IRQn 1 */
- 277:Core/Src/stm32f4xx_it.c **** }
- 504              		.loc 1 277 1 is_stmt 0 view .LVU89
- 505 0008 08BD     		pop	{r3, pc}
- 506              	.L35:
- 507 000a 00BF     		.align	2
- 508              	.L34:
- 509 000c 00000000 		.word	huart1
- 510              		.cfi_endproc
- 511              	.LFE246:
- 513              		.section	.text.USART2_IRQHandler,"ax",%progbits
- 514              		.align	1
- 515              		.global	USART2_IRQHandler
- 516              		.syntax unified
- 517              		.thumb
- 518              		.thumb_func
- 519              		.fpu fpv4-sp-d16
- 521              	USART2_IRQHandler:
- 522              	.LFB247:
- 278:Core/Src/stm32f4xx_it.c **** 
- 279:Core/Src/stm32f4xx_it.c **** /**
- 280:Core/Src/stm32f4xx_it.c ****   * @brief This function handles USART2 global interrupt.
- 281:Core/Src/stm32f4xx_it.c ****   */
- 282:Core/Src/stm32f4xx_it.c **** void USART2_IRQHandler(void)
- 283:Core/Src/stm32f4xx_it.c **** {
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 15
+ 436 00d8 00EE100A 		vmov	s0, r0
+ 437              		.loc 1 253 8 view .LVU79
+ 438 00dc 174B     		ldr	r3, .L30+60
+ 439 00de 1860     		str	r0, [r3]	@ float
+ 254:Core/Src/stm32f4xx_it.c ****   Result = (float) temp;
+ 440              		.loc 1 254 3 is_stmt 1 view .LVU80
+ 441              		.loc 1 254 10 is_stmt 0 view .LVU81
+ 442 00e0 0E4B     		ldr	r3, .L30+28
+ 443 00e2 1860     		str	r0, [r3]	@ float
+ 255:Core/Src/stm32f4xx_it.c ****   dataTransmit(0, Result);                                  // Передача данных Modbus
+ 444              		.loc 1 255 3 is_stmt 1 view .LVU82
+ 445 00e4 0020     		movs	r0, #0
+ 446 00e6 FFF7FEFF 		bl	dataTransmit
+ 447              	.LVL22:
+ 256:Core/Src/stm32f4xx_it.c **** 
+ 257:Core/Src/stm32f4xx_it.c ****   usSRegInBuf[2] += 1;
+ 448              		.loc 1 257 3 view .LVU83
+ 449              		.loc 1 257 18 is_stmt 0 view .LVU84
+ 450 00ea 154A     		ldr	r2, .L30+64
+ 451 00ec 9388     		ldrh	r3, [r2, #4]
+ 452 00ee 0133     		adds	r3, r3, #1
+ 453 00f0 9380     		strh	r3, [r2, #4]	@ movhi
+ 258:Core/Src/stm32f4xx_it.c **** 
+ 259:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM3_IRQn 0 */
+ 260:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim3);
+ 454              		.loc 1 260 3 is_stmt 1 view .LVU85
+ 455 00f2 1448     		ldr	r0, .L30+68
+ 456 00f4 FFF7FEFF 		bl	HAL_TIM_IRQHandler
+ 457              	.LVL23:
+ 261:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM3_IRQn 1 */
+ 262:Core/Src/stm32f4xx_it.c **** 
+ 263:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM3_IRQn 1 */
+ 264:Core/Src/stm32f4xx_it.c **** }
+ 458              		.loc 1 264 1 is_stmt 0 view .LVU86
+ 459 00f8 38BD     		pop	{r3, r4, r5, pc}
+ 460              	.LVL24:
+ 461              	.L31:
+ 462              		.loc 1 264 1 view .LVU87
+ 463 00fa 00BFAFF3 		.align	3
+ 463      0080
+ 464              	.L30:
+ 465 0100 66666666 		.word	1717986918
+ 466 0104 66660A40 		.word	1074423398
+ 467 0108 52B81E85 		.word	-2061584302
+ 468 010c EB51E83F 		.word	1072189931
+ 469 0110 7B14AE47 		.word	1202590843
+ 470 0114 E17A643F 		.word	1063549665
+ 471 0118 00000240 		.word	1073872896
+ 472 011c 00000000 		.word	.LANCHOR0
+ 473 0120 00000000 		.word	MassifADC
+ 474 0124 00000000 		.word	hadc1
+ 475 0128 00000000 		.word	.LANCHOR1
+ 476 012c 00000000 		.word	.LANCHOR2
+ 477 0130 00008039 		.word	964689920
+ 478 0134 00000000 		.word	.LANCHOR3
+ 479 0138 00003940 		.word	1077477376
+ 480 013c 00000000 		.word	temp
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s 			page 14
 
 
- 523              		.loc 1 283 1 is_stmt 1 view -0
- 524              		.cfi_startproc
- 525              		@ args = 0, pretend = 0, frame = 0
- 526              		@ frame_needed = 0, uses_anonymous_args = 0
- 527 0000 08B5     		push	{r3, lr}
- 528              	.LCFI4:
- 529              		.cfi_def_cfa_offset 8
- 530              		.cfi_offset 3, -8
- 531              		.cfi_offset 14, -4
- 284:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN USART2_IRQn 0 */
- 285:Core/Src/stm32f4xx_it.c **** 
- 286:Core/Src/stm32f4xx_it.c ****   /* USER CODE END USART2_IRQn 0 */
- 287:Core/Src/stm32f4xx_it.c ****   HAL_UART_IRQHandler(&huart2);
- 532              		.loc 1 287 3 view .LVU91
- 533 0002 0248     		ldr	r0, .L38
- 534 0004 FFF7FEFF 		bl	HAL_UART_IRQHandler
- 535              	.LVL25:
- 288:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN USART2_IRQn 1 */
- 289:Core/Src/stm32f4xx_it.c **** 
- 290:Core/Src/stm32f4xx_it.c ****   /* USER CODE END USART2_IRQn 1 */
- 291:Core/Src/stm32f4xx_it.c **** }
- 536              		.loc 1 291 1 is_stmt 0 view .LVU92
- 537 0008 08BD     		pop	{r3, pc}
- 538              	.L39:
- 539 000a 00BF     		.align	2
- 540              	.L38:
- 541 000c 00000000 		.word	huart2
- 542              		.cfi_endproc
- 543              	.LFE247:
- 545              		.comm	MassifADC,10,4
- 546              		.comm	temp,4,4
- 547              		.global	AverageADC
- 548              		.global	meanADC
- 549              		.global	voltageADC
- 550              		.global	Result
- 551              		.section	.bss.AverageADC,"aw",%nobits
- 552              		.align	2
- 553              		.set	.LANCHOR1,. + 0
- 556              	AverageADC:
- 557 0000 00000000 		.space	4
- 558              		.section	.bss.Result,"aw",%nobits
- 559              		.align	2
- 560              		.set	.LANCHOR0,. + 0
- 563              	Result:
- 564 0000 00000000 		.space	4
- 565              		.section	.bss.meanADC,"aw",%nobits
- 566              		.align	2
- 567              		.set	.LANCHOR2,. + 0
- 570              	meanADC:
- 571 0000 00000000 		.space	4
- 572              		.section	.bss.voltageADC,"aw",%nobits
- 573              		.align	2
- 574              		.set	.LANCHOR3,. + 0
- 577              	voltageADC:
- 578 0000 00000000 		.space	4
- 579              		.text
- 580              	.Letext0:
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 16
+ 481 0140 00000000 		.word	usSRegInBuf
+ 482 0144 00000000 		.word	htim3
+ 483              		.cfi_endproc
+ 484              	.LFE245:
+ 486              		.section	.text.TIM4_IRQHandler,"ax",%progbits
+ 487              		.align	1
+ 488              		.global	TIM4_IRQHandler
+ 489              		.syntax unified
+ 490              		.thumb
+ 491              		.thumb_func
+ 492              		.fpu fpv4-sp-d16
+ 494              	TIM4_IRQHandler:
+ 495              	.LFB246:
+ 265:Core/Src/stm32f4xx_it.c **** 
+ 266:Core/Src/stm32f4xx_it.c **** /**
+ 267:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM4 global interrupt.
+ 268:Core/Src/stm32f4xx_it.c ****   */
+ 269:Core/Src/stm32f4xx_it.c **** void TIM4_IRQHandler(void)
+ 270:Core/Src/stm32f4xx_it.c **** {
+ 496              		.loc 1 270 1 is_stmt 1 view -0
+ 497              		.cfi_startproc
+ 498              		@ args = 0, pretend = 0, frame = 0
+ 499              		@ frame_needed = 0, uses_anonymous_args = 0
+ 500 0000 08B5     		push	{r3, lr}
+ 501              	.LCFI3:
+ 502              		.cfi_def_cfa_offset 8
+ 503              		.cfi_offset 3, -8
+ 504              		.cfi_offset 14, -4
+ 271:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM4_IRQn 0 */
+ 272:Core/Src/stm32f4xx_it.c **** 
+ 273:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM4_IRQn 0 */
+ 274:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim4);
+ 505              		.loc 1 274 3 view .LVU89
+ 506 0002 0248     		ldr	r0, .L34
+ 507 0004 FFF7FEFF 		bl	HAL_TIM_IRQHandler
+ 508              	.LVL25:
+ 275:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM4_IRQn 1 */
+ 276:Core/Src/stm32f4xx_it.c **** 
+ 277:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM4_IRQn 1 */
+ 278:Core/Src/stm32f4xx_it.c **** }
+ 509              		.loc 1 278 1 is_stmt 0 view .LVU90
+ 510 0008 08BD     		pop	{r3, pc}
+ 511              	.L35:
+ 512 000a 00BF     		.align	2
+ 513              	.L34:
+ 514 000c 00000000 		.word	htim4
+ 515              		.cfi_endproc
+ 516              	.LFE246:
+ 518              		.section	.text.USART1_IRQHandler,"ax",%progbits
+ 519              		.align	1
+ 520              		.global	USART1_IRQHandler
+ 521              		.syntax unified
+ 522              		.thumb
+ 523              		.thumb_func
+ 524              		.fpu fpv4-sp-d16
+ 526              	USART1_IRQHandler:
+ 527              	.LFB247:
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s 			page 15
 
 
- 581              		.file 2 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\machine\\_default_types.h"
- 582              		.file 3 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\_stdint.h"
- 583              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 584              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 585              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
- 586              		.file 7 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
- 587              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 588              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 589              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h"
- 590              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 591              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
- 592              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 593              		.file 14 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\lock.h"
- 594              		.file 15 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\_types.h"
- 595              		.file 16 "c:\\vscodeproject\\software\\arm_gcc\\lib\\gcc\\arm-none-eabi\\9.2.1\\include\\stddef.h"
- 596              		.file 17 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\reent.h"
- 597              		.file 18 "Drivers/FreeModbus/port/port.h"
- 598              		.file 19 "Drivers/FreeModbus/include/mbport.h"
- 599              		.file 20 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
- 600              		.file 21 "Drivers/FreeModbus/ReceiveTransmit/ReceiveTransmit.h"
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 17
+ 279:Core/Src/stm32f4xx_it.c **** 
+ 280:Core/Src/stm32f4xx_it.c **** /**
+ 281:Core/Src/stm32f4xx_it.c ****   * @brief This function handles USART1 global interrupt.
+ 282:Core/Src/stm32f4xx_it.c ****   */
+ 283:Core/Src/stm32f4xx_it.c **** void USART1_IRQHandler(void)
+ 284:Core/Src/stm32f4xx_it.c **** {
+ 528              		.loc 1 284 1 is_stmt 1 view -0
+ 529              		.cfi_startproc
+ 530              		@ args = 0, pretend = 0, frame = 0
+ 531              		@ frame_needed = 0, uses_anonymous_args = 0
+ 532 0000 08B5     		push	{r3, lr}
+ 533              	.LCFI4:
+ 534              		.cfi_def_cfa_offset 8
+ 535              		.cfi_offset 3, -8
+ 536              		.cfi_offset 14, -4
+ 285:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN USART1_IRQn 0 */
+ 286:Core/Src/stm32f4xx_it.c **** 
+ 287:Core/Src/stm32f4xx_it.c ****   /* USER CODE END USART1_IRQn 0 */
+ 288:Core/Src/stm32f4xx_it.c ****   HAL_UART_IRQHandler(&huart1);
+ 537              		.loc 1 288 3 view .LVU92
+ 538 0002 0248     		ldr	r0, .L38
+ 539 0004 FFF7FEFF 		bl	HAL_UART_IRQHandler
+ 540              	.LVL26:
+ 289:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN USART1_IRQn 1 */
+ 290:Core/Src/stm32f4xx_it.c **** 
+ 291:Core/Src/stm32f4xx_it.c ****   /* USER CODE END USART1_IRQn 1 */
+ 292:Core/Src/stm32f4xx_it.c **** }
+ 541              		.loc 1 292 1 is_stmt 0 view .LVU93
+ 542 0008 08BD     		pop	{r3, pc}
+ 543              	.L39:
+ 544 000a 00BF     		.align	2
+ 545              	.L38:
+ 546 000c 00000000 		.word	huart1
+ 547              		.cfi_endproc
+ 548              	.LFE247:
+ 550              		.section	.text.USART2_IRQHandler,"ax",%progbits
+ 551              		.align	1
+ 552              		.global	USART2_IRQHandler
+ 553              		.syntax unified
+ 554              		.thumb
+ 555              		.thumb_func
+ 556              		.fpu fpv4-sp-d16
+ 558              	USART2_IRQHandler:
+ 559              	.LFB248:
+ 293:Core/Src/stm32f4xx_it.c **** 
+ 294:Core/Src/stm32f4xx_it.c **** /**
+ 295:Core/Src/stm32f4xx_it.c ****   * @brief This function handles USART2 global interrupt.
+ 296:Core/Src/stm32f4xx_it.c ****   */
+ 297:Core/Src/stm32f4xx_it.c **** void USART2_IRQHandler(void)
+ 298:Core/Src/stm32f4xx_it.c **** {
+ 560              		.loc 1 298 1 is_stmt 1 view -0
+ 561              		.cfi_startproc
+ 562              		@ args = 0, pretend = 0, frame = 0
+ 563              		@ frame_needed = 0, uses_anonymous_args = 0
+ 564 0000 08B5     		push	{r3, lr}
+ 565              	.LCFI5:
+ 566              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s 			page 16
+
+
+ 567              		.cfi_offset 3, -8
+ 568              		.cfi_offset 14, -4
+ 299:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN USART2_IRQn 0 */
+ 300:Core/Src/stm32f4xx_it.c **** 
+ 301:Core/Src/stm32f4xx_it.c ****   /* USER CODE END USART2_IRQn 0 */
+ 302:Core/Src/stm32f4xx_it.c ****   HAL_UART_IRQHandler(&huart2);
+ 569              		.loc 1 302 3 view .LVU95
+ 570 0002 0248     		ldr	r0, .L42
+ 571 0004 FFF7FEFF 		bl	HAL_UART_IRQHandler
+ 572              	.LVL27:
+ 303:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN USART2_IRQn 1 */
+ 304:Core/Src/stm32f4xx_it.c **** 
+ 305:Core/Src/stm32f4xx_it.c ****   /* USER CODE END USART2_IRQn 1 */
+ 306:Core/Src/stm32f4xx_it.c **** }
+ 573              		.loc 1 306 1 is_stmt 0 view .LVU96
+ 574 0008 08BD     		pop	{r3, pc}
+ 575              	.L43:
+ 576 000a 00BF     		.align	2
+ 577              	.L42:
+ 578 000c 00000000 		.word	huart2
+ 579              		.cfi_endproc
+ 580              	.LFE248:
+ 582              		.comm	MassifADC,10,4
+ 583              		.comm	temp,4,4
+ 584              		.global	AverageADC
+ 585              		.global	meanADC
+ 586              		.global	voltageADC
+ 587              		.global	Result
+ 588              		.section	.bss.AverageADC,"aw",%nobits
+ 589              		.align	2
+ 590              		.set	.LANCHOR1,. + 0
+ 593              	AverageADC:
+ 594 0000 00000000 		.space	4
+ 595              		.section	.bss.Result,"aw",%nobits
+ 596              		.align	2
+ 597              		.set	.LANCHOR0,. + 0
+ 600              	Result:
+ 601 0000 00000000 		.space	4
+ 602              		.section	.bss.meanADC,"aw",%nobits
+ 603              		.align	2
+ 604              		.set	.LANCHOR2,. + 0
+ 607              	meanADC:
+ 608 0000 00000000 		.space	4
+ 609              		.section	.bss.voltageADC,"aw",%nobits
+ 610              		.align	2
+ 611              		.set	.LANCHOR3,. + 0
+ 614              	voltageADC:
+ 615 0000 00000000 		.space	4
+ 616              		.text
+ 617              	.Letext0:
+ 618              		.file 2 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 619              		.file 3 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 620              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 621              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 622              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 623              		.file 7 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 624              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s 			page 17
+
+
+ 625              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 626              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h"
+ 627              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 628              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 629              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 630              		.file 14 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\lock.h"
+ 631              		.file 15 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\_types.h"
+ 632              		.file 16 "c:\\vscodeproject\\software\\arm_gcc\\lib\\gcc\\arm-none-eabi\\9.2.1\\include\\stddef.h"
+ 633              		.file 17 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\reent.h"
+ 634              		.file 18 "Drivers/FreeModbus/port/port.h"
+ 635              		.file 19 "Drivers/FreeModbus/include/mbport.h"
+ 636              		.file 20 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 637              		.file 21 "Drivers/FreeModbus/ReceiveTransmit/ReceiveTransmit.h"
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s 			page 18
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f4xx_it.c
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:18     .text.NMI_Handler:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:26     .text.NMI_Handler:0000000000000000 NMI_Handler
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:44     .text.HardFault_Handler:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:51     .text.HardFault_Handler:0000000000000000 HardFault_Handler
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:68     .text.MemManage_Handler:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:75     .text.MemManage_Handler:0000000000000000 MemManage_Handler
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:92     .text.BusFault_Handler:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:99     .text.BusFault_Handler:0000000000000000 BusFault_Handler
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:116    .text.UsageFault_Handler:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:123    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:140    .text.SVC_Handler:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:147    .text.SVC_Handler:0000000000000000 SVC_Handler
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:160    .text.DebugMon_Handler:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:167    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:180    .text.PendSV_Handler:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:187    .text.PendSV_Handler:0000000000000000 PendSV_Handler
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:200    .text.SysTick_Handler:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:207    .text.SysTick_Handler:0000000000000000 SysTick_Handler
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:233    .text.TIM3_IRQHandler:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:240    .text.TIM3_IRQHandler:0000000000000000 TIM3_IRQHandler
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:428    .text.TIM3_IRQHandler:0000000000000100 $d
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:18     .text.NMI_Handler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:26     .text.NMI_Handler:0000000000000000 NMI_Handler
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:44     .text.HardFault_Handler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:51     .text.HardFault_Handler:0000000000000000 HardFault_Handler
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:68     .text.MemManage_Handler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:75     .text.MemManage_Handler:0000000000000000 MemManage_Handler
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:92     .text.BusFault_Handler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:99     .text.BusFault_Handler:0000000000000000 BusFault_Handler
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:116    .text.UsageFault_Handler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:123    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:140    .text.SVC_Handler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:147    .text.SVC_Handler:0000000000000000 SVC_Handler
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:160    .text.DebugMon_Handler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:167    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:180    .text.PendSV_Handler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:187    .text.PendSV_Handler:0000000000000000 PendSV_Handler
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:200    .text.SysTick_Handler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:207    .text.SysTick_Handler:0000000000000000 SysTick_Handler
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:227    .text.EXTI0_IRQHandler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:234    .text.EXTI0_IRQHandler:0000000000000000 EXTI0_IRQHandler
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:259    .text.EXTI0_IRQHandler:0000000000000014 $d
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:270    .text.TIM3_IRQHandler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:277    .text.TIM3_IRQHandler:0000000000000000 TIM3_IRQHandler
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:465    .text.TIM3_IRQHandler:0000000000000100 $d
                             *COM*:000000000000000a MassifADC
                             *COM*:0000000000000004 temp
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:450    .text.TIM4_IRQHandler:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:457    .text.TIM4_IRQHandler:0000000000000000 TIM4_IRQHandler
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:477    .text.TIM4_IRQHandler:000000000000000c $d
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:482    .text.USART1_IRQHandler:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:489    .text.USART1_IRQHandler:0000000000000000 USART1_IRQHandler
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:509    .text.USART1_IRQHandler:000000000000000c $d
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:514    .text.USART2_IRQHandler:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:521    .text.USART2_IRQHandler:0000000000000000 USART2_IRQHandler
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:541    .text.USART2_IRQHandler:000000000000000c $d
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:556    .bss.AverageADC:0000000000000000 AverageADC
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:570    .bss.meanADC:0000000000000000 meanADC
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:577    .bss.voltageADC:0000000000000000 voltageADC
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:563    .bss.Result:0000000000000000 Result
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:552    .bss.AverageADC:0000000000000000 $d
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:559    .bss.Result:0000000000000000 $d
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:566    .bss.meanADC:0000000000000000 $d
-C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s:573    .bss.voltageADC:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:487    .text.TIM4_IRQHandler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:494    .text.TIM4_IRQHandler:0000000000000000 TIM4_IRQHandler
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:514    .text.TIM4_IRQHandler:000000000000000c $d
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:519    .text.USART1_IRQHandler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:526    .text.USART1_IRQHandler:0000000000000000 USART1_IRQHandler
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:546    .text.USART1_IRQHandler:000000000000000c $d
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:551    .text.USART2_IRQHandler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:558    .text.USART2_IRQHandler:0000000000000000 USART2_IRQHandler
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:578    .text.USART2_IRQHandler:000000000000000c $d
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:593    .bss.AverageADC:0000000000000000 AverageADC
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:607    .bss.meanADC:0000000000000000 meanADC
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:614    .bss.voltageADC:0000000000000000 voltageADC
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:600    .bss.Result:0000000000000000 Result
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:589    .bss.AverageADC:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:596    .bss.Result:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:603    .bss.meanADC:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s:610    .bss.voltageADC:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_IncTick
+HAL_GPIO_TogglePin
+HAL_GPIO_EXTI_IRQHandler
 __aeabi_f2d
 __aeabi_dmul
 __aeabi_d2f
 __aeabi_dsub
 __aeabi_ddiv
 __aeabi_dadd
-HAL_GPIO_TogglePin
 HAL_ADC_GetValue
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccYPpyJk.s 			page 19
+
+
 HAL_ADC_Stop
 HAL_ADC_Start
 HAL_ADC_PollForConversion
 dataTransmit
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccjZ9Mtb.s 			page 18
-
-
 HAL_TIM_IRQHandler
 hadc1
 usSRegInBuf

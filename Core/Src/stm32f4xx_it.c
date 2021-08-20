@@ -26,7 +26,7 @@
 #include "ReceiveTransmit.h"
 
 #define tV_25   0.76            // Напряжение (в вольтах) на датчике при температуре 25 °C.
-#define tSlope  0.0025          // �?зменение напряжения (в вольтах) при изменении температуры на градус.
+#define tSlope  0.0025          // �?зменение напряжения (в вольтах) при изменении температуры на градус.
 #define Vref    3.3             // Образцовое напряжение АЦП (в вольтах).
 /* USER CODE END Includes */
 
@@ -213,6 +213,21 @@ void SysTick_Handler(void)
 /* For the available peripheral interrupt handler names,                      */
 /* please refer to the startup file (startup_stm32f4xx.s).                    */
 /******************************************************************************/
+
+/**
+  * @brief This function handles EXTI line0 interrupt.
+  */
+void EXTI0_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI0_IRQn 0 */
+  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_1);
+
+  /* USER CODE END EXTI0_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
+  /* USER CODE BEGIN EXTI0_IRQn 1 */
+
+  /* USER CODE END EXTI0_IRQn 1 */
+}
 
 /**
   * @brief This function handles TIM3 global interrupt.
