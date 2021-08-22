@@ -25,6 +25,12 @@
 /* USER CODE BEGIN Includes */
 #include "ReceiveTransmit.h"
 
+#include <stdio.h>
+#include <string.h>
+#include "st7735.h"
+#include "fonts.h"
+#include "testimg.h"
+
 #define tV_25   0.76            // Напряжение (в вольтах) на датчике при температуре 25 °C.
 #define tSlope  0.0025          // �?зменение напряжения (в вольтах) при изменении температуры на градус.
 #define Vref    3.3             // Образцовое напряжение АЦП (в вольтах).
@@ -253,6 +259,12 @@ void TIM3_IRQHandler(void)
   temp = (voltageADC - tV_25) / tSlope + 25;                // Температура в градусах.
   Result = (float) temp;
   dataTransmit(0, Result);                                  // Передача данных Modbus registr 0.
+
+  uint32_t byf[10] = {0};
+  sprintf((char*) byf, "%ld.%03d", (uint32_t)Result, (uint16_t)((Result - (uint32_t)Result)*1000.) );
+  ST7735_WriteString(0, 0, "CPU temperatura", Font_7x10, ST7735_RED, ST7735_BLACK);
+  ST7735_WriteString(0, 10, (char*) byf, Font_7x10, ST7735_WHITE, ST7735_BLACK);
+
 
   usSRegInBuf[2] += 1;
 

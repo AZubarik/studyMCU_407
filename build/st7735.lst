@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
   29:Drivers/TFT/st7735.c ****       0xC5,                   //     VGH25 = 2.4C VGSEL = -10 VGH = 3 * AVDD
   30:Drivers/TFT/st7735.c ****     ST7735_PWCTR3 , 2      ,  //  9: Power control, 2 args, no delay:
   31:Drivers/TFT/st7735.c ****       0x0A,                   //     Opamp current small
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 2
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 2
 
 
   32:Drivers/TFT/st7735.c ****       0x00,                   //     Boost frequency
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
   86:Drivers/TFT/st7735.c **** static void ST7735_Select() {
   28              		.loc 1 86 29 view -0
   29              		.cfi_startproc
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 3
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 3
 
 
   30              		@ args = 0, pretend = 0, frame = 0
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
   96:Drivers/TFT/st7735.c ****     HAL_Delay(5);
   77              		.loc 1 96 5 view .LVU5
   78 000e 0520     		movs	r0, #5
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 4
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 4
 
 
   79 0010 FFF7FEFF 		bl	HAL_Delay
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  129 0016 0122     		movs	r2, #1
  130 0018 0DF10701 		add	r1, sp, #7
  131 001c 0348     		ldr	r0, .L11+4
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 5
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 5
 
 
  132 001e FFF7FEFF 		bl	HAL_SPI_Transmit
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  183 0010 4FF0FF33 		mov	r3, #-1
  184 0014 AAB2     		uxth	r2, r5
  185 0016 2146     		mov	r1, r4
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 6
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 6
 
 
  186 0018 0248     		ldr	r0, .L15+4
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  234              		.loc 1 115 5 is_stmt 1 view .LVU29
  235              		.loc 1 115 10 is_stmt 0 view .LVU30
  236 0008 09E0     		b	.L18
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 7
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 7
 
 
  237              	.LVL17:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  270 0022 92B1     		cbz	r2, .L25
  271              	.LBB3:
  116:Drivers/TFT/st7735.c ****         ST7735_WriteCommand(cmd);
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 8
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 8
 
 
  272              		.loc 1 116 9 is_stmt 1 view .LVU41
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  310              	.LVL31:
  311              	.L25:
  130:Drivers/TFT/st7735.c ****             HAL_Delay(ms);
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 9
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 9
 
 
  312              		.loc 1 130 30 view .LVU58
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  360              		.loc 1 139 33 view .LVU67
  361 0018 0237     		adds	r7, r7, #2
  362              		.loc 1 139 13 view .LVU68
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 10
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 10
 
 
  363 001a 8DF80570 		strb	r7, [sp, #5]
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  407              		.align	1
  408              		.syntax unified
  409              		.thumb
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 11
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 11
 
 
  410              		.thumb_func
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  441 000c BDF83C80 		ldrh	r8, [sp, #60]
  442 0010 BDF84070 		ldrh	r7, [sp, #64]
  175:Drivers/TFT/st7735.c ****     uint32_t i, b, j;
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 12
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 12
 
 
  443              		.loc 1 175 5 is_stmt 1 view .LVU84
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  485 0048 FFF7FEFF 		bl	ST7735_WriteData
  486              	.LVL45:
  487              	.L33:
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 13
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 13
 
 
  488              		.loc 1 187 17 is_stmt 0 view .LVU99
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  180:Drivers/TFT/st7735.c ****         for(j = 0; j < font.width; j++) {
  528              		.loc 1 180 9 is_stmt 1 view .LVU114
  180:Drivers/TFT/st7735.c ****         for(j = 0; j < font.width; j++) {
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 14
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 14
 
 
  529              		.loc 1 180 27 is_stmt 0 view .LVU115
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  575              		.thumb_func
  576              		.fpu fpv4-sp-d16
  578              	ST7735_Unselect:
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 15
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 15
 
 
  579              	.LFB236:
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  155:Drivers/TFT/st7735.c ****     ST7735_ExecuteCommandList(init_cmds2);
  629              		.loc 1 155 5 view .LVU129
  630 000a 0648     		ldr	r0, .L45
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 16
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 16
 
 
  631 000c FFF7FEFF 		bl	ST7735_ExecuteCommandList
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  679              		.cfi_offset 5, -12
  680              		.cfi_offset 6, -8
  681              		.cfi_offset 14, -4
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 17
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 17
 
 
  682 0006 82B0     		sub	sp, sp, #8
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  728              	.LVL65:
  729 0040 E7E7     		b	.L47
  730              	.LVL66:
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 18
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 18
 
 
  731              	.L52:
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  767              		.cfi_offset 6, -28
  768              		.cfi_offset 7, -24
  769              		.cfi_offset 8, -20
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 19
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 19
 
 
  770              		.cfi_offset 9, -16
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  805 0030 0D9B     		ldr	r3, [sp, #52]
  806 0032 2946     		mov	r1, r5
  807 0034 3046     		mov	r0, r6
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 20
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 20
 
 
  808 0036 FFF7FEFF 		bl	ST7735_WriteChar
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  846 0056 2B44     		add	r3, r3, r5
  217:Drivers/TFT/st7735.c ****                 break;
  847              		.loc 1 217 15 view .LVU176
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 21
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 21
 
 
  848 0058 7F2B     		cmp	r3, #127
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  235:Drivers/TFT/st7735.c **** 
  236:Drivers/TFT/st7735.c **** void ST7735_FillRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color) {
  897              		.loc 1 236 91 is_stmt 1 view -0
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 22
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 22
 
 
  898              		.cfi_startproc
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  948 0030 ADB2     		uxth	r5, r5
  949              	.LVL84:
  950              	.L70:
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 23
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 23
 
 
  241:Drivers/TFT/st7735.c **** 
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  994              		.loc 1 248 28 is_stmt 0 discriminator 3 view .LVU210
  995 0074 013C     		subs	r4, r4, #1
  996              	.LVL90:
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 24
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 24
 
 
  248:Drivers/TFT/st7735.c ****         for(x = w; x > 0; x--) {
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  1037              		.cfi_endproc
  1038              	.LFE246:
  1040              		.section	.text.ST7735_FillScreen,"ax",%progbits
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 25
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 25
 
 
  1041              		.align	1
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  260:Drivers/TFT/st7735.c **** void ST7735_DrawImage(uint16_t x, uint16_t y, uint16_t w, uint16_t h, const uint16_t* data) {
  1093              		.loc 1 260 93 is_stmt 1 view -0
  1094              		.cfi_startproc
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 26
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 26
 
 
  1095              		@ args = 4, pretend = 0, frame = 0
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  1138 0020 FFF7FEFF 		bl	ST7735_Select
  1139              	.LVL103:
  266:Drivers/TFT/st7735.c ****     ST7735_WriteData((uint8_t*)data, sizeof(uint16_t)*w*h);
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 27
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 27
 
 
  1140              		.loc 1 266 5 view .LVU241
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  1187              		.thumb
  1188              		.thumb_func
  1189              		.fpu fpv4-sp-d16
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 28
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 28
 
 
  1191              	ST7735_InvertColors:
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  1234      0284
  1235 0021 C101C5C2 		.ascii	"\301\001\305\302\002\012\000\303\002\212*\304\002\212"
  1235      020A00C3 
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 29
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 29
 
 
  1235      028A2AC4 
@@ -1725,54 +1725,54 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 1
  1265              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
  1266              		.file 13 "Drivers/TFT/fonts.h"
  1267              		.file 14 "Drivers/TFT/st7735.h"
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s 			page 30
+ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s 			page 30
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 st7735.c
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:18     .text.ST7735_Select:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:25     .text.ST7735_Select:0000000000000000 ST7735_Select
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:48     .text.ST7735_Select:0000000000000010 $d
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:53     .text.ST7735_Reset:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:59     .text.ST7735_Reset:0000000000000000 ST7735_Reset
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:92     .text.ST7735_Reset:0000000000000020 $d
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:97     .text.ST7735_WriteCommand:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:103    .text.ST7735_WriteCommand:0000000000000000 ST7735_WriteCommand
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:143    .text.ST7735_WriteCommand:0000000000000028 $d
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:149    .text.ST7735_WriteData:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:155    .text.ST7735_WriteData:0000000000000000 ST7735_WriteData
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:196    .text.ST7735_WriteData:0000000000000020 $d
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:202    .text.ST7735_ExecuteCommandList:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:208    .text.ST7735_ExecuteCommandList:0000000000000000 ST7735_ExecuteCommandList
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:321    .text.ST7735_SetAddressWindow:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:327    .text.ST7735_SetAddressWindow:0000000000000000 ST7735_SetAddressWindow
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:407    .text.ST7735_WriteChar:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:413    .text.ST7735_WriteChar:0000000000000000 ST7735_WriteChar
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:571    .text.ST7735_Unselect:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:578    .text.ST7735_Unselect:0000000000000000 ST7735_Unselect
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:600    .text.ST7735_Unselect:0000000000000010 $d
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:605    .text.ST7735_Init:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:612    .text.ST7735_Init:0000000000000000 ST7735_Init
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:649    .text.ST7735_Init:0000000000000024 $d
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:656    .text.ST7735_DrawPixel:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:663    .text.ST7735_DrawPixel:0000000000000000 ST7735_DrawPixel
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:744    .text.ST7735_WriteString:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:751    .text.ST7735_WriteString:0000000000000000 ST7735_WriteString
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:887    .text.ST7735_FillRectangle:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:894    .text.ST7735_FillRectangle:0000000000000000 ST7735_FillRectangle
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:1035   .text.ST7735_FillRectangle:0000000000000090 $d
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:1041   .text.ST7735_FillScreen:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:1048   .text.ST7735_FillScreen:0000000000000000 ST7735_FillScreen
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:1083   .text.ST7735_DrawImage:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:1090   .text.ST7735_DrawImage:0000000000000000 ST7735_DrawImage
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:1184   .text.ST7735_InvertColors:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:1191   .text.ST7735_InvertColors:0000000000000000 ST7735_InvertColors
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:1228   .rodata.init_cmds1:0000000000000000 $d
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:1232   .rodata.init_cmds1:0000000000000000 init_cmds1
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:1238   .rodata.init_cmds2:0000000000000000 $d
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:1242   .rodata.init_cmds2:0000000000000000 init_cmds2
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:1245   .rodata.init_cmds3:0000000000000000 $d
-C:\Users\du4\AppData\Local\Temp\ccLLxDR6.s:1249   .rodata.init_cmds3:0000000000000000 init_cmds3
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:18     .text.ST7735_Select:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:25     .text.ST7735_Select:0000000000000000 ST7735_Select
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:48     .text.ST7735_Select:0000000000000010 $d
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:53     .text.ST7735_Reset:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:59     .text.ST7735_Reset:0000000000000000 ST7735_Reset
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:92     .text.ST7735_Reset:0000000000000020 $d
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:97     .text.ST7735_WriteCommand:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:103    .text.ST7735_WriteCommand:0000000000000000 ST7735_WriteCommand
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:143    .text.ST7735_WriteCommand:0000000000000028 $d
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:149    .text.ST7735_WriteData:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:155    .text.ST7735_WriteData:0000000000000000 ST7735_WriteData
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:196    .text.ST7735_WriteData:0000000000000020 $d
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:202    .text.ST7735_ExecuteCommandList:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:208    .text.ST7735_ExecuteCommandList:0000000000000000 ST7735_ExecuteCommandList
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:321    .text.ST7735_SetAddressWindow:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:327    .text.ST7735_SetAddressWindow:0000000000000000 ST7735_SetAddressWindow
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:407    .text.ST7735_WriteChar:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:413    .text.ST7735_WriteChar:0000000000000000 ST7735_WriteChar
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:571    .text.ST7735_Unselect:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:578    .text.ST7735_Unselect:0000000000000000 ST7735_Unselect
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:600    .text.ST7735_Unselect:0000000000000010 $d
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:605    .text.ST7735_Init:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:612    .text.ST7735_Init:0000000000000000 ST7735_Init
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:649    .text.ST7735_Init:0000000000000024 $d
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:656    .text.ST7735_DrawPixel:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:663    .text.ST7735_DrawPixel:0000000000000000 ST7735_DrawPixel
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:744    .text.ST7735_WriteString:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:751    .text.ST7735_WriteString:0000000000000000 ST7735_WriteString
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:887    .text.ST7735_FillRectangle:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:894    .text.ST7735_FillRectangle:0000000000000000 ST7735_FillRectangle
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:1035   .text.ST7735_FillRectangle:0000000000000090 $d
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:1041   .text.ST7735_FillScreen:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:1048   .text.ST7735_FillScreen:0000000000000000 ST7735_FillScreen
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:1083   .text.ST7735_DrawImage:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:1090   .text.ST7735_DrawImage:0000000000000000 ST7735_DrawImage
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:1184   .text.ST7735_InvertColors:0000000000000000 $t
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:1191   .text.ST7735_InvertColors:0000000000000000 ST7735_InvertColors
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:1228   .rodata.init_cmds1:0000000000000000 $d
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:1232   .rodata.init_cmds1:0000000000000000 init_cmds1
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:1238   .rodata.init_cmds2:0000000000000000 $d
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:1242   .rodata.init_cmds2:0000000000000000 init_cmds2
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:1245   .rodata.init_cmds3:0000000000000000 $d
+C:\Users\Andre\AppData\Local\Temp\cc1kO0rW.s:1249   .rodata.init_cmds3:0000000000000000 init_cmds3
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin

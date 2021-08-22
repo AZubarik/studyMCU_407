@@ -35,7 +35,7 @@
 #include <string.h>
 #include "st7735.h"
 #include "fonts.h"
-#include "testimg.h"
+// #include "testimg.h"
 // #include "img.h"
 
 /* USER CODE END Includes */
@@ -110,8 +110,11 @@ int main(void)
   eMBInit(MB_RTU, 1, &huart2, 115200, &htim4);
 	eMBEnable();
 
-  HAL_TIM_Base_Start_IT(&htim3);
   ST7735_Init();
+  ST7735_FillScreen(ST7735_BLACK);
+  
+  HAL_TIM_Base_Start_IT(&htim3);
+  
 
   /* USER CODE END 2 */
 
@@ -119,11 +122,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    ST7735_FillScreen(ST7735_BLACK);
+    // ST7735_FillScreen(ST7735_BLACK);
  
-      ST7735_DrawPixel(0, 127, ST7735_WHITE);
+    //   ST7735_DrawPixel(0, 127, ST7735_WHITE);
 
-    HAL_Delay(2500);
+    // HAL_Delay(2500);
 
 
     // ST7735_FillScreen(ST7735_BLUE);
@@ -133,7 +136,7 @@ int main(void)
 	//     // Display test image 128x128
 	//     ST7735_DrawImage(0, 0, ST7735_WIDTH, ST7735_HEIGHT, (uint16_t*)test_img_128x128);
 	//     HAL_Delay(15000);
-	//#endif // ST7735_IS_128X128
+	// #endif // ST7735_IS_128X128
 
     HAL_Delay(20);
     eMBPoll();

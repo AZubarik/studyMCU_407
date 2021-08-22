@@ -14,7 +14,8 @@
                 "${workspaceRoot}\\Core\\Src\\**",
                 "${workspaceRoot}\\Core\\Inc\\**",
                 "${workspaceFolder}/Drivers/CMSIS/Device/ST/STM32F4xx/Include",
-                "${workspaceFolder}/Drivers/STM32F4xx_HAL_Driver/Inc"
+                "${workspaceFolder}/Drivers/STM32F4xx_HAL_Driver/Inc",
+                "${workspaceFolder}/Drivers/CMSIS/Core/Include"
             ],
             "defines": [
                 "USE_HAL_DRIVER",

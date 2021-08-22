@@ -37,7 +37,8 @@ build/stm32f4xx_it.o: Core/Src/stm32f4xx_it.c Core/Inc/main.h \
  Drivers/FreeModbus/include/mbport.h Drivers/FreeModbus/include/mbproto.h \
  Drivers/FreeModbus/include/mbport.h Drivers/FreeModbus/app/user_mb_app.h \
  Drivers/FreeModbus/include/mb_m.h Drivers/FreeModbus/include/mbframe.h \
- Drivers/FreeModbus/include/mbutils.h
+ Drivers/FreeModbus/include/mbutils.h Drivers/TFT/st7735.h \
+ Drivers/TFT/fonts.h Drivers/TFT/fonts.h Drivers/TFT/testimg.h
 
 Core/Inc/main.h:
 
@@ -130,3 +131,11 @@ Drivers/FreeModbus/include/mb_m.h:
 Drivers/FreeModbus/include/mbframe.h:
 
 Drivers/FreeModbus/include/mbutils.h:
+
+Drivers/TFT/st7735.h:
+
+Drivers/TFT/fonts.h:
+
+Drivers/TFT/fonts.h:
+
+Drivers/TFT/testimg.h:
