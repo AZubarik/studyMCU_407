@@ -274,4 +274,27 @@ void ST7735_InvertColors(bool invert) {
     ST7735_Unselect();
 }
 
+void ST7735_FilledRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color) {
+  for(int g = 0; g < w; g++) {
+    for(int f = 0; f < h; f++) {
+      ST7735_DrawPixel(x + f ,y + g, color);
+    }
+  }
+}
+
+void ST7735_EmptyRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color) {
+  for(int g = 0; g < h; g++) {
+    ST7735_DrawPixel(x, y + g, color);
+  }
+  for(int g = 0; g < w; g++) {
+    ST7735_DrawPixel(x + g, y + h, color);
+  }
+  for(int g = 0; g < h; g++) {
+    ST7735_DrawPixel(x + w, y + g + 1, color);
+  }
+  for(int g = 0; g < w; g++) {
+    ST7735_DrawPixel(x + g + 1 , y, color);
+  }
+}
+
 

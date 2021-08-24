@@ -100,12 +100,15 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_ADC1_Init();
+  MX_ADC2_Init();
   MX_SPI1_Init();
   MX_SPI2_Init();
+  MX_TIM2_Init();
   MX_TIM3_Init();
   MX_TIM4_Init();
   MX_USART1_UART_Init();
   MX_USART2_UART_Init();
+
   /* USER CODE BEGIN 2 */
   eMBInit(MB_RTU, 1, &huart2, 115200, &htim4);
 	eMBEnable();
@@ -113,6 +116,7 @@ int main(void)
   ST7735_Init();
   ST7735_FillScreen(ST7735_BLACK);
   
+  HAL_TIM_Base_Start_IT(&htim2);
   HAL_TIM_Base_Start_IT(&htim3);
   
 
@@ -122,13 +126,12 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    ST7735_FilledRectangle(22, 62, 5, 5, ST7735_CYAN);
+    ST7735_EmptyRectangle(20, 60, 8, 8, ST7735_WHITE);
+
     // ST7735_FillScreen(ST7735_BLACK);
- 
-    //   ST7735_DrawPixel(0, 127, ST7735_WHITE);
-
+    // ST7735_DrawPixel(0, 127, ST7735_WHITE);
     // HAL_Delay(2500);
-
-
     // ST7735_FillScreen(ST7735_BLUE);
     // HAL_Delay(1000);
 

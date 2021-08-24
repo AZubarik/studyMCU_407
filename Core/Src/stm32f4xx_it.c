@@ -39,6 +39,7 @@
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
 extern ADC_HandleTypeDef hadc1;
+extern ADC_HandleTypeDef hadc2;
 
 extern uint16_t usSRegInBuf[];
 extern uint16_t usSRegHoldBuf[];
@@ -48,8 +49,12 @@ extern uint16_t usSRegHoldBuf[];
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 float Result = 0, voltageADC = 0, meanADC = 0, AverageADC = 0;
+float voltageADC2_IN8 = 0, meanADC2_IN8 = 0, AverageADC2_IN8 = 0;
 float temp;
 uint16_t MassifADC[5];
+uint16_t MassifADC2_IN8[5];
+uint32_t ADC_temperatura[10] = {0,};
+uint32_t ADC_IN8[10] = {0,};
 
 /* USER CODE END PD */
 
@@ -74,6 +79,7 @@ uint16_t MassifADC[5];
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
+extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim3;
 extern TIM_HandleTypeDef htim4;
 extern UART_HandleTypeDef huart1;
@@ -236,6 +242,40 @@ void EXTI0_IRQHandler(void)
 }
 
 /**
+  * @brief This function handles TIM2 global interrupt.
+  */
+void TIM2_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM2_IRQn 0 */
+  for (int i = 0; i < 5; i++) {
+    HAL_ADC_Start(&hadc2);
+    if (HAL_ADC_PollForConversion(&hadc2, 100) == HAL_OK) {   // Ожидание завершения преобразования.
+    Result = HAL_ADC_GetValue(&hadc2);                      // Считывание с АЦП.
+    MassifADC2_IN8[i] = Result;
+    HAL_ADC_Stop(&hadc2);                                   // Остановка АЦП.
+    }
+  }
+  AverageADC2_IN8 = 0;
+  for (int j = 0; j < 5; j++) {
+  AverageADC2_IN8 += MassifADC2_IN8[j];
+  }
+
+  meanADC2_IN8 = AverageADC2_IN8 / 5;
+  voltageADC2_IN8 = (float) meanADC2_IN8 / 4096 * Vref;
+
+  sprintf((char*) ADC_IN8, "%ld.%03d", (uint32_t)voltageADC2_IN8, (uint16_t)((voltageADC2_IN8 - (uint32_t)voltageADC2_IN8)*1000.) );
+  ST7735_WriteString(0, 30, "ADC voltage", Font_7x10, ST7735_RED, ST7735_BLACK); 
+  ST7735_WriteString(40, 40, "V", Font_7x10, ST7735_WHITE, ST7735_BLACK); 
+  ST7735_WriteString(0, 40, (char*) ADC_IN8, Font_7x10, ST7735_WHITE, ST7735_BLACK); 
+
+  /* USER CODE END TIM2_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim2);
+  /* USER CODE BEGIN TIM2_IRQn 1 */
+
+  /* USER CODE END TIM2_IRQn 1 */
+}
+
+/**
   * @brief This function handles TIM3 global interrupt.
   */
 void TIM3_IRQHandler(void)
@@ -260,11 +300,9 @@ void TIM3_IRQHandler(void)
   Result = (float) temp;
   dataTransmit(0, Result);                                  // Передача данных Modbus registr 0.
 
-  uint32_t byf[10] = {0};
-  sprintf((char*) byf, "%ld.%03d", (uint32_t)Result, (uint16_t)((Result - (uint32_t)Result)*1000.) );
-  ST7735_WriteString(0, 0, "CPU temperatura", Font_7x10, ST7735_RED, ST7735_BLACK);
-  ST7735_WriteString(0, 10, (char*) byf, Font_7x10, ST7735_WHITE, ST7735_BLACK);
-
+  sprintf((char*) ADC_temperatura, "%ld.%03d", (uint32_t)Result, (uint16_t)((Result - (uint32_t)Result)*1000.) );
+  ST7735_WriteString(0, 0, "CPU temperatura", Font_7x10, ST7735_CYAN, ST7735_BLACK);
+  ST7735_WriteString(0, 10, (char*) ADC_temperatura, Font_7x10, ST7735_WHITE, ST7735_BLACK);
 
   usSRegInBuf[2] += 1;
 
