@@ -297,4 +297,15 @@ void ST7735_EmptyRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint1
   }
 }
 
+void ST7735_Charger(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint16_t color) {
+  for(int i = 0; i < width; i++) {
+    ST7735_DrawPixel(x + i, y, color);
+    ST7735_DrawPixel(x + i, y + height, color);
+  }
+  for(int i = 0; i <= height; i++) {
+  ST7735_DrawPixel(x, y + i, color);
+  ST7735_DrawPixel(x + width, y + i, color);
+  }
+}
+
 
