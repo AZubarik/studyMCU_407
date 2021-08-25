@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
   28:Core/Src/stm32f4xx_it.c **** #include <stdio.h>
   29:Core/Src/stm32f4xx_it.c **** #include <string.h>
   30:Core/Src/stm32f4xx_it.c **** #include "st7735.h"
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 2
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 2
 
 
   31:Core/Src/stm32f4xx_it.c **** #include "fonts.h"
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
   85:Core/Src/stm32f4xx_it.c **** extern UART_HandleTypeDef huart1;
   86:Core/Src/stm32f4xx_it.c **** extern UART_HandleTypeDef huart2;
   87:Core/Src/stm32f4xx_it.c **** /* USER CODE BEGIN EV */
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 3
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 3
 
 
   88:Core/Src/stm32f4xx_it.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
   58              		@ link register save eliminated.
   59              	.L4:
  114:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN HardFault_IRQn 0 */
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 4
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 4
 
 
  115:Core/Src/stm32f4xx_it.c **** 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
   93              		.global	BusFault_Handler
   94              		.syntax unified
   95              		.thumb
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 5
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 5
 
 
   96              		.thumb_func
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  130              		@ link register save eliminated.
  131              	.L10:
  159:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN UsageFault_IRQn 0 */
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 6
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 6
 
 
  160:Core/Src/stm32f4xx_it.c **** 
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  168              	.LFB244:
  181:Core/Src/stm32f4xx_it.c **** 
  182:Core/Src/stm32f4xx_it.c **** /**
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 7
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 7
 
 
  183:Core/Src/stm32f4xx_it.c ****   * @brief This function handles Debug monitor.
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  202              		.syntax unified
  203              		.thumb
  204              		.thumb_func
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 8
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 8
 
 
  205              		.fpu fpv4-sp-d16
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  233:Core/Src/stm32f4xx_it.c **** {
  236              		.loc 1 233 1 is_stmt 1 view -0
  237              		.cfi_startproc
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 9
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 9
 
 
  238              		@ args = 0, pretend = 0, frame = 0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  280              		.syntax unified
  281              		.thumb
  282              		.thumb_func
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 10
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 10
 
 
  283              		.fpu fpv4-sp-d16
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  254:Core/Src/stm32f4xx_it.c ****     MassifADC2_IN8[i] = Result;
  327              		.loc 1 254 5 is_stmt 1 view .LVU41
  328              		.loc 1 254 23 is_stmt 0 view .LVU42
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 11
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 11
 
 
  329 0020 FCEEE77A 		vcvt.u32.f32	s15, s15
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  370              	.LBB3:
  371              		.loc 1 259 8 view .LVU55
  372              	.LVL10:
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 12
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 12
 
 
  373              		.loc 1 259 12 is_stmt 0 view .LVU56
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  418              	.LVL14:
  419              		.loc 1 264 49 view .LVU72
  420 00a0 27A3     		adr	r3, .L30
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 13
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 13
 
 
  421 00a2 D3E90023 		ldrd	r2, [r3]
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  471 0102 0295     		str	r5, [sp, #8]
  472 0104 4FF6FF77 		movw	r7, #65535
  473 0108 0197     		str	r7, [sp, #4]
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 14
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 14
 
 
  474 010a 6368     		ldr	r3, [r4, #4]
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  520 0164 00408F40 		.word	1083129856
  521 0168 00000000 		.word	.LANCHOR4
  522 016c 00000000 		.word	.LC0
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 15
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 15
 
 
  523 0170 00000000 		.word	Font_7x10
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  568 000a 5F48     		ldr	r0, .L42+24
  569 000c FFF7FEFF 		bl	HAL_GPIO_TogglePin
  570              	.LVL26:
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 16
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 16
 
 
  285:Core/Src/stm32f4xx_it.c ****   for (int i = 0; i < 5; i++) {
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  614              	.LVL31:
  287:Core/Src/stm32f4xx_it.c ****       Result = HAL_ADC_GetValue(&hadc1);                      // Считывание с АЦП.
  615              		.loc 1 287 5 view .LVU102
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 17
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 17
 
 
  287:Core/Src/stm32f4xx_it.c ****       Result = HAL_ADC_GetValue(&hadc1);                      // Считывание с АЦП.
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  660 0082 EDE7     		b	.L36
  661              	.L41:
  294:Core/Src/stm32f4xx_it.c ****   for (int j = 0; j < 5; j++) {
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 18
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 18
 
 
  662              		.loc 1 294 27 discriminator 3 view .LVU118
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  712 00de 00EE100A 		vmov	s0, r0
  713              		.loc 1 299 8 view .LVU131
  714 00e2 324B     		ldr	r3, .L42+60
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 19
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 19
 
 
  715 00e4 1860     		str	r0, [r3]	@ float
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  764              	.LVL51:
  305:Core/Src/stm32f4xx_it.c ****   ST7735_WriteString(0, 10, (char*) ADC_temperatura, Font_7x10, ST7735_WHITE, ST7735_BLACK);
  765              		.loc 1 305 3 view .LVU142
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 20
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 20
 
 
  766 0140 0294     		str	r4, [sp, #8]
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  811 0198 00000000 		.word	.LANCHOR5
  812 019c 00000000 		.word	.LANCHOR6
  813 01a0 00008039 		.word	964689920
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 21
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 21
 
 
  814 01a4 00000000 		.word	.LANCHOR7
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  856              		.cfi_endproc
  857              	.LFE250:
  859              		.section	.text.USART1_IRQHandler,"ax",%progbits
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 22
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 22
 
 
  860              		.align	1
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  345:Core/Src/stm32f4xx_it.c ****   * @brief This function handles USART2 global interrupt.
  346:Core/Src/stm32f4xx_it.c ****   */
  347:Core/Src/stm32f4xx_it.c **** void USART2_IRQHandler(void)
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 23
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 23
 
 
  348:Core/Src/stm32f4xx_it.c **** {
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  945              		.set	.LANCHOR8,. + 0
  948              	ADC_temperatura:
  949 0000 00000000 		.space	40
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 24
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 24
 
 
  949      00000000 
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  1016 0018 9DCB     		.short	-13411
  1017 001a B6EC     		.short	-4938
  1018 001c CFCC     		.short	-13105
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 25
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 25
 
 
  1019 001e E7EC     		.short	-4889
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  1073 008a 74B9     		.short	-18060
  1074 008c 3A30     		.short	12346
  1075 008e 2951     		.short	20777
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 26
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 26
 
 
  1076 0090 39B6     		.short	-18887
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  1130 00fc 2944     		.short	17449
  1131 00fe 2924     		.short	9257
  1132 0100 630B     		.short	2915
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 27
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 27
 
 
  1133 0102 632B     		.short	11107
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  1187 016e 8D5B     		.short	23437
  1188 0170 7439     		.short	14708
  1189 0172 7C3A     		.short	14972
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 28
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 28
 
 
  1190 0174 8C7B     		.short	31628
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  1244 01e0 4A48     		.short	18506
  1245 01e2 5248     		.short	18514
  1246 01e4 4A28     		.short	10314
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 29
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 29
 
 
  1247 01e6 4A28     		.short	10314
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  1301 0252 7C78     		.short	30844
  1302 0254 6395     		.short	-27293
  1303 0256 4ACE     		.short	-12726
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 30
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 30
 
 
  1304 0258 4A4C     		.short	19530
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  1358 02c4 8CFF     		.short	-116
  1359 02c6 B63F     		.short	16310
  1360 02c8 BE5F     		.short	24510
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 31
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 31
 
 
  1361 02ca ADFF     		.short	-83
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  1415 0336 8CFA     		.short	-1396
  1416 0338 ADFF     		.short	-83
  1417 033a B69F     		.short	-24650
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 32
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 32
 
 
  1418 033c AE7F     		.short	32686
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  1472 03a8 3A78     		.short	30778
  1473 03aa 3A79     		.short	31034
  1474 03ac 327B     		.short	31538
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 33
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 33
 
 
  1475 03ae 4ABC     		.short	-17334
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  1529 041a F7CC     		.short	-13065
  1530 041c FFEC     		.short	-4865
  1531 041e FFEB     		.short	-5121
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 34
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 34
 
 
  1532 0420 FFEA     		.short	-5377
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  1586 048c B65F     		.short	24502
  1587 048e A65E     		.short	24230
  1588 0490 74DD     		.short	-8844
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 35
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 35
 
 
  1589 0492 539C     		.short	-25517
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  1643 04fe 3185     		.short	-31439
  1644 0500 6B2B     		.short	11115
  1645 0502 6B2B     		.short	11115
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 36
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 36
 
 
  1646 0504 6B2B     		.short	11115
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  1700 0570 6C5F     		.short	24428
  1701 0572 429C     		.short	-25534
  1702 0574 7C1D     		.short	7548
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 37
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 37
 
 
  1703 0576 BE5F     		.short	24510
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  1757 05e2 5289     		.short	-30382
  1758 05e4 5289     		.short	-30382
  1759 05e6 5268     		.short	26706
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 38
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 38
 
 
  1760 05e8 5268     		.short	26706
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  1814 0654 63BC     		.short	-17309
  1815 0656 5B9A     		.short	-26021
  1816 0658 73F9     		.short	-1677
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 39
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 39
 
 
  1817 065a 8458     		.short	22660
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  1871 06c6 BEBF     		.short	-16450
  1872 06c8 9E1F     		.short	8094
  1873 06ca 6C3E     		.short	15980
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 40
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 40
 
 
  1874 06cc 63BD     		.short	-17053
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  1928 0738 7CFE     		.short	-388
  1929 073a 7CBC     		.short	-17284
  1930 073c 6418     		.short	6244
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 41
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 41
 
 
  1931 073e 63B7     		.short	-18589
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  1985 07aa 74FC     		.short	-908
  1986 07ac 3AB9     		.short	-18118
  1987 07ae 31FA     		.short	-1487
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 42
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 42
 
 
  1988 07b0 3A9A     		.short	-26054
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  2042 081c FFE9     		.short	-5633
  2043 081e FFE8     		.short	-5889
  2044 0820 FFE8     		.short	-5889
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 43
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 43
 
 
  2045 0822 FFC9     		.short	-13825
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  2099 088e 2990     		.short	-28631
  2100 0890 2952     		.short	21033
  2101 0892 31D6     		.short	-10703
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 44
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 44
 
 
  2102 0894 3217     		.short	5938
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  2156 0900 6B0B     		.short	2923
  2157 0902 6B2B     		.short	11115
  2158 0904 6B2B     		.short	11115
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 45
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 45
 
 
  2159 0906 6B6B     		.short	27499
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  2213 0972 4253     		.short	21314
  2214 0974 3A11     		.short	4410
  2215 0976 39AE     		.short	-20935
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 46
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 46
 
 
  2216 0978 39AD     		.short	-21191
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  2270 09e4 5AA9     		.short	-22182
  2271 09e6 5ACA     		.short	-13734
  2272 09e8 62A9     		.short	-22174
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 47
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 47
 
 
  2273 09ea 5A89     		.short	-30374
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  2327 0a56 52BB     		.short	-17582
  2328 0a58 6B7D     		.short	32107
  2329 0a5a 7C3E     		.short	15996
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 48
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 48
 
 
  2330 0a5c 9D9F     		.short	-24675
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  2384 0ac8 531C     		.short	7251
  2385 0aca 6BDD     		.short	-8853
  2386 0acc 849E     		.short	-24956
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 49
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 49
 
 
  2387 0ace 9D3F     		.short	16285
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  2441 0b3a 4AD1     		.short	-11958
  2442 0b3c 4AF4     		.short	-2998
  2443 0b3e 4AD4     		.short	-11190
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 50
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 50
 
 
  2444 0b40 4292     		.short	-28094
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  2498 0bac 29D9     		.short	-9943
  2499 0bae 4ABB     		.short	-17590
  2500 0bb0 8CFF     		.short	-116
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 51
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 51
 
 
  2501 0bb2 74DF     		.short	-8332
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  2555 0c1e FFEB     		.short	-5121
  2556 0c20 FFED     		.short	-4609
  2557 0c22 FFEE     		.short	-4353
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 52
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 52
 
 
  2558 0c24 EFEE     		.short	-4369
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  2612 0c90 31F6     		.short	-2511
  2613 0c92 31D4     		.short	-11215
  2614 0c94 214F     		.short	20257
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 53
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 53
 
 
  2615 0c96 4A11     		.short	4426
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  2669 0d02 AE6B     		.short	27566
  2670 0d04 D7E9     		.short	-5673
  2671 0d06 E7EA     		.short	-5401
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 54
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 54
 
 
  2672 0d08 EFEA     		.short	-5393
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  2726 0d74 4B57     		.short	22347
  2727 0d76 42D4     		.short	-11198
  2728 0d78 29D4     		.short	-11223
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 55
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 55
 
 
  2729 0d7a 2976     		.short	30249
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  2783 0de6 6B8C     		.short	-29589
  2784 0de8 5AC9     		.short	-13990
  2785 0dea 62EA     		.short	-5534
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 56
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 56
 
 
  2786 0dec 62CA     		.short	-13726
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  2840 0e58 210C     		.short	3105
  2841 0e5a 18EC     		.short	-5096
  2842 0e5c 192D     		.short	11545
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 57
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 57
 
 
  2843 0e5e 214D     		.short	19745
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  2897 0eca 325A     		.short	23090
  2898 0ecc 4AFB     		.short	-1206
  2899 0ece 6C1B     		.short	7020
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 58
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 58
 
 
  2900 0ed0 327B     		.short	31538
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  2954 0f3c 84DB     		.short	-9340
  2955 0f3e 7CBC     		.short	-17284
  2956 0f40 84FE     		.short	-380
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 59
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 59
 
 
  2957 0f42 84DF     		.short	-8316
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  3011 0fae 3A38     		.short	14394
  3012 0fb0 4B3A     		.short	14923
  3013 0fb2 2A15     		.short	5418
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 60
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 60
 
 
  3014 0fb4 1991     		.short	-28391
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  3068 1020 C7C7     		.short	-14393
  3069 1022 BFA9     		.short	-22081
  3070 1024 96EE     		.short	-4458
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 61
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 61
 
 
  3071 1026 65AE     		.short	-20891
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  3125 1092 7498     		.short	-26508
  3126 1094 4AD6     		.short	-10678
  3127 1096 6B7A     		.short	31339
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 62
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 62
 
 
  3128 1098 9DBF     		.short	-16483
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  3182 1104 DFE8     		.short	-5921
  3183 1106 E7E9     		.short	-5657
  3184 1108 EFE8     		.short	-5905
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 63
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 63
 
 
  3185 110a EFE8     		.short	-5905
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  3239 1176 424E     		.short	20034
  3240 1178 424D     		.short	19778
  3241 117a 422D     		.short	11586
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 64
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 64
 
 
  3242 117c 4271     		.short	28994
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  3296 11e8 AE5D     		.short	23982
  3297 11ea 6C2E     		.short	11884
  3298 11ec 62EA     		.short	-5534
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 65
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 65
 
 
  3299 11ee 632A     		.short	10851
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  3353 125a 3A2C     		.short	11322
  3354 125c 4AAD     		.short	-21174
  3355 125e 4A90     		.short	-28598
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 66
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 66
 
 
  3356 1260 3211     		.short	4402
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  3410 12cc 21D2     		.short	-11743
  3411 12ce 110C     		.short	3089
  3412 12d0 20D3     		.short	-11488
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 67
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 67
 
 
  3413 12d2 7C7F     		.short	32636
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  3467 133e 4B19     		.short	6475
  3468 1340 3A53     		.short	21306
  3469 1342 3A31     		.short	12602
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 68
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 68
 
 
  3470 1344 3A4F     		.short	20282
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  3524 13b0 295A     		.short	23081
  3525 13b2 73DF     		.short	-8333
  3526 13b4 7D1F     		.short	8061
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 69
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 69
 
 
  3527 13b6 2A78     		.short	30762
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  3581 1422 8EC8     		.short	-14194
  3582 1424 6DEA     		.short	-5523
  3583 1426 554A     		.short	19029
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 70
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 70
 
 
  3584 1428 4CAA     		.short	-21940
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  3638 1494 42DD     		.short	-8894
  3639 1496 2A78     		.short	30762
  3640 1498 21B4     		.short	-19423
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 71
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 71
 
 
  3641 149a 1931     		.short	12569
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  3695 1506 C7E9     		.short	-5689
  3696 1508 D7E9     		.short	-5673
  3697 150a DFE9     		.short	-5665
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 72
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 72
 
 
  3698 150c E7EA     		.short	-5401
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  3752 1578 21AE     		.short	-20959
  3753 157a 29D8     		.short	-10199
  3754 157c 5B7F     		.short	32603
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 73
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 73
 
 
  3755 157e 7C9F     		.short	-24708
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  3809 15ea 9DDF     		.short	-8291
  3810 15ec 7C52     		.short	21116
  3811 15ee 632A     		.short	10851
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 74
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 74
 
 
  3812 15f0 6B4B     		.short	19307
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  3866 165c 3A95     		.short	-27334
  3867 165e 2A12     		.short	4650
  3868 1660 29CC     		.short	-13271
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 75
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 75
 
 
  3869 1662 29E9     		.short	-5847
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  3923 16ce 192D     		.short	11545
  3924 16d0 10AF     		.short	-20720
  3925 16d2 112D     		.short	11537
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 76
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 76
 
 
  3926 16d4 194D     		.short	19737
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  3980 1740 0867     		.short	26376
  3981 1742 0888     		.short	-30712
  3982 1744 08CA     		.short	-13816
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 77
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 77
 
 
  3983 1746 08EB     		.short	-5368
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  4037 17b2 298D     		.short	-29399
  4038 17b4 31ED     		.short	-4815
  4039 17b6 320F     		.short	3890
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 78
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 78
 
 
  4040 17b8 29CF     		.short	-12503
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  4094 1824 648A     		.short	-30108
  4095 1826 3BAE     		.short	-20933
  4096 1828 3BD2     		.short	-11717
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 79
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 79
 
 
  4097 182a 43B6     		.short	-18877
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  4151 1896 435D     		.short	23875
  4152 1898 329B     		.short	-25806
  4153 189a 29FA     		.short	-1495
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 80
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 80
 
 
  4154 189c 529C     		.short	-25518
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  4208 1908 F7E8     		.short	-5897
  4209 190a FFE9     		.short	-5633
  4210 190c FFC9     		.short	-13825
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 81
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 81
 
 
  4211 190e F7E9     		.short	-5641
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  4265 197a 20E4     		.short	-7136
  4266 197c 1902     		.short	537
  4267 197e 2105     		.short	1313
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 82
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 82
 
 
  4268 1980 2130     		.short	12321
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  4322 19ec 7CFF     		.short	-132
  4323 19ee 63B7     		.short	-18589
  4324 19f0 6B4A     		.short	19051
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 83
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 83
 
 
  4325 19f2 6B4A     		.short	19051
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  4379 1a5e 0067     		.short	26368
  4380 1a60 08A9     		.short	-22264
  4381 1a62 2A38     		.short	14378
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 84
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 84
 
 
  4382 1a64 21BB     		.short	-17631
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  4436 1ad0 0847     		.short	18184
  4437 1ad2 10A9     		.short	-22256
  4438 1ad4 10EE     		.short	-4592
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 85
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 85
 
 
  4439 1ad6 2198     		.short	-26591
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  4493 1b42 63BB     		.short	-17565
  4494 1b44 7C7D     		.short	32124
  4495 1b46 7C9E     		.short	-24964
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 86
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 86
 
 
  4496 1b48 6C3E     		.short	15980
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  4550 1bb4 5B9F     		.short	-24741
  4551 1bb6 745F     		.short	24436
  4552 1bb8 7CDF     		.short	-8324
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 87
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 87
 
 
  4553 1bba 7C7F     		.short	32636
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  4607 1c26 8EE9     		.short	-5746
  4608 1c28 6E0B     		.short	2926
  4609 1c2a 444D     		.short	19780
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 88
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 88
 
 
  4610 1c2c 22CE     		.short	-12766
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  4664 1c98 1158     		.short	22545
  4665 1c9a 21BA     		.short	-17887
  4666 1c9c 3A7C     		.short	31802
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 89
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 89
 
 
  4667 1c9e 42FD     		.short	-702
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  4721 1d0a F7E9     		.short	-5641
  4722 1d0c F7E9     		.short	-5641
  4723 1d0e F7E9     		.short	-5641
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 90
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 90
 
 
  4724 1d10 F7E8     		.short	-5897
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  4778 1d7c B5BB     		.short	-17483
  4779 1d7e 8BD1     		.short	-11893
  4780 1d80 6208     		.short	2146
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 91
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 91
 
 
  4781 1d82 3083     		.short	-31952
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  4835 1dee 749E     		.short	-24972
  4836 1df0 953E     		.short	16021
  4837 1df2 B65C     		.short	23734
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 92
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 92
 
 
  4838 1df4 6BEE     		.short	-4501
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  4892 1e60 114E     		.short	19985
  4893 1e62 21B9     		.short	-18143
  4894 1e64 08EF     		.short	-4344
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 93
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 93
 
 
  4895 1e66 0863     		.short	25352
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  4949 1ed2 321D     		.short	7474
  4950 1ed4 4B5F     		.short	24395
  4951 1ed6 19FA     		.short	-1511
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 94
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 94
 
 
  4952 1ed8 0953     		.short	21257
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  5006 1f44 21D0     		.short	-12255
  5007 1f46 52FA     		.short	-1454
  5008 1f48 8CBF     		.short	-16500
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 95
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 95
 
 
  5009 1f4a 84FF     		.short	-124
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  5063 1fb6 10CA     		.short	-13808
  5064 1fb8 216C     		.short	27681
  5065 1fba 29AF     		.short	-20695
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 96
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 96
 
 
  5066 1fbc 196D     		.short	27929
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  5120 2028 2AC8     		.short	-14294
  5121 202a 32AB     		.short	-21710
  5122 202c 324E     		.short	20018
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 97
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 97
 
 
  5123 202e 3210     		.short	4146
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  5177 209a 1975     		.short	29977
  5178 209c 2136     		.short	13857
  5179 209e 425C     		.short	23618
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 98
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 98
 
 
  5180 20a0 63DF     		.short	-8349
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  5234 210c EFE7     		.short	-6161
  5235 210e EFC6     		.short	-14609
  5236 2110 EFE6     		.short	-6417
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 99
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 99
 
 
  5237 2112 F7E8     		.short	-5897
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  5291 217e 0001     		.short	256
  5292 2180 0000     		.short	0
  5293 2182 08A3     		.short	-23800
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 100
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 100
 
 
  5294 2184 0082     		.short	-32256
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  5348 21f0 42FA     		.short	-1470
  5349 21f2 4319     		.short	6467
  5350 21f4 3251     		.short	20786
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 101
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 101
 
 
  5351 21f6 630C     		.short	3171
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  5405 2262 1953     		.short	21273
  5406 2264 198F     		.short	-28903
  5407 2266 3A0B     		.short	2874
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 102
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 102
 
 
  5408 2268 632D     		.short	11619
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  5462 22d4 32FF     		.short	-206
  5463 22d6 1A3C     		.short	15386
  5464 22d8 32BC     		.short	-17358
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 103
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 103
 
 
  5465 22da 3B1D     		.short	7483
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  5519 2346 5B7B     		.short	31579
  5520 2348 533C     		.short	15443
  5521 234a 63DF     		.short	-8349
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 104
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 104
 
 
  5522 234c 539D     		.short	-25261
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  5576 23b8 329A     		.short	-26062
  5577 23ba 323A     		.short	14898
  5578 23bc 4B7E     		.short	32331
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 105
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 105
 
 
  5579 23be 4BDF     		.short	-8373
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  5633 242a 2B4A     		.short	18987
  5634 242c 4B8F     		.short	-28853
  5635 242e 7459     		.short	22900
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 106
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 106
 
 
  5636 2430 8D1E     		.short	7821
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  5690 249c 113A     		.short	14865
  5691 249e 08F3     		.short	-3320
  5692 24a0 00AD     		.short	-21248
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 107
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 107
 
 
  5693 24a2 08B3     		.short	-19704
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  5747 250e EFE7     		.short	-6161
  5748 2510 EFE7     		.short	-6161
  5749 2512 EFE7     		.short	-6161
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 108
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 108
 
 
  5750 2514 EFE8     		.short	-5905
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  5804 2580 0000     		.short	0
  5805 2582 08A3     		.short	-23800
  5806 2584 08A2     		.short	-24056
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 109
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 109
 
 
  5807 2586 0820     		.short	8200
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  5861 25f2 42FC     		.short	-958
  5862 25f4 5B52     		.short	21083
  5863 25f6 6B8A     		.short	-30101
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 110
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 110
 
 
  5864 25f8 6B6A     		.short	27243
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  5918 2664 10F2     		.short	-3568
  5919 2666 18EF     		.short	-4328
  5920 2668 196B     		.short	27417
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 111
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 111
 
 
  5921 266a 5B4F     		.short	20315
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  5975 26d6 1085     		.short	-31472
  5976 26d8 0862     		.short	25096
  5977 26da 1061     		.short	24848
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 112
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 112
 
 
  5978 26dc 1081     		.short	-32496
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  6032 2748 29CF     		.short	-12503
  6033 274a 216F     		.short	28449
  6034 274c 216D     		.short	27937
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 113
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 113
 
 
  6035 274e 194E     		.short	19993
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  6089 27ba 08F5     		.short	-2808
  6090 27bc 00B3     		.short	-19712
  6091 27be 00B1     		.short	-20224
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 114
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 114
 
 
  6092 27c0 008A     		.short	-30208
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  6146 282c 4353     		.short	21315
  6147 282e 4334     		.short	13379
  6148 2830 4B13     		.short	4939
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 115
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 115
 
 
  6149 2832 63B5     		.short	-19101
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  6203 289e 0026     		.short	9728
  6204 28a0 0028     		.short	10240
  6205 28a2 0049     		.short	18688
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 116
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 116
 
 
  6206 28a4 0006     		.short	1536
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  6260 2910 EFC7     		.short	-14353
  6261 2912 EFE6     		.short	-6417
  6262 2914 E7C5     		.short	-14873
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 117
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 117
 
 
  6263 2916 E7E4     		.short	-6937
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  6317 2982 6860     		.short	24680
  6318 2984 5882     		.short	-32168
  6319 2986 41A8     		.short	-22463
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 118
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 118
 
 
  6320 2988 428C     		.short	-29630
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  6374 29f4 6B6B     		.short	27499
  6375 29f6 6B6B     		.short	27499
  6376 29f8 6B6B     		.short	27499
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 119
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 119
 
 
  6377 29fa 6B6B     		.short	27499
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  6431 2a66 4B1F     		.short	8011
  6432 2a68 63DF     		.short	-8349
  6433 2a6a 431C     		.short	7235
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 120
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 120
 
 
  6434 2a6c 11B4     		.short	-19439
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  6488 2ad8 3967     		.short	26425
  6489 2ada 5AAC     		.short	-21414
  6490 2adc 630D     		.short	3427
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 121
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 121
 
 
  6491 2ade 634E     		.short	20067
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  6545 2b4a 639E     		.short	-24989
  6546 2b4c 4B1D     		.short	7499
  6547 2b4e 42BA     		.short	-17854
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 122
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 122
 
 
  6548 2b50 2A16     		.short	5674
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  6602 2bbc 0087     		.short	-30976
  6603 2bbe 10A5     		.short	-23280
  6604 2bc0 2987     		.short	-30935
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 123
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 123
 
 
  6605 2bc2 4229     		.short	10562
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  6659 2c2e 29F1     		.short	-3799
  6660 2c30 29F1     		.short	-3799
  6661 2c32 29F0     		.short	-4055
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 124
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 124
 
 
  6662 2c34 3210     		.short	4146
@@ -7438,7 +7438,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  6716 2ca0 0841     		.short	16648
  6717 2ca2 0040     		.short	16384
  6718 2ca4 0040     		.short	16384
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 125
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 125
 
 
  6719 2ca6 0841     		.short	16648
@@ -7498,7 +7498,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  6773 2d12 EFE6     		.short	-6417
  6774 2d14 EFC5     		.short	-14865
  6775 2d16 EFE5     		.short	-6673
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 126
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 126
 
 
  6776 2d18 EFE4     		.short	-6929
@@ -7558,7 +7558,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  6830 2d84 2103     		.short	801
  6831 2d86 2947     		.short	18217
  6832 2d88 296A     		.short	27177
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 127
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 127
 
 
  6833 2d8a 18E5     		.short	-6888
@@ -7618,7 +7618,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  6887 2df6 636A     		.short	27235
  6888 2df8 634A     		.short	19043
  6889 2dfa 6B4A     		.short	19051
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 128
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 128
 
 
  6890 2dfc 634A     		.short	19043
@@ -7678,7 +7678,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  6944 2e68 096F     		.short	28425
  6945 2e6a 00AA     		.short	-22016
  6946 2e6c 0048     		.short	18432
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 129
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 129
 
 
  6947 2e6e 006C     		.short	27648
@@ -7738,7 +7738,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  7001 2eda 9431     		.short	12692
  7002 2edc 83D0     		.short	-12157
  7003 2ede 7370     		.short	28787
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 130
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 130
 
 
  7004 2ee0 8CB5     		.short	-19060
@@ -7798,7 +7798,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  7058 2f4c 747E     		.short	32372
  7059 2f4e 641D     		.short	7524
  7060 2f50 4B7B     		.short	31563
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 131
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 131
 
 
  7061 2f52 3A99     		.short	-26310
@@ -7858,7 +7858,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  7115 2fbe 2924     		.short	9257
  7116 2fc0 31A5     		.short	-23247
  7117 2fc2 3985     		.short	-31431
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 132
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 132
 
 
  7118 2fc4 41C7     		.short	-14527
@@ -7918,7 +7918,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  7172 3030 743D     		.short	15732
  7173 3032 849E     		.short	-24956
  7174 3034 8CDF     		.short	-8308
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 133
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 133
 
 
  7175 3036 7C7F     		.short	32636
@@ -7978,7 +7978,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  7229 30a2 1956     		.short	22041
  7230 30a4 08F2     		.short	-3576
  7231 30a6 08EE     		.short	-4600
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 134
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 134
 
 
  7232 30a8 1108     		.short	2065
@@ -8038,7 +8038,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  7286 3114 EFE6     		.short	-6417
  7287 3116 D7E6     		.short	-6441
  7288 3118 BFA5     		.short	-23105
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 135
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 135
 
 
  7289 311a CFAA     		.short	-21809
@@ -8098,7 +8098,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  7343 3186 19B6     		.short	-18919
  7344 3188 218F     		.short	-28895
  7345 318a 4AB9     		.short	-18102
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 136
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 136
 
 
  7346 318c 431E     		.short	7747
@@ -8158,7 +8158,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  7400 31f8 634A     		.short	19043
  7401 31fa 634A     		.short	19043
  7402 31fc 6B2A     		.short	10859
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 137
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 137
 
 
  7403 31fe 632A     		.short	10851
@@ -8218,7 +8218,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  7457 326a 2237     		.short	14114
  7458 326c 21F5     		.short	-2783
  7459 326e 21D2     		.short	-11743
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 138
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 138
 
 
  7460 3270 29F5     		.short	-2775
@@ -8278,7 +8278,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  7514 32dc DC11     		.short	4572
  7515 32de FDB7     		.short	-18435
  7516 32e0 FE7C     		.short	31998
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 139
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 139
 
 
  7517 32e2 FE7C     		.short	31998
@@ -8338,7 +8338,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  7571 334e 3258     		.short	22578
  7572 3350 2195     		.short	-27359
  7573 3352 1955     		.short	21785
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 140
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 140
 
 
  7574 3354 1137     		.short	14097
@@ -8398,7 +8398,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  7628 33c0 7904     		.short	1145
  7629 33c2 8904     		.short	1161
  7630 33c4 9103     		.short	913
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 141
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 141
 
 
  7631 33c6 8903     		.short	905
@@ -8458,7 +8458,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  7685 3432 641D     		.short	7524
  7686 3434 4B5C     		.short	23627
  7687 3436 3A99     		.short	-26310
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 142
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 142
 
 
  7688 3438 2A17     		.short	5930
@@ -8518,7 +8518,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  7742 34a4 08CA     		.short	-13816
  7743 34a6 08AB     		.short	-21752
  7744 34a8 21D8     		.short	-10207
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 143
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 143
 
 
  7745 34aa 329E     		.short	-25038
@@ -8578,7 +8578,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  7799 3516 C7C9     		.short	-13881
  7800 3518 9F08     		.short	2207
  7801 351a 8669     		.short	27014
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 144
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 144
 
 
  7802 351c 65C8     		.short	-14235
@@ -8638,7 +8638,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  7856 3588 19B5     		.short	-19175
  7857 358a 533C     		.short	15443
  7858 358c 5B3E     		.short	15963
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 145
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 145
 
 
  7859 358e 2A1A     		.short	6698
@@ -8698,7 +8698,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  7913 35fa 634A     		.short	19043
  7914 35fc 634A     		.short	19043
  7915 35fe 634A     		.short	19043
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 146
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 146
 
 
  7916 3600 D7E6     		.short	-6441
@@ -8758,7 +8758,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  7970 366c 1156     		.short	22033
  7971 366e 08EF     		.short	-4344
  7972 3670 08F2     		.short	-3576
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 147
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 147
 
 
  7973 3672 1135     		.short	13585
@@ -8818,7 +8818,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  8027 36de FACD     		.short	-12806
  8028 36e0 FACD     		.short	-12806
  8029 36e2 FB4F     		.short	20475
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 148
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 148
 
 
  8030 36e4 FBD1     		.short	-11781
@@ -8878,7 +8878,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  8084 3750 090D     		.short	3337
  8085 3752 08AB     		.short	-21752
  8086 3754 10AA     		.short	-22000
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 149
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 149
 
 
  8087 3756 196E     		.short	28185
@@ -8938,7 +8938,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  8141 37c2 B022     		.short	8880
  8142 37c4 B863     		.short	25528
  8143 37c6 C063     		.short	25536
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 150
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 150
 
 
  8144 37c8 C863     		.short	25544
@@ -8998,7 +8998,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  8198 3834 4317     		.short	5955
  8199 3836 5BFB     		.short	-1189
  8200 3838 74DE     		.short	-8588
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 151
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 151
 
 
  8201 383a 8D7F     		.short	32653
@@ -9058,7 +9058,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  8255 38a6 2193     		.short	-27871
  8256 38a8 088D     		.short	-29432
  8257 38aa 10F4     		.short	-3056
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 152
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 152
 
 
  8258 38ac 2199     		.short	-26335
@@ -9118,7 +9118,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  8312 3918 D7E8     		.short	-5929
  8313 391a C7E7     		.short	-6201
  8314 391c A726     		.short	9895
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 153
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 153
 
 
  8315 391e 7E46     		.short	18046
@@ -9178,7 +9178,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  8369 398a 114C     		.short	19473
  8370 398c 3276     		.short	30258
  8371 398e 7CDF     		.short	-8324
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 154
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 154
 
 
  8372 3990 749F     		.short	-24716
@@ -9238,7 +9238,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  8426 39fc 632A     		.short	10851
  8427 39fe 6329     		.short	10595
  8428 3a00 7EA4     		.short	-23426
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 155
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 155
 
 
  8429 3a02 6624     		.short	9318
@@ -9298,7 +9298,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  8483 3a6e 4B7D     		.short	32075
  8484 3a70 641D     		.short	7524
  8485 3a72 5BFD     		.short	-677
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 156
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 156
 
 
  8486 3a74 537E     		.short	32339
@@ -9358,7 +9358,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  8540 3ae0 F906     		.short	1785
  8541 3ae2 F906     		.short	1785
  8542 3ae4 F926     		.short	9977
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 157
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 157
 
 
  8543 3ae6 F98A     		.short	-29959
@@ -9418,7 +9418,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  8597 3b52 855E     		.short	24197
  8598 3b54 7CFF     		.short	-132
  8599 3b56 5B9F     		.short	-24741
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 158
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 158
 
 
  8600 3b58 2A17     		.short	5930
@@ -9478,7 +9478,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  8654 3bc4 9000     		.short	144
  8655 3bc6 9800     		.short	152
  8656 3bc8 A001     		.short	416
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 159
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 159
 
 
  8657 3bca B001     		.short	432
@@ -9538,7 +9538,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  8711 3c36 4B3A     		.short	14923
  8712 3c38 5359     		.short	22867
  8713 3c3a 42F8     		.short	-1982
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 160
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 160
 
 
  8714 3c3c 2A55     		.short	21802
@@ -9598,7 +9598,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  8768 3ca8 006C     		.short	27648
  8769 3caa 0845     		.short	17672
  8770 3cac 1063     		.short	25360
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 161
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 161
 
 
  8771 3cae 1060     		.short	24592
@@ -9658,7 +9658,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  8825 3d1a 75CB     		.short	-13451
  8826 3d1c 554A     		.short	19029
  8827 3d1e 5DAC     		.short	-21411
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 162
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 162
 
 
  8828 3d20 44EB     		.short	-5308
@@ -9718,7 +9718,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  8882 3d8c 1933     		.short	13081
  8883 3d8e 10D1     		.short	-12016
  8884 3d90 1150     		.short	20497
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 163
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 163
 
 
  8885 3d92 2A10     		.short	4138
@@ -9778,7 +9778,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  8939 3dfe 5B2A     		.short	10843
  8940 3e00 3508     		.short	2101
  8941 3e02 3CC9     		.short	-14020
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 164
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 164
 
 
  8942 3e04 652A     		.short	10853
@@ -9838,7 +9838,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  8996 3e70 08AE     		.short	-20984
  8997 3e72 004B     		.short	19200
  8998 3e74 006E     		.short	28160
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 165
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 165
 
 
  8999 3e76 00AE     		.short	-20992
@@ -9898,7 +9898,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  9053 3ee2 E883     		.short	-31768
  9054 3ee4 F083     		.short	-31760
  9055 3ee6 F043     		.short	17392
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 166
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 166
 
 
  9056 3ee8 F0C6     		.short	-14608
@@ -9958,7 +9958,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  9110 3f54 190D     		.short	3353
  9111 3f56 110E     		.short	3601
  9112 3f58 10ED     		.short	-4848
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 167
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 167
 
 
  9113 3f5a 192C     		.short	11289
@@ -10018,7 +10018,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  9167 3fc6 A041     		.short	16800
  9168 3fc8 A021     		.short	8608
  9169 3fca A801     		.short	424
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 168
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 168
 
 
  9170 3fcc B023     		.short	9136
@@ -10078,7 +10078,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  9224 4038 192E     		.short	11801
  9225 403a 2171     		.short	28961
  9226 403c 1950     		.short	20505
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 169
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 169
 
 
  9227 403e 10EE     		.short	-4592
@@ -10138,7 +10138,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  9281 40aa 0867     		.short	26376
  9282 40ac 1043     		.short	17168
  9283 40ae 2000     		.short	32
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 170
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 170
 
 
  9284 40b0 3000     		.short	48
@@ -10198,7 +10198,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  9338 411c 2B26     		.short	9771
  9339 411e 33E9     		.short	-5837
  9340 4120 2BEB     		.short	-5333
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 171
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 171
 
 
  9341 4122 236C     		.short	27683
@@ -10258,7 +10258,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  9395 418e 10F2     		.short	-3568
  9396 4190 1114     		.short	5137
  9397 4192 3A7B     		.short	31546
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 172
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 172
 
 
  9398 4194 4B7E     		.short	32331
@@ -10318,7 +10318,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  9452 4200 3CC5     		.short	-15044
  9453 4202 5D6A     		.short	27229
  9454 4204 5DAC     		.short	-21411
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 173
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 173
 
 
  9455 4206 458B     		.short	-29883
@@ -10378,7 +10378,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  9509 4272 0023     		.short	8960
  9510 4274 08AB     		.short	-21752
  9511 4276 1110     		.short	4113
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 174
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 174
 
 
  9512 4278 1134     		.short	13329
@@ -10438,7 +10438,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  9566 42e4 E001     		.short	480
  9567 42e6 E001     		.short	480
  9568 42e8 E801     		.short	488
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 175
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 175
 
 
  9569 42ea E821     		.short	8680
@@ -10498,7 +10498,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  9623 4356 216F     		.short	28449
  9624 4358 1909     		.short	2329
  9625 435a 1906     		.short	1561
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 176
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 176
 
 
  9626 435c 1949     		.short	18713
@@ -10558,7 +10558,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  9680 43c8 A000     		.short	160
  9681 43ca A821     		.short	8616
  9682 43cc B843     		.short	17336
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 177
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 177
 
 
  9683 43ce B822     		.short	8888
@@ -10618,7 +10618,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  9737 443a 194C     		.short	19481
  9738 443c 194C     		.short	19481
  9739 443e 110E     		.short	3601
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 178
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 178
 
 
  9740 4440 10CC     		.short	-13296
@@ -10678,7 +10678,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  9794 44ac 110E     		.short	3601
  9795 44ae 18A6     		.short	-23016
  9796 44b0 2023     		.short	8992
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 179
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 179
 
 
  9797 44b2 3800     		.short	56
@@ -10738,7 +10738,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  9851 451e 32CA     		.short	-13774
  9852 4520 2B2D     		.short	11563
  9853 4522 2B30     		.short	12331
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 180
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 180
 
 
  9854 4524 3B74     		.short	29755
@@ -10798,7 +10798,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  9908 4590 08CE     		.short	-12792
  9909 4592 08CE     		.short	-12792
  9910 4594 327D     		.short	32050
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 181
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 181
 
 
  9911 4596 19D6     		.short	-10727
@@ -10858,7 +10858,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  9965 4602 544D     		.short	19796
  9966 4604 4C8B     		.short	-29876
  9967 4606 3C68     		.short	26684
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 182
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 182
 
 
  9968 4608 2382     		.short	-32221
@@ -10918,7 +10918,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  10022 4674 21D4     		.short	-11231
  10023 4676 21D7     		.short	-10463
  10024 4678 21B6     		.short	-18911
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 183
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 183
 
 
  10025 467a 21B7     		.short	-18655
@@ -10978,7 +10978,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  10079 46e6 D800     		.short	216
  10080 46e8 E021     		.short	8672
  10081 46ea E020     		.short	8416
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 184
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 184
 
 
  10082 46ec E000     		.short	224
@@ -11038,7 +11038,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  10136 4758 21B5     		.short	-19167
  10137 475a 1970     		.short	28697
  10138 475c 2171     		.short	28961
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 185
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 185
 
 
  10139 475e 31F7     		.short	-2255
@@ -11098,7 +11098,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  10193 47ca A800     		.short	168
  10194 47cc B000     		.short	176
  10195 47ce B800     		.short	184
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 186
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 186
 
 
  10196 47d0 B800     		.short	184
@@ -11158,7 +11158,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  10250 483c 2A13     		.short	4906
  10251 483e 2A52     		.short	21034
  10252 4840 2A32     		.short	12842
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 187
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 187
 
 
  10253 4842 3255     		.short	21810
@@ -11218,7 +11218,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  10307 48ae 184F     		.short	20248
  10308 48b0 2029     		.short	10528
  10309 48b2 3000     		.short	48
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 188
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 188
 
 
  10310 48b4 4000     		.short	64
@@ -11278,7 +11278,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  10364 4920 2AEC     		.short	-5078
  10365 4922 226B     		.short	27426
  10366 4924 19CA     		.short	-13799
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 189
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 189
 
 
  10367 4926 222C     		.short	11298
@@ -11338,7 +11338,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  10421 4992 1132     		.short	12817
  10422 4994 29DB     		.short	-9431
  10423 4996 29FD     		.short	-727
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 190
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 190
 
 
  10424 4998 08F2     		.short	-3576
@@ -11398,7 +11398,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  10478 4a04 4BC9     		.short	-14005
  10479 4a06 5409     		.short	2388
  10480 4a08 444B     		.short	19268
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 191
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 191
 
 
  10481 4a0a 3C0B     		.short	2876
@@ -11458,7 +11458,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  10535 4a76 2A3C     		.short	15402
  10536 4a78 10F3     		.short	-3312
  10537 4a7a 008D     		.short	-29440
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 192
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 192
 
 
  10538 4a7c 086D     		.short	27912
@@ -11518,7 +11518,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  10592 4ae8 E820     		.short	8424
  10593 4aea E840     		.short	16616
  10594 4aec F060     		.short	24816
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 193
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 193
 
 
  10595 4aee B904     		.short	1209
@@ -11578,7 +11578,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  10649 4b5a 3ADB     		.short	-9414
  10650 4b5c 3ADB     		.short	-9414
  10651 4b5e 42DC     		.short	-9150
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 194
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 194
 
 
  10652 4b60 2174     		.short	29729
@@ -11638,7 +11638,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  10706 4bcc A820     		.short	8360
  10707 4bce A860     		.short	24744
  10708 4bd0 A860     		.short	24744
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 195
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 195
 
 
  10709 4bd2 B880     		.short	-32584
@@ -11698,7 +11698,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  10763 4c3e 08AB     		.short	-21752
  10764 4c40 08C9     		.short	-14072
  10765 4c42 3AD4     		.short	-11206
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 196
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 196
 
 
  10766 4c44 4B1B     		.short	6987
@@ -11758,7 +11758,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  10820 4cb0 2800     		.short	40
  10821 4cb2 3000     		.short	48
  10822 4cb4 3800     		.short	56
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 197
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 197
 
 
  10823 4cb6 4800     		.short	72
@@ -11818,7 +11818,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  10877 4d22 19A2     		.short	-24039
  10878 4d24 1984     		.short	-31719
  10879 4d26 19E5     		.short	-6887
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 198
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 198
 
 
  10880 4d28 19E7     		.short	-6375
@@ -11878,7 +11878,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  10934 4d94 008F     		.short	-28928
  10935 4d96 10F3     		.short	-3312
  10936 4d98 1157     		.short	22289
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 199
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 199
 
 
  10937 4d9a 08AF     		.short	-20728
@@ -11938,7 +11938,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  10991 4e06 8AC7     		.short	-14454
  10992 4e08 7369     		.short	26995
  10993 4e0a 5B26     		.short	9819
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 200
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 200
 
 
  10994 4e0c 4B26     		.short	9803
@@ -11998,7 +11998,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  11048 4e78 08D3     		.short	-11512
  11049 4e7a 08F2     		.short	-3576
  11050 4e7c 08CF     		.short	-12536
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 201
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 201
 
 
  11051 4e7e 008A     		.short	-30208
@@ -12058,7 +12058,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  11105 4eea E920     		.short	8425
  11106 4eec B1A3     		.short	-23631
  11107 4eee 62E9     		.short	-5790
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 202
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 202
 
 
  11108 4ef0 5329     		.short	10579
@@ -12118,7 +12118,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  11162 4f5c 0886     		.short	-31224
  11163 4f5e 08CD     		.short	-13048
  11164 4f60 10F0     		.short	-4080
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 203
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 203
 
 
  11165 4f62 10ED     		.short	-4848
@@ -12178,7 +12178,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  11219 4fce 9000     		.short	144
  11220 4fd0 9000     		.short	144
  11221 4fd2 9000     		.short	144
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 204
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 204
 
 
  11222 4fd4 9000     		.short	144
@@ -12238,7 +12238,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  11276 5040 1A34     		.short	13338
  11277 5042 1A57     		.short	22298
  11278 5044 53FF     		.short	-173
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 205
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 205
 
 
  11279 5046 639D     		.short	-25245
@@ -12298,7 +12298,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  11333 50b2 1800     		.short	24
  11334 50b4 2800     		.short	40
  11335 50b6 3000     		.short	48
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 206
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 206
 
 
  11336 50b8 4000     		.short	64
@@ -12358,7 +12358,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  11390 5124 2902     		.short	553
  11391 5126 28E1     		.short	-7896
  11392 5128 20E0     		.short	-8160
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 207
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 207
 
 
  11393 512a 20C2     		.short	-15840
@@ -12418,7 +12418,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  11447 5196 006B     		.short	27392
  11448 5198 006D     		.short	27904
  11449 519a 084B     		.short	19208
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 208
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 208
 
 
  11450 519c 086B     		.short	27400
@@ -12478,7 +12478,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  11504 5208 51E7     		.short	-6319
  11505 520a 3165     		.short	25905
  11506 520c 3124     		.short	9265
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 209
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 209
 
 
  11507 520e 3144     		.short	17457
@@ -12538,7 +12538,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  11561 527a 0917     		.short	5897
  11562 527c 08D3     		.short	-11512
  11563 527e 08B0     		.short	-20472
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 210
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 210
 
 
  11564 5280 08B0     		.short	-20472
@@ -12598,7 +12598,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  11618 52ec 530A     		.short	2643
  11619 52ee 5AE9     		.short	-5798
  11620 52f0 5AE9     		.short	-5798
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 211
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 211
 
 
  11621 52f2 52EA     		.short	-5550
@@ -12658,7 +12658,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  11675 535e 1113     		.short	4881
  11676 5360 1156     		.short	22033
  11677 5362 0934     		.short	13321
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 212
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 212
 
 
  11678 5364 1133     		.short	13073
@@ -12718,7 +12718,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  11732 53d0 528B     		.short	-29870
  11733 53d2 6B2B     		.short	11115
  11734 53d4 6B6B     		.short	27499
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 213
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 213
 
 
  11735 53d6 6B4A     		.short	19051
@@ -12778,7 +12778,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  11789 5442 21CF     		.short	-12511
  11790 5444 198D     		.short	-29415
  11791 5446 3275     		.short	30002
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 214
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 214
 
 
  11792 5448 2A37     		.short	14122
@@ -12838,7 +12838,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  11846 54b4 0000     		.short	0
  11847 54b6 0000     		.short	0
  11848 54b8 0000     		.short	0
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 215
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 215
 
 
  11849 54ba 0000     		.short	0
@@ -12898,7 +12898,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  11903 5526 0000     		.short	0
  11904 5528 0020     		.short	8192
  11905 552a 0000     		.short	0
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 216
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 216
 
 
  11906 552c 0000     		.short	0
@@ -12958,7 +12958,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  11960 5598 0916     		.short	5641
  11961 559a 088F     		.short	-28920
  11962 559c 006A     		.short	27136
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 217
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 217
 
 
  11963 559e 0047     		.short	18176
@@ -13018,7 +13018,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  12017 560a FB6B     		.short	27643
  12018 560c FAE9     		.short	-5638
  12019 560e FA05     		.short	1530
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 218
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 218
 
 
  12020 5610 F162     		.short	25329
@@ -13078,7 +13078,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  12074 567c 1111     		.short	4369
  12075 567e 1134     		.short	13329
  12076 5680 21FC     		.short	-991
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 219
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 219
 
 
  12077 5682 21BA     		.short	-17887
@@ -13138,7 +13138,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  12131 56ee 5AE9     		.short	-5798
  12132 56f0 5AC9     		.short	-13990
  12133 56f2 5AE9     		.short	-5798
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 220
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 220
 
 
  12134 56f4 5AC9     		.short	-13990
@@ -13198,7 +13198,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  12188 5760 1152     		.short	21009
  12189 5762 1152     		.short	21009
  12190 5764 08EF     		.short	-4344
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 221
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 221
 
 
  12191 5766 08EE     		.short	-4600
@@ -13258,7 +13258,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  12245 57d2 6B6B     		.short	27499
  12246 57d4 6B6B     		.short	27499
  12247 57d6 634B     		.short	19299
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 222
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 222
 
 
  12248 57d8 7369     		.short	26995
@@ -13318,7 +13318,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  12302 5844 0842     		.short	16904
  12303 5846 1128     		.short	10257
  12304 5848 196A     		.short	27161
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 223
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 223
 
 
  12305 584a 10EB     		.short	-5360
@@ -13378,7 +13378,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  12359 58b6 0842     		.short	16904
  12360 58b8 0842     		.short	16904
  12361 58ba 0042     		.short	16896
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 224
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 224
 
 
  12362 58bc 0842     		.short	16904
@@ -13438,7 +13438,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  12416 5928 20A2     		.short	-24032
  12417 592a 18A2     		.short	-24040
  12418 592c 2083     		.short	-31968
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 225
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 225
 
 
  12419 592e 2043     		.short	17184
@@ -13498,7 +13498,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  12473 599a 0048     		.short	18432
  12474 599c 0025     		.short	9472
  12475 599e 0022     		.short	8704
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 226
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 226
 
 
  12476 59a0 0021     		.short	8448
@@ -13558,7 +13558,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  12530 5a0c FB6B     		.short	27643
  12531 5a0e FB0A     		.short	2811
  12532 5a10 FAA8     		.short	-22278
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 227
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 227
 
 
  12533 5a12 FA25     		.short	9722
@@ -13618,7 +13618,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  12587 5a7e 008F     		.short	-28928
  12588 5a80 088F     		.short	-28920
  12589 5a82 086E     		.short	28168
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 228
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 228
 
 
  12590 5a84 088C     		.short	-29688
@@ -13678,7 +13678,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  12644 5af0 52C9     		.short	-13998
  12645 5af2 5AC9     		.short	-13990
  12646 5af4 52A8     		.short	-22446
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 229
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 229
 
 
  12647 5af6 52A8     		.short	-22446
@@ -13738,7 +13738,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  12701 5b62 0067     		.short	26368
  12702 5b64 0045     		.short	17664
  12703 5b66 0866     		.short	26120
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 230
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 230
 
 
  12704 5b68 08AB     		.short	-21752
@@ -13798,7 +13798,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  12758 5bd4 634B     		.short	19299
  12759 5bd6 6B4B     		.short	19307
  12760 5bd8 BC86     		.short	-31044
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 231
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 231
 
 
  12761 5bda ED40     		.short	16621
@@ -13858,7 +13858,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  12815 5c46 6000     		.short	96
  12816 5c48 5000     		.short	80
  12817 5c4a 4000     		.short	64
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 232
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 232
 
 
  12818 5c4c 4800     		.short	72
@@ -13918,7 +13918,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  12872 5cb8 0025     		.short	9472
  12873 5cba 0045     		.short	17664
  12874 5cbc 0046     		.short	17920
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 233
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 233
 
 
  12875 5cbe 0067     		.short	26368
@@ -13978,7 +13978,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  12929 5d2a FB2B     		.short	11259
  12930 5d2c FAA9     		.short	-22022
  12931 5d2e E1E7     		.short	-6175
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 234
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 234
 
 
  12932 5d30 C966     		.short	26313
@@ -14038,7 +14038,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  12986 5d9c 0025     		.short	9472
  12987 5d9e 0002     		.short	512
  12988 5da0 0000     		.short	0
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 235
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 235
 
 
  12989 5da2 0020     		.short	8192
@@ -14098,7 +14098,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  13043 5e0e FB8A     		.short	-29957
  13044 5e10 FB0B     		.short	3067
  13045 5e12 F28A     		.short	-29966
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 236
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 236
 
 
  13046 5e14 FA68     		.short	26874
@@ -14158,7 +14158,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  13100 5e80 0067     		.short	26368
  13101 5e82 0047     		.short	18176
  13102 5e84 0047     		.short	18176
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 237
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 237
 
 
  13103 5e86 0046     		.short	17920
@@ -14218,7 +14218,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  13157 5ef2 52A8     		.short	-22446
  13158 5ef4 52A9     		.short	-22190
  13159 5ef6 5288     		.short	-30638
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 238
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 238
 
 
  13160 5ef8 4A88     		.short	-30646
@@ -14278,7 +14278,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  13214 5f64 4800     		.short	72
  13215 5f66 2021     		.short	8480
  13216 5f68 1022     		.short	8720
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 239
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 239
 
 
  13217 5f6a 0822     		.short	8712
@@ -14338,7 +14338,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  13271 5fd6 634B     		.short	19299
  13272 5fd8 632B     		.short	11107
  13273 5fda 632A     		.short	10851
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 240
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 240
 
 
  13274 5fdc 632A     		.short	10851
@@ -14398,7 +14398,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  13328 6048 A060     		.short	24736
  13329 604a B0C2     		.short	-15696
  13330 604c C942     		.short	17097
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 241
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 241
 
 
  13331 604e D8E1     		.short	-7720
@@ -14458,7 +14458,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  13385 60ba 08A5     		.short	-23288
  13386 60bc 08C6     		.short	-14840
  13387 60be 0906     		.short	1545
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 242
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 242
 
 
  13388 60c0 0984     		.short	-31735
@@ -14518,7 +14518,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  13442 612c FB6C     		.short	27899
  13443 612e FB2B     		.short	11259
  13444 6130 FB0B     		.short	3067
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 243
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 243
 
 
  13445 6132 FB0B     		.short	3067
@@ -14578,7 +14578,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  13499 619e 0020     		.short	8192
  13500 61a0 0020     		.short	8192
  13501 61a2 0020     		.short	8192
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 244
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 244
 
 
  13502 61a4 0041     		.short	16640
@@ -14638,7 +14638,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  13556 6210 FB09     		.short	2555
  13557 6212 FB09     		.short	2555
  13558 6214 FB0A     		.short	2811
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 245
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 245
 
 
  13559 6216 FB4B     		.short	19451
@@ -14698,7 +14698,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  13613 6282 1025     		.short	9488
  13614 6284 0826     		.short	9736
  13615 6286 0045     		.short	17664
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 246
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 246
 
 
  13616 6288 0844     		.short	17416
@@ -14758,7 +14758,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  13670 62f4 5288     		.short	-30638
  13671 62f6 4A88     		.short	-30646
  13672 62f8 4A88     		.short	-30646
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 247
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 247
 
 
  13673 62fa 4A68     		.short	26698
@@ -14818,7 +14818,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  13727 6366 8042     		.short	17024
  13728 6368 88A3     		.short	-23672
  13729 636a 39D1     		.short	-11975
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 248
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 248
 
 
  13730 636c 3866     		.short	26168
@@ -14878,7 +14878,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  13784 63d8 632A     		.short	10851
  13785 63da 630A     		.short	2659
  13786 63dc 630A     		.short	2659
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 249
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 249
 
 
  13787 63de 5B0A     		.short	2651
@@ -14938,7 +14938,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  13841 644a FB0A     		.short	2811
  13842 644c FB0A     		.short	2811
  13843 644e FB0A     		.short	2811
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 250
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 250
 
 
  13844 6450 FB09     		.short	2555
@@ -14998,7 +14998,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  13898 64bc 0103     		.short	769
  13899 64be 0161     		.short	24833
  13900 64c0 09A0     		.short	-24567
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 251
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 251
 
 
  13901 64c2 1200     		.short	18
@@ -15058,7 +15058,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  13955 652e FA6A     		.short	27386
  13956 6530 FA08     		.short	2298
  13957 6532 F289     		.short	-30222
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 252
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 252
 
 
  13958 6534 EA28     		.short	10474
@@ -15118,7 +15118,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  14012 65a0 0820     		.short	8200
  14013 65a2 0820     		.short	8200
  14014 65a4 0821     		.short	8456
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 253
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 253
 
 
  14015 65a6 0821     		.short	8456
@@ -15178,7 +15178,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  14069 6612 FA69     		.short	27130
  14070 6614 FA88     		.short	-30470
  14071 6616 FA88     		.short	-30470
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 254
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 254
 
 
  14072 6618 FAC8     		.short	-14086
@@ -15238,7 +15238,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  14126 6684 3800     		.short	56
  14127 6686 4022     		.short	8768
  14128 6688 5065     		.short	25936
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 255
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 255
 
 
  14129 668a 4088     		.short	-30656
@@ -15298,7 +15298,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  14183 66f6 5268     		.short	26706
  14184 66f8 4A68     		.short	26698
  14185 66fa 4A48     		.short	18506
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 256
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 256
 
 
  14186 66fc 4248     		.short	18498
@@ -15358,7 +15358,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  14240 6768 FA67     		.short	26618
  14241 676a F9E5     		.short	-6663
  14242 676c F9C5     		.short	-14855
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 257
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 257
 
 
  14243 676e F9C6     		.short	-14599
@@ -15418,7 +15418,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  14297 67da 63A8     		.short	-22429
  14298 67dc 5B4A     		.short	19035
  14299 67de 5AEA     		.short	-5542
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 258
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 258
 
 
  14300 67e0 5AC9     		.short	-13990
@@ -15478,7 +15478,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  14354 684c DA2A     		.short	10970
  14355 684e E2AA     		.short	-21790
  14356 6850 DA8D     		.short	-29222
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 259
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 259
 
 
  14357 6852 D9EC     		.short	-4903
@@ -15538,7 +15538,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  14411 68be 09C0     		.short	-16375
  14412 68c0 11C0     		.short	-16367
  14413 68c2 09E0     		.short	-8183
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 260
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 260
 
 
  14414 68c4 0A20     		.short	8202
@@ -15598,7 +15598,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  14468 6930 FC4F     		.short	20476
  14469 6932 FBEE     		.short	-4357
  14470 6934 FC4F     		.short	20476
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 261
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 261
 
 
  14471 6936 FB6B     		.short	27643
@@ -15658,7 +15658,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  14525 69a2 3020     		.short	8240
  14526 69a4 2820     		.short	8232
  14527 69a6 2840     		.short	16424
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 262
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 262
 
 
  14528 69a8 2841     		.short	16680
@@ -15718,7 +15718,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  14582 6a14 F9A4     		.short	-23303
  14583 6a16 FAA8     		.short	-22278
  14584 6a18 FB4A     		.short	19195
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 263
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 263
 
 
  14585 6a1a FB2A     		.short	11003
@@ -15778,7 +15778,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  14639 6a86 F922     		.short	8953
  14640 6a88 F942     		.short	17145
  14641 6a8a E8C0     		.short	-16152
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 264
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 264
 
 
  14642 6a8c E0C0     		.short	-16160
@@ -15838,7 +15838,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  14696 6af8 4227     		.short	10050
  14697 6afa 4227     		.short	10050
  14698 6afc 4227     		.short	10050
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 265
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 265
 
 
  14699 6afe 4207     		.short	1858
@@ -15898,7 +15898,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  14753 6b6a FB2C     		.short	11515
  14754 6b6c FAEA     		.short	-5382
  14755 6b6e FB8C     		.short	-29445
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 266
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 266
 
 
  14756 6b70 FBAF     		.short	-20485
@@ -15958,7 +15958,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  14810 6bdc 5DA2     		.short	-23971
  14811 6bde 5D03     		.short	861
  14812 6be0 5424     		.short	9300
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 267
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 267
 
 
  14813 6be2 5367     		.short	26451
@@ -16018,7 +16018,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  14867 6c4e FB8C     		.short	-29445
  14868 6c50 FBCD     		.short	-12805
  14869 6c52 FB6B     		.short	27643
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 268
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 268
 
 
  14870 6c54 FAC8     		.short	-14086
@@ -16078,7 +16078,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  14924 6cc0 0920     		.short	8201
  14925 6cc2 0920     		.short	8201
  14926 6cc4 0960     		.short	24585
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 269
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 269
 
 
  14927 6cc6 11A0     		.short	-24559
@@ -16138,7 +16138,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  14981 6d32 FB4A     		.short	19195
  14982 6d34 FB8D     		.short	-29189
  14983 6d36 FBAD     		.short	-20997
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 270
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 270
 
 
  14984 6d38 FC4F     		.short	20476
@@ -16198,7 +16198,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  15038 6da4 40A0     		.short	-24512
  15039 6da6 30E0     		.short	-8144
  15040 6da8 48C0     		.short	-16312
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 271
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 271
 
 
  15041 6daa 68A0     		.short	-24472
@@ -16258,7 +16258,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  15095 6e16 F964     		.short	25849
  15096 6e18 FA06     		.short	1786
  15097 6e1a FA67     		.short	26618
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 272
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 272
 
 
  15098 6e1c FA25     		.short	9722
@@ -16318,7 +16318,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  15152 6e88 FA07     		.short	2042
  15153 6e8a FA48     		.short	18682
  15154 6e8c FA06     		.short	1786
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 273
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 273
 
 
  15155 6e8e F9C5     		.short	-14855
@@ -16378,7 +16378,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  15209 6efa 4207     		.short	1858
  15210 6efc 41E6     		.short	-6591
  15211 6efe 39E6     		.short	-6599
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 274
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 274
 
 
  15212 6f00 FAC8     		.short	-14086
@@ -16438,7 +16438,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  15266 6f6c FBCC     		.short	-13061
  15267 6f6e FC0B     		.short	3068
  15268 6f70 FC2B     		.short	11260
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 275
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 275
 
 
  15269 6f72 FC2A     		.short	11004
@@ -16498,7 +16498,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  15323 6fde 3C40     		.short	16444
  15324 6fe0 3C20     		.short	8252
  15325 6fe2 3440     		.short	16436
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 276
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 276
 
 
  15326 6fe4 4420     		.short	8260
@@ -16558,7 +16558,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  15380 7050 FC2F     		.short	12284
  15381 7052 FC0D     		.short	3580
  15382 7054 FC2E     		.short	12028
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 277
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 277
 
 
  15383 7056 FBED     		.short	-4613
@@ -16618,7 +16618,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  15437 70c2 3AA9     		.short	-22214
  15438 70c4 3247     		.short	18226
  15439 70c6 2A24     		.short	9258
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 278
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 278
 
 
  15440 70c8 2222     		.short	8738
@@ -16678,7 +16678,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  15494 7134 FB8B     		.short	-29701
  15495 7136 FB8B     		.short	-29701
  15496 7138 FB8C     		.short	-29445
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 279
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 279
 
 
  15497 713a FB6B     		.short	27643
@@ -16738,7 +16738,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  15551 71a6 3962     		.short	25145
  15552 71a8 2984     		.short	-31703
  15553 71aa 41E7     		.short	-6335
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 280
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 280
 
 
  15554 71ac 4207     		.short	1858
@@ -16798,7 +16798,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  15608 7218 F8C1     		.short	-15880
  15609 721a F8C1     		.short	-15880
  15610 721c F901     		.short	505
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 281
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 281
 
 
  15611 721e F922     		.short	8953
@@ -16858,7 +16858,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  15665 728a FB8A     		.short	-29957
  15666 728c FB28     		.short	10491
  15667 728e FB06     		.short	1787
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 282
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 282
 
 
  15668 7290 FB05     		.short	1531
@@ -16918,7 +16918,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  15722 72fc 39C6     		.short	-14791
  15723 72fe 31C6     		.short	-14799
  15724 7300 F941     		.short	16889
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 283
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 283
 
 
  15725 7302 F941     		.short	16889
@@ -16978,7 +16978,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  15779 736e FB08     		.short	2299
  15780 7370 FAC8     		.short	-14086
  15781 7372 FAC8     		.short	-14086
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 284
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 284
 
 
  15782 7374 FA87     		.short	-30726
@@ -17038,7 +17038,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  15836 73e0 3C00     		.short	60
  15837 73e2 4460     		.short	24644
  15838 73e4 44C0     		.short	-16316
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 285
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 285
 
 
  15839 73e6 4CE0     		.short	-8116
@@ -17098,7 +17098,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  15893 7452 FB69     		.short	27131
  15894 7454 FBAA     		.short	-21765
  15895 7456 FBEB     		.short	-5125
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 286
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 286
 
 
  15896 7458 FBCB     		.short	-13317
@@ -17158,7 +17158,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  15950 74c4 4A68     		.short	26698
  15951 74c6 638E     		.short	-29085
  15952 74c8 8CB6     		.short	-18804
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 287
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 287
 
 
  15953 74ca B5DB     		.short	-9291
@@ -17218,7 +17218,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  16007 7536 FA25     		.short	9722
  16008 7538 FA86     		.short	-30982
  16009 753a FAE8     		.short	-5894
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 288
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 288
 
 
  16010 753c FB08     		.short	2299
@@ -17278,7 +17278,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  16064 75a8 E164     		.short	25825
  16065 75aa 8944     		.short	17545
  16066 75ac 4985     		.short	-31415
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 289
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 289
 
 
  16067 75ae 31E7     		.short	-6351
@@ -17338,7 +17338,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  16121 761a F9E4     		.short	-6919
  16122 761c FA04     		.short	1274
  16123 761e FA65     		.short	26106
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 290
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 290
 
 
  16124 7620 FA86     		.short	-30982
@@ -17398,7 +17398,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  16178 768c FC66     		.short	26364
  16179 768e FBE7     		.short	-6149
  16180 7690 FB66     		.short	26363
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 291
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 291
 
 
  16181 7692 FA64     		.short	25850
@@ -17458,7 +17458,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  16235 76fe 2985     		.short	-31447
  16236 7700 F0A0     		.short	-24336
  16237 7702 F8A0     		.short	-24328
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 292
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 292
 
 
  16238 7704 F8E0     		.short	-7944
@@ -17518,7 +17518,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  16292 7770 FA67     		.short	26618
  16293 7772 FA25     		.short	9722
  16294 7774 F9E5     		.short	-6663
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 293
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 293
 
 
  16295 7776 FA27     		.short	10234
@@ -17578,7 +17578,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  16349 77e2 4403     		.short	836
  16350 77e4 3BC0     		.short	-16325
  16351 77e6 33A0     		.short	-24525
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 294
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 294
 
 
  16352 77e8 3380     		.short	-32717
@@ -17638,7 +17638,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  16406 7854 FC29     		.short	10748
  16407 7856 FC08     		.short	2300
  16408 7858 FBA6     		.short	-22789
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 295
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 295
 
 
  16409 785a FBE6     		.short	-6405
@@ -17698,7 +17698,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  16463 78c6 4A68     		.short	26698
  16464 78c8 4A8A     		.short	-30134
  16465 78ca 4288     		.short	-30654
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 296
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 296
 
 
  16466 78cc 3A46     		.short	17978
@@ -17758,7 +17758,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  16520 7938 FAC6     		.short	-14598
  16521 793a FAC5     		.short	-14854
  16522 793c FB07     		.short	2043
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 297
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 297
 
 
  16523 793e FB47     		.short	18427
@@ -17818,7 +17818,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  16577 79aa F920     		.short	8441
  16578 79ac F9A1     		.short	-24071
  16579 79ae D141     		.short	16849
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 298
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 298
 
 
  16580 79b0 A101     		.short	417
@@ -17878,7 +17878,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  16634 7a1c FAA8     		.short	-22278
  16635 7a1e FAC8     		.short	-14086
  16636 7a20 FA89     		.short	-30214
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 299
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 299
 
 
  16637 7a22 FACA     		.short	-13574
@@ -17938,7 +17938,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  16691 7a8e FAA6     		.short	-22790
  16692 7a90 FAC6     		.short	-14598
  16693 7a92 FA24     		.short	9466
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 300
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 300
 
 
  16694 7a94 F982     		.short	-32007
@@ -17998,7 +17998,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  16748 7b00 F8A2     		.short	-23816
  16749 7b02 F8A2     		.short	-23816
  16750 7b04 F040     		.short	16624
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 301
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 301
 
 
  16751 7b06 F040     		.short	16624
@@ -18058,7 +18058,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  16805 7b72 FA85     		.short	-31238
  16806 7b74 FA44     		.short	17658
  16807 7b76 FA63     		.short	25594
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 302
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 302
 
 
  16808 7b78 FA63     		.short	25594
@@ -18118,7 +18118,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  16862 7be4 2A44     		.short	17450
  16863 7be6 3283     		.short	-31950
  16864 7be8 3301     		.short	307
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 303
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 303
 
 
  16865 7bea 3340     		.short	16435
@@ -18178,7 +18178,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  16919 7c56 FBE5     		.short	-6661
  16920 7c58 FC65     		.short	26108
  16921 7c5a FC04     		.short	1276
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 304
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 304
 
 
  16922 7c5c FB85     		.short	-31237
@@ -18238,7 +18238,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  16976 7cc8 2262     		.short	25122
  16977 7cca 2A83     		.short	-31958
  16978 7ccc 2A84     		.short	-31702
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 305
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 305
 
 
  16979 7cce 3A66     		.short	26170
@@ -18298,7 +18298,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  17033 7d3a FC28     		.short	10492
  17034 7d3c FBE7     		.short	-6149
  17035 7d3e FB65     		.short	26107
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 306
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 306
 
 
  17036 7d40 FB06     		.short	1787
@@ -18358,7 +18358,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  17090 7dac C960     		.short	24777
  17091 7dae F8E0     		.short	-7944
  17092 7db0 D8A0     		.short	-24360
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 307
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 307
 
 
  17093 7db2 C120     		.short	8385
@@ -18418,7 +18418,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  17147 7e1e FAC5     		.short	-14854
  17148 7e20 FAE6     		.short	-6406
  17149 7e22 FB47     		.short	18427
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 308
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 308
 
 
  17150 7e24 FB28     		.short	10491
@@ -18478,7 +18478,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  17204 7e90 FA62     		.short	25338
  17205 7e92 FB01     		.short	507
  17206 7e94 FBA1     		.short	-24069
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 309
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 309
 
 
  17207 7e96 FCA2     		.short	-23812
@@ -18538,7 +18538,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  17261 7f02 F081     		.short	-32272
  17262 7f04 F102     		.short	753
  17263 7f06 F166     		.short	26353
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 310
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 310
 
 
  17264 7f08 F944     		.short	17657
@@ -18598,7 +18598,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  17318 7f74 FB22     		.short	8955
  17319 7f76 FC43     		.short	17404
  17320 7f78 FC63     		.short	25596
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 311
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 311
 
 
  17321 7f7a FC43     		.short	17404
@@ -18658,7 +18658,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  17375 7fe6 19E1     		.short	-7911
  17376 7fe8 1A41     		.short	16666
  17377 7fea 2AE1     		.short	-7894
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 312
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 312
 
 
  17378 7fec 3361     		.short	24883
@@ -18698,75 +18698,75 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 1
  17412              		.file 24 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
  17413              		.file 25 "Drivers/FreeModbus/ReceiveTransmit/ReceiveTransmit.h"
  17414              		.file 26 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\stdio.h"
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 313
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 313
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f4xx_it.c
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:18     .text.NMI_Handler:0000000000000000 $t
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:26     .text.NMI_Handler:0000000000000000 NMI_Handler
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:44     .text.HardFault_Handler:0000000000000000 $t
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:51     .text.HardFault_Handler:0000000000000000 HardFault_Handler
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:68     .text.MemManage_Handler:0000000000000000 $t
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:75     .text.MemManage_Handler:0000000000000000 MemManage_Handler
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:92     .text.BusFault_Handler:0000000000000000 $t
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:99     .text.BusFault_Handler:0000000000000000 BusFault_Handler
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:116    .text.UsageFault_Handler:0000000000000000 $t
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:123    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:140    .text.SVC_Handler:0000000000000000 $t
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:147    .text.SVC_Handler:0000000000000000 SVC_Handler
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:160    .text.DebugMon_Handler:0000000000000000 $t
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:167    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:180    .text.PendSV_Handler:0000000000000000 $t
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:187    .text.PendSV_Handler:0000000000000000 PendSV_Handler
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:200    .text.SysTick_Handler:0000000000000000 $t
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:207    .text.SysTick_Handler:0000000000000000 SysTick_Handler
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:227    .text.EXTI0_IRQHandler:0000000000000000 $t
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:234    .text.EXTI0_IRQHandler:0000000000000000 EXTI0_IRQHandler
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:259    .text.EXTI0_IRQHandler:0000000000000014 $d
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:268    .rodata.TIM2_IRQHandler.str1.4:0000000000000000 $d
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:278    .text.TIM2_IRQHandler:0000000000000000 $t
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:285    .text.TIM2_IRQHandler:0000000000000000 TIM2_IRQHandler
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:511    .text.TIM2_IRQHandler:0000000000000140 $d
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:18     .text.NMI_Handler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:26     .text.NMI_Handler:0000000000000000 NMI_Handler
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:44     .text.HardFault_Handler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:51     .text.HardFault_Handler:0000000000000000 HardFault_Handler
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:68     .text.MemManage_Handler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:75     .text.MemManage_Handler:0000000000000000 MemManage_Handler
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:92     .text.BusFault_Handler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:99     .text.BusFault_Handler:0000000000000000 BusFault_Handler
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:116    .text.UsageFault_Handler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:123    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:140    .text.SVC_Handler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:147    .text.SVC_Handler:0000000000000000 SVC_Handler
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:160    .text.DebugMon_Handler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:167    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:180    .text.PendSV_Handler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:187    .text.PendSV_Handler:0000000000000000 PendSV_Handler
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:200    .text.SysTick_Handler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:207    .text.SysTick_Handler:0000000000000000 SysTick_Handler
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:227    .text.EXTI0_IRQHandler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:234    .text.EXTI0_IRQHandler:0000000000000000 EXTI0_IRQHandler
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:259    .text.EXTI0_IRQHandler:0000000000000014 $d
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:268    .rodata.TIM2_IRQHandler.str1.4:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:278    .text.TIM2_IRQHandler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:285    .text.TIM2_IRQHandler:0000000000000000 TIM2_IRQHandler
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:511    .text.TIM2_IRQHandler:0000000000000140 $d
                             *COM*:000000000000000a MassifADC2_IN8
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:534    .rodata.TIM3_IRQHandler.str1.4:0000000000000000 $d
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:538    .text.TIM3_IRQHandler:0000000000000000 $t
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:545    .text.TIM3_IRQHandler:0000000000000000 TIM3_IRQHandler
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:801    .text.TIM3_IRQHandler:0000000000000170 $d
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:534    .rodata.TIM3_IRQHandler.str1.4:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:538    .text.TIM3_IRQHandler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:545    .text.TIM3_IRQHandler:0000000000000000 TIM3_IRQHandler
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:801    .text.TIM3_IRQHandler:0000000000000170 $d
                             *COM*:000000000000000a MassifADC
                             *COM*:0000000000000004 temp
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:828    .text.TIM4_IRQHandler:0000000000000000 $t
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:835    .text.TIM4_IRQHandler:0000000000000000 TIM4_IRQHandler
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:855    .text.TIM4_IRQHandler:000000000000000c $d
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:860    .text.USART1_IRQHandler:0000000000000000 $t
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:867    .text.USART1_IRQHandler:0000000000000000 USART1_IRQHandler
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:887    .text.USART1_IRQHandler:000000000000000c $d
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:892    .text.USART2_IRQHandler:0000000000000000 $t
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:899    .text.USART2_IRQHandler:0000000000000000 USART2_IRQHandler
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:919    .text.USART2_IRQHandler:000000000000000c $d
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:941    .bss.ADC_IN8:0000000000000000 ADC_IN8
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:948    .bss.ADC_temperatura:0000000000000000 ADC_temperatura
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:962    .bss.AverageADC2_IN8:0000000000000000 AverageADC2_IN8
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:983    .bss.meanADC2_IN8:0000000000000000 meanADC2_IN8
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:997    .bss.voltageADC2_IN8:0000000000000000 voltageADC2_IN8
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:955    .bss.AverageADC:0000000000000000 AverageADC
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:976    .bss.meanADC:0000000000000000 meanADC
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:990    .bss.voltageADC:0000000000000000 voltageADC
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:969    .bss.Result:0000000000000000 Result
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:1003   .rodata.test_img_128x128:0000000000000000 test_img_128x128
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:937    .bss.ADC_IN8:0000000000000000 $d
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:944    .bss.ADC_temperatura:0000000000000000 $d
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:951    .bss.AverageADC:0000000000000000 $d
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:958    .bss.AverageADC2_IN8:0000000000000000 $d
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s 			page 314
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:828    .text.TIM4_IRQHandler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:835    .text.TIM4_IRQHandler:0000000000000000 TIM4_IRQHandler
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:855    .text.TIM4_IRQHandler:000000000000000c $d
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:860    .text.USART1_IRQHandler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:867    .text.USART1_IRQHandler:0000000000000000 USART1_IRQHandler
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:887    .text.USART1_IRQHandler:000000000000000c $d
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:892    .text.USART2_IRQHandler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:899    .text.USART2_IRQHandler:0000000000000000 USART2_IRQHandler
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:919    .text.USART2_IRQHandler:000000000000000c $d
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:941    .bss.ADC_IN8:0000000000000000 ADC_IN8
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:948    .bss.ADC_temperatura:0000000000000000 ADC_temperatura
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:962    .bss.AverageADC2_IN8:0000000000000000 AverageADC2_IN8
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:983    .bss.meanADC2_IN8:0000000000000000 meanADC2_IN8
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:997    .bss.voltageADC2_IN8:0000000000000000 voltageADC2_IN8
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:955    .bss.AverageADC:0000000000000000 AverageADC
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:976    .bss.meanADC:0000000000000000 meanADC
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:990    .bss.voltageADC:0000000000000000 voltageADC
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:969    .bss.Result:0000000000000000 Result
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:1003   .rodata.test_img_128x128:0000000000000000 test_img_128x128
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:937    .bss.ADC_IN8:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:944    .bss.ADC_temperatura:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:951    .bss.AverageADC:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:958    .bss.AverageADC2_IN8:0000000000000000 $d
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s 			page 314
 
 
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:965    .bss.Result:0000000000000000 $d
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:972    .bss.meanADC:0000000000000000 $d
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:979    .bss.meanADC2_IN8:0000000000000000 $d
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:986    .bss.voltageADC:0000000000000000 $d
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:993    .bss.voltageADC2_IN8:0000000000000000 $d
-C:\Users\Andre\AppData\Local\Temp\cc58AtBl.s:1000   .rodata.test_img_128x128:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:965    .bss.Result:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:972    .bss.meanADC:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:979    .bss.meanADC2_IN8:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:986    .bss.voltageADC:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:993    .bss.voltageADC2_IN8:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccGu2LrB.s:1000   .rodata.test_img_128x128:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_IncTick
