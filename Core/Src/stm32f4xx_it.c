@@ -264,9 +264,9 @@ void TIM2_IRQHandler(void)
   voltageADC2_IN8 = (float) meanADC2_IN8 / 4096 * Vref;
 
   sprintf((char*) ADC_IN8, "%ld.%03d", (uint32_t)voltageADC2_IN8, (uint16_t)((voltageADC2_IN8 - (uint32_t)voltageADC2_IN8)*1000.) );
-  ST7735_WriteString(0, 30, "ADC voltage", Font_7x10, ST7735_RED, ST7735_BLACK); 
-  ST7735_WriteString(40, 40, "V", Font_7x10, ST7735_WHITE, ST7735_BLACK); 
-  ST7735_WriteString(0, 40, (char*) ADC_IN8, Font_7x10, ST7735_WHITE, ST7735_BLACK); 
+  ST7735_WriteString(0, 0, "ADC voltage", Font_7x10, ST7735_RED, ST7735_BLACK); 
+  ST7735_WriteString(40, 10, "V", Font_7x10, ST7735_WHITE, ST7735_BLACK); 
+  ST7735_WriteString(0, 10, (char*) ADC_IN8, Font_7x10, ST7735_WHITE, ST7735_BLACK); 
 
   /* USER CODE END TIM2_IRQn 0 */
   HAL_TIM_IRQHandler(&htim2);
@@ -301,8 +301,9 @@ void TIM3_IRQHandler(void)
   dataTransmit(0, Result);                                  // Передача данных Modbus registr 0.
 
   sprintf((char*) ADC_temperatura, "%ld.%03d", (uint32_t)Result, (uint16_t)((Result - (uint32_t)Result)*1000.) );
-  ST7735_WriteString(0, 0, "CPU temperatura", Font_7x10, ST7735_CYAN, ST7735_BLACK);
-  ST7735_WriteString(0, 10, (char*) ADC_temperatura, Font_7x10, ST7735_WHITE, ST7735_BLACK);
+  ST7735_WriteString(0, 25, "CPU temperatura", Font_7x10, ST7735_CYAN, ST7735_BLACK);
+  ST7735_WriteString(45, 35, "*C", Font_7x10, ST7735_WHITE, ST7735_BLACK);
+  ST7735_WriteString(0, 35, (char*) ADC_temperatura, Font_7x10, ST7735_WHITE, ST7735_BLACK);
 
   usSRegInBuf[2] += 1;
 

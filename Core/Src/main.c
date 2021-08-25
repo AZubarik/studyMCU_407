@@ -126,10 +126,13 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    ST7735_FilledRectangle(22, 62, 5, 5, ST7735_CYAN);
+    ST7735_FilledRectangle(22, 62, 4, 4, ST7735_CYAN);
     ST7735_EmptyRectangle(20, 60, 8, 8, ST7735_WHITE);
+    ST7735_EmptyRectangle(20, 70, 8, 2, ST7735_WHITE);
 
-    ST7735_Charger(50, 80, 18, 10, 100, ST7735_WHITE);
+    ST7735_Charger_v1(105, 0, 99, 6, ST7735_WHITE);
+
+    ST7735_Charger_v2(100, 60, 80, 6, ST7735_WHITE);
 
     // ST7735_FillScreen(ST7735_BLACK);
     // ST7735_DrawPixel(0, 127, ST7735_WHITE);

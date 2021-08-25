@@ -245,6 +245,7 @@ void ST7735_InvertColors(bool invert);
 void ST7735_FilledRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color);
 void ST7735_EmptyRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color);
 
-void ST7735_Charger(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint16_t charger, uint16_t color);
+void ST7735_Charger_v1(uint16_t x, uint16_t y, uint16_t charger, uint16_t var, uint16_t color);
+void ST7735_Charger_v2(uint16_t x, uint16_t y, uint16_t charger, uint16_t var, uint16_t color);
 
 #endif // __ST7735_H__
