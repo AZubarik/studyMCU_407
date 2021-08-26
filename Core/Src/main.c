@@ -108,7 +108,6 @@ int main(void)
   MX_TIM4_Init();
   MX_USART1_UART_Init();
   MX_USART2_UART_Init();
-
   /* USER CODE BEGIN 2 */
   eMBInit(MB_RTU, 1, &huart2, 115200, &htim4);
 	eMBEnable();
@@ -118,8 +117,10 @@ int main(void)
   
   HAL_TIM_Base_Start_IT(&htim2);
   HAL_TIM_Base_Start_IT(&htim3);
-  
 
+  HAL_GPIO_WritePin(GPIOE,VCC_Pin,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOE,GND_Pin,GPIO_PIN_SET);
+  
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -128,9 +129,8 @@ int main(void)
   {
     ST7735_FilledRectangle(22, 62, 4, 4, ST7735_CYAN);
     ST7735_EmptyRectangle(20, 60, 8, 8, ST7735_WHITE);
-    ST7735_EmptyRectangle(20, 70, 8, 2, ST7735_WHITE);
 
-    ST7735_Charger_v1(105, 0, 99, 6, ST7735_WHITE);
+    // ST7735_Charger_v1(105, 0, 99, 6, ST7735_WHITE);
 
     ST7735_Charger_v2(100, 60, 80, 6, ST7735_WHITE);
 

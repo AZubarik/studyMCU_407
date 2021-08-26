@@ -248,4 +248,6 @@ void ST7735_EmptyRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint1
 void ST7735_Charger_v1(uint16_t x, uint16_t y, uint16_t charger, uint16_t var, uint16_t color);
 void ST7735_Charger_v2(uint16_t x, uint16_t y, uint16_t charger, uint16_t var, uint16_t color);
 
+void ST7735_SoundAnalyzer(uint16_t x, uint16_t y, uint16_t value);
+
 #endif // __ST7735_H__

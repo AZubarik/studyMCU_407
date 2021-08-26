@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 1
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccKvxT7N.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 1
   28:Core/Src/main.c **** /* Private includes ----------------------------------------------------------*/
   29:Core/Src/main.c **** /* USER CODE BEGIN Includes */
   30:Core/Src/main.c **** #include "mb.h"
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 2
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccKvxT7N.s 			page 2
 
 
   31:Core/Src/main.c **** #include "mbport.h"
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 1
   85:Core/Src/main.c **** 
   86:Core/Src/main.c ****   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   87:Core/Src/main.c ****   HAL_Init();
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 3
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccKvxT7N.s 			page 3
 
 
   88:Core/Src/main.c **** 
@@ -144,29 +144,29 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 1
  108:Core/Src/main.c ****   MX_TIM4_Init();
  109:Core/Src/main.c ****   MX_USART1_UART_Init();
  110:Core/Src/main.c ****   MX_USART2_UART_Init();
- 111:Core/Src/main.c **** 
- 112:Core/Src/main.c ****   /* USER CODE BEGIN 2 */
- 113:Core/Src/main.c ****   eMBInit(MB_RTU, 1, &huart2, 115200, &htim4);
- 114:Core/Src/main.c **** 	eMBEnable();
- 115:Core/Src/main.c **** 
- 116:Core/Src/main.c ****   ST7735_Init();
- 117:Core/Src/main.c ****   ST7735_FillScreen(ST7735_BLACK);
- 118:Core/Src/main.c ****   
- 119:Core/Src/main.c ****   HAL_TIM_Base_Start_IT(&htim2);
- 120:Core/Src/main.c ****   HAL_TIM_Base_Start_IT(&htim3);
- 121:Core/Src/main.c ****   
- 122:Core/Src/main.c **** 
- 123:Core/Src/main.c ****   /* USER CODE END 2 */
- 124:Core/Src/main.c **** 
- 125:Core/Src/main.c ****   /* Infinite loop */
- 126:Core/Src/main.c ****   /* USER CODE BEGIN WHILE */
- 127:Core/Src/main.c ****   while (1)
- 128:Core/Src/main.c ****   {
- 129:Core/Src/main.c ****     ST7735_FilledRectangle(22, 62, 4, 4, ST7735_CYAN);
- 130:Core/Src/main.c ****     ST7735_EmptyRectangle(20, 60, 8, 8, ST7735_WHITE);
- 131:Core/Src/main.c ****     ST7735_EmptyRectangle(20, 70, 8, 2, ST7735_WHITE);
+ 111:Core/Src/main.c ****   /* USER CODE BEGIN 2 */
+ 112:Core/Src/main.c ****   eMBInit(MB_RTU, 1, &huart2, 115200, &htim4);
+ 113:Core/Src/main.c **** 	eMBEnable();
+ 114:Core/Src/main.c **** 
+ 115:Core/Src/main.c ****   ST7735_Init();
+ 116:Core/Src/main.c ****   ST7735_FillScreen(ST7735_BLACK);
+ 117:Core/Src/main.c ****   
+ 118:Core/Src/main.c ****   HAL_TIM_Base_Start_IT(&htim2);
+ 119:Core/Src/main.c ****   HAL_TIM_Base_Start_IT(&htim3);
+ 120:Core/Src/main.c **** 
+ 121:Core/Src/main.c ****   HAL_GPIO_WritePin(GPIOE,VCC_Pin,GPIO_PIN_SET);
+ 122:Core/Src/main.c ****   HAL_GPIO_WritePin(GPIOE,GND_Pin,GPIO_PIN_SET);
+ 123:Core/Src/main.c ****   
+ 124:Core/Src/main.c ****   /* USER CODE END 2 */
+ 125:Core/Src/main.c **** 
+ 126:Core/Src/main.c ****   /* Infinite loop */
+ 127:Core/Src/main.c ****   /* USER CODE BEGIN WHILE */
+ 128:Core/Src/main.c ****   while (1)
+ 129:Core/Src/main.c ****   {
+ 130:Core/Src/main.c ****     ST7735_FilledRectangle(22, 62, 4, 4, ST7735_CYAN);
+ 131:Core/Src/main.c ****     ST7735_EmptyRectangle(20, 60, 8, 8, ST7735_WHITE);
  132:Core/Src/main.c **** 
- 133:Core/Src/main.c ****     ST7735_Charger_v1(105, 0, 99, 6, ST7735_WHITE);
+ 133:Core/Src/main.c ****     // ST7735_Charger_v1(105, 0, 99, 6, ST7735_WHITE);
  134:Core/Src/main.c **** 
  135:Core/Src/main.c ****     ST7735_Charger_v2(100, 60, 80, 6, ST7735_WHITE);
  136:Core/Src/main.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 1
  142:Core/Src/main.c **** 
  143:Core/Src/main.c ****   // #ifdef ST7735_IS_128X128
  144:Core/Src/main.c **** 	//     // Display test image 128x128
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 4
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccKvxT7N.s 			page 4
 
 
  145:Core/Src/main.c **** 	//     ST7735_DrawImage(0, 0, ST7735_WIDTH, ST7735_HEIGHT, (uint16_t*)test_img_128x128);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 1
  199:Core/Src/main.c **** }
  200:Core/Src/main.c **** 
  201:Core/Src/main.c **** /* USER CODE BEGIN 4 */
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 5
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccKvxT7N.s 			page 5
 
 
  202:Core/Src/main.c **** 
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 1
   33:Drivers/CMSIS/Include/cmsis_gcc.h **** 
   34:Drivers/CMSIS/Include/cmsis_gcc.h **** /* Fallback for __has_builtin */
   35:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __has_builtin
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 6
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccKvxT7N.s 			page 6
 
 
   36:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __has_builtin(x) (0)
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 1
   90:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_READ { uint16_t v; };
   91:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
   92:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(add
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 7
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccKvxT7N.s 			page 7
 
 
   93:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 1
   43              	@ 142 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
   44 0000 72B6     		cpsid i
   45              	@ 0 "" 2
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 8
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccKvxT7N.s 			page 8
 
 
   46              		.thumb
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 1
   93 0018 0793     		str	r3, [sp, #28]
  169:Core/Src/main.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
   94              		.loc 1 169 3 is_stmt 1 view .LVU12
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 9
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccKvxT7N.s 			page 9
 
 
   95              	.LBB6:
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 1
  134 004a 4FF48033 		mov	r3, #65536
  135 004e 0993     		str	r3, [sp, #36]
  176:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 10
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccKvxT7N.s 			page 10
 
 
  136              		.loc 1 176 3 is_stmt 1 view .LVU28
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 1
  172 0074 0223     		movs	r3, #2
  173 0076 0493     		str	r3, [sp, #16]
  191:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 11
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccKvxT7N.s 			page 11
 
 
  174              		.loc 1 191 3 is_stmt 1 view .LVU47
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 1
  218              		.align	1
  219              		.global	main
  220              		.syntax unified
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 12
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccKvxT7N.s 			page 12
 
 
  221              		.thumb
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 1
  108:Core/Src/main.c ****   MX_USART1_UART_Init();
  266              		.loc 1 108 3 view .LVU69
  267 0028 FFF7FEFF 		bl	MX_TIM4_Init
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 13
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccKvxT7N.s 			page 13
 
 
  268              	.LVL14:
@@ -726,165 +726,164 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 1
  269              		.loc 1 109 3 view .LVU70
  270 002c FFF7FEFF 		bl	MX_USART1_UART_Init
  271              	.LVL15:
- 110:Core/Src/main.c **** 
+ 110:Core/Src/main.c ****   /* USER CODE BEGIN 2 */
  272              		.loc 1 110 3 view .LVU71
  273 0030 FFF7FEFF 		bl	MX_USART2_UART_Init
  274              	.LVL16:
- 113:Core/Src/main.c **** 	eMBEnable();
- 275              		.loc 1 113 3 view .LVU72
- 276 0034 214B     		ldr	r3, .L14
+ 112:Core/Src/main.c **** 	eMBEnable();
+ 275              		.loc 1 112 3 view .LVU72
+ 276 0034 1F4B     		ldr	r3, .L14
  277 0036 0093     		str	r3, [sp]
  278 0038 4FF4E133 		mov	r3, #115200
- 279 003c 204A     		ldr	r2, .L14+4
+ 279 003c 1E4A     		ldr	r2, .L14+4
  280 003e 0121     		movs	r1, #1
  281 0040 0020     		movs	r0, #0
  282 0042 FFF7FEFF 		bl	eMBInit
  283              	.LVL17:
- 114:Core/Src/main.c **** 
- 284              		.loc 1 114 2 view .LVU73
+ 113:Core/Src/main.c **** 
+ 284              		.loc 1 113 2 view .LVU73
  285 0046 FFF7FEFF 		bl	eMBEnable
  286              	.LVL18:
- 116:Core/Src/main.c ****   ST7735_FillScreen(ST7735_BLACK);
- 287              		.loc 1 116 3 view .LVU74
+ 115:Core/Src/main.c ****   ST7735_FillScreen(ST7735_BLACK);
+ 287              		.loc 1 115 3 view .LVU74
  288 004a FFF7FEFF 		bl	ST7735_Init
  289              	.LVL19:
- 117:Core/Src/main.c ****   
- 290              		.loc 1 117 3 view .LVU75
+ 116:Core/Src/main.c ****   
+ 290              		.loc 1 116 3 view .LVU75
  291 004e 0020     		movs	r0, #0
  292 0050 FFF7FEFF 		bl	ST7735_FillScreen
  293              	.LVL20:
- 119:Core/Src/main.c ****   HAL_TIM_Base_Start_IT(&htim3);
- 294              		.loc 1 119 3 view .LVU76
- 295 0054 1B48     		ldr	r0, .L14+8
+ 118:Core/Src/main.c ****   HAL_TIM_Base_Start_IT(&htim3);
+ 294              		.loc 1 118 3 view .LVU76
+ 295 0054 1948     		ldr	r0, .L14+8
  296 0056 FFF7FEFF 		bl	HAL_TIM_Base_Start_IT
  297              	.LVL21:
- 120:Core/Src/main.c ****   
- 298              		.loc 1 120 3 view .LVU77
- 299 005a 1B48     		ldr	r0, .L14+12
+ 119:Core/Src/main.c **** 
+ 298              		.loc 1 119 3 view .LVU77
+ 299 005a 1948     		ldr	r0, .L14+12
  300 005c FFF7FEFF 		bl	HAL_TIM_Base_Start_IT
  301              	.LVL22:
- 302              	.L12:
- 127:Core/Src/main.c ****   {
- 303              		.loc 1 127 3 discriminator 1 view .LVU78
- 129:Core/Src/main.c ****     ST7735_EmptyRectangle(20, 60, 8, 8, ST7735_WHITE);
- 304              		.loc 1 129 5 discriminator 1 view .LVU79
- 305 0060 40F2FF73 		movw	r3, #2047
- 306 0064 0093     		str	r3, [sp]
- 307 0066 0423     		movs	r3, #4
- 308 0068 1A46     		mov	r2, r3
- 309 006a 3E21     		movs	r1, #62
- 310 006c 1620     		movs	r0, #22
- 311 006e FFF7FEFF 		bl	ST7735_FilledRectangle
- 312              	.LVL23:
- 130:Core/Src/main.c ****     ST7735_EmptyRectangle(20, 70, 8, 2, ST7735_WHITE);
- 313              		.loc 1 130 5 discriminator 1 view .LVU80
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 14
+ 121:Core/Src/main.c ****   HAL_GPIO_WritePin(GPIOE,GND_Pin,GPIO_PIN_SET);
+ 302              		.loc 1 121 3 view .LVU78
+ 303 0060 184C     		ldr	r4, .L14+16
+ 304 0062 0122     		movs	r2, #1
+ 305 0064 8021     		movs	r1, #128
+ 306 0066 2046     		mov	r0, r4
+ 307 0068 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 308              	.LVL23:
+ 122:Core/Src/main.c ****   
+ 309              		.loc 1 122 3 view .LVU79
+ 310 006c 0122     		movs	r2, #1
+ 311 006e 1021     		movs	r1, #16
+ 312 0070 2046     		mov	r0, r4
+ 313 0072 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 314              	.LVL24:
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccKvxT7N.s 			page 14
 
 
- 314 0072 4FF6FF74 		movw	r4, #65535
- 315 0076 0094     		str	r4, [sp]
- 316 0078 0823     		movs	r3, #8
- 317 007a 1A46     		mov	r2, r3
- 318 007c 3C21     		movs	r1, #60
- 319 007e 1420     		movs	r0, #20
- 320 0080 FFF7FEFF 		bl	ST7735_EmptyRectangle
- 321              	.LVL24:
+ 315              	.L12:
+ 128:Core/Src/main.c ****   {
+ 316              		.loc 1 128 3 discriminator 1 view .LVU80
+ 130:Core/Src/main.c ****     ST7735_EmptyRectangle(20, 60, 8, 8, ST7735_WHITE);
+ 317              		.loc 1 130 5 discriminator 1 view .LVU81
+ 318 0076 40F2FF73 		movw	r3, #2047
+ 319 007a 0093     		str	r3, [sp]
+ 320 007c 0423     		movs	r3, #4
+ 321 007e 1A46     		mov	r2, r3
+ 322 0080 3E21     		movs	r1, #62
+ 323 0082 1620     		movs	r0, #22
+ 324 0084 FFF7FEFF 		bl	ST7735_FilledRectangle
+ 325              	.LVL25:
  131:Core/Src/main.c **** 
- 322              		.loc 1 131 5 discriminator 1 view .LVU81
- 323 0084 0094     		str	r4, [sp]
- 324 0086 0223     		movs	r3, #2
- 325 0088 0822     		movs	r2, #8
- 326 008a 4621     		movs	r1, #70
- 327 008c 1420     		movs	r0, #20
- 328 008e FFF7FEFF 		bl	ST7735_EmptyRectangle
- 329              	.LVL25:
- 133:Core/Src/main.c **** 
- 330              		.loc 1 133 5 discriminator 1 view .LVU82
- 331 0092 0094     		str	r4, [sp]
- 332 0094 0623     		movs	r3, #6
- 333 0096 6322     		movs	r2, #99
- 334 0098 0021     		movs	r1, #0
- 335 009a 6920     		movs	r0, #105
- 336 009c FFF7FEFF 		bl	ST7735_Charger_v1
- 337              	.LVL26:
+ 326              		.loc 1 131 5 discriminator 1 view .LVU82
+ 327 0088 4FF6FF74 		movw	r4, #65535
+ 328 008c 0094     		str	r4, [sp]
+ 329 008e 0823     		movs	r3, #8
+ 330 0090 1A46     		mov	r2, r3
+ 331 0092 3C21     		movs	r1, #60
+ 332 0094 1420     		movs	r0, #20
+ 333 0096 FFF7FEFF 		bl	ST7735_EmptyRectangle
+ 334              	.LVL26:
  135:Core/Src/main.c **** 
- 338              		.loc 1 135 5 discriminator 1 view .LVU83
- 339 00a0 0094     		str	r4, [sp]
- 340 00a2 0623     		movs	r3, #6
- 341 00a4 5022     		movs	r2, #80
- 342 00a6 3C21     		movs	r1, #60
- 343 00a8 6420     		movs	r0, #100
- 344 00aa FFF7FEFF 		bl	ST7735_Charger_v2
- 345              	.LVL27:
+ 335              		.loc 1 135 5 discriminator 1 view .LVU83
+ 336 009a 0094     		str	r4, [sp]
+ 337 009c 0623     		movs	r3, #6
+ 338 009e 5022     		movs	r2, #80
+ 339 00a0 3C21     		movs	r1, #60
+ 340 00a2 6420     		movs	r0, #100
+ 341 00a4 FFF7FEFF 		bl	ST7735_Charger_v2
+ 342              	.LVL27:
  149:Core/Src/main.c ****     eMBPoll();
- 346              		.loc 1 149 5 discriminator 1 view .LVU84
- 347 00ae 1420     		movs	r0, #20
- 348 00b0 FFF7FEFF 		bl	HAL_Delay
- 349              	.LVL28:
+ 343              		.loc 1 149 5 discriminator 1 view .LVU84
+ 344 00a8 1420     		movs	r0, #20
+ 345 00aa FFF7FEFF 		bl	HAL_Delay
+ 346              	.LVL28:
  150:Core/Src/main.c ****     /* USER CODE END WHILE */
- 350              		.loc 1 150 5 discriminator 1 view .LVU85
- 351 00b4 FFF7FEFF 		bl	eMBPoll
- 352              	.LVL29:
- 127:Core/Src/main.c ****   {
- 353              		.loc 1 127 9 discriminator 1 view .LVU86
- 354 00b8 D2E7     		b	.L12
- 355              	.L15:
- 356 00ba 00BF     		.align	2
- 357              	.L14:
- 358 00bc 00000000 		.word	htim4
- 359 00c0 00000000 		.word	huart2
- 360 00c4 00000000 		.word	htim2
- 361 00c8 00000000 		.word	htim3
- 362              		.cfi_endproc
- 363              	.LFE235:
- 365              		.text
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 15
+ 347              		.loc 1 150 5 discriminator 1 view .LVU85
+ 348 00ae FFF7FEFF 		bl	eMBPoll
+ 349              	.LVL29:
+ 128:Core/Src/main.c ****   {
+ 350              		.loc 1 128 9 discriminator 1 view .LVU86
+ 351 00b2 E0E7     		b	.L12
+ 352              	.L15:
+ 353              		.align	2
+ 354              	.L14:
+ 355 00b4 00000000 		.word	htim4
+ 356 00b8 00000000 		.word	huart2
+ 357 00bc 00000000 		.word	htim2
+ 358 00c0 00000000 		.word	htim3
+ 359 00c4 00100240 		.word	1073876992
+ 360              		.cfi_endproc
+ 361              	.LFE235:
+ 363              		.text
+ 364              	.Letext0:
+ 365              		.file 3 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\machine\\_default_types.h"
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccKvxT7N.s 			page 15
 
 
- 366              	.Letext0:
- 367              		.file 3 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\machine\\_default_types.h"
- 368              		.file 4 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\_stdint.h"
- 369              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
- 370              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 371              		.file 7 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
- 372              		.file 8 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
- 373              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 374              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
- 375              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
- 376              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 377              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h"
- 378              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
- 379              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 380              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
- 381              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 382              		.file 18 "Core/Inc/adc.h"
- 383              		.file 19 "Core/Inc/spi.h"
- 384              		.file 20 "Core/Inc/tim.h"
- 385              		.file 21 "Core/Inc/usart.h"
- 386              		.file 22 "Drivers/FreeModbus/port/port.h"
- 387              		.file 23 "Drivers/FreeModbus/include/mbport.h"
- 388              		.file 24 "Drivers/FreeModbus/include/mb.h"
- 389              		.file 25 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\lock.h"
- 390              		.file 26 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\_types.h"
- 391              		.file 27 "c:\\vscodeproject\\software\\arm_gcc\\lib\\gcc\\arm-none-eabi\\9.2.1\\include\\stddef.h"
- 392              		.file 28 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\reent.h"
- 393              		.file 29 "Drivers/TFT/fonts.h"
- 394              		.file 30 "Core/Inc/gpio.h"
- 395              		.file 31 "Drivers/TFT/st7735.h"
- 396              		.file 32 "<built-in>"
-ARM GAS  C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s 			page 16
+ 366              		.file 4 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 367              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
+ 368              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 369              		.file 7 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 370              		.file 8 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 371              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 372              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
+ 373              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
+ 374              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 375              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 376              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h"
+ 377              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 378              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 379              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 380              		.file 18 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 381              		.file 19 "Core/Inc/adc.h"
+ 382              		.file 20 "Core/Inc/spi.h"
+ 383              		.file 21 "Core/Inc/tim.h"
+ 384              		.file 22 "Core/Inc/usart.h"
+ 385              		.file 23 "Drivers/FreeModbus/port/port.h"
+ 386              		.file 24 "Drivers/FreeModbus/include/mbport.h"
+ 387              		.file 25 "Drivers/FreeModbus/include/mb.h"
+ 388              		.file 26 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\lock.h"
+ 389              		.file 27 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\_types.h"
+ 390              		.file 28 "c:\\vscodeproject\\software\\arm_gcc\\lib\\gcc\\arm-none-eabi\\9.2.1\\include\\stddef.h"
+ 391              		.file 29 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\reent.h"
+ 392              		.file 30 "Drivers/TFT/fonts.h"
+ 393              		.file 31 "Core/Inc/gpio.h"
+ 394              		.file 32 "Drivers/TFT/st7735.h"
+ 395              		.file 33 "<built-in>"
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccKvxT7N.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s:18     .text.Error_Handler:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s:26     .text.Error_Handler:0000000000000000 Error_Handler
-C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s:59     .text.SystemClock_Config:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s:66     .text.SystemClock_Config:0000000000000000 SystemClock_Config
-C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s:212    .text.SystemClock_Config:0000000000000098 $d
-C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s:218    .text.main:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s:225    .text.main:0000000000000000 main
-C:\Users\du4\AppData\Local\Temp\ccPC1qUF.s:358    .text.main:00000000000000bc $d
+C:\Users\du4\AppData\Local\Temp\ccKvxT7N.s:18     .text.Error_Handler:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccKvxT7N.s:26     .text.Error_Handler:0000000000000000 Error_Handler
+C:\Users\du4\AppData\Local\Temp\ccKvxT7N.s:59     .text.SystemClock_Config:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccKvxT7N.s:66     .text.SystemClock_Config:0000000000000000 SystemClock_Config
+C:\Users\du4\AppData\Local\Temp\ccKvxT7N.s:212    .text.SystemClock_Config:0000000000000098 $d
+C:\Users\du4\AppData\Local\Temp\ccKvxT7N.s:218    .text.main:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccKvxT7N.s:225    .text.main:0000000000000000 main
+C:\Users\du4\AppData\Local\Temp\ccKvxT7N.s:355    .text.main:00000000000000b4 $d
 
 UNDEFINED SYMBOLS
 memset
@@ -906,9 +905,9 @@ eMBEnable
 ST7735_Init
 ST7735_FillScreen
 HAL_TIM_Base_Start_IT
+HAL_GPIO_WritePin
 ST7735_FilledRectangle
 ST7735_EmptyRectangle
-ST7735_Charger_v1
 ST7735_Charger_v2
 HAL_Delay
 eMBPoll

@@ -247,21 +247,23 @@ void EXTI0_IRQHandler(void)
 void TIM2_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM2_IRQn 0 */
+   HAL_GPIO_TogglePin(GPIOE,GPIO_PIN_9);
   for (int i = 0; i < 5; i++) {
     HAL_ADC_Start(&hadc2);
     if (HAL_ADC_PollForConversion(&hadc2, 100) == HAL_OK) {   // Ожидание завершения преобразования.
-    Result = HAL_ADC_GetValue(&hadc2);                      // Считывание с АЦП.
-    MassifADC2_IN8[i] = Result;
-    HAL_ADC_Stop(&hadc2);                                   // Остановка АЦП.
+      Result = HAL_ADC_GetValue(&hadc2);                        // Считывание с АЦП.
+      MassifADC2_IN8[i] = Result;
+      HAL_ADC_Stop(&hadc2);                                     // Остановка АЦП.
     }
   }
   AverageADC2_IN8 = 0;
-  for (int j = 0; j < 5; j++) {
-  AverageADC2_IN8 += MassifADC2_IN8[j];
+  for (int i = 0; i < 5; i++) {
+    AverageADC2_IN8 += MassifADC2_IN8[i];
   }
-
   meanADC2_IN8 = AverageADC2_IN8 / 5;
   voltageADC2_IN8 = (float) meanADC2_IN8 / 4096 * Vref;
+
+  ST7735_Charger_v1(105, 0, Result / 42, 6, ST7735_WHITE);
 
   sprintf((char*) ADC_IN8, "%ld.%03d", (uint32_t)voltageADC2_IN8, (uint16_t)((voltageADC2_IN8 - (uint32_t)voltageADC2_IN8)*1000.) );
   ST7735_WriteString(0, 0, "ADC voltage", Font_7x10, ST7735_RED, ST7735_BLACK); 

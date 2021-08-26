@@ -14,7 +14,10 @@
 		"st7735.h": "c",
 		"st7789.h": "c",
 		"string.h": "c",
-		"img.h": "c"
+		"img.h": "c",
+		"cstdio": "c",
+		"type_traits": "c",
+		"stddef.h": "c"
 	},
 	"C_Cpp.errorSquiggles": "Enabled"
 }
