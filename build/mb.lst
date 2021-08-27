@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
   27:Drivers/FreeModbus/mb.c ****  *
   28:Drivers/FreeModbus/mb.c ****  * File: $Id: mb.c,v 1.27 2007/02/18 23:45:41 wolti Exp $
   29:Drivers/FreeModbus/mb.c ****  */
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 2
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 2
 
 
   30:Drivers/FreeModbus/mb.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
   84:Drivers/FreeModbus/mb.c ****  * an external event has happend which includes a timeout or the reception
   85:Drivers/FreeModbus/mb.c ****  * or transmission of a character.
   86:Drivers/FreeModbus/mb.c ****  * Using for Modbus Slave
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 3
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 3
 
 
   87:Drivers/FreeModbus/mb.c ****  */
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
   36              	.LCFI0:
   37              		.cfi_def_cfa_offset 16
   38              		.cfi_offset 3, -16
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 4
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 4
 
 
   39              		.cfi_offset 4, -12
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
  160:Drivers/FreeModbus/mb.c ****             eStatus = eMBRTUInit( ucMBAddress, dHUART, ulBaudRate, dHTIM );
  161:Drivers/FreeModbus/mb.c ****             break;
  162:Drivers/FreeModbus/mb.c **** #endif
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 5
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 5
 
 
  163:Drivers/FreeModbus/mb.c **** #if MB_SLAVE_ASCII_ENABLED > 0
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
   94 0038 1C60     		str	r4, [r3]
  156:Drivers/FreeModbus/mb.c ****             pxMBFrameCBTransmitterEmpty = xMBRTUTransmitFSM;
   95              		.loc 1 156 13 is_stmt 1 view .LVU22
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 6
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 6
 
 
  156:Drivers/FreeModbus/mb.c ****             pxMBFrameCBTransmitterEmpty = xMBRTUTransmitFSM;
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
  128              		.loc 1 192 26 is_stmt 0 view .LVU38
  129 005c 144B     		ldr	r3, .L8+64
  130 005e 0122     		movs	r2, #1
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 7
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 7
 
 
  131 0060 1A70     		strb	r2, [r3]
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
  180              	.LVL10:
  181              	.LFB236:
  198:Drivers/FreeModbus/mb.c **** 
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 8
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 8
 
 
  199:Drivers/FreeModbus/mb.c **** #if MB_SLAVE_TCP_ENABLED > 0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
  199              		.loc 1 235 7 view .LVU49
  200 0004 002B     		cmp	r3, #0
  201 0006 33DD     		ble	.L21
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 9
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 9
 
 
  202 0008 0546     		mov	r5, r0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
  254:Drivers/FreeModbus/mb.c ****             {
  233              		.loc 1 254 52 discriminator 2 view .LVU62
  234 0028 F6E7     		b	.L13
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 10
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 10
 
 
  235              	.L15:
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
  258:Drivers/FreeModbus/mb.c ****                     xFuncHandlers[i].ucFunctionCode = 0;
  259:Drivers/FreeModbus/mb.c ****                     xFuncHandlers[i].pxHandler = NULL;
  260:Drivers/FreeModbus/mb.c ****                     break;
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 11
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 11
 
 
  261:Drivers/FreeModbus/mb.c ****                 }
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
  305              	.LVL22:
  306              	.L23:
  250:Drivers/FreeModbus/mb.c ****         }
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 12
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 12
 
 
  307              		.loc 1 250 65 view .LVU90
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
  283:Drivers/FreeModbus/mb.c ****         if( pvMBFrameCloseCur != NULL )
  284:Drivers/FreeModbus/mb.c ****         {
  285:Drivers/FreeModbus/mb.c ****             pvMBFrameCloseCur(  );
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 13
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 13
 
 
  286:Drivers/FreeModbus/mb.c ****         }
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
  295:Drivers/FreeModbus/mb.c **** 
  296:Drivers/FreeModbus/mb.c **** eMBErrorCode
  297:Drivers/FreeModbus/mb.c **** eMBEnable( void )
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 14
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 14
 
 
  298:Drivers/FreeModbus/mb.c **** {
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
  430 0018 1870     		strb	r0, [r3]
  431 001a F7E7     		b	.L39
  432              	.L44:
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 15
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 15
 
 
  433              		.align	2
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
  478              	.L47:
  324:Drivers/FreeModbus/mb.c ****     }
  325:Drivers/FreeModbus/mb.c ****     else if( eMBState == STATE_DISABLED )
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 16
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 16
 
 
  326:Drivers/FreeModbus/mb.c ****     {
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
  519              	.LCFI5:
  520              		.cfi_def_cfa_offset 16
  521              		.cfi_offset 4, -16
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 17
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 17
 
 
  522              		.cfi_offset 5, -12
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
  360:Drivers/FreeModbus/mb.c ****         case EV_READY:
  361:Drivers/FreeModbus/mb.c ****             break;
  362:Drivers/FreeModbus/mb.c **** 
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 18
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 18
 
 
  363:Drivers/FreeModbus/mb.c ****         case EV_FRAME_RECEIVED:
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
  558              		.cfi_remember_state
  559              		.cfi_def_cfa_offset 16
  560              		@ sp needed
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 19
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 19
 
 
  561 001c 70BD     		pop	{r4, r5, r6, pc}
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
  365:Drivers/FreeModbus/mb.c ****             {
  603              		.loc 1 365 15 is_stmt 0 view .LVU160
  604 004a 0546     		mov	r5, r0
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 20
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 20
 
 
  605 004c 0028     		cmp	r0, #0
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
  381:Drivers/FreeModbus/mb.c ****                 {
  645              		.loc 1 381 19 view .LVU175
  646 0076 4AB1     		cbz	r2, .L59
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 21
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 21
 
 
  385:Drivers/FreeModbus/mb.c ****                 {
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
  400:Drivers/FreeModbus/mb.c ****                     ucMBFrame[usLength++] = eException;
  684              		.loc 1 400 30 view .LVU193
  685 009c 0F48     		ldr	r0, .L68+4
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 22
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 22
 
 
  686 009e 0568     		ldr	r5, [r0]
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
  728 00d0 A2E7     		b	.L54
  729              	.LVL52:
  730              	.L65:
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 23
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 23
 
 
  411:Drivers/FreeModbus/mb.c **** }
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
  797              		.set	.LANCHOR11,. + 0
  800              	ucFunctionCode.10083:
  801 0000 00       		.space	1
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 24
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 24
 
 
  802              		.section	.bss.ucMBAddress,"aw",%nobits
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
  868 0049 000000   		.space	3
  869 004c 00000000 		.word	eMBFuncReadDiscreteInputs
  870 0050 00000000 		.space	48
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 25
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 25
 
 
  870      00000000 
@@ -1464,59 +1464,59 @@ ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 1
  887              		.file 16 "Drivers/FreeModbus/include/mbframe.h"
  888              		.file 17 "Drivers/FreeModbus/port/portcritical.h"
  889              		.file 18 "Drivers/FreeModbus/rtu/mbrtu.h"
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 26
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 26
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 mb.c
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:18     .text.eMBInit:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:26     .text.eMBInit:0000000000000000 eMBInit
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:151    .text.eMBInit:0000000000000070 $d
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:18     .text.eMBInit:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:26     .text.eMBInit:0000000000000000 eMBInit
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:151    .text.eMBInit:0000000000000070 $d
                             *COM*:0000000000000004 pxMBFrameCBByteReceived
                             *COM*:0000000000000004 pxMBFrameCBTransmitterEmpty
                             *COM*:0000000000000004 pxMBPortCBTimerExpired
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:172    .text.eMBRegisterCB:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:179    .text.eMBRegisterCB:0000000000000000 eMBRegisterCB
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:320    .text.eMBRegisterCB:0000000000000074 $d
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:325    .text.eMBClose:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:332    .text.eMBClose:0000000000000000 eMBClose
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:379    .text.eMBClose:0000000000000020 $d
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:385    .text.eMBEnable:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:392    .text.eMBEnable:0000000000000000 eMBEnable
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:435    .text.eMBEnable:000000000000001c $d
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:441    .text.eMBDisable:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:448    .text.eMBDisable:0000000000000000 eMBDisable
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:499    .text.eMBDisable:0000000000000024 $d
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:505    .text.eMBPoll:0000000000000000 $t
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:512    .text.eMBPoll:0000000000000000 eMBPoll
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:737    .text.eMBPoll:00000000000000d8 $d
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:172    .text.eMBRegisterCB:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:179    .text.eMBRegisterCB:0000000000000000 eMBRegisterCB
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:320    .text.eMBRegisterCB:0000000000000074 $d
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:325    .text.eMBClose:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:332    .text.eMBClose:0000000000000000 eMBClose
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:379    .text.eMBClose:0000000000000020 $d
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:385    .text.eMBEnable:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:392    .text.eMBEnable:0000000000000000 eMBEnable
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:435    .text.eMBEnable:000000000000001c $d
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:441    .text.eMBDisable:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:448    .text.eMBDisable:0000000000000000 eMBDisable
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:499    .text.eMBDisable:0000000000000024 $d
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:505    .text.eMBPoll:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:512    .text.eMBPoll:0000000000000000 eMBPoll
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:737    .text.eMBPoll:00000000000000d8 $d
                             *COM*:0000000000000004 pxMBFrameCBTransmitFSMCur
                             *COM*:0000000000000004 pxMBFrameCBReceiveFSMCur
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:759    .bss.eException.10085:0000000000000000 eException.10085
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:760    .bss.eException.10085:0000000000000000 $d
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:762    .bss.peMBFrameReceiveCur:0000000000000000 $d
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:766    .bss.peMBFrameReceiveCur:0000000000000000 peMBFrameReceiveCur
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:769    .bss.peMBFrameSendCur:0000000000000000 $d
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:773    .bss.peMBFrameSendCur:0000000000000000 peMBFrameSendCur
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:776    .bss.pvMBFrameCloseCur:0000000000000000 $d
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:780    .bss.pvMBFrameCloseCur:0000000000000000 pvMBFrameCloseCur
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:783    .bss.pvMBFrameStartCur:0000000000000000 $d
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:787    .bss.pvMBFrameStartCur:0000000000000000 pvMBFrameStartCur
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:790    .bss.pvMBFrameStopCur:0000000000000000 $d
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:794    .bss.pvMBFrameStopCur:0000000000000000 pvMBFrameStopCur
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:800    .bss.ucFunctionCode.10083:0000000000000000 ucFunctionCode.10083
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:801    .bss.ucFunctionCode.10083:0000000000000000 $d
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:806    .bss.ucMBAddress:0000000000000000 ucMBAddress
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:807    .bss.ucMBAddress:0000000000000000 $d
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:809    .bss.ucMBFrame.10081:0000000000000000 $d
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:813    .bss.ucMBFrame.10081:0000000000000000 ucMBFrame.10081
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:819    .bss.ucRcvAddress.10082:0000000000000000 ucRcvAddress.10082
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:820    .bss.ucRcvAddress.10082:0000000000000000 $d
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:822    .bss.usLength.10084:0000000000000000 $d
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:826    .bss.usLength.10084:0000000000000000 usLength.10084
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:832    .data.eMBState:0000000000000000 eMBState
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:835    .data.xFuncHandlers:0000000000000000 $d
-C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s:839    .data.xFuncHandlers:0000000000000000 xFuncHandlers
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:759    .bss.eException.10085:0000000000000000 eException.10085
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:760    .bss.eException.10085:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:762    .bss.peMBFrameReceiveCur:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:766    .bss.peMBFrameReceiveCur:0000000000000000 peMBFrameReceiveCur
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:769    .bss.peMBFrameSendCur:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:773    .bss.peMBFrameSendCur:0000000000000000 peMBFrameSendCur
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:776    .bss.pvMBFrameCloseCur:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:780    .bss.pvMBFrameCloseCur:0000000000000000 pvMBFrameCloseCur
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:783    .bss.pvMBFrameStartCur:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:787    .bss.pvMBFrameStartCur:0000000000000000 pvMBFrameStartCur
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:790    .bss.pvMBFrameStopCur:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:794    .bss.pvMBFrameStopCur:0000000000000000 pvMBFrameStopCur
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:800    .bss.ucFunctionCode.10083:0000000000000000 ucFunctionCode.10083
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:801    .bss.ucFunctionCode.10083:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:806    .bss.ucMBAddress:0000000000000000 ucMBAddress
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:807    .bss.ucMBAddress:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:809    .bss.ucMBFrame.10081:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:813    .bss.ucMBFrame.10081:0000000000000000 ucMBFrame.10081
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:819    .bss.ucRcvAddress.10082:0000000000000000 ucRcvAddress.10082
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:820    .bss.ucRcvAddress.10082:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:822    .bss.usLength.10084:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:826    .bss.usLength.10084:0000000000000000 usLength.10084
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:832    .data.eMBState:0000000000000000 eMBState
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:835    .data.xFuncHandlers:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s:839    .data.xFuncHandlers:0000000000000000 xFuncHandlers
 
 UNDEFINED SYMBOLS
 eMBRTUInit
@@ -1524,7 +1524,7 @@ xMBPortEventInit
 eMBRTUStart
 eMBRTUStop
 eMBRTUSend
-ARM GAS  C:\Users\du4\AppData\Local\Temp\cc9qlvrh.s 			page 27
+ARM GAS  C:\Users\du4\AppData\Local\Temp\ccz2R5Gw.s 			page 27
 
 
 eMBRTUReceive

@@ -1,6 +1,7 @@
 /* vim: set ai et ts=4 sw=4: */
 #include "stm32f4xx_hal.h"
 #include "st7735.h"
+#include <stdio.h>
 
 #define DELAY 0x80
 
@@ -293,10 +294,10 @@ void ST7735_EmptyRectangle(uint16_t x, uint16_t y, uint16_t width, uint16_t heig
    }
 }
 
-void ST7735_Charger_v1(uint16_t x, uint16_t y, uint16_t charger, uint16_t var, uint16_t color) {
+void ST7735_Charger_v1(uint16_t x, uint16_t y, float charger, uint16_t color) {
   uint16_t width = 19;
-  uint16_t height = 10;
-  
+  uint16_t height = 10; 
+
   for(int i = 0; i < width; i++) {
     ST7735_DrawPixel(x + i, y, color);
     ST7735_DrawPixel(x + i, y + (height - 1), color);
@@ -306,7 +307,13 @@ void ST7735_Charger_v1(uint16_t x, uint16_t y, uint16_t charger, uint16_t var, u
     ST7735_DrawPixel(x + (width - 1), y + i, color);
     ST7735_DrawPixel(x + width, (y + 2) + (i - 1)/2, color);
     ST7735_DrawPixel(x + width + 1, (y + 2) + (i - 1)/2, color);
-  }
+  }  
+
+  charger = (100 * charger) / 3.3;
+  // uint32_t chargerM[10] = {0,};
+  // sprintf((char*) chargerM, "%ld.%03d", (uint32_t)charger, (uint16_t)((charger - (uint32_t)charger)*1000.) );
+  // ST7735_WriteString(x - 30, 0, (char*) chargerM, Font_7x10, ST7735_WHITE, ST7735_BLACK); 
+
   if(0 < charger && charger <= 10) {
     ST7735_FilledRectangle(x + 2, y + 2, 2, 6, ST7735_RED);
     ST7735_FilledRectangle(x + 4, y + 2, 14, 6, ST7735_BLACK);
@@ -316,25 +323,22 @@ void ST7735_Charger_v1(uint16_t x, uint16_t y, uint16_t charger, uint16_t var, u
     ST7735_FilledRectangle(x + 5, y + 2, 13, 6, ST7735_BLACK);
   }
   if(25 < charger && charger <= 50) {
-    ST7735_FilledRectangle(x + 2, y + 2, 3, 6, ST7735_WHITE);
-    ST7735_FilledRectangle(x + 6, y + 2, 3, 6, ST7735_WHITE);
+    for(int i = 2; i <= 6; i+=4 ) {
+      ST7735_FilledRectangle(x + i, y + 2, 3, 6, ST7735_WHITE);
+    }
     ST7735_FilledRectangle(x + 9, y + 2, 9, 6, ST7735_BLACK);
   }
   if(50 < charger && charger <= 85) {
-    ST7735_FilledRectangle(x + 2,  y + 2, 3, 6, ST7735_WHITE);
-    ST7735_FilledRectangle(x + 6,  y + 2, 3, 6, ST7735_WHITE);
-    ST7735_FilledRectangle(x + 10, y + 2, 3, 6, ST7735_WHITE);
+    for(int i = 2; i <= 10; i+=4 ) {
+      ST7735_FilledRectangle(x + i, y + 2, 3, 6, ST7735_WHITE);
+    }
     ST7735_FilledRectangle(x + 13, y + 2, 5, 6, ST7735_BLACK);
   }
   if(85 < charger && charger <= 100) {
-    ST7735_FilledRectangle(x + 2,  y + 2, 3, 6, ST7735_WHITE);
-    ST7735_FilledRectangle(x + 6,  y + 2, 3, 6, ST7735_WHITE);
-    ST7735_FilledRectangle(x + 10, y + 2, 3, 6, ST7735_WHITE);
-    ST7735_FilledRectangle(x + 14, y + 2, 3, 6, ST7735_WHITE);
+    for(int i = 2; i <= 14; i+=4 ) {
+      ST7735_FilledRectangle(x + i, y + 2, 3, 6, ST7735_WHITE);
+    }
   }
-
-  #ifdef v2
-  #endif
 }
 
 void ST7735_Charger_v2(uint16_t x, uint16_t y, uint16_t charger, uint16_t var, uint16_t color) {
@@ -352,14 +356,14 @@ void ST7735_Charger_v2(uint16_t x, uint16_t y, uint16_t charger, uint16_t var, u
     ST7735_DrawPixel(x + width + 1, (y + 2) + (i - 1)/2, color);
   }
 
-  ST7735_FilledRectangle(x + 2,  y + 2, 6, 2, ST7735_RED);
-  ST7735_FilledRectangle(x + 4,  y + 2, 6, 2, ST7735_WHITE);
-  ST7735_FilledRectangle(x + 6,  y + 2, 6, 2, ST7735_WHITE);
-  ST7735_FilledRectangle(x + 8,  y + 2, 6, 2, ST7735_WHITE);
-  ST7735_FilledRectangle(x + 10, y + 2, 6, 2, ST7735_WHITE);
-  ST7735_FilledRectangle(x + 12, y + 2, 6, 2, ST7735_WHITE);
-  ST7735_FilledRectangle(x + 14, y + 2, 6, 2, ST7735_WHITE);
-  ST7735_FilledRectangle(x + 16, y + 2, 6, 1, ST7735_WHITE);
+  ST7735_FilledRectangle(x + 2,  y + 2, 2, 6, ST7735_RED);
+  ST7735_FilledRectangle(x + 4,  y + 2, 2, 6, ST7735_WHITE);
+  ST7735_FilledRectangle(x + 6,  y + 2, 2, 6, ST7735_WHITE);
+  ST7735_FilledRectangle(x + 8,  y + 2, 2, 6, ST7735_WHITE);
+  ST7735_FilledRectangle(x + 10, y + 2, 2, 6, ST7735_WHITE);
+  ST7735_FilledRectangle(x + 12, y + 2, 2, 6, ST7735_WHITE);
+  ST7735_FilledRectangle(x + 14, y + 2, 2, 6, ST7735_WHITE);
+  ST7735_FilledRectangle(x + 16, y + 2, 1, 6, ST7735_WHITE);
 }
 
 void ST7735_SoundAnalyzer(uint16_t x, uint16_t y, uint16_t value) {

@@ -263,10 +263,10 @@ void TIM2_IRQHandler(void)
   meanADC2_IN8 = AverageADC2_IN8 / 5;
   voltageADC2_IN8 = (float) meanADC2_IN8 / 4096 * Vref;
 
-  ST7735_Charger_v1(105, 0, Result / 42, 6, ST7735_WHITE);
+  ST7735_Charger_v1(105, 0, voltageADC2_IN8, ST7735_WHITE);
 
   sprintf((char*) ADC_IN8, "%ld.%03d", (uint32_t)voltageADC2_IN8, (uint16_t)((voltageADC2_IN8 - (uint32_t)voltageADC2_IN8)*1000.) );
-  ST7735_WriteString(0, 0, "ADC voltage", Font_7x10, ST7735_RED, ST7735_BLACK); 
+  ST7735_WriteString(0, 0, "ADC voltage", Font_7x10, ST7735_GREEN, ST7735_BLACK); 
   ST7735_WriteString(40, 10, "V", Font_7x10, ST7735_WHITE, ST7735_BLACK); 
   ST7735_WriteString(0, 10, (char*) ADC_IN8, Font_7x10, ST7735_WHITE, ST7735_BLACK); 
 

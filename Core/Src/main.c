@@ -130,8 +130,6 @@ int main(void)
     ST7735_FilledRectangle(22, 62, 4, 4, ST7735_CYAN);
     ST7735_EmptyRectangle(20, 60, 8, 8, ST7735_WHITE);
 
-    // ST7735_Charger_v1(105, 0, 99, 6, ST7735_WHITE);
-
     ST7735_Charger_v2(100, 60, 80, 6, ST7735_WHITE);
 
     // ST7735_FillScreen(ST7735_BLACK);
