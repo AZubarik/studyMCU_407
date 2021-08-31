@@ -232,8 +232,16 @@ void SysTick_Handler(void)
 void EXTI0_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI0_IRQn 0 */
-  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_1);
+  // int button = 1;
 
+  // if(button == 1) {
+  //   ST7735_FilledRectangle(2, 112, 6, 6, ST7735_GREEN);
+  //   button = 0;
+  // }
+  // else {
+  //   ST7735_FilledRectangle(2, 112, 8, 8, ST7735_BLACK);
+  //   button = 1;
+  // }
   /* USER CODE END EXTI0_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
   /* USER CODE BEGIN EXTI0_IRQn 1 */
@@ -263,13 +271,14 @@ void TIM2_IRQHandler(void)
   meanADC2_IN8 = AverageADC2_IN8 / 5;
   voltageADC2_IN8 = (float) meanADC2_IN8 / 4096 * Vref;
 
+  ST7735_SoundAnalyzer(0, 100, 2, voltageADC2_IN8 * 5);
+
   ST7735_Charger_v1(105, 0, voltageADC2_IN8, ST7735_WHITE);
 
   sprintf((char*) ADC_IN8, "%ld.%03d", (uint32_t)voltageADC2_IN8, (uint16_t)((voltageADC2_IN8 - (uint32_t)voltageADC2_IN8)*1000.) );
   ST7735_WriteString(0, 0, "ADC voltage", Font_7x10, ST7735_GREEN, ST7735_BLACK); 
   ST7735_WriteString(40, 10, "V", Font_7x10, ST7735_WHITE, ST7735_BLACK); 
   ST7735_WriteString(0, 10, (char*) ADC_IN8, Font_7x10, ST7735_WHITE, ST7735_BLACK); 
-
   /* USER CODE END TIM2_IRQn 0 */
   HAL_TIM_IRQHandler(&htim2);
   /* USER CODE BEGIN TIM2_IRQn 1 */

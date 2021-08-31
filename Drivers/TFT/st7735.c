@@ -2,6 +2,7 @@
 #include "stm32f4xx_hal.h"
 #include "st7735.h"
 #include <stdio.h>
+#include <math.h>
 
 #define DELAY 0x80
 
@@ -366,19 +367,22 @@ void ST7735_Charger_v2(uint16_t x, uint16_t y, uint16_t charger, uint16_t var, u
   ST7735_FilledRectangle(x + 16, y + 2, 1, 6, ST7735_WHITE);
 }
 
-void ST7735_SoundAnalyzer(uint16_t x, uint16_t y, uint16_t value) {
-  for(int i = 0; i < 2; i++) {
-    for(int f = 0; f < value; f++) {
+void ST7735_SoundAnalyzer(uint16_t x, uint16_t y, uint16_t width, uint16_t value) {
+  for(int f = 0; f <= value; f++) {
+    for(int i = 0; i < 2; i++) {
       ST7735_DrawPixel(x + i ,y - f, ST7735_WHITE);
+      ST7735_DrawPixel(x + i ,(y - 20) + (19 - f), ST7735_BLACK);
     }
   }
-
-  for(int i = 0; i < 2; i++) {
-    for(int f = 0; f < value; f++) {
-      ST7735_DrawPixel(x + i ,y - f, ST7735_BLACK);
-    }
-  }
-
 }
+
+
+
+// void ST7735_Sinus(uint16_t x, uint16_t y, uint16_t value, uint16_t frequency) {
+//   for(int i = 0; i < frequency; i++) {
+//     float U = value * sin(2 * 3.14 * i);
+//     ST7735_DrawPixel(x + i ,y + U, ST7735_GREEN);
+//   }
+// }
 
 
