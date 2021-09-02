@@ -17,7 +17,8 @@
 		"img.h": "c",
 		"cstdio": "c",
 		"type_traits": "c",
-		"stddef.h": "c"
+		"stddef.h": "c",
+		"mb.h": "c"
 	},
 	"C_Cpp.errorSquiggles": "Enabled"
 }

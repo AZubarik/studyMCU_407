@@ -48,9 +48,10 @@ extern uint16_t usSRegHoldBuf[];
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-float Result = 0, voltageADC = 0, meanADC = 0, AverageADC = 0;
+float voltageADC = 0, meanADC = 0, AverageADC = 0;
 float voltageADC2_IN8 = 0, meanADC2_IN8 = 0, AverageADC2_IN8 = 0;
 float temp;
+int button = 0;
 uint16_t MassifADC[5];
 uint16_t MassifADC2_IN8[5];
 uint32_t ADC_temperatura[10] = {0,};
@@ -82,7 +83,6 @@ uint32_t ADC_IN8[10] = {0,};
 extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim3;
 extern TIM_HandleTypeDef htim4;
-extern UART_HandleTypeDef huart1;
 extern UART_HandleTypeDef huart2;
 /* USER CODE BEGIN EV */
 
@@ -232,16 +232,14 @@ void SysTick_Handler(void)
 void EXTI0_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI0_IRQn 0 */
-  // int button = 1;
-
-  // if(button == 1) {
-  //   ST7735_FilledRectangle(2, 112, 6, 6, ST7735_GREEN);
-  //   button = 0;
-  // }
-  // else {
-  //   ST7735_FilledRectangle(2, 112, 8, 8, ST7735_BLACK);
-  //   button = 1;
-  // }
+  if(button == 1) {
+    ST7735_FilledRectangle(2, 82, 6, 6, ST7735_GREEN);
+    button = 0;
+  }
+  else {
+    ST7735_FilledRectangle(2, 82, 8, 8, ST7735_BLACK);
+    button = 1;
+  }
   /* USER CODE END EXTI0_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
   /* USER CODE BEGIN EXTI0_IRQn 1 */
@@ -255,12 +253,11 @@ void EXTI0_IRQHandler(void)
 void TIM2_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM2_IRQn 0 */
-   HAL_GPIO_TogglePin(GPIOE,GPIO_PIN_9);
+  HAL_GPIO_TogglePin(GPIOE,GPIO_PIN_9);
   for (int i = 0; i < 5; i++) {
     HAL_ADC_Start(&hadc2);
-    if (HAL_ADC_PollForConversion(&hadc2, 100) == HAL_OK) {   // Ожидание завершения преобразования.
-      Result = HAL_ADC_GetValue(&hadc2);                        // Считывание с АЦП.
-      MassifADC2_IN8[i] = Result;
+    if (HAL_ADC_PollForConversion(&hadc2, 100) == HAL_OK) { // Ожидание завершения преобразования.
+      MassifADC2_IN8[i] = HAL_ADC_GetValue(&hadc2); // Считывание с АЦП.
       HAL_ADC_Stop(&hadc2);                                     // Остановка АЦП.
     }
   }
@@ -271,11 +268,9 @@ void TIM2_IRQHandler(void)
   meanADC2_IN8 = AverageADC2_IN8 / 5;
   voltageADC2_IN8 = (float) meanADC2_IN8 / 4096 * Vref;
 
-  ST7735_SoundAnalyzer(0, 100, 2, voltageADC2_IN8 * 5);
-
   ST7735_Charger_v1(105, 0, voltageADC2_IN8, ST7735_WHITE);
 
-  sprintf((char*) ADC_IN8, "%ld.%03d", (uint32_t)voltageADC2_IN8, (uint16_t)((voltageADC2_IN8 - (uint32_t)voltageADC2_IN8)*1000.) );
+  sprintf((char*) ADC_IN8, "%ld.%03d", (uint32_t)voltageADC2_IN8, (uint16_t)((voltageADC2_IN8 - (uint32_t)voltageADC2_IN8)*1000) );
   ST7735_WriteString(0, 0, "ADC voltage", Font_7x10, ST7735_GREEN, ST7735_BLACK); 
   ST7735_WriteString(40, 10, "V", Font_7x10, ST7735_WHITE, ST7735_BLACK); 
   ST7735_WriteString(0, 10, (char*) ADC_IN8, Font_7x10, ST7735_WHITE, ST7735_BLACK); 
@@ -295,9 +290,8 @@ void TIM3_IRQHandler(void)
   HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_1);
   for (int i = 0; i < 5; i++) {
     HAL_ADC_Start(&hadc1);
-    if (HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK) {   // Ожидание завершения преобразования.
-      Result = HAL_ADC_GetValue(&hadc1);                      // Считывание с АЦП.
-      MassifADC[i] = Result;
+    if (HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK) { // Ожидание завершения преобразования.
+      MassifADC[i] = HAL_ADC_GetValue(&hadc1);  // Считывание с АЦП.
       HAL_ADC_Stop(&hadc1);                                   // Остановка АЦП.
     }
   }
@@ -308,10 +302,9 @@ void TIM3_IRQHandler(void)
   meanADC = AverageADC / 5;
   voltageADC = (float) meanADC / 4096 * Vref;               // Напряжение в вольтах на датчике.
   temp = (voltageADC - tV_25) / tSlope + 25;                // Температура в градусах.
-  Result = (float) temp;
-  dataTransmit(0, Result);                                  // Передача данных Modbus registr 0.
+  dataTransmit(0, temp);                                  // Передача данных Modbus registr 0.
 
-  sprintf((char*) ADC_temperatura, "%ld.%03d", (uint32_t)Result, (uint16_t)((Result - (uint32_t)Result)*1000.) );
+  sprintf((char*)ADC_temperatura, "%ld.%03d", (uint32_t)temp, (uint16_t)((temp - (uint32_t)temp)*1000.) );
   ST7735_WriteString(0, 25, "CPU temperatura", Font_7x10, ST7735_CYAN, ST7735_BLACK);
   ST7735_WriteString(45, 35, "*C", Font_7x10, ST7735_WHITE, ST7735_BLACK);
   ST7735_WriteString(0, 35, (char*) ADC_temperatura, Font_7x10, ST7735_WHITE, ST7735_BLACK);
@@ -337,20 +330,6 @@ void TIM4_IRQHandler(void)
   /* USER CODE BEGIN TIM4_IRQn 1 */
 
   /* USER CODE END TIM4_IRQn 1 */
-}
-
-/**
-  * @brief This function handles USART1 global interrupt.
-  */
-void USART1_IRQHandler(void)
-{
-  /* USER CODE BEGIN USART1_IRQn 0 */
-
-  /* USER CODE END USART1_IRQn 0 */
-  HAL_UART_IRQHandler(&huart1);
-  /* USER CODE BEGIN USART1_IRQn 1 */
-
-  /* USER CODE END USART1_IRQn 1 */
 }
 
 /**

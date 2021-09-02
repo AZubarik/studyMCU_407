@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccXOh1bD.s 			page 1
+ARM GAS  C:\Users\du4\AppData\Local\Temp\cctNanKw.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -26,7 +26,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccXOh1bD.s 			page 1
   23              		.thumb_func
   24              		.fpu fpv4-sp-d16
   26              	__critical_enter:
-  27              	.LFB235:
+  27              	.LFB238:
   28              		.file 1 "Drivers/FreeModbus/port/portcritical.c"
    1:Drivers/FreeModbus/port/portcritical.c **** #include "portcritical.h"
    2:Drivers/FreeModbus/port/portcritical.c **** #include "main.h"
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccXOh1bD.s 			page 1
   11:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
   12:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Licensed under the Apache License, Version 2.0 (the License); you may
   13:Drivers/CMSIS/Include/cmsis_gcc.h ****  * not use this file except in compliance with the License.
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccXOh1bD.s 			page 2
+ARM GAS  C:\Users\du4\AppData\Local\Temp\cctNanKw.s 			page 2
 
 
   14:Drivers/CMSIS/Include/cmsis_gcc.h ****  * You may obtain a copy of the License at
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccXOh1bD.s 			page 1
   68:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED_UNION                         union __attribute__((packed, aligned(1)))
   69:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   70:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32        /* deprecated */
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccXOh1bD.s 			page 3
+ARM GAS  C:\Users\du4\AppData\Local\Temp\cctNanKw.s 			page 3
 
 
   71:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccXOh1bD.s 			page 1
  125:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
  126:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
  127:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccXOh1bD.s 			page 4
+ARM GAS  C:\Users\du4\AppData\Local\Temp\cctNanKw.s 			page 4
 
 
  128:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
@@ -222,7 +222,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccXOh1bD.s 			page 1
   59              	.L2:
   60 000c 00000000 		.word	.LANCHOR0
   61              		.cfi_endproc
-  62              	.LFE235:
+  62              	.LFE238:
   64              		.section	.text.__critical_exit,"ax",%progbits
   65              		.align	1
   66              		.global	__critical_exit
@@ -231,14 +231,14 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccXOh1bD.s 			page 1
   69              		.thumb_func
   70              		.fpu fpv4-sp-d16
   72              	__critical_exit:
-  73              	.LFB236:
+  73              	.LFB239:
   11:Drivers/FreeModbus/port/portcritical.c **** 
   12:Drivers/FreeModbus/port/portcritical.c **** void __critical_exit(void)
   13:Drivers/FreeModbus/port/portcritical.c **** {
   74              		.loc 1 13 1 is_stmt 1 view -0
   75              		.cfi_startproc
   76              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccXOh1bD.s 			page 5
+ARM GAS  C:\Users\du4\AppData\Local\Temp\cctNanKw.s 			page 5
 
 
   77              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -280,7 +280,7 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccXOh1bD.s 			page 1
  107              	.L6:
  108 0010 00000000 		.word	.LANCHOR0
  109              		.cfi_endproc
- 110              	.LFE236:
+ 110              	.LFE239:
  112              		.section	.bss.lock_count,"aw",%nobits
  113              		.align	2
  114              		.set	.LANCHOR0,. + 0
@@ -293,18 +293,22 @@ ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccXOh1bD.s 			page 1
  123              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
  124              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
  125              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
-ARM GAS  C:\Users\Andre\AppData\Local\Temp\ccXOh1bD.s 			page 6
+ 126              		.file 8 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\lock.h"
+ 127              		.file 9 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\_types.h"
+ 128              		.file 10 "c:\\vscodeproject\\software\\arm_gcc\\lib\\gcc\\arm-none-eabi\\9.2.1\\include\\stddef.h"
+ 129              		.file 11 "c:\\vscodeproject\\software\\arm_gcc\\arm-none-eabi\\include\\sys\\reent.h"
+ARM GAS  C:\Users\du4\AppData\Local\Temp\cctNanKw.s 			page 6
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 portcritical.c
-C:\Users\Andre\AppData\Local\Temp\ccXOh1bD.s:18     .text.__critical_enter:0000000000000000 $t
-C:\Users\Andre\AppData\Local\Temp\ccXOh1bD.s:26     .text.__critical_enter:0000000000000000 __critical_enter
-C:\Users\Andre\AppData\Local\Temp\ccXOh1bD.s:60     .text.__critical_enter:000000000000000c $d
-C:\Users\Andre\AppData\Local\Temp\ccXOh1bD.s:65     .text.__critical_exit:0000000000000000 $t
-C:\Users\Andre\AppData\Local\Temp\ccXOh1bD.s:72     .text.__critical_exit:0000000000000000 __critical_exit
-C:\Users\Andre\AppData\Local\Temp\ccXOh1bD.s:108    .text.__critical_exit:0000000000000010 $d
-C:\Users\Andre\AppData\Local\Temp\ccXOh1bD.s:113    .bss.lock_count:0000000000000000 $d
-C:\Users\Andre\AppData\Local\Temp\ccXOh1bD.s:117    .bss.lock_count:0000000000000000 lock_count
+C:\Users\du4\AppData\Local\Temp\cctNanKw.s:18     .text.__critical_enter:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\cctNanKw.s:26     .text.__critical_enter:0000000000000000 __critical_enter
+C:\Users\du4\AppData\Local\Temp\cctNanKw.s:60     .text.__critical_enter:000000000000000c $d
+C:\Users\du4\AppData\Local\Temp\cctNanKw.s:65     .text.__critical_exit:0000000000000000 $t
+C:\Users\du4\AppData\Local\Temp\cctNanKw.s:72     .text.__critical_exit:0000000000000000 __critical_exit
+C:\Users\du4\AppData\Local\Temp\cctNanKw.s:108    .text.__critical_exit:0000000000000010 $d
+C:\Users\du4\AppData\Local\Temp\cctNanKw.s:113    .bss.lock_count:0000000000000000 $d
+C:\Users\du4\AppData\Local\Temp\cctNanKw.s:117    .bss.lock_count:0000000000000000 lock_count
 
 NO UNDEFINED SYMBOLS

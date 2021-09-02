@@ -375,14 +375,11 @@ void ST7735_SoundAnalyzer(uint16_t x, uint16_t y, uint16_t width, uint16_t value
     }
   }
 }
-
-
-
-// void ST7735_Sinus(uint16_t x, uint16_t y, uint16_t value, uint16_t frequency) {
-//   for(int i = 0; i < frequency; i++) {
-//     float U = value * sin(2 * 3.14 * i);
-//     ST7735_DrawPixel(x + i ,y + U, ST7735_GREEN);
-//   }
-// }
+void ST7735_Sinus(uint16_t x, uint16_t y, uint16_t value, uint16_t frequency, uint16_t time) {
+  for(int i = 0; i < time; i++) {
+    float U = value * (sin((2 * 3.14) /  frequency * i) );
+    ST7735_DrawPixel(x + i ,y + U, ST7735_GREEN);
+  }
+}
 
 

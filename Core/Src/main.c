@@ -32,11 +32,9 @@
 #include "user_mb_app.h"
 #include "ReceiveTransmit.h"
 
-#include <string.h>
 #include "st7735.h"
 #include "fonts.h"
-// #include "testimg.h"
-// #include "img.h"
+#include "img.h"
 
 /* USER CODE END Includes */
 
@@ -106,7 +104,6 @@ int main(void)
   MX_TIM2_Init();
   MX_TIM3_Init();
   MX_TIM4_Init();
-  MX_USART1_UART_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   eMBInit(MB_RTU, 1, &huart2, 115200, &htim4);
@@ -127,13 +124,24 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {  
-    // ST7735_EmptyRectangle(0, 110, 10, 10, ST7735_WHITE);
+    // ST7735_EmptyRectangle(0, 80, 10, 10, ST7735_WHITE);
+
+    ST7735_Sinus(0,90,25, 64, 128);
+    // uint16_t *idBase0 = (uint16_t*)(UID_BASE);
+    // uint16_t *idBase1 = (uint16_t*)(UID_BASE + 0x02);
+    // uint32_t *idBase2 = (uint32_t*)(UID_BASE + 0x04);
+    // uint32_t *idBase3 = (uint32_t*)(UID_BASE + 0x08);
+
+    // char buffer[64] = {0,};
+    // sprintf(buffer, "UID %x-%x-%lx-%lx", *idBase0, *idBase1, *idBase2, *idBase3);
+    // ST7735_WriteString(0, 100, (char*) buffer, Font_7x10, ST7735_WHITE, ST7735_BLACK); 
+
 
   // #ifdef ST7735_IS_128X128
 	//     // Display test image 128x128
-	//     ST7735_DrawImage(0, 0, ST7735_WIDTH, ST7735_HEIGHT, (uint16_t*)test_img_128x128);
-	//     HAL_Delay(15000);
-	// #endif // ST7735_IS_128X128
+	//     ST7735_DrawImage(0, 100, 20, 20, (uint16_t*)img);
+  //     HAL_Delay(15000);
+	// #endif // ST7735_SS_128X128
 
     HAL_Delay(20);
     eMBPoll();

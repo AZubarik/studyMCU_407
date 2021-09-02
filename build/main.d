@@ -38,7 +38,8 @@ build/main.o: Core/Src/main.c Core/Inc/main.h \
  Drivers/FreeModbus/include/mb_m.h Drivers/FreeModbus/include/mbframe.h \
  Drivers/FreeModbus/include/mbutils.h \
  Drivers/FreeModbus/ReceiveTransmit/ReceiveTransmit.h \
- Drivers/TFT/st7735.h Drivers/TFT/fonts.h Drivers/TFT/fonts.h
+ Drivers/TFT/st7735.h Drivers/TFT/fonts.h Drivers/TFT/fonts.h \
+ Drivers/TFT/img.h
 
 Core/Inc/main.h:
 
@@ -147,3 +148,5 @@ Drivers/TFT/st7735.h:
 Drivers/TFT/fonts.h:
 
 Drivers/TFT/fonts.h:
+
+Drivers/TFT/img.h:

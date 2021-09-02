@@ -250,6 +250,6 @@ void ST7735_Charger_v2(uint16_t x, uint16_t y, uint16_t charger, uint16_t var, u
 
 void ST7735_SoundAnalyzer(uint16_t x, uint16_t y, uint16_t width, uint16_t value);
 
-// void ST7735_Sinus(uint16_t x, uint16_t y, uint16_t value, uint16_t frequency);
+void ST7735_Sinus(uint16_t x, uint16_t y, uint16_t value, uint16_t frequency, uint16_t time);
 
 #endif // __ST7735_H__
